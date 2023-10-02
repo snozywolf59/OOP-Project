@@ -16,6 +16,12 @@ public class Dictionary {
 
     private Vector <Word> dictionary;
 
+    public Dictionary() {
+        dictionary = new Vector<>();
+    }
+    
+    
+
     /**
      * Check if a word is in dictionary.
      * @param word the word need to check.
@@ -59,6 +65,12 @@ public class Dictionary {
 
 
     public void showAllWord() {
-        System.out.printf("%-6s-15s-20s", "No","English","Vietnamese");
+        System.out.printf("%-6s%-15s%-20s", "No","English","Vietnamese");
+        System.out.println("");
+        for (int i = 0; i < dictionary.size(); i++) {
+            System.out.printf("%-6s%-15s%-20s",Integer.toString(i + 1), dictionary.get(i).getWord_target()
+            ,dictionary.get(i).getWord_explain());
+            System.out.println("");
+        }
     }
 }

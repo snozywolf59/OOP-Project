@@ -12,26 +12,25 @@ import java.util.Scanner;
  */
 public class DictionaryManagement {
     public static void insertFromCommandline(Dictionary dictionary) {
-        try (Scanner sc = new Scanner(System.in)) {
-            int n = sc.nextInt();
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        sc.nextLine();
 
-            while (n > 0) {
-                System.out.print("Enter English word:");
-                String word =  sc.next();
-                while (!Word.isWord(word)) {
-                    System.out.print(word + " is not a word. Please write it true");
-                    word = sc.next();
-                }
-                System.out.print("Enter meaning of " + word + ":");
-                String explain = sc.next();
-
-                dictionary.addWord(word, explain);
-
-                n--;
+        while (n > 0) {
+            System.out.print("Enter English word:");
+            String word =  sc.nextLine();
+            while (!Word.isWord(word)) {
+                System.out.print(word + " is not a word. Please write it true: ");
+                word = sc.nextLine();
             }
-        }catch(Exception e) {
-            e.printStackTrace();
+            System.out.print("Enter meaning of " + word + ":");
+            String explain = sc.nextLine();
+
+            dictionary.addWord(word, explain);
+            System.out.println("");
+            n--;
         }
+        System.out.println("Finish Inserting");
     }
 
     public static void insertFromFile(Dictionary dictionary) {
