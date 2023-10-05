@@ -8,11 +8,11 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="OOP.jar" size="5072" download="eager" />
+    <jar href="OOP.jar" size="6636" download="eager" />
     <jar href="lib\fontawesomefx-8.2.jar" size="180341" download="eager" />
     <jar href="lib\mysql-connector-java-5.1.48.jar" size="1006956" download="eager" />
     <jar href="lib\ojdbc14-10.2.0.2.0.jar" size="1545954" download="eager" />
   </resources>
-  <jfx:javafx-desc  width="800" height="600" main-class="Main"  name="OOP" />
+  <jfx:javafx-desc  width="800" height="600" main-class="MainPackage.Main"  name="OOP" />
   <update check="always"/>
 </jnlp>
