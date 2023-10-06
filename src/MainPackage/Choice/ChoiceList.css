@@ -1,0 +1,85 @@
+.head FontAwesomeIcon {
+    -fx-fill: #0d8c79;
+    -fx-padding: 10 10 10 10;
+}
+
+.head Label {
+    -fx-pref-height: 100;
+    -fx-font-size: 26;
+    -fx-text-fill:#0d8c79;
+    -fx-font-weight: bold;
+}
+
+.head {
+    -fx-alignment: center;
+    -fx-spacing: 20;
+}
+
+.menu {
+    -fx-alignment: top-left;
+    -fx-spacing: 24;
+}
+
+.menu Button {
+    -fx-pref-height: 70;
+    -fx-pref-width: 180;
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #0d8c79;
+    -fx-font-size: 22;
+    -fx-font-weight: bold;
+    -fx-background-radius: 17 17 17 17;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.menu FontAwesomeIcon {
+    -fx-fill: #0d8c79;
+}
+
+.menu Button:hover {
+    -fx-cursor: hand;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #0d8c79;
+}
+
+.menu Button:hover FontAwesomeIcon {
+    -fx-fill: #FFFFFF;
+}
+
+.r2 {
+    -fx-spacing: 15;
+    -fx-alignment: top-left;
+}
+
+.r2 Label{
+    -fx-font-size: 15;
+    -fx-font-weight: bold;
+}
+
+.input {
+    -fx-background-color: #FFFFFF;
+    -fx-pref-height: 35;
+    -fx-font-size: 1.2em;
+}
+
+
+.r3 {
+    -fx-spacing: 30;
+    -fx-alignment: center;
+    
+}
+.r3 Button {
+    -fx-pref-height: 40;
+    -fx-pref-width: 160;
+    -fx-background-color: radial-gradient(focus-angle 0.0deg, focus-distance 0.0% , center 50.0% 50.0%, radius 50.0%, #ebff50 0.0%, #ff9e05 100.0%)
+}
+
+.r3 Button:hover {
+  -fx-cursor: hand;
+}
+.r3 Label {
+    -fx-pref-height: 35;
+    -fx-pref-width: 300;
+    -fx-font-size: 30;
+    -fx-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}

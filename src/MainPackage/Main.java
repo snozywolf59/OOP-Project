@@ -15,6 +15,8 @@ import javafx.stage.Stage;
  * @author bang
  */
 public class Main extends Application{
+    private static double HEIGHT = 720;
+    private static double WIDTH = 1280;
 
     /**
      *
@@ -23,12 +25,6 @@ public class Main extends Application{
      */
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader t = new FXMLLoader(getClass().getResource("/MainPackage/main.fxml"));
-        Scene scene = new Scene(t.load());
-        stage.setScene(scene);
-        stage.show();
-    }
-    public static void main(String[] args) {
-        launch(args);
-    }
+        Model.getInstance().getViewFactory().showWelcome();
+    } 
 }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="182.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPackage.Choice.ChoiceListController">
+    <stylesheets>
+        <URL value="@ChoiceList.css" />
+    </stylesheets>
+   <children>
+      <VBox layoutX="1.0" layoutY="200.0" prefHeight="520.0" prefWidth="180.0" styleClass="menu" stylesheets="@ChoiceList.css">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="164.0" text="HOME">
+               <graphic>
+                  <FontAwesomeIcon glyphName="HOME" size="2EM" text="" />
+               </graphic>
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="160.0" text="SEARCH">
+               <font>
+                  <Font size="19.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon glyphName="SEARCH" size="2em" />
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="190.0" text="LEARN">
+               <font>
+                  <Font size="19.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon glyphName="BOOK" size="2em" />
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="160.0" text="GAME">
+               <font>
+                  <Font size="19.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon glyphName="PLAY" size="2em" text="" />
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" text="EXIT">
+               <graphic>
+                  <FontAwesomeIcon glyphName="EXTERNAL_LINK" size="2em" />
+               </graphic>
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <VBox prefHeight="188.0" prefWidth="180.0" styleClass="head">
+         <children>
+            <FontAwesomeIcon size="6em" />
+            <Label prefHeight="89.0" prefWidth="168.0" text="TÊN CỦA APP">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+         </children></VBox>
+   </children>
+</AnchorPane>
