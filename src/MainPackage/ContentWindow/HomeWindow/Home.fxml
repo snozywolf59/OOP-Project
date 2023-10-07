@@ -4,11 +4,11 @@
 <?import java.net.URL?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="MainPackage.ContentWindow.HomeWindow.HomeController">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1095.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPackage.ContentWindow.HomeWindow.HomeController">
     <stylesheets>
         <URL value="@home.css" />
     </stylesheets>
    <children>
-      <FontAwesomeIcon glyphName="HOME" layoutX="171.0" layoutY="111.0" size="8em" />
+      <FontAwesomeIcon glyphName="HOME" layoutX="503.0" layoutY="394.0" size="8em" />
    </children>
 </AnchorPane>

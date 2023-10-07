@@ -5,6 +5,8 @@
 package MainPackage;
 
 import MainPackage.Choice.ChoiceListController;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
@@ -14,27 +16,71 @@ import javafx.stage.Stage;
 
 /**
  * Hiện bảng chọn và thông tin.
- * @author LENOVO
+ * @author LENOVO.
  */
 public final class ViewFactory {
-    private Stage stage = new Stage();
-    private AnchorPane dashboardView;
+    private final Stage stage = new Stage();
+    private final String appName = "Ten App";
     
-    private String appName = "Ten App";
+    private final StringProperty currentSelect;
+    
+    private AnchorPane choiceList;
+    private AnchorPane homeView;
+    private AnchorPane searchView;
+    private AnchorPane playView;
+    
+    
     
     public ViewFactory() {
-        
+        currentSelect = new SimpleStringProperty();
     }
     
-    public AnchorPane getDashboardView() {
-        if (dashboardView == null) {
+    public StringProperty getCurrentSelect() {
+        return currentSelect;
+    }
+    
+    public AnchorPane getChoiceList() {
+        if (choiceList == null) {
             try {
-            dashboardView = new FXMLLoader(getClass().getResource("/Choice/ChoiceList.fxml")).load();
+            choiceList = new FXMLLoader(getClass().getResource("/MainPackage/Choice/ChoiceList.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        return dashboardView;
+        return choiceList;
+    }
+    
+    public AnchorPane getSearchView() {
+        if (searchView == null) {
+            try {
+            searchView = new FXMLLoader(getClass().getResource("/MainPackage/ContentWindow/SearchWindow/Search.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return searchView;
+    }
+    
+    public AnchorPane getHomeView() {
+        if (homeView == null) {
+            try {
+            homeView = new FXMLLoader(getClass().getResource("/MainPackage/ContentWindow/HomeWindow/Home.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return homeView;
+    }
+    
+    public AnchorPane getPlayView() {
+        if (playView == null) {
+            try {
+            playView = new FXMLLoader(getClass().getResource("/MainPackage/ContentWindow/PlayWindow/GameList.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return playView;
     }
     
     public void showWelcome() {
@@ -43,10 +89,8 @@ public final class ViewFactory {
         createStage(loader);
     }
     
-    public void showChoiceWindow() {
+    public void showWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainPackage/Client.fxml"));
-        ChoiceListController choiceListController = new ChoiceListController();
-        loader.setController(choiceListController);
         
         createStage(loader);
     }
@@ -78,7 +122,7 @@ public final class ViewFactory {
         stage.show();
     }
     
-    public void closeStage(Stage stage) {
+    public void closeStage() {
         stage.close();
     }
 }

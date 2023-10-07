@@ -29,6 +29,7 @@
     -fx-font-weight: bold;
     -fx-background-radius: 17 17 17 17;
     -fx-alignment: CENTER_LEFT;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 12, 0, 0, 5);
 }
 
 .menu FontAwesomeIcon {
@@ -43,43 +44,4 @@
 
 .menu Button:hover FontAwesomeIcon {
     -fx-fill: #FFFFFF;
-}
-
-.r2 {
-    -fx-spacing: 15;
-    -fx-alignment: top-left;
-}
-
-.r2 Label{
-    -fx-font-size: 15;
-    -fx-font-weight: bold;
-}
-
-.input {
-    -fx-background-color: #FFFFFF;
-    -fx-pref-height: 35;
-    -fx-font-size: 1.2em;
-}
-
-
-.r3 {
-    -fx-spacing: 30;
-    -fx-alignment: center;
-    
-}
-.r3 Button {
-    -fx-pref-height: 40;
-    -fx-pref-width: 160;
-    -fx-background-color: radial-gradient(focus-angle 0.0deg, focus-distance 0.0% , center 50.0% 50.0%, radius 50.0%, #ebff50 0.0%, #ff9e05 100.0%)
-}
-
-.r3 Button:hover {
-  -fx-cursor: hand;
-}
-.r3 Label {
-    -fx-pref-height: 35;
-    -fx-pref-width: 300;
-    -fx-font-size: 30;
-    -fx-fill: #FFFFFF;
-    -fx-font-weight: bold;
 }

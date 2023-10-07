@@ -15,6 +15,7 @@
 
 .bg Button:hover {
     -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 12, 0, 0, 5);
     -fx-background-color: radial-gradient(focus-angle 0.0deg, focus-distance 0.0% , center 50.0% 50.0%, radius 50.0%, #ebff50 0.0%, #ff9e05 100.0%);
 }
 

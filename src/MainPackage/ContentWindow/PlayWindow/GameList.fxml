@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.net.URL?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1095.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="MainPackage.ContentWindow.PlayWindow.GameListController">
+    <stylesheets>
+        <URL value="@gamelist.css" />
+    </stylesheets>
+   <children>
+      <FontAwesomeIcon glyphName="LIST" layoutX="209.0" layoutY="134.0" size="8em" />
+   </children>
+</AnchorPane>
