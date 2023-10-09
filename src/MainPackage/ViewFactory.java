@@ -16,12 +16,14 @@ import javafx.stage.Stage;
 
 /**
  * Hiện bảng chọn và thông tin.
+ * Quản lý chung hiển thị các Pane.
  * @author LENOVO.
  */
 public final class ViewFactory {
     private final Stage stage = new Stage();
     private final String appName = "Ten App";
     
+    //Trạng thái của chương trình.
     private final StringProperty currentSelect;
     
     private AnchorPane choiceList;

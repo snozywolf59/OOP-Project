@@ -13,8 +13,8 @@ import javafx.stage.Stage;
  */
 public class DictionaryApplication extends Application{
     /**
-     *
-     * @param stage
+     *  Chạy chương trình.
+     * @param stage stage.
      * @throws Exception
      */
     @Override

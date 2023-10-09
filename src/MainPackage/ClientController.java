@@ -23,10 +23,17 @@ public class ClientController implements Initializable {
     
     /**
      * Initializes the controller class.
+     * Chuyển màn hình dựa trên trạng thái của currentSelect ở ViewFactory.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Model.getInstance().getViewFactory().getCurrentSelect().addListener(new ChangeListener<String>() {
+            /**
+             * Chuyển cảnh.
+             * @param o
+             * @param oldValue currentSelect mới.
+             * @param newValue currentSelect cũ.
+             */
             @Override
             public void changed(ObservableValue<? extends String> o, String oldValue, String newValue) {
                 switch (newValue) {

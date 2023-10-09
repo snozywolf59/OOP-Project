@@ -5,12 +5,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutY="-2.0" prefHeight="55.0" prefWidth="200.0" text="Label" />
-      <Label layoutX="200.0" prefHeight="55.0" prefWidth="400.0" text="Label" />
-      <Button mnemonicParsing="false" opacity="0.0" prefHeight="55.0" prefWidth="600.0" text="Button">
+      <Label layoutY="-2.0" prefHeight="39.0" prefWidth="200.0" text="School" />
+      <Label layoutX="193.0" prefHeight="39.0" prefWidth="407.0" text="Truong hoc" />
+      <Button mnemonicParsing="false" opacity="0.0" prefHeight="39.0" prefWidth="600.0" text="Button">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>

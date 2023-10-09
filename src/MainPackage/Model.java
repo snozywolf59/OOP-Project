@@ -5,7 +5,8 @@
 package MainPackage;
 
 /**
- *
+ * Một lớp để gọi đến 1 instance của ViewFactory không cần khai báo.
+ * Đồng thời instance này được đồng bộ.
  * @author LENOVO
  */
 public final class Model {

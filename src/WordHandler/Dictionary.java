@@ -4,16 +4,15 @@
  */
 package WordHandler;
 
-import java.util.Collection;
-import java.util.Scanner;
 import java.util.Vector;
 
 /**
- *  Dictionary class contains words.
+ * Dictionary class contains words.
+ * Need to do: Dictionary extends Vector/ArrayList <Word>.
  * @author Bang
  */
-public class Dictionary {
-
+public class Dictionary { 
+    
     private Vector <Word> dictionary;
 
     public Dictionary() {
