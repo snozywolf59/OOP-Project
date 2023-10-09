@@ -4,14 +4,15 @@
  */
 package WordHandler;
 
-import java.util.Scanner;
 /**
  *  Dictionary class contains words.
- * @author Bang
+ * @author Bang.
  */
 public final class Word {
     private String word_target;
     private String word_explain;
+    
+    private String chuDe;
     
     
     /**
@@ -71,7 +72,9 @@ public final class Word {
      * @return true if String is valid.
      */
     public static boolean isWord(String word) {
-        if (word.length() < 2) return false;
+        if (word.length() < 2) {
+            return false;
+        }
         for (int i = 0; i < word.length(); i++) {
             if (!Character.isLetter(word.charAt(i))) {
                 return false;
