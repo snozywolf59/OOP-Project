@@ -24,12 +24,14 @@ import javafx.scene.control.TextField;
  * @author LENOVO
  */
 public class SearchController implements Initializable {
+    
+    List<String> words = readTxtFile("src\\WordHandler\\VieToEngDictionary.txt");
+    @FXML
+    private TextField searchField;
+    @FXML
+    private ListView<String> listView;
 
-    /**
-     * Initializes the controller class.
-     *
-     * @param url
-     */
+    
     //Đọc txt
     private List<String> readTxtFile(String filePath) {
         List<String> lines = new ArrayList<>();
@@ -45,21 +47,20 @@ public class SearchController implements Initializable {
 
         return lines;
     }
-    List<String> words = readTxtFile("src\\WordHandler\\VieToEngDictionary.txt");
-    @FXML
-    private TextField searchField;
-    @FXML
-    private ListView<String> listView;
 
-    @FXML
     public void search() {
         listView.getItems().clear();
         listView.getItems().addAll(searchList(searchField.getText(), words));
 
     }
 
+    /**
+     * Initializes the controller class.
+     *
+     * @param url
+     */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb) { 
         listView.getItems().addAll(words);//Khởi tạo list ban đầu
     }
 

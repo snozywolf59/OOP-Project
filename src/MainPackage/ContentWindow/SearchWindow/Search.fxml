@@ -12,11 +12,11 @@
         <URL value="@search.css" />
     </stylesheets>
    <children>
-      <TextField fx:id="searchField" layoutX="50.0" layoutY="5.0" onAction="#search" onKeyPressed="#search" prefHeight="30.0" prefWidth="563.0" promptText="Enter Word Here" AnchorPane.leftAnchor="50.0" />
-      <Button layoutX="614.0" layoutY="4.0" mnemonicParsing="false" prefHeight="30.0">
+      <TextField fx:id="searchField" layoutX="56.0" layoutY="5.0" onAction="#search" onKeyPressed="#search" prefHeight="32.0" prefWidth="612.0" promptText="Enter Word Here" AnchorPane.leftAnchor="56.0" />
+      <Button layoutX="684.0" layoutY="5.0" mnemonicParsing="false" prefHeight="30.0">
          <graphic>
             <FontAwesomeIcon glyphName="SEARCH" size="2em" />
          </graphic></Button>
-      <ListView fx:id="ListView" layoutX="51.0" layoutY="35.0" prefHeight="251.0" prefWidth="563.0" />
+      <ListView fx:id="ListView" layoutX="56.0" layoutY="37.0" prefHeight="618.0" prefWidth="612.0" />
    </children>
 </AnchorPane>
