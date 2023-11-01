@@ -35,6 +35,9 @@ public class ClientController implements Initializable {
                     case "Learn":
 
                         break;
+                    case "GoogleTranslate":
+                        parent_pane.setCenter(Model.getInstance().getViewFactory().getGGTranslateView());
+                        break;
                     case "Home":
                     default:
                         parent_pane.setCenter(Model.getInstance().getViewFactory().getHomeView());

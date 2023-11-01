@@ -26,6 +26,9 @@ public class ChoiceListController implements Initializable {
     @FXML
     private Button searchBtn;
 
+    @FXML
+    private Button ggTranslate;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         addListener();
@@ -37,6 +40,7 @@ public class ChoiceListController implements Initializable {
         gameBtn.setOnAction(e->setSelect("Play"));
         learnBtn.setOnAction(e->setSelect("Learn"));
         exitBtn.setOnAction(e->setSelect("Exit"));
+        ggTranslate.setOnAction(e->setSelect("GoogleTranslate"));
     }
     
     private void setSelect(String t) {

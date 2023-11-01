@@ -21,6 +21,8 @@ public final class ViewFactory {
     private AnchorPane searchView;
     private AnchorPane playView;
 
+    private AnchorPane ggTranslateView;
+
     public ViewFactory() {
         currentSelect = new SimpleStringProperty();
     }
@@ -60,6 +62,17 @@ public final class ViewFactory {
             }
         }
         return homeView;
+    }
+
+    public AnchorPane getGGTranslateView() {
+        if (ggTranslateView == null) {
+            try {
+                ggTranslateView = new FXMLLoader(getClass().getResource("/FXML/Content/GGTranslate.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return ggTranslateView;
     }
 
     public AnchorPane getPlayView() {
