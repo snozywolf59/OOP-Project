@@ -48,7 +48,7 @@
                      </graphic></Button>
                </children>
             </HBox>
-              <TextArea fx:id="textOld" prefHeight="221.0" prefWidth="338.0" promptText="Fill the text" stylesheets="@../../Css/ggtranslate.css" text="fsdfsdfds" wrapText="true">
+              <TextArea fx:id="textOld" prefHeight="221.0" prefWidth="338.0" promptText="Fill the text" stylesheets="@../../Css/ggtranslate.css" wrapText="true">
                <font>
                   <Font size="23.0" />
                </font>
