@@ -1,0 +1,59 @@
+.bg {
+    -fx-background-color: linear-gradient(to bottom right, #0f6789, #4ce699);
+}
+
+.origin {
+    -fx-pref-width: 400;
+    -fx-pref-height: 300;
+}
+
+.origin HBox{
+    -fx-pref-width: 400;
+    -fx-pref-height: 40;
+    -fx-font-size: 18;
+}
+
+.origin MenuButton {
+    -fx-pref-width: 200;
+    -fx-pref-height: 60;
+}
+
+.origin Button {
+    -fx-pref-width: 80;
+    -fx-pref-height: 60;
+}
+
+.origin TextField {
+    -fx-pref-height: 260;
+    -fx-pref-width: 400;
+    -fx-text-fill: #FF0000;
+    -fx-font-size: 22;
+}
+
+.translated TextArea {
+    -fx-pref-height: 260;
+    -fx-pref-width: 400;
+    -fx-text-fill: #FF0000;
+    -fx-font-size: 22;
+}
+
+.translated {
+    -fx-pref-height: 300;
+    -fx-pref-width: 400;
+    -fx-font-size: 18;
+}
+
+.translated HBox {
+    -fx-pref-height: 40;
+    -fx-pref-width: 400;
+}
+
+.translated MenuButton {
+    -fx-pref-width: 200;
+    -fx-pref-height: 60;
+}
+
+.translated Button {
+    -fx-pref-width: 80;
+    -fx-pref-height: 60;
+}
