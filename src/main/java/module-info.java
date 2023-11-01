@@ -10,6 +10,9 @@ module com.dictionary {
     requires org.kordamp.bootstrapfx.core;
     requires com.almasb.fxgl.all;
     requires jlayer;
+    requires java.flac.encoder;
+    requires java.desktop;
+    requires java.google.speech.api;
 
     opens com.dictionary to javafx.fxml;
     opens com.dictionary.Controllers to javafx.fxml;

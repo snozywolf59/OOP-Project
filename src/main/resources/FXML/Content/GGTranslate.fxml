@@ -31,13 +31,15 @@
          <children>
             <HBox prefHeight="39.0" prefWidth="423.0">
                <children>
-                      <MenuButton fx:id="buttonFromLanguage" mnemonicParsing="false" prefHeight="40.0" prefWidth="260.0" text="English">
+                      <MenuButton fx:id="buttonFromLanguage" mnemonicParsing="false" prefHeight="40.0" prefWidth="158.0" text="English">
                           <items>
                               <MenuItem mnemonicParsing="false" onAction="#getLangFrom" text="English" />
                               <MenuItem mnemonicParsing="false" onAction="#getLangFrom" text="Tiếng Việt" />
                           </items>
                       </MenuButton>
-                      <Button mnemonicParsing="false" onAction="#speak1" prefHeight="40.0" prefWidth="73.0" text="Speak" />
+                      <Button mnemonicParsing="false" onAction="#speak1" prefHeight="40.0" prefWidth="89.0" text="Speak" />
+                  <Button mnemonicParsing="false" onAction="#record" prefHeight="40.0" prefWidth="107.0" text="record" />
+                  <Button mnemonicParsing="false" onAction="#stop" text="stop" />
                </children>
             </HBox>
               <TextArea fx:id="textOld" prefHeight="221.0" prefWidth="338.0" promptText="Fill the text" stylesheets="@../../Css/ggtranslate.css" wrapText="true">
@@ -47,6 +49,6 @@
             </TextArea>
          </children>
       </VBox>
-      <Button layoutX="390.0" layoutY="115.0" mnemonicParsing="false" onAction="#swap" text="swap" />
+      <Button layoutX="422.0" layoutY="103.0" mnemonicParsing="false" onAction="#swap" text="swap" />
     </children>
 </AnchorPane>
