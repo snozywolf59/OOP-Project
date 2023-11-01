@@ -14,63 +14,65 @@
     <children>
         <Button layoutX="484.0" layoutY="480.0" mnemonicParsing="false" onAction="#translate" prefHeight="25.0" prefWidth="117.0" stylesheets="@../../Css/ggtranslate.css" text="Translate" />
         <VBox layoutX="573.0" layoutY="128.0" prefHeight="250.0" prefWidth="400.0" styleClass="translated" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="135.0">
-         <children>
-            <HBox prefHeight="26.0" prefWidth="250.0">
-               <children>
-                      <MenuButton fx:id="buttonToLanguage" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Tiếng Việt">
-                          <items>
-                              <MenuItem mnemonicParsing="false" onAction="#getLangTo" text="English" />
-                              <MenuItem mnemonicParsing="false" onAction="#getLangTo" text="Tiếng Việt" />
-                          </items>
-                      </MenuButton>
-                      <Button mnemonicParsing="false" onAction="#speak2" prefHeight="26.0" prefWidth="111.0">
+            <children>
+                <HBox prefHeight="26.0" prefWidth="250.0">
+                    <children>
+                        <MenuButton fx:id="buttonToLanguage" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Tiếng Việt">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#getLangTo" text="English" />
+                                <MenuItem mnemonicParsing="false" onAction="#getLangTo" text="Tiếng Việt" />
+                            </items>
+                        </MenuButton>
+                        <Button mnemonicParsing="false" onAction="#speak2" prefHeight="26.0" prefWidth="111.0">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="VOLUME_UP" />
+                            </graphic>
+                        </Button>
+                    </children>
+                </HBox>
+                <TextArea fx:id="textNew" editable="false" prefHeight="200.0" prefWidth="200.0" styleClass="content" wrapText="true" />
+            </children></VBox>
+        <VBox layoutX="40.0" layoutY="135.0" prefHeight="250.0" prefWidth="400.0" styleClass="origin" stylesheets="@../../Css/ggtranslate.css" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="135.0">
+            <children>
+                <HBox prefHeight="39.0" prefWidth="423.0">
+                    <children>
+                        <MenuButton fx:id="buttonFromLanguage" mnemonicParsing="false" prefHeight="40.0" prefWidth="158.0" text="English">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#getLangFrom" text="English" />
+                                <MenuItem mnemonicParsing="false" onAction="#getLangFrom" text="Tiếng Việt" />
+                            </items>
+                        </MenuButton>
+                        <Button mnemonicParsing="false" onAction="#record" prefHeight="40.0" prefWidth="89.0">
                      <graphic>
-                        <FontAwesomeIconView glyphName="VOLUME_UP" />
-                     </graphic>
-                  </Button>
-               </children>
-            </HBox>
-              <TextArea fx:id="textNew" editable="false" prefHeight="200.0" prefWidth="200.0" styleClass="content" wrapText="true" />
-         </children></VBox>
-      <VBox layoutX="40.0" layoutY="135.0" prefHeight="250.0" prefWidth="400.0" styleClass="origin" stylesheets="@../../Css/ggtranslate.css" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="135.0">
-         <children>
-            <HBox prefHeight="39.0" prefWidth="423.0">
-               <children>
-                      <MenuButton fx:id="buttonFromLanguage" mnemonicParsing="false" prefHeight="40.0" prefWidth="158.0" text="English">
-                          <items>
-                              <MenuItem mnemonicParsing="false" onAction="#getLangFrom" text="English" />
-                              <MenuItem mnemonicParsing="false" onAction="#getLangFrom" text="Tiếng Việt" />
-                          </items>
-                      </MenuButton>
-
-                      <Button mnemonicParsing="false" onAction="#speak1" prefHeight="40.0" prefWidth="89.0" text="Speak" />
-                  <Button mnemonicParsing="false" onAction="#record" prefHeight="40.0" prefWidth="107.0" text="record" />
-                  <Button mnemonicParsing="false" onAction="#stop" text="stop" />
-
-                      <Button mnemonicParsing="false" onAction="#speak1" prefHeight="40.0" prefWidth="73.0" textFill="#0b4473">
+                        <FontAwesomeIconView glyphName="MICROPHONE" />
+                     </graphic></Button>
+                        <Button mnemonicParsing="false" onAction="#stop">
                      <graphic>
-                        <FontAwesomeIconView glyphName="VOLUME_UP" size="20.0" />
+                        <FontAwesomeIconView glyphName="STOP" />
                      </graphic></Button>
 
-               </children>
-            </HBox>
-              <TextArea fx:id="textOld" prefHeight="221.0" prefWidth="338.0" promptText="Fill the text" stylesheets="@../../Css/ggtranslate.css" wrapText="true">
-               <font>
-                  <Font size="23.0" />
-               </font>
-            </TextArea>
-         </children>
-      </VBox>
+                        <Button mnemonicParsing="false" onAction="#speak1" prefHeight="40.0" prefWidth="73.0" textFill="#0b4473">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="VOLUME_UP" size="20.0" />
+                            </graphic></Button>
 
-      <Button layoutX="422.0" layoutY="103.0" mnemonicParsing="false" onAction="#swap" text="swap" />
-      <Button layoutX="528.0" layoutY="135.0" mnemonicParsing="false" onAction="#swap" prefHeight="20.0" prefWidth="0.0" styleClass="swap" AnchorPane.leftAnchor="528.0" AnchorPane.topAnchor="135.0">
-         <graphic>
-            <VBox prefHeight="42.0" prefWidth="2.0">
-               <children>
-                  <FontAwesomeIconView glyphName="ARROW_LEFT" size="15" />
-                  <FontAwesomeIconView glyphName="ARROW_RIGHT" size="15" />
-               </children>
-            </VBox>
-         </graphic></Button>
+                    </children>
+                </HBox>
+                <TextArea fx:id="textOld" prefHeight="221.0" prefWidth="338.0" promptText="Fill the text" stylesheets="@../../Css/ggtranslate.css" wrapText="true">
+                    <font>
+                        <Font size="23.0" />
+                    </font>
+                </TextArea>
+            </children>
+        </VBox>
+        <Button layoutX="528.0" layoutY="135.0" mnemonicParsing="false" onAction="#swap" prefHeight="20.0" prefWidth="0.0" styleClass="swap" AnchorPane.leftAnchor="528.0" AnchorPane.topAnchor="135.0">
+            <graphic>
+                <VBox prefHeight="42.0" prefWidth="2.0">
+                    <children>
+                        <FontAwesomeIconView glyphName="ARROW_LEFT" size="15" />
+                        <FontAwesomeIconView glyphName="ARROW_RIGHT" size="15" />
+                    </children>
+                </VBox>
+            </graphic></Button>
     </children>
 </AnchorPane>
