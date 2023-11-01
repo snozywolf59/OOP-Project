@@ -14,27 +14,35 @@
 }
 
 .origin MenuButton {
+    -fx-background-radius: 5 5 5 5 ;
     -fx-pref-width: 200;
     -fx-pref-height: 60;
+    -fx-background-color: #FFFFFF;
 }
 
 .origin Button {
+    -fx-background-radius: 5 5 5 5 ;
+    -fx-background-color: #FFFFFF;
     -fx-pref-width: 80;
     -fx-pref-height: 60;
+    -fx-fill: #B5FFE9;
+    -fx-effect: dropshadow(three-pass-box, rgba(20,255,0,0.3), 1, 0.5, 0.5, 5);
 }
 
 .origin TextArea {
     -fx-pref-height: 260;
     -fx-pref-width: 400;
-    -fx-text-fill: rgba(255, 0, 153, 0.78);
     -fx-font-size: 22;
+    -fx-background-color: #B5FFE9;
+    -fx-text-fill: #333333;
 }
 
 .translated TextArea {
     -fx-pref-height: 260;
     -fx-pref-width: 400;
-    -fx-text-fill: rgba(255, 0, 153, 0.78);
     -fx-font-size: 22;
+    -fx-background-color: #B5FFE9;
+    -fx-text-fill: #333333; /* Màu chữ */
 }
 
 .translated {
@@ -49,11 +57,31 @@
 }
 
 .translated MenuButton {
+    -fx-background-radius: 5 5 5 5 ;
     -fx-pref-width: 200;
     -fx-pref-height: 60;
+    -fx-background-color: #FFFFFF;
 }
 
 .translated Button {
+    -fx-background-radius: 5 5 5 5 ;
     -fx-pref-width: 80;
     -fx-pref-height: 60;
+    -fx-background-color: #FFFFFF;
+    -fx-effect: dropshadow(three-pass-box, rgba(20,255,0,0.3), 1, 0.5, 0.5, 5);
+}
+
+.swap {
+    -fx-pref-width: 20;
+    -fx-pref-height: 40;
+    -fx-background-color: #FFFFFF;
+}
+
+.swap HBox FontAwesomeIconView {
+    -fx-size: 15.0;
+}
+
+.swap {
+    -fx-alignment: center;
+    -fx-background-radius: 5 5 5 5;
 }

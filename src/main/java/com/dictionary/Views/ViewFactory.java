@@ -20,7 +20,7 @@ public final class ViewFactory {
     private AnchorPane homeView;
     private AnchorPane searchView;
     private AnchorPane playView;
-
+    private AnchorPane learnView;
     private AnchorPane ggTranslateView;
 
     public ViewFactory() {
@@ -64,6 +64,17 @@ public final class ViewFactory {
         return homeView;
     }
 
+    public AnchorPane getLearnView() {
+        if (learnView == null) {
+            try {
+                learnView = new FXMLLoader(getClass().getResource("/FXML/Content/Learn.fxml")).load();
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return learnView;
+    }
     public AnchorPane getGGTranslateView() {
         if (ggTranslateView == null) {
             try {
