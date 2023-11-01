@@ -4,7 +4,6 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -12,21 +11,21 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1095.0" styleClass="bg" stylesheets="@../../Css/ggtranslate.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.GGTranslate.GGTranslateController">
     <children>
-        <Button layoutX="441.0" layoutY="416.0" mnemonicParsing="false" onAction="#translate" stylesheets="@../../Css/ggtranslate.css" text="Translate" />
+        <Button layoutX="385.0" layoutY="478.0" mnemonicParsing="false" onAction="#translate" prefHeight="25.0" prefWidth="117.0" stylesheets="@../../Css/ggtranslate.css" text="Translate" />
         <VBox layoutX="473.0" layoutY="129.0" prefHeight="250.0" prefWidth="400.0" styleClass="translated">
          <children>
             <HBox prefHeight="26.0" prefWidth="250.0">
                <children>
-                      <MenuButton fx:id="buttonToLanguage" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Vietnamese">
+                      <MenuButton fx:id="buttonToLanguage" mnemonicParsing="false" prefHeight="25.0" prefWidth="140.0" text="Tiếng Việt">
                           <items>
                               <MenuItem mnemonicParsing="false" onAction="#getLangTo" text="English" />
-                              <MenuItem mnemonicParsing="false" onAction="#getLangTo" text="Vietnamese" />
+                              <MenuItem mnemonicParsing="false" onAction="#getLangTo" text="Tiếng Việt" />
                           </items>
                       </MenuButton>
                       <Button mnemonicParsing="false" onAction="#speak2" prefHeight="26.0" prefWidth="111.0" text="Speak" />
                </children>
             </HBox>
-              <TextArea fx:id="textNew" prefHeight="200.0" prefWidth="200.0" styleClass="content" />
+              <TextArea fx:id="textNew" editable="false" prefHeight="200.0" prefWidth="200.0" styleClass="content" wrapText="true" />
          </children></VBox>
       <VBox layoutX="16.0" layoutY="128.0" prefHeight="250.0" prefWidth="400.0" styleClass="origin" stylesheets="@../../Css/ggtranslate.css">
          <children>
@@ -35,18 +34,19 @@
                       <MenuButton fx:id="buttonFromLanguage" mnemonicParsing="false" prefHeight="40.0" prefWidth="260.0" text="English">
                           <items>
                               <MenuItem mnemonicParsing="false" onAction="#getLangFrom" text="English" />
-                              <MenuItem mnemonicParsing="false" onAction="#getLangFrom" text="Vietnamese" />
+                              <MenuItem mnemonicParsing="false" onAction="#getLangFrom" text="Tiếng Việt" />
                           </items>
                       </MenuButton>
                       <Button mnemonicParsing="false" onAction="#speak1" prefHeight="40.0" prefWidth="73.0" text="Speak" />
                </children>
             </HBox>
-              <TextField fx:id="textOld" alignment="TOP_LEFT" prefHeight="221.0" prefWidth="338.0" promptText="Fill the text" stylesheets="@../../Css/ggtranslate.css">
+              <TextArea fx:id="textOld" prefHeight="221.0" prefWidth="338.0" promptText="Fill the text" stylesheets="@../../Css/ggtranslate.css" wrapText="true">
                <font>
                   <Font size="23.0" />
                </font>
-            </TextField>
+            </TextArea>
          </children>
       </VBox>
+      <Button layoutX="390.0" layoutY="115.0" mnemonicParsing="false" onAction="#swap" text="swap" />
     </children>
 </AnchorPane>

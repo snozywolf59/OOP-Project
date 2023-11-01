@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class GGTranslateController {
     @FXML
-    private TextField textOld;
+    private TextArea textOld;
 
     @FXML
     private TextArea textNew;
@@ -55,5 +55,14 @@ public class GGTranslateController {
     void speak2(ActionEvent event) {
         textToSpeech.setLanguageCode(translator.getToLanguage());
         textToSpeech.speak(textNew.getText());
+    }
+
+    @FXML
+    void swap(ActionEvent event) {
+        String temp = buttonFromLanguage.getText();
+        buttonFromLanguage.setText(buttonToLanguage.getText());
+        buttonToLanguage.setText(temp);
+        translator.setFromLanguage(buttonFromLanguage.getText());
+        translator.setToLanguage(buttonToLanguage.getText());
     }
 }

@@ -11,7 +11,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 public class TextToSpeech {
-    private final String API_KEY = "AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw";
+    private static final String API_KEY = "AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw";
     private static final String GOOGLE_SYNTHESISER_URL = "https://www.google.com/speech-api/v2/synthesize?enc=mpeg"
                                                         + "&client=chromium";
     private String languageCode = null;

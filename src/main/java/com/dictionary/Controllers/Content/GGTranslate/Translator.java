@@ -17,7 +17,7 @@ public class Translator {
     private String fromLanguage;
     private String toLanguage;
     public String setLanguageCode(String stringLanguage) {
-        if(stringLanguage.equals("Vietnamese")) return LANG_VI_VIETNAM;
+        if(stringLanguage.equals("Tiếng Việt")) return LANG_VI_VIETNAM;
         if(stringLanguage.equals("English")) return LANG_US_ENGLISH;
         return null;
     }

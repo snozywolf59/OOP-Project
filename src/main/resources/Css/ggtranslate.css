@@ -23,17 +23,17 @@
     -fx-pref-height: 60;
 }
 
-.origin TextField {
+.origin TextArea {
     -fx-pref-height: 260;
     -fx-pref-width: 400;
-    -fx-text-fill: #FF0000;
+    -fx-text-fill: rgba(255, 0, 153, 0.78);
     -fx-font-size: 22;
 }
 
 .translated TextArea {
     -fx-pref-height: 260;
     -fx-pref-width: 400;
-    -fx-text-fill: #FF0000;
+    -fx-text-fill: rgba(255, 0, 153, 0.78);
     -fx-font-size: 22;
 }
 
