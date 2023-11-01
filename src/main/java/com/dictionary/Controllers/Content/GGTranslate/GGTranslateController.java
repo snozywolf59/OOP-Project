@@ -106,7 +106,6 @@ public class GGTranslateController {
                 }
                 System.out.println(output);
                 textOld.setText(output);
-
             }
         });
     }

@@ -49,7 +49,7 @@ public class Translator {
                 + "?q=" + URLEncoder.encode(text, StandardCharsets.UTF_8)
                 + "&target=" + toLanguage
                 + "&source=" + fromLanguage;
-        System.out.println(urlStr);
+
         URL url = new URL(urlStr);
         InputStream inputStream = url.openStream();
         StringBuilder response = new StringBuilder();

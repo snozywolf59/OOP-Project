@@ -1,4 +1,4 @@
-.head FontAwesomeIcon {
+.head FontAwesomeIconView {
     -fx-fill: #0d8c79;
     -fx-padding: 10 10 10 10;
 }
@@ -43,7 +43,7 @@
     -fx-effect: dropshadow(three-pass-box, rgba(20,255,0,0.3), 1, 0.5, 0.5, 5);
 }
 
-.menu Button:hover FontAwesomeIcon {
+.menu Button:hover FontAwesomeIconView {
     -fx-fill: #FFFFFF;
 }
 
@@ -58,4 +58,34 @@
 .exit:hover{
     -fx-background-color: #FF3535;
     -fx-effect: dropshadow(three-pass-box, rgba(255,80,80,0.3), 1, 0.5, 0.5, 5);
+}
+
+.bg1 {
+  -fx-animation:slide 3s ease-in-out infinite alternate;
+  -fx-background-color: linear-gradient(to bottom right, #0f6789, #4ce699);
+  -fx-bottom:0;
+  -fx-left:-50%;
+  -fx-opacity:.5;
+  -fx-position:fixed;
+  -fx-right:-50%;
+  -fx-top:0;
+  -fx-z-index:-1;
+}
+
+.bg2 {
+  -fx-animation-direction:alternate-reverse;
+  -fx-animation-duration:4s;
+}
+
+.bg3 {
+  -fx-animation-duration:5s;
+}
+
+@keyframes slide {
+  0% {
+    -fx-transform:translateX(-25%);
+  }
+  100% {
+    -fx-transform:translateX(25%);
+  }
 }
