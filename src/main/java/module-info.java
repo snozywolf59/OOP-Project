@@ -13,6 +13,7 @@ module com.dictionary {
     requires java.flac.encoder;
     requires java.desktop;
     requires java.google.speech.api;
+    requires java.net.http;
 
     opens com.dictionary to javafx.fxml;
     opens com.dictionary.Controllers to javafx.fxml;
