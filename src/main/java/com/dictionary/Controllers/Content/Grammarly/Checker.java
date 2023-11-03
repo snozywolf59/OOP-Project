@@ -14,11 +14,13 @@ public class Checker {
 
     public Checker() {}
 
-    public String convertText(String text) {
+    public static String convertText(String text) {
         String tmp = "text=";
         for (int i = 0; i < (int) text.length(); i++) {
             if (text.charAt(i) == ' ') {
                 tmp = tmp + "%20";
+            } else if (text.charAt(i) == '?') {
+                tmp = tmp + "%3F";
             } else {
                 tmp = tmp + text.charAt(i);
             }
@@ -26,18 +28,20 @@ public class Checker {
         return tmp;
     }
 
-    public String check(String text) throws IOException, InterruptedException {
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://textgears-textgears-v1.p.rapidapi.com/grammar"))
-                .header("content-type", "application/x-www-form-urlencoded")
-                .header("X-RapidAPI-Key", "f0ed03548cmshc9365222d7c5d9bp1cec3fjsn53227c8fc767")
-                .header("X-RapidAPI-Host", "textgears-textgears-v1.p.rapidapi.com")
-                .method("POST", HttpRequest.BodyPublishers.ofString(this.convertText(text)))
-                .build();
-        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.body());
-        String body = response.body();
+    public static String repairText(String text) {
+        String tmp = "";
+        for (int i = 0; i < (int) text.length(); i++) {
+            if (text.charAt(i) == '\\') {
+                i = i + 6;
+                tmp = tmp + "'";
+            }
+            tmp = tmp + text.charAt(i);
+        }
+        System.out.println(tmp);
+        return tmp;
+    }
 
+    public String getResult(String body) {
         indexOfDescription = body.indexOf("description", 0);
         indexOfBad = body.indexOf("bad", 0);
         indexOfBetter = body.indexOf("better", 0);
@@ -93,6 +97,20 @@ public class Checker {
             indexOfType = body.indexOf("type", indexOfType + 1);
             if (indexOfType == -1) break;
         }
-        return result;
+        return this.repairText(result);
+    }
+
+    public String check(String text) throws IOException, InterruptedException {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://textgears-textgears-v1.p.rapidapi.com/grammar"))
+                .header("content-type", "application/x-www-form-urlencoded")
+                .header("X-RapidAPI-Key", "f0ed03548cmshc9365222d7c5d9bp1cec3fjsn53227c8fc767")
+                .header("X-RapidAPI-Host", "textgears-textgears-v1.p.rapidapi.com")
+                .method("POST", HttpRequest.BodyPublishers.ofString(this.convertText(text)))
+                .build();
+        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.body());
+        String body = response.body();
+        return this.getResult(body);
     }
 }

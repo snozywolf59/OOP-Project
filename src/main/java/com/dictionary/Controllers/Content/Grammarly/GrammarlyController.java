@@ -14,9 +14,19 @@ public class GrammarlyController {
     private TextArea textResult;
 
     private Checker checker = new Checker();
+    private ChatAI chatAI = new ChatAI();
+    private ReWriter reWriter = new ReWriter();
 
     @FXML
     void actionCheck(ActionEvent event) throws IOException, InterruptedException {
         textResult.setText(checker.check(textOriginal.getText()));
+    }
+    @FXML
+    void chatAI(ActionEvent event) throws IOException, InterruptedException {
+        textResult.setText(chatAI.chatAI(textOriginal.getText()));
+    }
+    @FXML
+    void rewrite(ActionEvent event) throws IOException, InterruptedException {
+        textResult.setText(reWriter.rewrite(textOriginal.getText()));
     }
 }
