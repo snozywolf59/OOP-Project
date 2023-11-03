@@ -26,9 +26,9 @@ public class GGTranslateController {
     @FXML
     private MenuButton buttonToLanguage;
 
-    private TextToSpeech textToSpeech = new TextToSpeech();
-    private Translator translator = new Translator();
-    final Microphone mic = new Microphone(FLACFileWriter.FLAC);
+    private final TextToSpeech textToSpeech = new TextToSpeech();
+    private final Translator translator = new Translator();
+    private final Microphone mic = new Microphone(FLACFileWriter.FLAC);
     GSpeechDuplex duplex = new GSpeechDuplex("AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw");
 
 

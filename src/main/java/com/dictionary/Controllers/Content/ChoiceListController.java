@@ -1,13 +1,12 @@
 package com.dictionary.Controllers.Content;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import com.dictionary.Models.Model;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class ChoiceListController implements Initializable {
 

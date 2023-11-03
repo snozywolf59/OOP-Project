@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
-<?import java.net.URL?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import java.net.URL?>
 <AnchorPane id="AnchorPane"
             prefHeight="720.0" prefWidth="1095.0"
             xmlns="http://javafx.com/javafx/21"
@@ -15,5 +10,4 @@
     <stylesheets>
         <URL value="@../../Css/search.css" />
     </stylesheets>
-
 </AnchorPane>
