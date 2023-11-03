@@ -15,10 +15,10 @@ import java.io.IOException;
 
 public class GGTranslateController {
     @FXML
-    private TextArea textOld;
+    private TextArea originalText;
 
     @FXML
-    private TextArea textNew;
+    private TextArea resultText;
 
     @FXML
     private MenuButton buttonFromLanguage;
@@ -29,6 +29,9 @@ public class GGTranslateController {
     private final TextToSpeech textToSpeech = new TextToSpeech();
     private final Translator translator = new Translator();
     private final Microphone mic = new Microphone(FLACFileWriter.FLAC);
+    private Checker checker = new Checker();
+    private ChatAI chatAI = new ChatAI();
+    private ReWriter reWriter = new ReWriter();
     GSpeechDuplex duplex = new GSpeechDuplex("AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw");
 
 
@@ -48,19 +51,19 @@ public class GGTranslateController {
 
     @FXML
     protected void translate() throws IOException {
-        textNew.setText(translator.translate(textOld.getText()));
+        resultText.setText(translator.translate(originalText.getText()));
     }
 
     @FXML
     void speak1(ActionEvent event) {
         textToSpeech.setLanguageCode(translator.getFromLanguage());
-        textToSpeech.speak(textOld.getText());
+        textToSpeech.speak(originalText.getText());
     }
 
     @FXML
     void speak2(ActionEvent event) {
         textToSpeech.setLanguageCode(translator.getToLanguage());
-        textToSpeech.speak(textNew.getText());
+        textToSpeech.speak(resultText.getText());
     }
 
     @FXML
@@ -105,7 +108,7 @@ public class GGTranslateController {
                     output = output + " (" + (String) gr.getOtherPossibleResponses().get(0) + ")";
                 }
                 System.out.println(output);
-                textOld.setText(output);
+                originalText.setText(output);
             }
         });
     }
@@ -114,5 +117,18 @@ public class GGTranslateController {
     void stop(ActionEvent event) {
         mic.close();
         duplex.stopSpeechRecognition();
+    }
+
+    @FXML
+    void actionCheck(ActionEvent event) throws IOException, InterruptedException {
+        resultText.setText(checker.check(originalText.getText()));
+    }
+    @FXML
+    void chatAI(ActionEvent event) throws IOException, InterruptedException {
+        resultText.setText(chatAI.chatAI(originalText.getText()));
+    }
+    @FXML
+    void rewrite(ActionEvent event) throws IOException, InterruptedException {
+        resultText.setText(reWriter.rewrite(originalText.getText()));
     }
 }

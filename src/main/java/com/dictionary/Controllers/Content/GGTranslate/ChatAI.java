@@ -1,4 +1,4 @@
-package com.dictionary.Controllers.Content.Grammarly;
+package com.dictionary.Controllers.Content.GGTranslate;
 
 import java.io.IOException;
 import java.net.URI;
