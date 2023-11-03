@@ -1,0 +1,6 @@
+.bodybg{
+    -fx-background-image: url("../Images/background.jpg");
+}
+.bodybg1{
+    -fx-background-color: linear-gradient(to bottom right, #0f6789, #4ce699);
+}

@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.scene.control.ScrollPane;
 
 public final class ViewFactory {
     private final Stage stage = new Stage();
@@ -20,7 +21,7 @@ public final class ViewFactory {
     private AnchorPane homeView;
     private AnchorPane searchView;
     private AnchorPane playView;
-    private AnchorPane learnView;
+    private ScrollPane learnView;
     private AnchorPane ggTranslateView;
 
     public ViewFactory() {
@@ -45,7 +46,7 @@ public final class ViewFactory {
     public AnchorPane getSearchView() {
         if (searchView == null) {
             try {
-                searchView = new FXMLLoader(getClass().getResource("/FXML/Content/Search.fxml")).load();
+                searchView = new FXMLLoader(getClass().getResource("/FXML/Content/SearchView.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -64,7 +65,7 @@ public final class ViewFactory {
         return homeView;
     }
 
-    public AnchorPane getLearnView() {
+    public ScrollPane getLearnView() {
         if (learnView == null) {
             try {
                 learnView = new FXMLLoader(getClass().getResource("/FXML/Content/Learn.fxml")).load();
