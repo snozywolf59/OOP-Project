@@ -22,6 +22,7 @@ module com.dictionary {
     opens com.dictionary.Views to javafx.fxml;
     opens com.dictionary.Controllers.Content.GGTranslate to javafx.fxml;
     //opens com.dictionary.Controllers.Content.Grammarly to javafx.fxml;
+    opens com.dictionary.Controllers.Content.Search to javafx.fxml;
 
     exports com.dictionary;
     exports com.dictionary.Views;
@@ -30,4 +31,5 @@ module com.dictionary {
     exports com.dictionary.Models;
     exports com.dictionary.Controllers.Content.GGTranslate;
     //exports com.dictionary.Controllers.Content.Grammarly;
+    exports com.dictionary.Controllers.Content.Search;
 }
