@@ -107,7 +107,6 @@ public class GGTranslateController {
                 if (!gr.getOtherPossibleResponses().isEmpty()) {
                     output = output + " (" + (String) gr.getOtherPossibleResponses().get(0) + ")";
                 }
-                System.out.println(output);
                 originalText.setText(output);
             }
         });

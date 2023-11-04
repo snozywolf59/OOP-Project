@@ -2,9 +2,12 @@ package com.dictionary.Controllers.Content.GGTranslate;
 
 import java.io.IOException;
 import java.net.URI;
+import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -13,18 +16,8 @@ public class Checker {
 
     public Checker() {}
 
-    public static String convertText(String text) {
-        String tmp = "text=";
-        for (int i = 0; i < (int) text.length(); i++) {
-            if (text.charAt(i) == ' ') {
-                tmp = tmp + "%20";
-            } else if (text.charAt(i) == '?') {
-                tmp = tmp + "%3F";
-            } else {
-                tmp = tmp + text.charAt(i);
-            }
-        }
-        return tmp;
+    private String convertText(String text) {
+        return "text=" + URLEncoder.encode(text, StandardCharsets.UTF_8);
     }
 
     public String check(String text) throws IOException, InterruptedException {
@@ -58,7 +51,7 @@ public class Checker {
             result.append(jsonArray.get(i).getAsJsonObject().get("type"));
             result.append("\n");
         }
-        if (result.isEmpty()) return "Chúc mừng! Câu của bạn không có lỗi!";
+        if (result.isEmpty()) return "Congratulations, your sentence has no errors";
         else return result.toString();
     }
 }

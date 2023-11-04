@@ -1,56 +1,21 @@
 package com.dictionary.Controllers.Content.GGTranslate;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 import java.io.IOException;
 import java.net.URI;
+import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 
 public class ReWriter {
     private String convertText(String text) {
-        String textConvert = "text=";
-        for (int i = 0; i < (int) text.length(); i++) {
-            if (text.charAt(i) == ' ') {
-                textConvert = textConvert + "%20";
-            } else if (text.charAt(i) == '?') {
-                textConvert = textConvert + "%3F";
-            } else {
-                textConvert = textConvert + text.charAt(i);
-            }
-        }
-        return textConvert;
+        return "text=" + URLEncoder.encode(text, StandardCharsets.UTF_8);
     }
-    public String getResult(String body) {
-        String result = "";
-        String minimal = "";
-        String informal = "";
-        String formal = "";
 
-        for (int i = body.indexOf("minimal") + 10; i < (int) body.length(); i++) {
-            if (body.charAt(i) == '"') {
-                result = result + "Minimal: " + minimal + "\n";
-                break;
-            }
-            minimal = minimal + body.charAt(i);
-        }
-
-        for (int i = body.indexOf("informal") + 11; i < (int) body.length(); i++) {
-            if (body.charAt(i) == '"') {
-                result = result + "Informal: " + informal + "\n";
-                break;
-            }
-            informal = informal + body.charAt(i);
-        }
-
-        for (int i = body.indexOf("formal") + 9; i < (int) body.length(); i++) {
-            if (body.charAt(i) == '"') {
-                result = result + "Formal: " + formal + "\n";
-                break;
-            }
-            formal = formal + body.charAt(i);
-        }
-        return result;
-    }
     public String rewrite(String text) throws IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://paraphrase-mate.p.rapidapi.com/rewrite"))
@@ -62,5 +27,18 @@ public class ReWriter {
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.body());
         return getResult(response.body());
+    }
+
+    private String getResult(String body) {
+        StringBuilder result = new StringBuilder();
+        JsonObject jsonObject = JsonParser.parseString(body).getAsJsonObject();
+        result.append("There are 3 ways to rewrite your sentence as follows:");
+        result.append("\n\t* Minimal: ");
+        result.append(jsonObject.get("output").getAsJsonObject().get("minimal"));
+        result.append("\n\t* Informal: ");
+        result.append(jsonObject.get("output").getAsJsonObject().get("informal"));
+        result.append("\n\t* Formal: ");
+        result.append(jsonObject.get("output").getAsJsonObject().get("formal"));
+        return result.toString();
     }
 }
