@@ -5,12 +5,11 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 public class Checker {
-    private int indexOfDescription;
-    private int indexOfBad;
-    private int indexOfBetter;
-    private int indexOfType;
 
     public Checker() {}
 
@@ -28,78 +27,6 @@ public class Checker {
         return tmp;
     }
 
-    public static String repairText(String text) {
-        String tmp = "";
-        for (int i = 0; i < (int) text.length(); i++) {
-            if (text.charAt(i) == '\\') {
-                i = i + 6;
-                tmp = tmp + "'";
-            }
-            tmp = tmp + text.charAt(i);
-        }
-        System.out.println(tmp);
-        return tmp;
-    }
-
-    public String getResult(String body) {
-        indexOfDescription = body.indexOf("description", 0);
-        indexOfBad = body.indexOf("bad", 0);
-        indexOfBetter = body.indexOf("better", 0);
-        indexOfType = body.indexOf("type", 0);
-
-        String result = "";
-
-        String description = "";
-        String bad = "";
-        String better = "";
-        String type = "";
-
-        while (true) {
-            for (int i = indexOfDescription + 20; i < (int) body.length(); i++) {
-                if (body.charAt(i) == '"') {
-                    result = result + "Error:\n";
-                    result = result + "\tDescription: " + description + "\n";
-                    description = "";
-                    break;
-                }
-                description = description + body.charAt(i);
-            }
-            indexOfDescription = body.indexOf("description", indexOfDescription + 1);
-
-            for (int i = indexOfBad + 6; i < (int) body.length(); i++) {
-                if (body.charAt(i) == '"') {
-                    result = result + "\tBad: " + bad + "\n";
-                    bad = "";
-                    break;
-                }
-                bad = bad + body.charAt(i);
-            }
-            indexOfBad = body.indexOf("bad", indexOfBad + 1);
-
-            for (int i = indexOfBetter + 10; i < (int) body.length(); i++) {
-                if (body.charAt(i) == '"') {
-                    result = result + "\tBetter: " + better + "\n";
-                    better = "";
-                    break;
-                }
-                better = better + body.charAt(i);
-            }
-            indexOfBetter = body.indexOf("better", indexOfBetter + 1);
-
-            for (int i = indexOfType + 7; i < (int) body.length(); i++) {
-                if (body.charAt(i) == '"') {
-                    result = result + "\tType: " + type + "\n";
-                    type = "";
-                    break;
-                }
-                type = type + body.charAt(i);
-            }
-            indexOfType = body.indexOf("type", indexOfType + 1);
-            if (indexOfType == -1) break;
-        }
-        return this.repairText(result);
-    }
-
     public String check(String text) throws IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://textgears-textgears-v1.p.rapidapi.com/grammar"))
@@ -112,5 +39,26 @@ public class Checker {
         System.out.println(response.body());
         String body = response.body();
         return this.getResult(body);
+    }
+
+    private String getResult(String body) {
+        StringBuilder result = new StringBuilder();
+        JsonObject jsonObject = JsonParser.parseString(body).getAsJsonObject();
+        JsonObject jsonObject1 = JsonParser.parseString(String.valueOf(jsonObject.get("response"))).getAsJsonObject();
+        JsonArray jsonArray = (JsonArray) jsonObject1.get("errors");
+        for (int i = 0; i < (int) jsonArray.size(); i++) {
+            result.append("Error ").append(i + 1).append(":");
+            result.append("\n\tDescription: ");
+            result.append((jsonArray.get(i)).getAsJsonObject().get("description").getAsJsonObject().get("en"));
+            result.append("\n\tBad: ");
+            result.append(jsonArray.get(i).getAsJsonObject().get("bad"));
+            result.append("\n\tBetter: ");
+            result.append(jsonArray.get(i).getAsJsonObject().get("better"));
+            result.append("\n\tType: ");
+            result.append(jsonArray.get(i).getAsJsonObject().get("type"));
+            result.append("\n");
+        }
+        if (result.isEmpty()) return "Chúc mừng! Câu của bạn không có lỗi!";
+        else return result.toString();
     }
 }

@@ -14,13 +14,14 @@ module com.dictionary {
     requires java.desktop;
     requires java.google.speech.api;
     requires java.net.http;
+    requires com.google.gson;
 
     opens com.dictionary to javafx.fxml;
     opens com.dictionary.Controllers to javafx.fxml;
     opens com.dictionary.Controllers.Content to javafx.fxml;
     opens com.dictionary.Models to javafx.fxml;
     opens com.dictionary.Views to javafx.fxml;
-    opens com.dictionary.Controllers.Content.GGTranslate to javafx.fxml;
+    opens com.dictionary.Controllers.Content.GGTranslate to javafx.fxml, com.google.gson;
     //opens com.dictionary.Controllers.Content.Grammarly to javafx.fxml;
     opens com.dictionary.Controllers.Content.Search to javafx.fxml;
 
