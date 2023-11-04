@@ -9,21 +9,9 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 public class ChatAI {
-    private String repairText(String text) {
-        String tmp = "";
-        for (int i = 0; i < (int) text.length(); i++) {
-            if (text.charAt(i) == '\\') {
-                tmp = tmp + "\n";
-                i = i + 1;
-                continue;
-            }
-            tmp = tmp + text.charAt(i);
-        }
-        return tmp;
-    }
-
     public String chatAI(String askRequest) throws IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://chatgpt-best-price.p.rapidapi.com/v1/chat/completions"))
@@ -55,6 +43,6 @@ public class ChatAI {
             result.append(":\n");
             result.append(jsonArray.get(i).getAsJsonObject().get("message").getAsJsonObject().get("content"));
         }
-        return this.repairText(result.toString());
+        return StringEscapeUtils.unescapeJava(result.toString());
     }
 }

@@ -51,7 +51,7 @@ public class Checker {
             result.append(jsonArray.get(i).getAsJsonObject().get("type"));
             result.append("\n");
         }
-        if (result.isEmpty()) return "Congratulations, your sentence has no errors";
+        if (result.isEmpty()) return "Congratulations, your sentence has no errors!";
         else return result.toString();
     }
 }
