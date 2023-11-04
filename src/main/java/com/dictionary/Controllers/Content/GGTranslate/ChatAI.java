@@ -1,5 +1,9 @@
 package com.dictionary.Controllers.Content.GGTranslate;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -7,7 +11,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ChatAI {
-    public String repairText(String text) {
+    private String repairText(String text) {
         String tmp = "";
         for (int i = 0; i < (int) text.length(); i++) {
             if (text.charAt(i) == '\\') {
@@ -18,15 +22,6 @@ public class ChatAI {
             tmp = tmp + text.charAt(i);
         }
         return tmp;
-    }
-
-    public String getResult(String body) {
-        String result = "";
-        for (int i = body.indexOf("content") + 11; i < (int) body.length(); i++) {
-            if (body.charAt(i) == '"') break;
-            result = result + body.charAt(i);
-        }
-        return this.repairText(result);
     }
 
     public String chatAI(String askRequest) throws IOException, InterruptedException {
@@ -48,5 +43,18 @@ public class ChatAI {
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.body());
         return getResult(response.body());
+    }
+
+    private String getResult(String body) {
+        StringBuilder result = new StringBuilder();
+        JsonObject jsonObject = JsonParser.parseString(body).getAsJsonObject();
+        JsonArray jsonArray = (JsonArray) jsonObject.get("choices");
+        for (int i = 0; i < jsonArray.size(); i++) {
+            result.append("Message from ");
+            result.append(jsonArray.get(i).getAsJsonObject().get("message").getAsJsonObject().get("role"));
+            result.append(":\n");
+            result.append(jsonArray.get(i).getAsJsonObject().get("message").getAsJsonObject().get("content"));
+        }
+        return this.repairText(result.toString());
     }
 }

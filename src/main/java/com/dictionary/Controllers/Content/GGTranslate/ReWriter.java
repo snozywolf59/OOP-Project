@@ -7,7 +7,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class ReWriter {
-    public String convertText(String text) {
+    private String convertText(String text) {
         String textConvert = "text=";
         for (int i = 0; i < (int) text.length(); i++) {
             if (text.charAt(i) == ' ') {
