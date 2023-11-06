@@ -7,19 +7,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="542.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.Learn.ListeningTestController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="839.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.Learn.ListeningTestController">
    <children>
-      <MediaView fx:id="mediaView" fitHeight="800.0" fitWidth="800.0" />
-      <TextArea fx:id="text" editable="false" layoutX="41.0" layoutY="78.0" prefHeight="407.0" prefWidth="379.0" />
+      <TextArea fx:id="text" editable="false" layoutX="39.0" layoutY="80.0" prefHeight="425.0" prefWidth="566.0" />
       <Button layoutX="384.0" layoutY="34.0" mnemonicParsing="false" onAction="#playAudio">
          <graphic>
             <FontAwesomeIconView glyphName="VOLUME_UP" textAlignment="CENTER" wrappingWidth="41.683311462402344" />
          </graphic>
       </Button>
-      <VBox layoutX="472.0" layoutY="78.0" prefHeight="415.0" prefWidth="99.0">
+      <VBox layoutX="625.0" layoutY="85.0" prefHeight="415.0" prefWidth="105.0">
          <children>
             <Label prefHeight="29.0" prefWidth="315.0" text="Your answers:">
                <font>
@@ -52,7 +50,7 @@
                </font>
             </Label>
             <TextArea fx:id="userAnswer" prefHeight="283.0" prefWidth="99.0" promptText="1. Your answer 2. Your answer 3. Your answer ..." wrapText="true" />
-            <Button mnemonicParsing="false" onAction="#submit" prefHeight="37.0" prefWidth="99.0" text="Submit" />
+            <Button mnemonicParsing="false" onAction="#submit" prefHeight="35.0" prefWidth="111.0" text="Submit" />
          </children>
       </VBox>
       <VBox layoutX="50.0" layoutY="15.0" prefHeight="53.0" prefWidth="280.0">

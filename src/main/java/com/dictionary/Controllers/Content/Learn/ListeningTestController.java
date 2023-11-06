@@ -43,8 +43,7 @@ public class ListeningTestController implements Initializable {
 
     @FXML
     void playAudio(ActionEvent event) {
-        listeningTest.playAudio();
-
+        listeningTest.playAudio(); 
     }
 
     @FXML

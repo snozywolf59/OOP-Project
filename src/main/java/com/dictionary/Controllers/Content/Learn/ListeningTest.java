@@ -15,6 +15,8 @@ public class ListeningTest {
     private String urlAudio;
     private Answer answer = new Answer();
     private int point = 0;
+    private static Thread thread;
+    private static AdvancedPlayer player;
 
     public int getPoint(String userAnswer) {
         point = answer.getPoint(userAnswer);
@@ -53,12 +55,15 @@ public class ListeningTest {
     }
 
     public void playAudio() {
+        if (thread != null && thread.isAlive()) {
+            stopAudio();
+        }
         try {
             URL url = new URL(urlAudio);
-            Thread thread = new Thread(() -> {
+            thread = new Thread(() -> {
                 try {
                     InputStream inputStream = url.openStream();
-                    AdvancedPlayer player = new AdvancedPlayer(inputStream);
+                    player = new AdvancedPlayer(inputStream);
                     player.play();
                 } catch (IOException | JavaLayerException e) {
                     e.printStackTrace();
@@ -69,6 +74,12 @@ public class ListeningTest {
             thread.start();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void stopAudio() {
+        if (player != null) {
+            player.close();
         }
     }
 
