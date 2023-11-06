@@ -16,6 +16,7 @@ module com.dictionary {
     requires java.net.http;
     requires com.google.gson;
     requires org.apache.commons.lang3;
+    requires javafx.media;
 
     opens com.dictionary to javafx.fxml;
     opens com.dictionary.Controllers to javafx.fxml;
