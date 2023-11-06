@@ -9,16 +9,12 @@
 
 <AnchorPane id="AnchorPane" prefHeight="340.0" prefWidth="600.0" styleClass="bg" stylesheets="@../Css/welcome.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.WelcomeController">
     <children>
-      <AnchorPane prefHeight="340.0" prefWidth="600.0">
-         <children>
-            <MediaView fx:id="mediaView" fitHeight="340.0" fitWidth="600.0" />
-         </children>
-      </AnchorPane>
+      <MediaView fx:id="mediaView" fitHeight="340.0" fitWidth="600.0" />
         <VBox prefHeight="340.0" prefWidth="600.0">
             <children>
-            <FontAwesomeIconView />
-                <Label prefHeight="184.0" prefWidth="600.0" text="TÊN CỦA APP" />
-                <Button fx:id="enterButton" mnemonicParsing="false" text="ẤN ĐỂ VÀO" />
+            <FontAwesomeIconView glyphName="BOOK" size="40.0" text="" wrappingWidth="40.0" />
+                <Label prefHeight="184.0" prefWidth="600.0" text="EDUET" />
+                <Button fx:id="enterButton" mnemonicParsing="false" prefHeight="18.0" text="ẤN ĐỂ VÀO" />
             </children>
         </VBox>
     </children>
