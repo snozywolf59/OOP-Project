@@ -77,7 +77,7 @@ public class ListeningTest {
         }
     }
 
-    public void stopAudio() {
+    public static void stopAudio() {
         if (player != null) {
             player.close();
         }

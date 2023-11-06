@@ -70,5 +70,10 @@
             </HBox>
          </children>
       </VBox>
+      <Button layoutX="442.0" layoutY="34.0" mnemonicParsing="false" onAction="#stopAudio">
+         <graphic>
+            <FontAwesomeIconView glyphName="STOP" textAlignment="CENTER" wrappingWidth="41.683311462402344" />
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

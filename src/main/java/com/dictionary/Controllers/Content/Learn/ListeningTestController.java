@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -43,7 +42,12 @@ public class ListeningTestController implements Initializable {
 
     @FXML
     void playAudio(ActionEvent event) {
-        listeningTest.playAudio(); 
+        listeningTest.playAudio();
+    }
+
+    @FXML
+    void stopAudio(ActionEvent event) {
+        ListeningTest.stopAudio();
     }
 
     @FXML

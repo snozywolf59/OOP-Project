@@ -1,5 +1,6 @@
 package com.dictionary.Views;
 
+import com.dictionary.Controllers.Content.Learn.ListeningTest;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
@@ -150,6 +151,7 @@ public final class ViewFactory {
     }
 
     public void closeStage() {
+        ListeningTest.stopAudio();
         stage.close();
     }
 }
