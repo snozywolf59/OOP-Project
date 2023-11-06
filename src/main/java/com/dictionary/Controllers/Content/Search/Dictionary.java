@@ -5,7 +5,8 @@ package com.dictionary.Controllers.Content.Search;
  *
  * @author Admin
  */
-
+import com.sun.speech.freetts.Voice;
+import com.sun.speech.freetts.VoiceManager;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -215,6 +216,17 @@ public class Dictionary {
             tmp.listNode[i].setExplainWord(word);
             }
             tmp =  tmp.listNode[i];
+        }
+    }
+
+    public static void textToSpeech(String text) {
+        System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
+        Voice voice = VoiceManager.getInstance().getVoice("kevin16");
+        if (voice != null) {
+            voice.allocate();
+            voice.speak(text);
+        } else {
+            throw new IllegalStateException("Cannot find voice: kevin16");
         }
     }
 }

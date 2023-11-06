@@ -14,6 +14,8 @@ import java.util.stream.Collectors;
 
 import com.dictionary.Controllers.HandleInput;
 
+import static java.lang.Math.min;
+
 /**
  * FXML Controller class.
  *
@@ -68,6 +70,7 @@ public class SearchController implements Initializable {
     public void search(){
         listView.getItems().clear();
         listView.getItems().addAll(searchList(searchField.getText() + "  ", words));
+        listView.setPrefHeight(min(250, listView.getItems().size() * 20));
     }
         
     @Override
@@ -99,7 +102,7 @@ public class SearchController implements Initializable {
     }
 
    public List<String> searchList(String searchWords, List<String> listOfStrings) {
-    List<String> searchWordArray = Arrays.asList(searchWords.trim().split(" "));
+    List<String> searchWordArray = Arrays.asList(searchWords.trim().split(","));
     return listOfStrings.stream()
             .filter(input -> {
                 String lowercaseInput = input.toLowerCase();
@@ -126,7 +129,6 @@ public class SearchController implements Initializable {
         } else {
             haveNotChoose.setVisible(true);
         }
-
     }
     
     public void onActionAddWord() {
@@ -167,6 +169,13 @@ public class SearchController implements Initializable {
             definitionArea.setText(dictionary.search(selectedWord).getWordExplain().toString().replaceAll("\\n", "\n"));
             closeEditTab();
             editTabTextArea.clear();
+        }
+    }
+
+    public void onActionSpeakBtn() {
+        String selectedWord = listView.getSelectionModel().getSelectedItem();
+        if (selectedWord != null) {
+            Dictionary.textToSpeech(selectedWord);
         }
     }
 

@@ -2,6 +2,48 @@
     -fx-background-image: url("../Images/background.jpg");
 }
 .bodybg1{
-    -fx-background-color: #FFFFFF;
+    -fx-background-color: linear-gradient(to bottom right, #0f6789, #4ce699);
 }
 
+.list-cell {
+    -fx-text-fill: #000000; /* Màu chữ */
+    -fx-font-size: 14px; /* Cỡ chữ */
+    -fx-background-color: #F5F5F5; /* Màu nền */
+    -fx-font-family: "Time NewRoman", sans-serif;
+    -fx-font-weight: bold;
+}
+.list-cell:selected {
+    -fx-background-color: #5885b0; /* Màu nền khi được chọn */
+    -fx-text-fill: #FFFFFF; /* Màu chữ khi được chọn */
+}
+.list-cell:hover {
+    -fx-background-color: #DDDDDD; /* Màu nền khi di chuột vào */
+}
+.list-view {
+    -fx-background-color: #F0F0F0;
+    -fx-padding: 3px;
+    -fx-border-radius: 5px;
+      -fx-background-radius: 10px;
+      -fx-border-color: black;
+      -fx-border-width: 1px;
+}
+.list-view .scroll-bar:vertical,
+.list-view .scroll-bar:horizontal {
+    -fx-opacity: 0;
+    -fx-pref-width: 0;
+}
+
+.text-area {
+  -fx-border-radius: 10px; /* Đặt bán kính bo cong */
+  -fx-background-radius: 10px; /* Đặt bán kính bo cong cho nền */
+  -fx-border-color: #b0a458; /* Đặt màu viền */
+  -fx-border-width: 1px; /* Đặt độ dày viền */
+   -fx-background-color: red;
+}
+
+.text-field {
+-fx-border-radius: 3px; /* Đặt bán kính bo cong */
+  -fx-background-radius: 3px; /* Đặt bán kính bo cong cho nền */
+  -fx-border-color: black; /* Đặt màu viền */
+  -fx-border-width: 1px;
+}

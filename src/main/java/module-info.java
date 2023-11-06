@@ -17,6 +17,7 @@ module com.dictionary {
     requires com.google.gson;
     requires org.apache.commons.lang3;
     requires javafx.media;
+    requires freetts;
 
     opens com.dictionary to javafx.fxml;
     opens com.dictionary.Controllers to javafx.fxml;
