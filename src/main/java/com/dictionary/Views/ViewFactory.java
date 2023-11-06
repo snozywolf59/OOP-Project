@@ -1,5 +1,6 @@
 package com.dictionary.Views;
 
+import com.dictionary.Controllers.Content.Learn.ListeningTest;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +23,7 @@ public final class ViewFactory {
     private AnchorPane playView;
     private ScrollPane learnView;
     private AnchorPane ggTranslateView;
+    private AnchorPane listeningTestView;
 
     public ViewFactory() {
         currentSelect = new SimpleStringProperty();
@@ -97,6 +99,17 @@ public final class ViewFactory {
         return playView;
     }
 
+    public AnchorPane getListeningTestView() {
+        if (listeningTestView == null) {
+            try {
+                listeningTestView = new FXMLLoader(getClass().getResource("/FXML/Content/ListeningTest.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return listeningTestView;
+    }
+
     public void showWelcome() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Welcome.fxml"));
         createStage(loader);
@@ -131,6 +144,7 @@ public final class ViewFactory {
     }
 
     public void closeStage() {
+        ListeningTest.stopAudio();
         stage.close();
     }
 }

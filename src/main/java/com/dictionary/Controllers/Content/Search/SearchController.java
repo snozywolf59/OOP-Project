@@ -62,7 +62,7 @@ public class SearchController implements Initializable {
     private TextArea addExWord;
 
     @FXML
-    private Label haveNotChoosen;
+    private Label haveNotChoose;
 
     @FXML
     public void search(){
@@ -74,6 +74,7 @@ public class SearchController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         listView.getItems().addAll(words);
         setTree();
+        definitionArea.setDisable(true);
         specialDisable();
     }
 
@@ -82,12 +83,12 @@ public class SearchController implements Initializable {
         editTab.setVisible(false);
         addNewWord.setVisible(false);
         addNewWord.setDisable(true);
-        haveNotChoosen.setVisible(false);
+        haveNotChoose.setVisible(false);
     }
 
     private void normalizeChild() {
         for (Node x : searchView.getChildren()) {
-            HandleInput.disable(x);
+            HandleInput.normalize(x);
         }
     }
 
@@ -113,7 +114,7 @@ public class SearchController implements Initializable {
             targetWord.setText(selectWord.getWordTarget());
             definitionArea.setText(selectWord.getWordExplain().toString().replaceAll("\\n", "\n"));
             pronounceWord.setText(selectWord.getWordPronoun());
-            haveNotChoosen.setVisible(false);
+            haveNotChoose.setVisible(false);
         }
     }
      
@@ -123,7 +124,7 @@ public class SearchController implements Initializable {
             disableChild();
             HandleInput.normalize(editTab);
         } else {
-            haveNotChoosen.setVisible(true);
+            haveNotChoose.setVisible(true);
         }
 
     }

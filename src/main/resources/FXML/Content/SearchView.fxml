@@ -127,7 +127,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <Label fx:id="haveNotChoosen" layoutX="404.0" layoutY="300.0" prefHeight="70.0" prefWidth="220.0" text="Bạn chưa chọn từ!" textFill="RED">
+      <Label fx:id="haveNotChoose" layoutX="404.0" layoutY="300.0" prefHeight="70.0" prefWidth="220.0" text="Bạn chưa chọn từ!" textFill="RED">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
