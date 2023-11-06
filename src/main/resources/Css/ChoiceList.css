@@ -1,6 +1,7 @@
 .head FontAwesomeIconView {
     -fx-fill: #0d8c79;
     -fx-padding: 10 10 10 10;
+    -fx-size: 15.0;
 }
 
 .head Label {
@@ -8,6 +9,7 @@
     -fx-font-size: 26;
     -fx-text-fill:#0d8c79;
     -fx-font-weight: bold;
+    -fx-alignment: center;
 }
 
 .head {
@@ -29,11 +31,12 @@
     -fx-font-weight: bold;
     -fx-background-radius: 17 17 17 17;
     -fx-alignment: CENTER_LEFT;
-    -fx-effect: dropshadow(three-pass-box, rgba(50,50,50,0.3), 1, 0.5, 0.5, 5);
+    -fx-effect: dropshadow(gaussian, rgba(50,50,50,0.3), 1, 0.5, 0.5, 5);
 }
 
 .menu FontAwesomeIconView {
     -fx-fill: #0d8c79;
+    -fx-size: 15.0;
 }
 
 .menu Button:hover {

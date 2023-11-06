@@ -68,7 +68,7 @@
     -fx-pref-width: 80;
     -fx-pref-height: 60;
     -fx-background-color: #FFFFFF;
-    -fx-effect: dropshadow(three-pass-box, rgba(20,255,0,0.3), 1, 0.5, 0.5, 5);
+    -fx-effect: dropshadow(gaussian, rgba(20,255,0,0.3), 1, 0.5, 0.5, 5);
 }
 
 .swap {
@@ -84,4 +84,17 @@
 .swap {
     -fx-alignment: center;
     -fx-background-radius: 5 5 5 5;
+}
+
+.mode {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: red;
+    -fx-background-radius: 3px;
+    -fx-border-radius: 2px;
+    -fx-border-color: red;
+    -fx-border-width: 1px;
+}
+
+.mode Button: hover {
+
 }

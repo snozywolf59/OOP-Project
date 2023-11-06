@@ -73,14 +73,13 @@
                     </children>
                 </VBox>
             </graphic></Button>
-      <HBox layoutX="245.0" layoutY="480.0" prefHeight="21.0" prefWidth="217.0" />
-      <VBox layoutX="513.0" layoutY="213.0" prefHeight="101.0" prefWidth="70.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#actionCheck" prefHeight="25.0" prefWidth="74.0" text="Check" />
-            <Button mnemonicParsing="false" onAction="#rewrite" prefHeight="25.0" prefWidth="69.0" text="Rewrite" />
-            <Button mnemonicParsing="false" onAction="#chatAI" prefHeight="25.0" prefWidth="74.0" text="AI Chat" />
-              <Button mnemonicParsing="false" onAction="#translate" prefHeight="25.0" prefWidth="85.0" stylesheets="@../../Css/ggtranslate.css" text="Translate" />
-         </children>
-      </VBox>
+      <MenuButton layoutX="512.0" layoutY="270.0" mnemonicParsing="false" styleClass="mode" text="Action">
+        <items>
+          <MenuItem mnemonicParsing="false" onAction="#actionCheck" text="Check" />
+          <MenuItem mnemonicParsing="false" onAction="#rewrite" text="Rewrite" />
+            <MenuItem mnemonicParsing="false" onAction="#chatAI" text="AI Chat" />
+            <MenuItem mnemonicParsing="false" onAction="#translate" text="Translate" />
+        </items>
+      </MenuButton>
     </children>
 </AnchorPane>

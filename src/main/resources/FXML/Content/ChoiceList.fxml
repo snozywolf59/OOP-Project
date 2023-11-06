@@ -10,7 +10,7 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="185.0" style="-fx-background-color: D1EFFA;" stylesheets="@../../Css/ChoiceList.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.ChoiceListController">
    <children>
-      <VBox layoutX="1.0" layoutY="200.0" prefHeight="520.0" prefWidth="180.0" styleClass="menu" stylesheets="@../../Css/ChoiceList.css">
+      <VBox layoutX="1.0" layoutY="160.0" prefHeight="560.0" prefWidth="180.0" styleClass="menu" stylesheets="@../../Css/ChoiceList.css">
          <children>
             <Button fx:id="homeBtn" mnemonicParsing="false" prefHeight="45.0" prefWidth="164.0" text="HOME">
                <graphic>
@@ -47,6 +47,10 @@
                   <FontAwesomeIconView glyphName="PLAY" size="2em" text="" />
                </graphic>
             </Button>
+            <Button fx:id="ggTranslate" mnemonicParsing="false" text="API">
+               <graphic>
+                  <FontAwesomeIconView glyphName="CHAIN" />
+               </graphic></Button>
             <Button fx:id="exitBtn" mnemonicParsing="false" styleClass="exit" text="EXIT">
                <graphic>
                   <FontAwesomeIconView glyphName="EXTERNAL_LINK" size="2em" />
@@ -57,13 +61,12 @@
             </Button>
          </children>
       </VBox>
-      <VBox prefHeight="188.0" prefWidth="180.0" styleClass="head">
+      <VBox prefHeight="170.0" prefWidth="180.0" styleClass="head">
          <children>
             <FontAwesomeIconView size="6em" />
-            <Button fx:id="ggTranslate" mnemonicParsing="false" text="GG" />
-            <Label prefHeight="89.0" prefWidth="168.0" text="TÊN CỦA APP">
+            <Label prefHeight="89.0" prefWidth="168.0" text="UETED" textAlignment="CENTER">
                <font>
-                  <Font size="27.0" />
+                  <Font name="Freestyle Script" size="27.0" />
                </font>
             </Label>
          </children></VBox>
