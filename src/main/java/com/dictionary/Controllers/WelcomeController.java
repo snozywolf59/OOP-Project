@@ -41,13 +41,6 @@ public class WelcomeController implements Initializable {
         mediaPlayer = new MediaPlayer(media);
         mediaPlayer.setAutoPlay(true);
         mediaView.setMediaPlayer(mediaPlayer);
-//        mediaPlayer.setOnPlaying(new Runnable() {
-//            @Override
-//            public void run() {
-//
-//            }
-//        });
-        //mediaPlayer.setAutoPlay(true);
         mediaPlayer.setOnEndOfMedia(() -> {
             // Quay lại thời điểm ban đầu
             mediaPlayer.seek(mediaPlayer.getStartTime());

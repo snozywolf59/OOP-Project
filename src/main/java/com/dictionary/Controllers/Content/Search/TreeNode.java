@@ -28,10 +28,6 @@ public class TreeNode {
       this.WordAll = new Word( WordALl.getWordTarget(), WordALl.getWordExplain(),WordALl.getWordPronoun());
    }
 
-   public void setListNode(TreeNode[] listNode) {
-      this.listNode = listNode;
-   }
-
    public Word getExplainWord() {
       return this.WordAll;
    }
@@ -41,7 +37,7 @@ public class TreeNode {
    }
 
    public void setListNode() {
-      for(int i = 1;i < listNode.length; i ++) {
+      for(int i = 1;i < listNode.length; ++i) {
          listNode[i] = new TreeNode();
       }
    }

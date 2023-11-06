@@ -12,11 +12,10 @@ import javafx.scene.control.ScrollPane;
 
 public final class ViewFactory {
     private final Stage stage = new Stage();
+    private final Stage tempStage = new Stage();
     private final String appName = "Ten App";
 
-    //Trạng thái của chương trình.
     private final StringProperty currentSelect;
-
     private AnchorPane choiceList;
     private AnchorPane homeView;
     private AnchorPane searchView;
@@ -100,13 +99,11 @@ public final class ViewFactory {
 
     public void showWelcome() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Welcome.fxml"));
-
         createStage(loader);
     }
 
     public void showWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Client.fxml"));
-
         createStage(loader);
     }
 
@@ -119,14 +116,10 @@ public final class ViewFactory {
             e.printStackTrace();
         }
 
-        //Stage stage = new Stage();
         stage.setScene(scene);
         stage.setTitle(appName);
 
-        //Làm cho stage ở giữa màn hình
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-
-        // Tính toán vị trí x và y để hiển thị Stage ở giữa màn hình
         double X = (screenBounds.getWidth() - stage.getWidth()) / 2;
         double Y = (screenBounds.getHeight() - stage.getHeight()) / 2;
 
