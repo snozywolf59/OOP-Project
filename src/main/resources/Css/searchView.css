@@ -2,7 +2,7 @@
     -fx-background-image: url("../Images/background.jpg");
 }
 .bodybg1{
-    -fx-background-color: linear-gradient(to bottom right, #0f6789, #4ce699);
+    -fx-background-color: #669999;
 }
 
 .list-cell {
@@ -18,14 +18,15 @@
 }
 .list-cell:hover {
     -fx-background-color: #DDDDDD; /* Màu nền khi di chuột vào */
+    -fx-text-fill: #111111; /* Màu chữ khi được chọn */
 }
 .list-view {
     -fx-background-color: #F0F0F0;
     -fx-padding: 3px;
     -fx-border-radius: 5px;
-      -fx-background-radius: 10px;
-      -fx-border-color: black;
-      -fx-border-width: 1px;
+    -fx-background-radius: 10px;
+    -fx-border-color: black;
+    -fx-border-width: 1px;
 }
 .list-view .scroll-bar:vertical,
 .list-view .scroll-bar:horizontal {
@@ -42,8 +43,26 @@
 }
 
 .text-field {
--fx-border-radius: 3px; /* Đặt bán kính bo cong */
+   -fx-border-radius: 3px; /* Đặt bán kính bo cong */
   -fx-background-radius: 3px; /* Đặt bán kính bo cong cho nền */
   -fx-border-color: black; /* Đặt màu viền */
   -fx-border-width: 1px;
+}
+
+.listBtn Button {
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-border-color: #007AFF;
+    -fx-pref-height: 40;
+    -fx-pref-width: 60;
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #333399;
+    -fx-font-weight: bold;
+}
+
+.listBtn Button:hover {
+    -fx-border-color: #007AFF;
+    -fx-background-color: #333399;
+    -fx-text-fill: #FFFFFF;
+    -fx-cursor: hand;
 }

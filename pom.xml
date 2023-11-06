@@ -39,7 +39,6 @@
             <artifactId>fontawesomefx-fontawesome</artifactId>
             <version>4.7.0-9.1.2</version>
         </dependency>
-
         <dependency>
             <groupId>com.dlsc.formsfx</groupId>
             <artifactId>formsfx-core</artifactId>
@@ -100,9 +99,6 @@
             <artifactId>jlayer</artifactId>
             <version>1.0.1</version>
         </dependency>
-
-
-
         <dependency>
             <groupId>com.github.goxr3plus</groupId>
             <artifactId>java-google-speech-api</artifactId>
@@ -118,12 +114,15 @@
             <artifactId>commons-lang3</artifactId>
             <version>3.12.0</version> <!-- Hoặc phiên bản mới nhất hiện có -->
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.10</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.sociaal</groupId>
+            <artifactId>freetts</artifactId>
+            <version>1.2.2</version>
         </dependency>
 
     </dependencies>
@@ -139,7 +138,6 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
-
         <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>

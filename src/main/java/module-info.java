@@ -28,6 +28,7 @@ module com.dictionary {
     opens com.dictionary.Controllers.Content.Learn to javafx.fxml;
     opens com.dictionary.Controllers.Content.Search to javafx.fxml;
 
+
     exports com.dictionary;
     exports com.dictionary.Views;
     exports com.dictionary.Controllers;

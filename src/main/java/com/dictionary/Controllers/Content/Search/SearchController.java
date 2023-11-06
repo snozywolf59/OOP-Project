@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import java.net.URL;
 import java.util.ArrayList;
@@ -77,8 +78,12 @@ public class SearchController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         listView.getItems().addAll(words);
         setTree();
-        definitionArea.setDisable(true);
+        definitionArea.setEditable(false);
         specialDisable();
+    }
+
+    public void reset() {
+        haveNotChoose.setVisible(false);
     }
 
     private void specialDisable() {
@@ -122,6 +127,7 @@ public class SearchController implements Initializable {
     }
      
     public void onActionEditWord() {
+        reset();
         String selectedWord = listView.getSelectionModel().getSelectedItem();
         if (selectedWord != null) {
             disableChild();
@@ -132,6 +138,7 @@ public class SearchController implements Initializable {
     }
     
     public void onActionAddWord() {
+        reset();
         disableChild();
         HandleInput.normalize(addNewWord);
     }
@@ -188,5 +195,6 @@ public class SearchController implements Initializable {
         normalizeChild();
         specialDisable();
     }
+
 
 }

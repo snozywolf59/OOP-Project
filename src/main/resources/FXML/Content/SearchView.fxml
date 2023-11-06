@@ -8,13 +8,11 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="searchView" focusTraversable="true" prefHeight="630.0" prefWidth="1003.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.Search.SearchController">
+<AnchorPane id="AnchorPane" fx:id="searchView" focusTraversable="true" onMouseClicked="#reset" prefHeight="630.0" prefWidth="1003.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.Search.SearchController">
     <stylesheets>
         <URL value="@../../Css/searchView.css" />
     </stylesheets>
@@ -55,21 +53,17 @@
                               <Font name="System Bold" size="22.0" />
                            </font>
                         </TextArea>
-                        <HBox layoutX="94.0" layoutY="122.0" prefHeight="40.0" prefWidth="586.0">
+                        <HBox layoutX="94.0" layoutY="122.0" prefHeight="40.0" prefWidth="586.0" styleClass="listBtn">
                            <children>
-                              <Label fx:id="pronounceWord" prefHeight="50.0" prefWidth="338.0" textFill="#173e80">
+                              <Label fx:id="pronounceWord" prefHeight="40.0" prefWidth="345.0" textFill="#173e80">
                                  <font>
                                     <Font name="System Bold Italic" size="19.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="41.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" styleClass="Images-View">
-                                 <image>
-                                    <Image url="@../../Images/speakerWord.png" />
-                                 </image>
-                              </ImageView>
+                              <Button mnemonicParsing="false" onAction="#onActionSpeakBtn" text="Button" />
                               <Button mnemonicParsing="false" onAction="#onActionEditWord" prefHeight="37.0" prefWidth="47.0" styleClass="buttonEditWord" text="Edit" textFill="#5ec487" />
                               <Button mnemonicParsing="false" onAction="#onActionAddWord" prefHeight="37.0" prefWidth="52.0" styleClass="buttonAddWord" text="Add" textFill="#f43838" />
-                              <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="51.0" styleClass="buttonDeleteWord" text="Delete" />
+                              <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="84.0" styleClass="buttonDeleteWord" text="Delete" />
                            </children>
                         </HBox>
                      </children>
