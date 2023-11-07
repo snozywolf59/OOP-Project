@@ -1,5 +1,6 @@
 .bodybg{
     -fx-background-image: url("../Images/background.jpg");
+    -fx-background-radius: 3 3 3 3;
 }
 .bodybg1{
     -fx-background-color: #669999;

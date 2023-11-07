@@ -7,10 +7,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.media.MediaView?>
 
-<AnchorPane id="AnchorPane" prefHeight="340.0" prefWidth="600.0" styleClass="bg" stylesheets="@../Css/welcome.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.WelcomeController">
+<AnchorPane id="AnchorPane" prefHeight="510.0" prefWidth="900.0" styleClass="bg" stylesheets="@../Css/welcome.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.WelcomeController">
     <children>
       <MediaView fx:id="mediaView" fitHeight="340.0" fitWidth="600.0" />
-        <VBox prefHeight="340.0" prefWidth="600.0">
+        <VBox prefHeight="510.0" prefWidth="900.0">
             <children>
             <FontAwesomeIconView glyphName="BOOK" size="40.0" text="" wrappingWidth="40.0" />
                 <Label prefHeight="184.0" prefWidth="600.0" text="EDUET" />

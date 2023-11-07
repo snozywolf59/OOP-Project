@@ -29,6 +29,8 @@ public class WelcomeController implements Initializable {
             throw new RuntimeException(e);
         }
         enterButton.setOnAction(event-> Model.getInstance().getViewFactory().showWindow());
+        mediaView.setFitHeight(510);
+        mediaView.setFitWidth(900);
     }
 
     public void init() throws MalformedURLException {

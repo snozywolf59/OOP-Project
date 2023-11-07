@@ -13,7 +13,6 @@ import javafx.scene.control.ScrollPane;
 
 public final class ViewFactory {
     private final Stage stage = new Stage();
-    private final Stage tempStage = new Stage();
     private final String appName = "Ten App";
 
     private final StringProperty currentSelect;
@@ -113,6 +112,7 @@ public final class ViewFactory {
     public void showWelcome() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Welcome.fxml"));
         createStage(loader);
+        stage.setResizable(false);
     }
 
     public void showWindow() {
