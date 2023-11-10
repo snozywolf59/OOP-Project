@@ -26,6 +26,7 @@ public class GGTranslateController {
     @FXML
     private MenuButton buttonToLanguage;
 
+    private boolean isRecording = false;
     private final TextToSpeech textToSpeech = new TextToSpeech();
     private final Translator translator = new Translator();
     private final Microphone mic = new Microphone(FLACFileWriter.FLAC);
@@ -75,8 +76,23 @@ public class GGTranslateController {
         translator.setToLanguage(buttonToLanguage.getText());
     }
 
+    void changeRecord() {
+        isRecording = !isRecording;
+    }
+
     @FXML
-    void record(ActionEvent event) {
+    void doRecord() {
+        if (isRecording) {
+            stop();
+            changeRecord();
+        } else {
+            record();
+            changeRecord();
+        }
+    }
+
+    @FXML
+    void record() {
         duplex.setLanguage("vi");
         new Thread(() -> {
             try {
@@ -113,21 +129,21 @@ public class GGTranslateController {
     }
 
     @FXML
-    void stop(ActionEvent event) {
+    void stop() {
         mic.close();
         duplex.stopSpeechRecognition();
     }
 
     @FXML
-    void actionCheck(ActionEvent event) throws IOException, InterruptedException {
+    void actionCheck() throws IOException, InterruptedException {
         resultText.setText(checker.check(originalText.getText()));
     }
     @FXML
-    void chatAI(ActionEvent event) throws IOException, InterruptedException {
+    void chatAI() throws IOException, InterruptedException {
         resultText.setText(chatAI.chatAI(originalText.getText()));
     }
     @FXML
-    void rewrite(ActionEvent event) throws IOException, InterruptedException {
+    void rewrite() throws IOException, InterruptedException {
         resultText.setText(reWriter.rewrite(originalText.getText()));
     }
 }

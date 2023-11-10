@@ -17,16 +17,44 @@
     -fx-background-radius: 5 5 5 5 ;
     -fx-pref-width: 200;
     -fx-pref-height: 60;
-    -fx-background-color: #FFFFFF;
+    -fx-background-color: null;
 }
 
-.origin Button {
-    -fx-background-radius: 5 5 5 5 ;
-    -fx-background-color: #FFFFFF;
-    -fx-pref-width: 80;
+.origin MenuButton:hover {
+    -fx-background-radius: 30 30 30 30 ;
+    -fx-pref-width: 200;
     -fx-pref-height: 60;
-    -fx-fill: #B5FFE9;
-    -fx-effect: dropshadow(three-pass-box, rgba(20,255,0,0.3), 1, 0.5, 0.5, 5);
+    -fx-background-color: white;
+}
+
+.toggleButton {
+    -fx-background-radius: 30 30 30 30 ;
+    -fx-background-color: null;
+    -fx-pref-width: 120;
+    -fx-pref-height: 60;
+}
+
+.toggleButton:hover {
+    -fx-background-color: #FFFFFF;
+    -fx-cursor: hand;
+}
+
+.toggleButton:selected {
+    -fx-background-color: #FF4444;
+}
+
+.orgButton {
+    -fx-background-radius: 30 30 30 30;
+    -fx-background-color: null;
+    -fx-pref-width: 120;
+    -fx-pref-height: 60;
+    -fx-fill: null;
+}
+
+.orgButton:hover {
+    -fx-background-color: #FFFFFF;
+    -fx-fill: #FFFFFF;
+    -fx-cursor: hand;
 }
 
 .origin TextArea {
@@ -45,56 +73,43 @@
     -fx-text-fill: #333333; /* Màu chữ */
 }
 
-.translated {
-    -fx-pref-height: 300;
-    -fx-pref-width: 400;
-    -fx-font-size: 18;
-}
-
-.translated HBox {
-    -fx-pref-height: 40;
-    -fx-pref-width: 400;
-}
-
-.translated MenuButton {
-    -fx-background-radius: 5 5 5 5 ;
-    -fx-pref-width: 200;
-    -fx-pref-height: 60;
-    -fx-background-color: #FFFFFF;
-}
-
-.translated Button {
-    -fx-background-radius: 5 5 5 5 ;
-    -fx-pref-width: 80;
-    -fx-pref-height: 60;
-    -fx-background-color: #FFFFFF;
-    -fx-effect: dropshadow(gaussian, rgba(20,255,0,0.3), 1, 0.5, 0.5, 5);
-}
-
 .swap {
-    -fx-pref-width: 20;
+    -fx-pref-width: 40;
     -fx-pref-height: 40;
-    -fx-background-color: #FFFFFF;
+    -fx-background-color: null;
+    -fx-alignment: center;
+    -fx-background-radius: 20 20 20 20;
 }
 
-.swap HBox FontAwesomeIconView {
+.swap:hover{
+    -fx-background-color: #FFFFFF;
+    -fx-cursor: hand;
+}
+
+.swap VBox FontAwesomeIconView {
     -fx-size: 15.0;
 }
 
-.swap {
+.swap VBox{
     -fx-alignment: center;
-    -fx-background-radius: 5 5 5 5;
 }
 
 .mode {
-    -fx-background-color: #FFFFFF;
+    -fx-background-color: null;
     -fx-text-fill: red;
-    -fx-background-radius: 3px;
-    -fx-border-radius: 2px;
-    -fx-border-color: red;
-    -fx-border-width: 1px;
+    -fx-background-radius: 15px;
 }
 
-.mode Button: hover {
+.mode MenuItem{
+-fx-background-color: null;
+-fx-background-radius: 15px;
+}
 
+.mode MenuItem:hover{
+    -fx-background-color: white;
+}
+
+.mode:hover {
+    -fx-cursor: hand;
+    -fx-background-color: white;
 }

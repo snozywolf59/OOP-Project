@@ -39,7 +39,7 @@ public class Checker {
         JsonObject jsonObject = JsonParser.parseString(body).getAsJsonObject();
         JsonObject jsonObject1 = JsonParser.parseString(String.valueOf(jsonObject.get("response"))).getAsJsonObject();
         JsonArray jsonArray = (JsonArray) jsonObject1.get("errors");
-        for (int i = 0; i < (int) jsonArray.size(); i++) {
+        for (int i = 0; i < jsonArray.size(); i++) {
             result.append("Error ").append(i + 1).append(":");
             result.append("\n\tDescription: ");
             result.append((jsonArray.get(i)).getAsJsonObject().get("description").getAsJsonObject().get("en"));
