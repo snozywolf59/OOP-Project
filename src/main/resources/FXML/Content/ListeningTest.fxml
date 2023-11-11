@@ -12,7 +12,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="839.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.Learn.ListeningTestController">
    <children>
       <TextArea fx:id="text" editable="false" layoutX="39.0" layoutY="80.0" prefHeight="425.0" prefWidth="566.0" />
-      <Button layoutX="384.0" layoutY="34.0" mnemonicParsing="false" onAction="#playAudio">
+      <Button layoutX="384.0" layoutY="34.0" mnemonicParsing="false" onMouseClicked="#playAudio">
          <graphic>
             <FontAwesomeIconView glyphName="VOLUME_UP" textAlignment="CENTER" wrappingWidth="41.683311462402344" />
          </graphic>
@@ -70,9 +70,14 @@
             </HBox>
          </children>
       </VBox>
-      <Button layoutX="442.0" layoutY="34.0" mnemonicParsing="false" onAction="#stopAudio">
+      <Button layoutX="442.0" layoutY="34.0" mnemonicParsing="false" onMouseClicked="#stopAudio">
          <graphic>
             <FontAwesomeIconView glyphName="STOP" textAlignment="CENTER" wrappingWidth="41.683311462402344" />
+         </graphic>
+      </Button>
+      <Button layoutX="521.0" layoutY="33.0" mnemonicParsing="false" onMouseClicked="#doPlay">
+         <graphic>
+            <FontAwesomeIconView glyphName="VOLUME_UP" textAlignment="CENTER" wrappingWidth="41.683311462402344" />
          </graphic>
       </Button>
    </children>

@@ -1,4 +1,4 @@
-package com.dictionary.Controllers.Content.GGTranslate;
+package com.dictionary.Controllers.Content.API;
 
 import java.io.BufferedReader;
 import java.io.IOException;

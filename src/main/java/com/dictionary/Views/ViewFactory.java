@@ -4,10 +4,8 @@ import com.dictionary.Controllers.Content.Learn.ListeningTest;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.scene.control.ScrollPane;
 
@@ -79,7 +77,7 @@ public final class ViewFactory {
     public AnchorPane getGGTranslateView() {
         if (ggTranslateView == null) {
             try {
-                ggTranslateView = new FXMLLoader(getClass().getResource("/FXML/Content/GGTranslate.fxml")).load();
+                ggTranslateView = new FXMLLoader(getClass().getResource("/FXML/Content/API.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -133,15 +131,7 @@ public final class ViewFactory {
         stage.setScene(scene);
         stage.setTitle(appName);
 
-        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-        double X = (screenBounds.getWidth() - stage.getWidth()) / 2;
-        double Y = (screenBounds.getHeight() - stage.getHeight()) / 2;
-
-        // Đặt vị trí của Stage
-        stage.setX(X);
-        stage.setY(Y);
         stage.centerOnScreen();
-        stage.setFullScreen(true);
 
         stage.show();
     }

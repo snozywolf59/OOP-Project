@@ -12,7 +12,7 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1095.0" styleClass="bg" stylesheets="@../../Css/ggtranslate.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.GGTranslate.GGTranslateController">
+<AnchorPane prefHeight="720.0" prefWidth="1095.0" styleClass="bg" stylesheets="@../../Css/ggtranslate.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.API.GGTranslateController">
     <children>
       <MediaView fx:id="mediaView" fitHeight="800.0" fitWidth="1300.0" />
         <VBox layoutX="589.0" layoutY="135.0" prefHeight="250.0" prefWidth="400.0" styleClass="origin" AnchorPane.rightAnchor="311.0" AnchorPane.topAnchor="135.0">
@@ -46,7 +46,7 @@
                         </MenuButton>
                         <ToggleButton mnemonicParsing="false" onAction="#doRecord" prefHeight="40.0" prefWidth="121.0" styleClass="toggleButton">
                             <graphic>
-                                <FontAwesomeIconView glyphName="MICROPHONE" />
+                                <FontAwesomeIconView fx:id="recordIcon" glyphName="MICROPHONE" />
                             </graphic>
                         </ToggleButton>
 
