@@ -5,7 +5,7 @@
 .bg Button {
     -fx-pref-height: 50;
     -fx-pref-width: 200;
-    -fx-text-fill: gray;
+    -fx-text-fill: grey;
     -fx-font-weight: bold;
     -fx-effect: dropshadow(three-pass-box, rgba(50,50,50,0.3), 1, 0.5, 0.5, 5);
     -fx-background-color: #eccf27;

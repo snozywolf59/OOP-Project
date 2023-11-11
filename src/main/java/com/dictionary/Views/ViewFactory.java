@@ -113,6 +113,7 @@ public final class ViewFactory {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Welcome.fxml"));
         createStage(loader);
         stage.setResizable(false);
+        stage.setFullScreen(false);
     }
 
     public void showWindow() {
@@ -139,6 +140,8 @@ public final class ViewFactory {
         // Đặt vị trí của Stage
         stage.setX(X);
         stage.setY(Y);
+        stage.centerOnScreen();
+        stage.setFullScreen(true);
 
         stage.show();
     }

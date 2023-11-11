@@ -1,3 +1,10 @@
 .mainFxmlClass {
 
 }
+.text-area {
+    -fx-opacity: 0.7;
+    -fx-font-size: 25;
+    -fx-font-weight: bold;
+    -fx-font-family: Arial;
+    -fx-background-radius: 17 17 17 17;
+}

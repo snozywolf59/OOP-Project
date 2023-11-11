@@ -2,6 +2,7 @@ package com.dictionary.Controllers.Content.GGTranslate;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
@@ -9,11 +10,23 @@ import com.darkprograms.speech.microphone.Microphone;
 import com.darkprograms.speech.recognizer.GSpeechDuplex;
 import com.darkprograms.speech.recognizer.GSpeechResponseListener;
 import com.darkprograms.speech.recognizer.GoogleResponse;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import net.sourceforge.javaflacencoder.FLACFileWriter;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class GGTranslateController {
+public class GGTranslateController implements Initializable {
+    @FXML
+    private MediaView mediaView;
+    private Thread thread;
+    private MediaPlayer mediaPlayer;
+
     @FXML
     private TextArea originalText;
 
@@ -129,5 +142,33 @@ public class GGTranslateController {
     @FXML
     void rewrite(ActionEvent event) throws IOException, InterruptedException {
         resultText.setText(reWriter.rewrite(originalText.getText()));
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            init();
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void init() throws MalformedURLException {
+        File file = new File("src/main/resources/Video/HomeBackground.mp4");
+
+        Media media = new Media(file.toURI().toString());
+        thread = new Thread(() -> {
+            mediaPlayer = new MediaPlayer(media);
+            mediaPlayer.setAutoPlay(true);
+            mediaView.setMediaPlayer(mediaPlayer);
+            mediaView.setOpacity(0.4);
+            mediaPlayer.setOnEndOfMedia(() -> {
+                mediaPlayer.seek(mediaPlayer.getStartTime());
+                mediaPlayer.play();
+            });
+            mediaPlayer.play();
+        });
+        thread.setDaemon(false);
+
+        thread.start();
     }
 }
