@@ -4,10 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ListeningTestController implements Initializable {
+    private boolean isPlaying;
     private final ListeningTest listeningTest = new ListeningTest();
 
     @FXML
@@ -41,12 +44,12 @@ public class ListeningTestController implements Initializable {
     }
 
     @FXML
-    void playAudio(ActionEvent event) {
+    void playAudio(MouseEvent event) {
         listeningTest.playAudio();
     }
 
     @FXML
-    void stopAudio(ActionEvent event) {
+    void stopAudio(MouseEvent event) {
         ListeningTest.stopAudio();
     }
 
@@ -59,5 +62,14 @@ public class ListeningTestController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //init();
+    }
+
+    public void doPlay(MouseEvent mouseEvent) {
+        if (isPlaying) {
+            stopAudio(mouseEvent);
+        } else {
+            playAudio(mouseEvent);
+        }
+        isPlaying = !isPlaying;
     }
 }
