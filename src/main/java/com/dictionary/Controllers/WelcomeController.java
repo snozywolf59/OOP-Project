@@ -14,6 +14,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class WelcomeController implements Initializable {
+    public static final String linkToWelcomeVideo = "src/main/resources/Video/HomeBackground.mp4";
+
     @FXML
     private Button enterButton;
 
@@ -34,8 +36,7 @@ public class WelcomeController implements Initializable {
     }
 
     public void init() throws MalformedURLException {
-        String filePath = "C:\\Users\\Admin\\Desktop\\Cod_11_11\\OOP-Project\\src\\main\\resources\\Video\\HomeBackground.mp4";
-        File file = new File(filePath);
+        File file = new File(linkToWelcomeVideo);
 
         Media media = new Media(file.toURI().toString());
         mediaPlayer = new MediaPlayer(media);

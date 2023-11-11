@@ -26,7 +26,7 @@ public class HomeController implements Initializable {
     private MediaPlayer mediaPlayer;
     private Media media;
     private Thread thread;
-    public static File file = new File("C:\\Users\\Admin\\Desktop\\Cod_11_11\\OOP-Project\\src\\main\\resources\\Video\\HomeBackground.mp4");
+    public static File file = new File("src/main/resources/Video/HomeBackground.mp4");
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

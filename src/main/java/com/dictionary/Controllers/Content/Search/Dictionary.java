@@ -12,12 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dictionary {
-<<<<<<< HEAD
-
-    private static final String linkToDictionary = "C:\\Users\\Admin\\Desktop\\Cod_11_11\\OOP-Project\\src\\main\\resources\\Word\\eng-vie.txt";
-=======
     private static final String linkToDictionary = "src/main/resources/Word/eng-vie.txt";
->>>>>>> 87fb943b7e3a3e5e304a28678bdce30aa283deb9
 
     private final TreeNode headNode;
 

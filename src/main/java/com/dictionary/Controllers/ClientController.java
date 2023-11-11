@@ -40,32 +40,29 @@ public class ClientController implements Initializable {
                 case "Home":
                 default:
                     parent_pane.setCenter(Model.getInstance().getViewFactory().getHomeView());
-                    Model.getInstance().getViewFactory().getCurrentSelect().addListener(new ChangeListener<String>() {
-                        @Override
-                        public void changed(ObservableValue<? extends String> o, String oldValue, String newValue) {
-                            switch (newValue) {
-                                case "ListeningTest":
-                                    parent_pane.setCenter(Model.getInstance().getViewFactory().getListeningTestView());
-                                    break;
-                                case "Search":
-                                    parent_pane.setCenter(Model.getInstance().getViewFactory().getSearchView());
-                                    break;
-                                case "Play":
-                                    parent_pane.setCenter(Model.getInstance().getViewFactory().getPlayView());
-                                    break;
-                                case "Exit":
-                                    Model.getInstance().getViewFactory().closeStage();
-                                    break;
-                                case "Learn":
-                                    parent_pane.setCenter(Model.getInstance().getViewFactory().getLearnView());
-                                    break;
-                                case "GoogleTranslate":
-                                    parent_pane.setCenter(Model.getInstance().getViewFactory().getGGTranslateView());
-                                    break;
-                                case "Home":
-                                default:
-                                    parent_pane.setCenter(Model.getInstance().getViewFactory().getHomeView());
-                            }
+                    Model.getInstance().getViewFactory().getCurrentSelect().addListener((o1, oldValue1, newValue1) -> {
+                        switch (newValue1) {
+                            case "ListeningTest":
+                                parent_pane.setCenter(Model.getInstance().getViewFactory().getListeningTestView());
+                                break;
+                            case "Search":
+                                parent_pane.setCenter(Model.getInstance().getViewFactory().getSearchView());
+                                break;
+                            case "Play":
+                                parent_pane.setCenter(Model.getInstance().getViewFactory().getPlayView());
+                                break;
+                            case "Exit":
+                                Model.getInstance().getViewFactory().closeStage();
+                                break;
+                            case "Learn":
+                                parent_pane.setCenter(Model.getInstance().getViewFactory().getLearnView());
+                                break;
+                            case "GoogleTranslate":
+                                parent_pane.setCenter(Model.getInstance().getViewFactory().getGGTranslateView());
+                                break;
+                            case "Home":
+                            default:
+                                parent_pane.setCenter(Model.getInstance().getViewFactory().getHomeView());
                         }
                     });
             }
