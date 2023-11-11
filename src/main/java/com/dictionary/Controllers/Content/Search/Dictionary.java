@@ -13,7 +13,7 @@ import java.util.List;
 
 public class Dictionary {
 
-    private static final String linkToDictionary = "src/main/resources/Word/eng-vie.txt";
+    private static final String linkToDictionary = "C:\\Users\\Admin\\Desktop\\Cod_11_11\\OOP-Project\\src\\main\\resources\\Word\\eng-vie.txt";
 
     private final TreeNode headNode;
 
@@ -218,6 +218,7 @@ public class Dictionary {
             tmp =  tmp.listNode[i];
         }
     }
+
 
     public static void textToSpeech(String text) {
         System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");

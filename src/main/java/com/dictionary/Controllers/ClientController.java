@@ -65,7 +65,6 @@ public class ClientController implements Initializable {
                                 case "Home":
                                 default:
                                     parent_pane.setCenter(Model.getInstance().getViewFactory().getHomeView());
-
                             }
                         }
                     });

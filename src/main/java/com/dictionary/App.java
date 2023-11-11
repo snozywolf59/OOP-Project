@@ -14,7 +14,6 @@ public class App extends Application {
     public void start(Stage stage) throws Exception {
         Model.getInstance().getViewFactory().showWelcome();
     }
-    
     public static void main(String[] args) {
         launch(args);
     }

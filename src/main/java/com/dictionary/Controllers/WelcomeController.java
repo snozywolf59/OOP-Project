@@ -34,7 +34,8 @@ public class WelcomeController implements Initializable {
     }
 
     public void init() throws MalformedURLException {
-        File file = new File("src/main/resources/Video/HomeBackground.mp4");
+        String filePath = "C:\\Users\\Admin\\Desktop\\Cod_11_11\\OOP-Project\\src\\main\\resources\\Video\\HomeBackground.mp4";
+        File file = new File(filePath);
 
         Media media = new Media(file.toURI().toString());
         mediaPlayer = new MediaPlayer(media);
