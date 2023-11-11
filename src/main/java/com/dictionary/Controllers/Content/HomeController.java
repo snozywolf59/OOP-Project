@@ -23,8 +23,11 @@ public class HomeController implements Initializable {
     private MediaView mediaView;
     @FXML
     private TextArea infoApp;
-    public static MediaPlayer mediaPlayer;
+    private MediaPlayer mediaPlayer;
+    private Media media;
     private Thread thread;
+    public static File file = new File("src/main/resources/Video/HomeBackground.mp4");
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         infoApp.setText("Chào mừng bạn đã đến với UETED");
@@ -36,9 +39,9 @@ public class HomeController implements Initializable {
     }
 
     public void init() throws MalformedURLException {
-        File file = new File("src/main/resources/Video/HomeBackground.mp4");
+        //File file = new File("src/main/resources/Video/HomeBackground.mp4");
 
-        Media media = new Media(file.toURI().toString());
+        media = new Media(file.toURI().toString());
         thread = new Thread(() -> {
             mediaPlayer = new MediaPlayer(media);
             mediaPlayer.setAutoPlay(true);

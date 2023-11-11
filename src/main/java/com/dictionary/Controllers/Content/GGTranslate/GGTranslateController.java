@@ -1,5 +1,6 @@
 package com.dictionary.Controllers.Content.GGTranslate;
 
+import com.dictionary.Controllers.Content.HomeController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,6 +26,7 @@ public class GGTranslateController implements Initializable {
     @FXML
     private MediaView mediaView;
     private Thread thread;
+    private Media media;
     private MediaPlayer mediaPlayer;
 
     @FXML
@@ -57,9 +59,9 @@ public class GGTranslateController implements Initializable {
         }
     }
     public void init() throws MalformedURLException {
-        File file = new File("src/main/resources/Video/HomeBackground.mp4");
+        //File file = new File("src/main/resources/Video/HomeBackground.mp4");
 
-        Media media = new Media(file.toURI().toString());
+        media = new Media(HomeController.file.toURI().toString());
         thread = new Thread(() -> {
             mediaPlayer = new MediaPlayer(media);
             mediaPlayer.setAutoPlay(true);
