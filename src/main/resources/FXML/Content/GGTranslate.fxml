@@ -5,6 +5,7 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -14,7 +15,7 @@
 <AnchorPane prefHeight="720.0" prefWidth="1095.0" styleClass="bg" stylesheets="@../../Css/ggtranslate.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.GGTranslate.GGTranslateController">
     <children>
       <MediaView fx:id="mediaView" fitHeight="800.0" fitWidth="1300.0" />
-        <VBox layoutX="602.0" layoutY="135.0" prefHeight="250.0" prefWidth="400.0" styleClass="translated" AnchorPane.rightAnchor="303.0" AnchorPane.topAnchor="135.0">
+        <VBox layoutX="589.0" layoutY="135.0" prefHeight="250.0" prefWidth="400.0" styleClass="origin" AnchorPane.rightAnchor="311.0" AnchorPane.topAnchor="135.0">
             <children>
                 <HBox prefHeight="26.0" prefWidth="250.0">
                     <children>
@@ -24,7 +25,7 @@
                                 <MenuItem mnemonicParsing="false" onAction="#getLangTo" text="Tiếng Việt" />
                             </items>
                         </MenuButton>
-                        <Button mnemonicParsing="false" onAction="#speak2" prefHeight="26.0" prefWidth="111.0">
+                        <Button mnemonicParsing="false" onAction="#speak2" prefHeight="26.0" prefWidth="111.0" styleClass="orgButton">
                             <graphic>
                                 <FontAwesomeIconView glyphName="VOLUME_UP" />
                             </graphic>
@@ -43,16 +44,13 @@
                                 <MenuItem mnemonicParsing="false" onAction="#getLangFrom" text="Tiếng Việt" />
                             </items>
                         </MenuButton>
-                        <Button mnemonicParsing="false" onAction="#record" prefHeight="40.0" prefWidth="89.0">
-                     <graphic>
-                        <FontAwesomeIconView glyphName="MICROPHONE" />
-                     </graphic></Button>
-                        <Button mnemonicParsing="false" onAction="#stop">
-                     <graphic>
-                        <FontAwesomeIconView glyphName="STOP" />
-                     </graphic></Button>
+                        <ToggleButton mnemonicParsing="false" onAction="#doRecord" prefHeight="40.0" prefWidth="121.0" styleClass="toggleButton">
+                            <graphic>
+                                <FontAwesomeIconView glyphName="MICROPHONE" />
+                            </graphic>
+                        </ToggleButton>
 
-                        <Button mnemonicParsing="false" onAction="#speak1" prefHeight="40.0" prefWidth="73.0" textFill="#0b4473">
+                        <Button mnemonicParsing="false" onAction="#speak1" prefHeight="40.0" prefWidth="123.0" styleClass="orgButton" textFill="#0b4473">
                             <graphic>
                                 <FontAwesomeIconView glyphName="VOLUME_UP" size="20.0" />
                             </graphic></Button>
@@ -68,20 +66,20 @@
         </VBox>
         <Button layoutX="528.0" layoutY="135.0" mnemonicParsing="false" onAction="#swap" prefHeight="20.0" prefWidth="0.0" styleClass="swap" AnchorPane.leftAnchor="528.0" AnchorPane.topAnchor="135.0">
             <graphic>
-                <VBox prefHeight="42.0" prefWidth="2.0">
+                <VBox prefHeight="32.0" prefWidth="32.0">
                     <children>
                         <FontAwesomeIconView glyphName="ARROW_LEFT" size="15" />
                         <FontAwesomeIconView glyphName="ARROW_RIGHT" size="15" />
                     </children>
                 </VBox>
             </graphic></Button>
-      <MenuButton layoutX="512.0" layoutY="270.0" mnemonicParsing="false" styleClass="mode" text="Action">
-        <items>
-          <MenuItem mnemonicParsing="false" onAction="#actionCheck" text="Check" />
-          <MenuItem mnemonicParsing="false" onAction="#rewrite" text="Rewrite" />
-            <MenuItem mnemonicParsing="false" onAction="#chatAI" text="AI Chat" />
-            <MenuItem mnemonicParsing="false" onAction="#translate" text="Translate" />
-        </items>
-      </MenuButton>
+        <MenuButton layoutX="512.0" layoutY="270.0" mnemonicParsing="false" styleClass="mode" text="Action">
+            <items>
+                <MenuItem mnemonicParsing="false" onAction="#actionCheck" text="Check" />
+                <MenuItem mnemonicParsing="false" onAction="#rewrite" text="Rewrite" />
+                <MenuItem mnemonicParsing="false" onAction="#chatAI" text="AI Chat" />
+                <MenuItem mnemonicParsing="false" onAction="#translate" text="Translate" />
+            </items>
+        </MenuButton>
     </children>
 </AnchorPane>

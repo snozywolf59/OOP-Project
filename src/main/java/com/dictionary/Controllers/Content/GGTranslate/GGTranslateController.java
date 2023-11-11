@@ -39,6 +39,7 @@ public class GGTranslateController implements Initializable {
     @FXML
     private MenuButton buttonToLanguage;
 
+    private boolean isRecording = false;
     private final TextToSpeech textToSpeech = new TextToSpeech();
     private final Translator translator = new Translator();
     private final Microphone mic = new Microphone(FLACFileWriter.FLAC);
@@ -47,7 +48,33 @@ public class GGTranslateController implements Initializable {
     private ReWriter reWriter = new ReWriter();
     GSpeechDuplex duplex = new GSpeechDuplex("AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw");
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            init();
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void init() throws MalformedURLException {
+        File file = new File("src/main/resources/Video/HomeBackground.mp4");
 
+        Media media = new Media(file.toURI().toString());
+        thread = new Thread(() -> {
+            mediaPlayer = new MediaPlayer(media);
+            mediaPlayer.setAutoPlay(true);
+            mediaView.setMediaPlayer(mediaPlayer);
+            mediaView.setOpacity(0.4);
+            mediaPlayer.setOnEndOfMedia(() -> {
+                mediaPlayer.seek(mediaPlayer.getStartTime());
+                mediaPlayer.play();
+            });
+            mediaPlayer.play();
+        });
+        thread.setDaemon(false);
+
+        thread.start();
+    }
     @FXML
     void getLangFrom(ActionEvent event) {
         String s = ((MenuItem) event.getSource()).getText();
@@ -88,8 +115,23 @@ public class GGTranslateController implements Initializable {
         translator.setToLanguage(buttonToLanguage.getText());
     }
 
+    void changeRecord() {
+        isRecording = !isRecording;
+    }
+
     @FXML
-    void record(ActionEvent event) {
+    void doRecord() {
+        if (isRecording) {
+            stop();
+            changeRecord();
+        } else {
+            record();
+            changeRecord();
+        }
+    }
+
+    @FXML
+    void record() {
         duplex.setLanguage("vi");
         new Thread(() -> {
             try {
@@ -126,49 +168,21 @@ public class GGTranslateController implements Initializable {
     }
 
     @FXML
-    void stop(ActionEvent event) {
+    void stop() {
         mic.close();
         duplex.stopSpeechRecognition();
     }
 
     @FXML
-    void actionCheck(ActionEvent event) throws IOException, InterruptedException {
+    void actionCheck() throws IOException, InterruptedException {
         resultText.setText(checker.check(originalText.getText()));
     }
     @FXML
-    void chatAI(ActionEvent event) throws IOException, InterruptedException {
+    void chatAI() throws IOException, InterruptedException {
         resultText.setText(chatAI.chatAI(originalText.getText()));
     }
     @FXML
-    void rewrite(ActionEvent event) throws IOException, InterruptedException {
+    void rewrite() throws IOException, InterruptedException {
         resultText.setText(reWriter.rewrite(originalText.getText()));
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        try {
-            init();
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    public void init() throws MalformedURLException {
-        File file = new File("src/main/resources/Video/HomeBackground.mp4");
-
-        Media media = new Media(file.toURI().toString());
-        thread = new Thread(() -> {
-            mediaPlayer = new MediaPlayer(media);
-            mediaPlayer.setAutoPlay(true);
-            mediaView.setMediaPlayer(mediaPlayer);
-            mediaView.setOpacity(0.4);
-            mediaPlayer.setOnEndOfMedia(() -> {
-                mediaPlayer.seek(mediaPlayer.getStartTime());
-                mediaPlayer.play();
-            });
-            mediaPlayer.play();
-        });
-        thread.setDaemon(false);
-
-        thread.start();
     }
 }

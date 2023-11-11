@@ -27,7 +27,7 @@ public class HomeController implements Initializable {
     private Thread thread;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        infoApp.setText("This is an app with javafx");
+        infoApp.setText("Chào mừng bạn đã đến với UETED");
         try {
             init();
         } catch (MalformedURLException e) {

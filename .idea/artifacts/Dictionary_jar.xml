@@ -1,0 +1,189 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Dictionary:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Dictionary_jar</output-path>
+    <root id="archive" name="Dictionary.jar">
+      <element id="module-output" name="Dictionary" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/dlsc/formsfx/formsfx-core/11.6.0/formsfx-core-11.6.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/gluonhq/attach/storage/4.0.13/storage-4.0.13.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/21-ea+24/javafx-controls-21-ea+24.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/kordamp/bootstrapfx/bootstrapfx-core/0.4.0/bootstrapfx-core-0.4.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/edu/cmu/sphinx/sphinx4-core/5prealpha-SNAPSHOT/sphinx4-core-5prealpha-20160628.232526-10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/21-ea+24/javafx-base-21-ea+24.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/21-ea+24/javafx-fxml-21-ea+24-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/gluonhq/attach/lifecycle/4.0.13/lifecycle-4.0.13.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/gluonhq/attach/util/4.0.13/util-4.0.13.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib/1.6.0/kotlin-stdlib-1.6.0-modular.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/github/almasb/fxgl-scene/17.2/fxgl-scene-17.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/gluonhq/attach/audio/4.0.13/audio-4.0.13.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.12.1/jackson-annotations-2.12.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/21-ea+24/javafx-graphics-21-ea+24.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/21-ea+24/javafx-controls-21-ea+24-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/kordamp/ikonli/ikonli-javafx/12.3.1/ikonli-javafx-12.3.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/json/json/20150729/json-20150729.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/github/almasb/fxgl-gameplay/17.2/fxgl-gameplay-17.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/de/jensd/fontawesomefx-fontawesome/4.7.0-9.1.2/fontawesomefx-fontawesome-4.7.0-9.1.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/kordamp/ikonli/ikonli-core/12.3.1/ikonli-core-12.3.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.12.1/jackson-core-2.12.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/edu/cmu/sphinx/sphinx4-data/5prealpha-SNAPSHOT/sphinx4-data-5prealpha-20160628.232535-10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/github/goxr3plus/java-google-speech-api/8.0.0/java-google-speech-api-8.0.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.12.1/jackson-databind-2.12.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/controlsfx/controlsfx/11.1.2/controlsfx-11.1.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-base/21-ea+24/javafx-base-21-ea+24-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/sf/sociaal/freetts/1.2.2/freetts-1.2.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/github/almasb/fxgl-core/17.2/fxgl-core-17.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/javazoom/jlayer/1.0.1/jlayer-1.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/github/axet/java-flac-encoder/0.3.8/java-flac-encoder-0.3.8.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/annotations/13.0/annotations-13.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-media/21-ea+24/javafx-media-21-ea+24-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/21-ea+24/javafx-graphics-21-ea+24-win.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/21-ea+24/javafx-fxml-21-ea+24.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/github/almasb/fxgl/17.2/fxgl-17.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.10/gson-2.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/github/almasb/fxgl-io/17.2/fxgl-io-17.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/synedra/validatorfx/0.4.0/validatorfx-0.4.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-stdlib-common/1.6.0/kotlin-stdlib-common-1.6.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/openjfx/javafx-media/21-ea+24/javafx-media-21-ea+24.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/de/jensd/fontawesomefx-commons/9.1.2/fontawesomefx-commons-9.1.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/github/almasb/fxgl-entity/17.2/fxgl-entity-17.2.jar" path-in-jar="/" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-console-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-localization-l1-2-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jaccesswalker.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/net.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jimage.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jsound.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/j2pcsc.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-crt-multibyte-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-crt-math-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/ktab.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jhsdb.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jwebserver.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-crt-environment-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jstatd.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jaccessinspector.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-crt-private-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-memory-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-crt-heap-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-synch-l1-2-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-console-l1-2-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/instrument.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jdeprscan.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/windowsaccessbridge-64.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jinfo.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jconsole.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-interlocked-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/ucrtbase.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jabswitch.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/sunmscapi.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/lcms.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-heap-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jrunscript.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/w2k_lsa_auth.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-datetime-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/prism_common.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jstat.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/management_ext.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jpackage.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jawt.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-errorhandling-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-string-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-crt-time-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jar.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-crt-string-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jshell.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/saproc.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-file-l1-2-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/java.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/vcruntime140.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jlink.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-crt-filesystem-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jps.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jsvml.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jmod.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jarsigner.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/j2pkcs11.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/gstreamer-lite.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/msvcp140.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jdwp.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/freetype.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/mlib_image.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-sysinfo-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/msvcp140_1.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/javafx_font.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jli.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jdeps.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/dt_shmem.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/le.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/rmiregistry.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-crt-runtime-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jpackage.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/javajpeg.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-processenvironment-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/verify.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-profile-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/keytool.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/java.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/j2gss.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-libraryloader-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/vcruntime140_1.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-debug-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/extnet.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-timezone-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/rmi.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/management.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jimage.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-synch-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-processthreads-l1-1-1.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/glass.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-file-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-crt-conio-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jstack.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/fontmanager.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/javaw.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jfxwebkit.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-file-l2-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-crt-convert-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-crt-stdio-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/attach.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/zip.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/javap.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-processthreads-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jfr.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-rtlsupport-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jmap.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-namedpipe-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/splashscreen.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/sspi_bridge.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/management_agent.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/fxplugins.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jaas.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/glib-lite.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-crt-utility-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/serialver.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/awt.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/decora_sse.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-crt-locale-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/klist.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-util-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-handle-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/javafx_iio.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-crt-process-l1-1-0.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/dt_socket.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/prefs.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/javac.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/msvcp140_2.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/javadoc.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jcmd.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jdb.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/syslookup.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/prism_sw.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/javaaccessbridge.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/nio.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/prism_d3d.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/jfxmedia.dll" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/kinit.exe" />
+      <element id="file-copy" path="D:/zulu21-fx-jdk/bin/api-ms-win-core-fibers-l1-1-0.dll" />
+    </root>
+  </artifact>
+</component>
