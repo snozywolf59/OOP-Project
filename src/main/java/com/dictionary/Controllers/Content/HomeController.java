@@ -9,7 +9,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.advanced.AdvancedPlayer;
-
+import animatefx.animation.*;
 import java.io.Closeable;
 import java.io.File;
 import java.io.IOException;
@@ -19,7 +19,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
-
     @FXML
     private MediaView mediaView;
 
@@ -32,5 +31,6 @@ public class HomeController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         infoApp.setText("Chào mừng bạn đã đến với UETED");
         mediaBackground.playVideo(mediaView, 0.6);
+        new Shake(infoApp).play();
     }
 }

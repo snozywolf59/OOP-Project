@@ -1,10 +1,12 @@
 package com.dictionary.Controllers;
 
+import animatefx.animation.Shake;
 import com.dictionary.Models.Model;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
 
 import java.net.URL;
