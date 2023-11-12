@@ -32,6 +32,7 @@
     -fx-background-color: null;
     -fx-pref-width: 120;
     -fx-pref-height: 60;
+    -fx-font-weight: bold;
 }
 
 .toggleButton:hover {
@@ -49,12 +50,14 @@
     -fx-pref-width: 120;
     -fx-pref-height: 60;
     -fx-fill: null;
+    -fx-font-weight: bold;
 }
 
 .orgButton:hover {
     -fx-background-color: #FFFFFF;
     -fx-fill: #FFFFFF;
     -fx-cursor: hand;
+    -fx-font-weight: bold;
 }
 
 .origin TextArea {

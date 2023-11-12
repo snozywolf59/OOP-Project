@@ -19,7 +19,8 @@ public class WelcomeController implements Initializable {
 
     @FXML
     private MediaView mediaView;
-    private MediaPlayer mediaPlayer;
+
+    private MediaBackground mediaBackground = new MediaBackground("src/main/resources/Video/HomeBackground.mp4");
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -28,22 +29,14 @@ public class WelcomeController implements Initializable {
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
-        enterButton.setOnAction(event-> Model.getInstance().getViewFactory().showWindow());
+        enterButton.setOnAction(event-> {
+            Model.getInstance().getViewFactory().showWindow();
+        });
         mediaView.setFitHeight(510);
         mediaView.setFitWidth(900);
     }
 
     public void init() throws MalformedURLException {
-        File file = new File("src/main/resources/Video/HomeBackground.mp4");
-
-        Media media = new Media(file.toURI().toString());
-        mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.setAutoPlay(true);
-        mediaView.setMediaPlayer(mediaPlayer);
-        mediaPlayer.setOnEndOfMedia(() -> {
-            mediaPlayer.seek(mediaPlayer.getStartTime());
-            mediaPlayer.play();
-        });
-        mediaPlayer.play();
+        mediaBackground.playVideo(mediaView, 0.6);
     }
 }

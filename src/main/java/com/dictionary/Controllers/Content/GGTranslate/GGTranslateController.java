@@ -1,6 +1,7 @@
 package com.dictionary.Controllers.Content.GGTranslate;
 
 import com.dictionary.Controllers.Content.HomeController;
+import com.dictionary.Controllers.MediaBackground;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,9 +26,8 @@ import java.util.ResourceBundle;
 public class GGTranslateController implements Initializable {
     @FXML
     private MediaView mediaView;
-    private Thread thread;
-    private Media media;
-    private MediaPlayer mediaPlayer;
+
+    private MediaBackground mediaBackground = new MediaBackground("src/main/resources/Video/HomeBackground.mp4");
 
     @FXML
     private TextArea originalText;
@@ -52,31 +52,9 @@ public class GGTranslateController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            init();
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
+        mediaBackground.playVideo(mediaView, 0.6);
     }
-    public void init() throws MalformedURLException {
-        //File file = new File("src/main/resources/Video/HomeBackground.mp4");
 
-        media = new Media(HomeController.file.toURI().toString());
-        thread = new Thread(() -> {
-            mediaPlayer = new MediaPlayer(media);
-            mediaPlayer.setAutoPlay(true);
-            mediaView.setMediaPlayer(mediaPlayer);
-            mediaView.setOpacity(0.4);
-            mediaPlayer.setOnEndOfMedia(() -> {
-                mediaPlayer.seek(mediaPlayer.getStartTime());
-                mediaPlayer.play();
-            });
-            mediaPlayer.play();
-        });
-        thread.setDaemon(false);
-
-        thread.start();
-    }
     @FXML
     void getLangFrom(ActionEvent event) {
         String s = ((MenuItem) event.getSource()).getText();
@@ -179,6 +157,7 @@ public class GGTranslateController implements Initializable {
     void actionCheck() throws IOException, InterruptedException {
         resultText.setText(checker.check(originalText.getText()));
     }
+
     @FXML
     void chatAI() throws IOException, InterruptedException {
         resultText.setText(chatAI.chatAI(originalText.getText()));

@@ -1,5 +1,6 @@
 package com.dictionary.Controllers.Content;
 
+import com.dictionary.Controllers.MediaBackground;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
@@ -21,40 +22,15 @@ public class HomeController implements Initializable {
 
     @FXML
     private MediaView mediaView;
+
     @FXML
     private TextArea infoApp;
-    private MediaPlayer mediaPlayer;
-    private Media media;
-    private Thread thread;
-    public static File file = new File("src/main/resources/Video/HomeBackground.mp4");
+
+    private MediaBackground mediaBackground = new MediaBackground("src/main/resources/Video/HomeBackground.mp4");
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         infoApp.setText("Chào mừng bạn đã đến với UETED");
-        try {
-            init();
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void init() throws MalformedURLException {
-        //File file = new File("src/main/resources/Video/HomeBackground.mp4");
-
-        media = new Media(file.toURI().toString());
-        thread = new Thread(() -> {
-            mediaPlayer = new MediaPlayer(media);
-            mediaPlayer.setAutoPlay(true);
-            mediaView.setMediaPlayer(mediaPlayer);
-            mediaView.setOpacity(0.4);
-            mediaPlayer.setOnEndOfMedia(() -> {
-                mediaPlayer.seek(mediaPlayer.getStartTime());
-                mediaPlayer.play();
-            });
-            mediaPlayer.play();
-        });
-        thread.setDaemon(false);
-
-        thread.start();
+        mediaBackground.playVideo(mediaView, 0.6);
     }
 }
