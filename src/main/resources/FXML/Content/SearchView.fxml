@@ -60,10 +60,10 @@
                                     <Font name="System Bold Italic" size="19.0" />
                                  </font>
                               </Label>
-                              <Button mnemonicParsing="false" onAction="#onActionSpeakBtn" text="Button" />
+                              <Button mnemonicParsing="false" onAction="#onActionSpeakBtn" text="Speak" />
                               <Button mnemonicParsing="false" onAction="#onActionEditWord" prefHeight="37.0" prefWidth="47.0" styleClass="buttonEditWord" text="Edit" textFill="#5ec487" />
                               <Button mnemonicParsing="false" onAction="#onActionAddWord" prefHeight="37.0" prefWidth="52.0" styleClass="buttonAddWord" text="Add" textFill="#f43838" />
-                              <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="84.0" styleClass="buttonDeleteWord" text="Delete" />
+                              <Button mnemonicParsing="false" onAction="#onActionDelWord" prefHeight="38.0" prefWidth="54.0" styleClass="buttonDeleteWord" text="Delete" />
                            </children>
                         </HBox>
                      </children>
@@ -107,7 +107,7 @@
             <TextArea fx:id="addExWord" layoutX="47.0" layoutY="233.0" prefHeight="237.0" prefWidth="342.0" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="editTab" layoutX="389.0" layoutY="198.0" prefHeight="302.0" prefWidth="371.0" styleClass="bodybg1">
+      <AnchorPane fx:id="editTab" layoutX="389.0" layoutY="198.0" prefHeight="387.0" prefWidth="377.0" styleClass="bodybg1" AnchorPane.bottomAnchor="183.0" AnchorPane.topAnchor="124.0">
          <children>
             <Label layoutX="9.0" layoutY="29.0" prefHeight="18.0" prefWidth="264.0" text="Mời nhập nghĩa bổ sung cho từ :" textFill="#33123a">
                <font>
@@ -121,12 +121,24 @@
                   <FontAwesomeIconView fill="RED" glyphName="CLOSE" />
                </graphic>
             </Button>
+            <Label fx:id="haveNotChoose" layoutX="48.0" layoutY="84.0" prefHeight="70.0" prefWidth="220.0" text="Bạn chưa chọn từ!" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
-      <Label fx:id="haveNotChoose" layoutX="404.0" layoutY="300.0" prefHeight="70.0" prefWidth="220.0" text="Bạn chưa chọn từ!" textFill="RED">
-         <font>
-            <Font name="System Bold" size="25.0" />
-         </font>
-      </Label>
+      <AnchorPane fx:id="delTab" layoutX="349.0" layoutY="234.0" prefHeight="273.0" prefWidth="444.0" styleClass="bodybg1" AnchorPane.leftAnchor="349.0" AnchorPane.rightAnchor="296.0" AnchorPane.topAnchor="230.0">
+         <children>
+            <Button layoutX="370.0" layoutY="233.0" mnemonicParsing="false" onAction="#confirmDelWord" prefHeight="20.0" prefWidth="60.0" text="OK" textFill="#cc2626" />
+            <Button layoutX="374.0" layoutY="12.0" mnemonicParsing="false" onAction="#closeDelTab" prefHeight="25.0" prefWidth="59.0" text="Close" textFill="#e22727" />
+            <TextArea fx:id="delWord" layoutX="27.0" layoutY="84.0" prefHeight="106.0" prefWidth="359.0" styleClass="bodybg1" />
+            <Label layoutX="27.0" layoutY="12.0" prefHeight="51.0" prefWidth="236.0" text="Nhập từ bạn muốn xóa:" textFill="#423434">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

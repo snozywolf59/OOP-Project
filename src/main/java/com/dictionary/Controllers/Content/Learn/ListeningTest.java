@@ -8,9 +8,6 @@ import java.io.InputStream;
 import java.net.URL;
 
 public class ListeningTest {
-    private int cambridge;
-    private int test;
-    private int section;
     private String exam;
     private String urlAudio;
     private Answer answer = new Answer();
@@ -24,9 +21,6 @@ public class ListeningTest {
     }
 
     public void setListeningTest(int cambridge, int test, int section) {
-        this.cambridge = cambridge;
-        this.test = test;
-        this.section = section;
         if (cambridge == 17) {
             if (test == 1) {
                 answer.setListAnswer(17, 1);

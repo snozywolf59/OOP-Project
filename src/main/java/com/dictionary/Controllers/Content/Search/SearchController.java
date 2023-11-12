@@ -10,6 +10,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
+import java.lang.ref.PhantomReference;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,6 +27,8 @@ import static java.lang.Math.min;
  */
 public class SearchController implements Initializable {
     private final Dictionary dictionary = new Dictionary();
+
+    private Thread thread = new Thread();
     private List<String> readTxtFile() {
         ArrayList<Word> words = dictionary.ListWordTxt();
         List<String> listWord = new ArrayList<>();
@@ -60,6 +63,8 @@ public class SearchController implements Initializable {
     @FXML
     private AnchorPane editTab;
     @FXML
+    private AnchorPane delTab;
+    @FXML
     private AnchorPane addNewWord;
     @FXML
     private TextField addTargetWord;
@@ -69,6 +74,8 @@ public class SearchController implements Initializable {
     @FXML
     private Label haveNotChoose;
 
+    @FXML
+    private TextArea delWord;
     @FXML
     public void search(){
         listView.getItems().clear();
@@ -84,6 +91,10 @@ public class SearchController implements Initializable {
         specialDisable();
     }
 
+    public boolean threadAlive() {
+        return thread.isAlive();
+    }
+
     public void reset() {
         haveNotChoose.setVisible(false);
     }
@@ -93,6 +104,8 @@ public class SearchController implements Initializable {
         editTab.setVisible(false);
         addNewWord.setVisible(false);
         addNewWord.setDisable(true);
+        delTab.setVisible(false);
+        delTab.setDisable(true);
         haveNotChoose.setVisible(false);
     }
 
@@ -145,6 +158,22 @@ public class SearchController implements Initializable {
         HandleInput.normalize(addNewWord);
     }
 
+    public void onActionDelWord() {
+        reset();
+        disableChild();
+        HandleInput.normalize(delTab);
+
+    }
+
+    public void confirmDelWord() {
+        String word = delWord.getText();
+        if(listView.getItems().contains(word)) {
+            listView.getItems().remove(word);
+            words.remove(word);
+            closeDelTab();
+            this.delWord.clear();
+        }
+    }
     /**
      * Xử lí nút ok ở add word.
      */
@@ -183,8 +212,9 @@ public class SearchController implements Initializable {
 
     public void onActionSpeakBtn() {
         String selectedWord = listView.getSelectionModel().getSelectedItem();
-        if (selectedWord != null) {
-            Dictionary.textToSpeech(selectedWord);
+        if (!thread.isAlive() && selectedWord != null ) {
+            thread = new Thread(()-> Dictionary.textToSpeech(selectedWord));
+            thread.start();
         }
     }
 
@@ -197,6 +227,8 @@ public class SearchController implements Initializable {
         normalizeChild();
         specialDisable();
     }
-
-
+    public void closeDelTab() {
+        normalizeChild();
+        specialDisable();
+    }
 }

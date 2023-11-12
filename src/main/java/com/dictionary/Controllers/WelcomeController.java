@@ -14,6 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class WelcomeController implements Initializable {
+
     @FXML
     private Button enterButton;
 
@@ -24,19 +25,11 @@ public class WelcomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-            init();
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
+        mediaBackground.playVideo(mediaView,1);
         enterButton.setOnAction(event-> {
             Model.getInstance().getViewFactory().showWindow();
         });
         mediaView.setFitHeight(510);
         mediaView.setFitWidth(900);
-    }
-
-    public void init() throws MalformedURLException {
-        mediaBackground.playVideo(mediaView, 0.6);
     }
 }

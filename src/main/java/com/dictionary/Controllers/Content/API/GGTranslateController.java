@@ -1,7 +1,10 @@
-package com.dictionary.Controllers.Content.GGTranslate;
+package com.dictionary.Controllers.Content.API;
 
 import com.dictionary.Controllers.Content.HomeController;
+
 import com.dictionary.Controllers.MediaBackground;
+
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -24,6 +27,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class GGTranslateController implements Initializable {
+    @FXML
+    public FontAwesomeIconView recordIcon;
     @FXML
     private MediaView mediaView;
 
@@ -97,17 +102,21 @@ public class GGTranslateController implements Initializable {
 
     void changeRecord() {
         isRecording = !isRecording;
+        if (!isRecording) {
+            recordIcon.setGlyphName("MICROPHONE");
+        } else  {
+            recordIcon.setGlyphName("STOP");
+        }
     }
 
     @FXML
     void doRecord() {
         if (isRecording) {
             stop();
-            changeRecord();
         } else {
             record();
-            changeRecord();
         }
+        changeRecord();
     }
 
     @FXML
