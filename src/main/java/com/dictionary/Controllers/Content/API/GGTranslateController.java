@@ -29,10 +29,6 @@ import java.util.ResourceBundle;
 public class GGTranslateController implements Initializable {
     @FXML
     public FontAwesomeIconView recordIcon;
-    @FXML
-    private MediaView mediaView;
-
-    private MediaBackground mediaBackground = new MediaBackground("src/main/resources/Video/HomeBackground.mp4");
 
     @FXML
     private TextArea originalText;
@@ -57,7 +53,7 @@ public class GGTranslateController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        mediaBackground.playVideo(mediaView, 0.6);
+
     }
 
     @FXML

@@ -20,17 +20,11 @@ import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
     @FXML
-    private MediaView mediaView;
-
-    @FXML
     private TextArea infoApp;
-
-    private MediaBackground mediaBackground = new MediaBackground("src/main/resources/Video/HomeBackground.mp4");
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         infoApp.setText("Chào mừng bạn đã đến với UETED");
-        mediaBackground.playVideo(mediaView, 0.6);
         new Shake(infoApp).play();
     }
 }

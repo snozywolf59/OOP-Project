@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.media.MediaView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,12 +17,18 @@ public class ClientController implements Initializable {
     @FXML
     private BorderPane parent_pane;
 
+    @FXML
+    private MediaView mediaView;
+
+    private MediaBackground mediaBackground = new MediaBackground("src/main/resources/Video/HomeBackground.mp4");
+
     /**
      * Initializes the controller class.
      * Chuyển màn hình dựa trên trạng thái của currentSelect ở ViewFactory.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        mediaBackground.playVideo(mediaView, 0.6);
         Model.getInstance().getViewFactory().getCurrentSelect().addListener((o, oldValue, newValue) -> {
             switch (newValue) {
                 case "Search":

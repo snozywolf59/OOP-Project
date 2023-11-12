@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.media.MediaView?>
 
-<BorderPane id="BorderPane" fx:id="parent_pane" prefHeight="720.0" prefWidth="1280.0"
-            xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.dictionary.Controllers.ClientController">
-    
-    <left>
-        <fx:include source="Content/ChoiceList.fxml" />
-    </left>
 
-    <center>
-        <fx:include source="Content/Home.fxml" />
-    </center>
-    
-</BorderPane>
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.ClientController">
+   <children>
+      <MediaView fx:id="mediaView" fitHeight="800.0" fitWidth="1300.0" />
+      <BorderPane id="BorderPane" fx:id="parent_pane" prefHeight="720.0" prefWidth="1280.0">
+          
+          <left>
+              <fx:include source="Content/ChoiceList.fxml" />
+          </left>
+      
+          <center>
+              <fx:include source="Content/Home.fxml" />
+          </center>
+          
+      </BorderPane>
+   </children>
+</AnchorPane>
