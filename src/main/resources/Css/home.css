@@ -10,3 +10,10 @@
     -fx-border-insets: 0;
     -fx-border-radius: 17 17 17 17;
 }
+
+.button {
+    -fx-font-size: 22;
+    -fx-opacity: 0.6;
+    -fx-font-weight: bold;
+    -fx-background-radius: 15;
+}
