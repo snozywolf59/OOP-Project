@@ -67,3 +67,6 @@
     -fx-text-fill: #FFFFFF;
     -fx-cursor: hand;
 }
+.imageView {
+    -fx-background-color: red;
+}

@@ -10,6 +10,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.ref.PhantomReference;
 import java.net.URL;
 import java.util.ArrayList;
@@ -208,6 +211,19 @@ public class SearchController implements Initializable {
         String selectedWord = listView.getSelectionModel().getSelectedItem();
         if (selectedWord != null) {
             Dictionary.textToSpeech(selectedWord);
+        }
+    }
+
+    public void FavoriteAction() {
+        String filePath = "C:\\Users\\Admin\\Desktop\\Cod_11_11\\OOP-Project\\src\\main\\resources\\Word\\FavoriteWord.txt";
+        String line = targetWord.getText();
+        if(line != null) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+
+                writer.write(line);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
