@@ -1,5 +1,6 @@
 package com.dictionary.Controllers.Content;
 
+import com.dictionary.Controllers.Content.API.GGTranslateController;
 import com.dictionary.Models.Model;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -34,12 +35,17 @@ public class ChoiceListController implements Initializable {
     }    
     
     private void addListener() {
-        homeBtn.setOnAction(e->setSelect("Home"));
+        homeBtn.setOnAction(e->{
+            setSelect("Home");
+            HomeController.isSelected = true;
+        });
         searchBtn.setOnAction(e->setSelect("Search"));
         gameBtn.setOnAction(e->setSelect("Play"));
         learnBtn.setOnAction(e->setSelect("Learn"));
         exitBtn.setOnAction(e->setSelect("Exit"));
-        ggTranslate.setOnAction(e->setSelect("GoogleTranslate"));
+        ggTranslate.setOnAction(e->{
+            setSelect("GoogleTranslate");
+        });
     }
     
     private void setSelect(String t) {

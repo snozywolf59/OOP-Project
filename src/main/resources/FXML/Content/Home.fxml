@@ -5,12 +5,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1095.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.HomeController">
+<AnchorPane id="AnchorPane" onMouseClicked="#animation" prefHeight="720.0" prefWidth="1095.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.HomeController">
     <stylesheets>
         <URL value="@../../Css/home.css" />
     </stylesheets>
    <children>
-      <Button layoutX="334.0" layoutY="99.0" mnemonicParsing="false" prefHeight="521.0" prefWidth="427.0" stylesheets="@../../Css/home.css" text="Chào mừng các bạn đã đến với UETED!" textAlignment="CENTER">
+      <Button fx:id="home" layoutX="334.0" layoutY="99.0" mnemonicParsing="false" prefHeight="521.0" prefWidth="427.0" stylesheets="@../../Css/home.css" text="Chào mừng các bạn đã đến với UETED!" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>

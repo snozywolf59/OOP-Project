@@ -3,7 +3,7 @@
 }*/
 
 .origin {
-    -fx-pref-width: 400;
+    -fx-pref-width: 700;
     -fx-pref-height: 300;
 }
 
@@ -62,7 +62,7 @@
 
 .origin TextArea {
     -fx-pref-height: 260;
-    -fx-pref-width: 400;
+    -fx-pref-width: 700;
     -fx-font-size: 22;
     -fx-background-color: #B5FFE9;
     -fx-text-fill: #333333;

@@ -1,5 +1,7 @@
 package com.dictionary.Controllers.Content.API;
 
+import animatefx.animation.SlideInDown;
+import animatefx.animation.SlideInUp;
 import com.dictionary.Controllers.Content.HomeController;
 
 import com.dictionary.Controllers.MediaBackground;
@@ -15,6 +17,7 @@ import com.darkprograms.speech.microphone.Microphone;
 import com.darkprograms.speech.recognizer.GSpeechDuplex;
 import com.darkprograms.speech.recognizer.GSpeechResponseListener;
 import com.darkprograms.speech.recognizer.GoogleResponse;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
