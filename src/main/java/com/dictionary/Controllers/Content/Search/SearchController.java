@@ -30,6 +30,8 @@ import static java.lang.Math.min;
  */
 public class SearchController implements Initializable {
     private final Dictionary dictionary = new Dictionary();
+
+    private Thread thread = new Thread();
     private List<String> readTxtFile() {
         ArrayList<Word> words = dictionary.ListWordTxt();
         List<String> listWord = new ArrayList<>();
@@ -90,6 +92,10 @@ public class SearchController implements Initializable {
         setTree();
         definitionArea.setEditable(false);
         specialDisable();
+    }
+
+    public boolean threadAlive() {
+        return thread.isAlive();
     }
 
     public void reset() {
@@ -209,8 +215,9 @@ public class SearchController implements Initializable {
 
     public void onActionSpeakBtn() {
         String selectedWord = listView.getSelectionModel().getSelectedItem();
-        if (selectedWord != null) {
-            Dictionary.textToSpeech(selectedWord);
+        if (!thread.isAlive() && selectedWord != null ) {
+            thread = new Thread(()-> Dictionary.textToSpeech(selectedWord));
+            thread.start();
         }
     }
 
@@ -240,5 +247,4 @@ public class SearchController implements Initializable {
         normalizeChild();
         specialDisable();
     }
-
 }

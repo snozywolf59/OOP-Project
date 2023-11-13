@@ -65,7 +65,9 @@
 
 .bg1 {
   -fx-animation:slide 3s ease-in-out infinite alternate;
-  -fx-background-color: linear-gradient(to bottom right, #0f6789, #4ce699);
+    /*
+    -fx-background-color: linear-gradient(to bottom right, #0f6789, #4ce699);
+     */
   -fx-bottom:0;
   -fx-left:-50%;
   -fx-opacity:.5;

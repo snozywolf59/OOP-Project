@@ -2,9 +2,18 @@
 
 }
 .text-area {
-    -fx-opacity: 0.7;
+    -fx-opacity: 0.6;
     -fx-font-size: 25;
     -fx-font-weight: bold;
     -fx-font-family: Arial;
     -fx-background-radius: 17 17 17 17;
+    -fx-border-insets: 0;
+    -fx-border-radius: 17 17 17 17;
+}
+
+.button {
+    -fx-font-size: 22;
+    -fx-opacity: 0.6;
+    -fx-font-weight: bold;
+    -fx-background-radius: 15;
 }

@@ -18,6 +18,7 @@ module com.dictionary {
     requires org.apache.commons.lang3;
     requires javafx.media;
     requires freetts;
+    requires AnimateFX;
 
     opens com.dictionary to javafx.fxml;
     opens com.dictionary.Controllers to javafx.fxml;

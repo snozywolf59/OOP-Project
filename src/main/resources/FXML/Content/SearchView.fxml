@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="searchView" focusTraversable="true" onMouseClicked="#reset" prefHeight="630.0" prefWidth="1003.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.Search.SearchController">
+<AnchorPane id="AnchorPane" fx:id="searchView" focusTraversable="true" onMouseClicked="#reset" prefHeight="630.0" prefWidth="1003.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.Search.SearchController">
     <stylesheets>
         <URL value="@../../Css/searchView.css" />
     </stylesheets>
@@ -63,10 +63,10 @@
                                     <Font name="System Bold Italic" size="19.0" />
                                  </font>
                               </Label>
-                              <Button mnemonicParsing="false" onAction="#onActionSpeakBtn" text="Button" />
+                              <Button mnemonicParsing="false" onAction="#onActionSpeakBtn" text="Speak" />
                               <Button mnemonicParsing="false" onAction="#onActionEditWord" prefHeight="37.0" prefWidth="47.0" styleClass="buttonEditWord" text="Edit" textFill="#5ec487" />
                               <Button mnemonicParsing="false" onAction="#onActionAddWord" prefHeight="37.0" prefWidth="52.0" styleClass="buttonAddWord" text="Add" textFill="#f43838" />
-                              <Button mnemonicParsing="false" onAction="#onActionDelWord" prefHeight="38.0" prefWidth="84.0" styleClass="buttonDeleteWord" text="Delete" />
+                              <Button mnemonicParsing="false" onAction="#onActionDelWord" prefHeight="38.0" prefWidth="54.0" styleClass="buttonDeleteWord" text="Delete" />
                            </children>
                         </HBox>
                         <ImageView fitHeight="40.0" fitWidth="54.0" layoutX="630.0" layoutY="75.0" onMouseClicked="#FavoriteAction" pickOnBounds="true" preserveRatio="true" styleClass="imageView">

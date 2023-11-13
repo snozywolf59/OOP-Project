@@ -132,7 +132,7 @@ public final class ViewFactory {
         stage.setTitle(appName);
 
         stage.centerOnScreen();
-
+        stage.setFullScreen(true);
         stage.show();
     }
 

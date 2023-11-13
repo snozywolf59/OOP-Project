@@ -9,13 +9,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1095.0" styleClass="bg" stylesheets="@../../Css/ggtranslate.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.API.GGTranslateController">
     <children>
-      <MediaView fx:id="mediaView" fitHeight="800.0" fitWidth="1300.0" />
-        <VBox layoutX="589.0" layoutY="135.0" prefHeight="250.0" prefWidth="400.0" styleClass="origin" AnchorPane.rightAnchor="311.0" AnchorPane.topAnchor="135.0">
+        <VBox layoutX="175.0" layoutY="388.0" prefHeight="250.0" prefWidth="515.0" styleClass="origin" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="388.0">
             <children>
                 <HBox prefHeight="26.0" prefWidth="250.0">
                     <children>
@@ -33,8 +31,9 @@
                     </children>
                 </HBox>
                 <TextArea fx:id="resultText" editable="false" prefHeight="200.0" prefWidth="200.0" styleClass="content" wrapText="true" />
-            </children></VBox>
-        <VBox layoutX="40.0" layoutY="135.0" prefHeight="250.0" prefWidth="400.0" styleClass="origin" stylesheets="@../../Css/ggtranslate.css" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="135.0">
+            </children>
+      </VBox>
+        <VBox layoutX="175.0" layoutY="25.0" prefHeight="250.0" prefWidth="400.0" styleClass="origin" stylesheets="@../../Css/ggtranslate.css" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="25.0">
             <children>
                 <HBox prefHeight="39.0" prefWidth="423.0">
                     <children>
@@ -64,7 +63,7 @@
                 </TextArea>
             </children>
         </VBox>
-        <Button layoutX="528.0" layoutY="135.0" mnemonicParsing="false" onAction="#swap" prefHeight="20.0" prefWidth="0.0" styleClass="swap" AnchorPane.leftAnchor="528.0" AnchorPane.topAnchor="135.0">
+        <Button layoutX="175.0" layoutY="340.0" mnemonicParsing="false" onAction="#swap" prefHeight="20.0" prefWidth="0.0" styleClass="swap" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="340.0">
             <graphic>
                 <VBox prefHeight="32.0" prefWidth="32.0">
                     <children>
@@ -73,7 +72,7 @@
                     </children>
                 </VBox>
             </graphic></Button>
-        <MenuButton layoutX="512.0" layoutY="270.0" mnemonicParsing="false" styleClass="mode" text="Action">
+        <MenuButton layoutX="514.0" layoutY="347.0" mnemonicParsing="false" styleClass="mode" text="Action">
             <items>
                 <MenuItem mnemonicParsing="false" onAction="#actionCheck" text="Check" />
                 <MenuItem mnemonicParsing="false" onAction="#rewrite" text="Rewrite" />

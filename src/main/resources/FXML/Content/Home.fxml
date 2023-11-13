@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1095.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.HomeController">
+<AnchorPane id="AnchorPane" onMouseClicked="#animation" prefHeight="720.0" prefWidth="1095.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.HomeController">
     <stylesheets>
         <URL value="@../../Css/home.css" />
     </stylesheets>
    <children>
-      <MediaView fx:id="mediaView" fitHeight="720.0" fitWidth="1200.0" />
-      <TextArea fx:id="infoApp" layoutX="138.0" layoutY="60.0" prefHeight="579.0" prefWidth="592.0" stylesheets="@../../Css/home.css" />
+      <Button fx:id="home" layoutX="334.0" layoutY="99.0" mnemonicParsing="false" prefHeight="521.0" prefWidth="427.0" stylesheets="@../../Css/home.css" text="Chào mừng các bạn đã đến với UETED!" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

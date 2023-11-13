@@ -1,6 +1,11 @@
 package com.dictionary.Controllers.Content.API;
 
+import animatefx.animation.SlideInDown;
+import animatefx.animation.SlideInUp;
 import com.dictionary.Controllers.Content.HomeController;
+
+import com.dictionary.Controllers.MediaBackground;
+
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,11 +17,13 @@ import com.darkprograms.speech.microphone.Microphone;
 import com.darkprograms.speech.recognizer.GSpeechDuplex;
 import com.darkprograms.speech.recognizer.GSpeechResponseListener;
 import com.darkprograms.speech.recognizer.GoogleResponse;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import net.sourceforge.javaflacencoder.FLACFileWriter;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -25,11 +32,6 @@ import java.util.ResourceBundle;
 public class GGTranslateController implements Initializable {
     @FXML
     public FontAwesomeIconView recordIcon;
-    @FXML
-    private MediaView mediaView;
-    private Thread thread;
-    private Media media;
-    private MediaPlayer mediaPlayer;
 
     @FXML
     private TextArea originalText;
@@ -54,31 +56,9 @@ public class GGTranslateController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            init();
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    public void init() throws MalformedURLException {
-        //File file = new File("src/main/resources/Video/HomeBackground.mp4");
 
-        media = new Media(HomeController.file.toURI().toString());
-        thread = new Thread(() -> {
-            mediaPlayer = new MediaPlayer(media);
-            mediaPlayer.setAutoPlay(true);
-            mediaView.setMediaPlayer(mediaPlayer);
-            mediaView.setOpacity(0.4);
-            mediaPlayer.setOnEndOfMedia(() -> {
-                mediaPlayer.seek(mediaPlayer.getStartTime());
-                mediaPlayer.play();
-            });
-            mediaPlayer.play();
-        });
-        thread.setDaemon(false);
-
-        thread.start();
     }
+
     @FXML
     void getLangFrom(ActionEvent event) {
         String s = ((MenuItem) event.getSource()).getText();
@@ -185,6 +165,7 @@ public class GGTranslateController implements Initializable {
     void actionCheck() throws IOException, InterruptedException {
         resultText.setText(checker.check(originalText.getText()));
     }
+
     @FXML
     void chatAI() throws IOException, InterruptedException {
         resultText.setText(chatAI.chatAI(originalText.getText()));

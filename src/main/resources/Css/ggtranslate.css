@@ -3,7 +3,7 @@
 }*/
 
 .origin {
-    -fx-pref-width: 400;
+    -fx-pref-width: 700;
     -fx-pref-height: 300;
 }
 
@@ -32,6 +32,7 @@
     -fx-background-color: null;
     -fx-pref-width: 120;
     -fx-pref-height: 60;
+    -fx-font-weight: bold;
 }
 
 .toggleButton:hover {
@@ -49,17 +50,19 @@
     -fx-pref-width: 120;
     -fx-pref-height: 60;
     -fx-fill: null;
+    -fx-font-weight: bold;
 }
 
 .orgButton:hover {
     -fx-background-color: #FFFFFF;
     -fx-fill: #FFFFFF;
     -fx-cursor: hand;
+    -fx-font-weight: bold;
 }
 
 .origin TextArea {
     -fx-pref-height: 260;
-    -fx-pref-width: 400;
+    -fx-pref-width: 700;
     -fx-font-size: 22;
     -fx-background-color: #B5FFE9;
     -fx-text-fill: #333333;
