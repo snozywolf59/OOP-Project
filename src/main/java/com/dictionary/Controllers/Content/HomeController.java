@@ -22,6 +22,7 @@ public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        new BounceInLeft(home).play();
 //        Thread thread = new Thread(()->{
 //            //while (true) {
 //                if (isSelected) {
@@ -36,6 +37,7 @@ public class HomeController implements Initializable {
 //                new BounceInLeft(home).play();
 //            }
 //        }
+
     }
 
     @FXML
