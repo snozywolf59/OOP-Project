@@ -75,7 +75,15 @@ public class GGTranslateController implements Initializable {
 
     @FXML
     protected void translate() throws IOException {
-        resultText.setText(translator.translate(originalText.getText()));
+        Thread thread = new Thread(()->{
+            try {
+                resultText.setText(translator.translate(originalText.getText()));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        thread.setDaemon(false);
+        thread.start();
     }
 
     @FXML
@@ -163,15 +171,39 @@ public class GGTranslateController implements Initializable {
 
     @FXML
     void actionCheck() throws IOException, InterruptedException {
-        resultText.setText(checker.check(originalText.getText()));
+        Thread thread = new Thread(()->{
+            try {
+                resultText.setText(checker.check(originalText.getText()));
+            } catch (IOException | InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        thread.setDaemon(false);
+        thread.start();
     }
 
     @FXML
     void chatAI() throws IOException, InterruptedException {
-        resultText.setText(chatAI.chatAI(originalText.getText()));
+        Thread thread = new Thread(()->{
+            try {
+                resultText.setText(chatAI.chatAI(originalText.getText()));
+            } catch (IOException | InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        thread.setDaemon(false);
+        thread.start();
     }
     @FXML
     void rewrite() throws IOException, InterruptedException {
-        resultText.setText(reWriter.rewrite(originalText.getText()));
+        Thread thread = new Thread(()->{
+            try {
+                resultText.setText(reWriter.rewrite(originalText.getText()));
+            } catch (IOException | InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        thread.setDaemon(false);
+        thread.start();
     }
 }

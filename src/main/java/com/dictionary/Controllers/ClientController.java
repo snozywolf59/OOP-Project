@@ -28,7 +28,11 @@ public class ClientController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        mediaBackground.playVideo(mediaView, 0.6);
+        try {
+            mediaBackground.playVideo(mediaView, 0.6);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         Model.getInstance().getViewFactory().getCurrentSelect().addListener((o, oldValue, newValue) -> {
             switch (newValue) {
                 case "Search":

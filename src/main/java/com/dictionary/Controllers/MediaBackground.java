@@ -15,7 +15,7 @@ public class MediaBackground {
         mediaPlayer = new MediaPlayer(media);
     }
 
-    public void playVideo(MediaView mediaView, double opacity) {
+    public void playVideo(MediaView mediaView, double opacity) throws InterruptedException {
         thread = new Thread(() -> {
             mediaPlayer.setAutoPlay(true);
             mediaView.setMediaPlayer(mediaPlayer);
@@ -27,6 +27,7 @@ public class MediaBackground {
             });
             mediaPlayer.play();
         });
+        thread.join();
         thread.setDaemon(false);
         thread.start();
     }

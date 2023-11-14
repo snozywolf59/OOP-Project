@@ -25,7 +25,11 @@ public class WelcomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        mediaBackground.playVideo(mediaView,1);
+        try {
+            mediaBackground.playVideo(mediaView,1);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         enterButton.setOnAction(event-> {
             Model.getInstance().getViewFactory().showWindow();
         });

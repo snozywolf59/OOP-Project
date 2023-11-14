@@ -222,7 +222,7 @@ public class SearchController implements Initializable {
     }
 
     public void FavoriteAction() {
-        String filePath = "C:\\Users\\Admin\\Desktop\\Cod_11_11\\OOP-Project\\src\\main\\resources\\Word\\FavoriteWord.txt";
+        String filePath = "src\\main\\resources\\Word\\FavoriteWord.txt";
         String line = targetWord.getText();
         if(line != null) {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
