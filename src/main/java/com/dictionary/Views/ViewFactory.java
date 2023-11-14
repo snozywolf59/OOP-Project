@@ -11,7 +11,7 @@ import javafx.scene.control.ScrollPane;
 
 public final class ViewFactory {
     private final Stage stage = new Stage();
-    private final String appName = "Ten App";
+    private static final String appName = "UETED";
 
     private final StringProperty currentSelect;
     private AnchorPane choiceList;
@@ -46,6 +46,7 @@ public final class ViewFactory {
             try {
                 searchView = new FXMLLoader(getClass().getResource("/FXML/Content/SearchView.fxml")).load();
             } catch (Exception e) {
+                System.out.println(e.getMessage());
                 e.printStackTrace();
             }
         }
