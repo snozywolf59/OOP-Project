@@ -35,6 +35,9 @@ public class ClientController implements Initializable {
         }
         Model.getInstance().getViewFactory().getCurrentSelect().addListener((o, oldValue, newValue) -> {
             switch (newValue) {
+                case "ListeningTest":
+                    parent_pane.setCenter(Model.getInstance().getViewFactory().getListeningTestView());
+                    break;
                 case "Search":
                     parent_pane.setCenter(Model.getInstance().getViewFactory().getSearchView());
                     break;

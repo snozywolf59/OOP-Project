@@ -75,10 +75,5 @@
             <FontAwesomeIconView glyphName="STOP" textAlignment="CENTER" wrappingWidth="41.683311462402344" />
          </graphic>
       </Button>
-      <Button layoutX="521.0" layoutY="33.0" mnemonicParsing="false" onMouseClicked="#doPlay">
-         <graphic>
-            <FontAwesomeIconView glyphName="VOLUME_UP" textAlignment="CENTER" wrappingWidth="41.683311462402344" />
-         </graphic>
-      </Button>
    </children>
 </AnchorPane>
