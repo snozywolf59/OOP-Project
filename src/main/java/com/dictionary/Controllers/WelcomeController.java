@@ -14,7 +14,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class WelcomeController implements Initializable {
-
     @FXML
     private Button enterButton;
 
