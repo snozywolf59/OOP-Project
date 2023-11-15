@@ -25,7 +25,7 @@ public class HandleInput {
     }
 
     public static void disable(Node x) {
-        x.setOpacity(0.3);
+        x.setVisible(false);
         x.setDisable(true);
     }
 

@@ -23,7 +23,6 @@ public class MediaBackground {
             mediaPlayer.setOnEndOfMedia(() -> {
                 mediaPlayer.seek(mediaPlayer.getStartTime());
                 mediaPlayer.play();
-                System.out.println(thread.getPriority());
             });
             mediaPlayer.play();
         });

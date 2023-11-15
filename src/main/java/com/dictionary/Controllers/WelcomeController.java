@@ -3,20 +3,15 @@ package com.dictionary.Controllers;
 import com.dictionary.Models.Model;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.media.MediaView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class WelcomeController implements Initializable {
-    @FXML
-    private Button enterButton;
 
     @FXML
     private MediaView mediaView;
@@ -25,13 +20,10 @@ public class WelcomeController implements Initializable {
     private PasswordField password;
 
     @FXML
-    private Button registerBtn;
+    private PasswordField rePassword;
 
     @FXML
     private TextField username;
-
-    @FXML
-    private Button loginBtn;
 
     @FXML
     private AnchorPane pane;
@@ -56,7 +48,6 @@ public class WelcomeController implements Initializable {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        enterButton.setOnAction(event -> Model.getInstance().getViewFactory().showWindow());
         mediaView.setFitHeight(510);
         mediaView.setFitWidth(900);
     }
@@ -73,10 +64,26 @@ public class WelcomeController implements Initializable {
     public void enter() {
         Model.getInstance().getViewFactory().showWindow();
     }
-    
+
     public void register() {
         HandleInput.disablePane(pane);
         HandleInput.normalize(registerPane);
         HandleInput.normalizePane(registerPane);
+    }
+
+    public void createAccount() {
+        createAccount(username.getText(), password.getText());
+        closeRegister();
+    }
+
+    private void createAccount(String username, String password) {
+
+    }
+
+    public void closeRegister() {
+        HandleInput.normalize(pane);
+        HandleInput.normalizePane(pane);
+        HandleInput.disablePane(registerPane);
+        HandleInput.disable(registerPane);
     }
 }

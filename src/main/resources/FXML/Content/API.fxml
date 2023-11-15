@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1095.0" styleClass="bg" stylesheets="@../../Css/ggtranslate.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.API.GGTranslateController">
+<AnchorPane prefHeight="720.0" prefWidth="1095.0" styleClass="bg" stylesheets="@../../Css/API.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.API.GGTranslateController">
     <children>
         <VBox layoutX="175.0" layoutY="388.0" prefHeight="250.0" prefWidth="515.0" styleClass="origin" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="388.0">
             <children>
@@ -33,7 +33,7 @@
                 <TextArea fx:id="resultText" editable="false" prefHeight="200.0" prefWidth="200.0" styleClass="content" wrapText="true" />
             </children>
       </VBox>
-        <VBox layoutX="175.0" layoutY="25.0" prefHeight="250.0" prefWidth="400.0" styleClass="origin" stylesheets="@../../Css/ggtranslate.css" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="25.0">
+        <VBox layoutX="175.0" layoutY="25.0" prefHeight="250.0" prefWidth="400.0" styleClass="origin" stylesheets="@../../Css/API.css" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="25.0">
             <children>
                 <HBox prefHeight="39.0" prefWidth="423.0">
                     <children>
@@ -56,7 +56,7 @@
 
                     </children>
                 </HBox>
-                <TextArea fx:id="originalText" prefHeight="221.0" prefWidth="338.0" promptText="Fill the text" stylesheets="@../../Css/ggtranslate.css" wrapText="true">
+                <TextArea fx:id="originalText" prefHeight="221.0" prefWidth="338.0" promptText="Fill the text" stylesheets="@../../Css/API.css" wrapText="true">
                     <font>
                         <Font size="23.0" />
                     </font>

@@ -1,7 +1,8 @@
 .bg {
     -fx-background-color: linear-gradient(to bottom right, #0f6789, #4ce699);
+    -fx-fill: null;
 }
-.bg Button {
+.button1 {
     -fx-pref-height: 50;
     -fx-pref-width: 200;
     -fx-font-weight: bold;
@@ -52,25 +53,96 @@
 
 }
 
-.text{}
+.text1{
+    -fx-font-size: 14;
+}
 
-.text:focus {
-     -fx-effect: dropshadow(gaussian, #ff05e1, 15, 0.45, 0, 0);
+.text1:hover, .text1:focused{
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, #004dff, 15, 0.45, 0, 0);
 }
 
 .close {
 -fx-pref-height: 40;
 -fx-pref-width: 40;
--fx-background-color: red;
+-fx-background-color: white;
+}
+
+.close FontAwesomeIconView {
+-fx-fill: #006aff;
+}
+
+.close:hover{
+-fx-background-color: #006aff;
+-fx-cursor: hand;
+}
+
+.close:hover FontAwesomeIconView {
 -fx-fill: white;
 }
 
-.confirmRegist {
+.confirmRegister {
 -fx-pref-width: 100;
 -fx-pref-height: 36;
 -fx-background-color: null;
 }
 
-.confirmRegist:hover {
+.confirmRegister:hover {
 -fx-background-color:white;
+}
+
+.label1 {
+    -fx-background-radius: 15px;
+    -fx-pref-height: 40;
+    -fx-pref-width: 400;
+}
+
+.label1:hover {
+-fx-background-color: white;
+}
+
+.date-picker {
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: gray;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: white;
+}
+
+.date-picker .arrow {
+    -fx-background-color: black;
+    -fx-shape: "M0,0 L1,0 L0.5,1 Z";
+    -fx-fill: #0FFAF0;
+}
+
+.date-picker .text-field {
+    -fx-background-color: white; /* Màu nền của ô nhập liệu */
+    -fx-background-radius: 0; /* Đường cong viền của ô nhập liệu */
+    -fx-padding: 3px; /* Kích thước lề của ô nhập liệu */
+}
+.date-picker .label {
+-fx-background-color: null;
+-fx-pref-height: 50;
+-fx-pref-width: 270;
+-fx-font-size: 14;
+}
+
+.date-picker .day-cell {
+    -fx-font-size: 14px; /* Kích thước chữ trong ô ngày */
+}
+
+.date-picker .day-cell:hover {
+    -fx-background-color: lightgray; /* Màu nền khi rê chuột qua ô ngày */
+    -fx-font-color: dark;
+}
+
+.date-picker .button {
+-fx-pref-height: 35;
+-fx-pref-width: 20;
+}
+
+.date-picker .day-cell:selected {
+    -fx-background-color: #4CAF50; /* Màu nền khi ô ngày được chọn */
+    -fx-text-fill: white; /* Màu chữ khi ô ngày được chọn */
 }

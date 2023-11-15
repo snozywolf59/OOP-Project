@@ -106,3 +106,28 @@
     -fx-cursor: hand;
     -fx-background-color: white;
 }
+
+
+* {
+    -fx-my-menu-color: null;                  /* Change according to your needs */
+    -fx-my-menu-color-highlighted: #455a64;      /* Change according to your needs */
+    -fx-my-menu-font-color: #FFFFFF;             /* Change according to your needs */
+    -fx-my-menu-font-color-highlighted: #FFFFFF; /* Change according to your needs */
+}
+.menu-item {
+    -fx-background-color: null;
+    -fx-background-radius: 30px;
+}
+
+.menu-item .label {
+    -fx-text-fill: #263238;
+}
+
+.menu-item:focused, .menu-item:hovered {
+    -fx-background-color: -fx-my-menu-color-highlighted;
+}
+
+/*** The item's label (hovered / focused) ***/
+.menu-item:focused .label, .menu-item:hovered .label {
+    -fx-text-fill: -fx-my-menu-font-color-highlighted;
+}
