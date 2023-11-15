@@ -24,6 +24,7 @@ public final class ViewFactory {
 
     public ViewFactory() {
         currentSelect = new SimpleStringProperty();
+        searchView = getSearchView();
     }
 
     public StringProperty getCurrentSelect() {
@@ -46,7 +47,7 @@ public final class ViewFactory {
             try {
                 searchView = new FXMLLoader(getClass().getResource("/FXML/Content/SearchView.fxml")).load();
             } catch (Exception e) {
-                e.printStackTrace();
+                System.out.println(e.getMessage());
             }
         }
         return searchView;
@@ -94,6 +95,10 @@ public final class ViewFactory {
             }
         }
         return playView;
+    }
+
+    public void resetHome() {
+        this.homeView = null;
     }
 
     public AnchorPane getListeningTestView() {

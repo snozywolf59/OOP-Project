@@ -50,5 +50,6 @@ public class ChoiceListController implements Initializable {
     
     private void setSelect(String t) {
         Model.getInstance().getViewFactory().getCurrentSelect().set(t);
+        if (!t.equals("Home"))Model.getInstance().getViewFactory().resetHome();
     }
 }

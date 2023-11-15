@@ -21,15 +21,8 @@ public class WelcomeController implements Initializable {
     @FXML
     private MediaView mediaView;
 
-    private MediaBackground mediaBackground = new MediaBackground("src/main/resources/Video/HomeBackground.mp4");
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-            mediaBackground.playVideo(mediaView,1);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         enterButton.setOnAction(event-> {
             Model.getInstance().getViewFactory().showWindow();
         });
