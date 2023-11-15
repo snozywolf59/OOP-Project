@@ -13,7 +13,6 @@ import javafx.scene.layout.AnchorPane;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.ref.PhantomReference;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,7 +30,7 @@ import static java.lang.Math.min;
 public class SearchController implements Initializable {
     private final Dictionary dictionary = new Dictionary();
 
-    private Thread thread = new Thread();
+    private Thread speakingThread = new Thread();
     private List<String> readTxtFile() {
         ArrayList<Word> words = dictionary.ListWordTxt();
         List<String> listWord = new ArrayList<>();
@@ -94,8 +93,8 @@ public class SearchController implements Initializable {
         specialDisable();
     }
 
-    public boolean threadAlive() {
-        return thread.isAlive();
+    public boolean isSpeaking() {
+        return speakingThread.isAlive();
     }
 
     public void reset() {
@@ -215,19 +214,20 @@ public class SearchController implements Initializable {
 
     public void onActionSpeakBtn() {
         String selectedWord = listView.getSelectionModel().getSelectedItem();
-        if (!thread.isAlive() && selectedWord != null ) {
-            thread = new Thread(()-> Dictionary.textToSpeech(selectedWord));
-            thread.start();
+        if (!speakingThread.isAlive() && selectedWord != null ) {
+            speakingThread = new Thread(()-> Dictionary.textToSpeech(selectedWord));
+            speakingThread.start();
         }
     }
 
-    public void FavoriteAction() {
+    public void onActionFavorite() {
         String filePath = "src\\main\\resources\\Word\\FavoriteWord.txt";
         String line = targetWord.getText();
         if(line != null) {
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-
-                writer.write(line);
+            try (
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
+                    writer.write(line);
+                    writer.write("\n");
             } catch (IOException e) {
                 e.printStackTrace();
             }

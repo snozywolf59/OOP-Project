@@ -1,32 +1,58 @@
 package com.dictionary.Controllers;
 
 import com.dictionary.Models.Model;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.MediaView;
 
-import java.io.File;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class WelcomeController implements Initializable {
-
     @FXML
     private Button enterButton;
 
     @FXML
     private MediaView mediaView;
 
+    @FXML
+    private PasswordField password;
+
+    @FXML
+    private Button registerBtn;
+
+    @FXML
+    private TextField username;
+
+    @FXML
+    private Button loginBtn;
+
+    @FXML
+    private AnchorPane pane;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        enterButton.setOnAction(event-> {
-            Model.getInstance().getViewFactory().showWindow();
-        });
+        password.setFocusTraversable(false);
+        username.setFocusTraversable(false);
+        enterButton.setOnAction(event -> Model.getInstance().getViewFactory().showWindow());
         mediaView.setFitHeight(510);
         mediaView.setFitWidth(900);
+    }
+    @FXML
+    public void untarget() {
+        pane.requestFocus();
+    }
+    @FXML
+    public void login() {
+    }
+    @FXML
+    public void enterButton() {
+    }
+    public void register() {
     }
 }

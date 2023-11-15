@@ -5,18 +5,19 @@
 .bg Button {
     -fx-pref-height: 50;
     -fx-pref-width: 200;
-    -fx-text-fill: grey;
     -fx-font-weight: bold;
     -fx-effect: dropshadow(three-pass-box, rgba(50,50,50,0.3), 1, 0.5, 0.5, 5);
-    -fx-background-color: #eccf27;
     -fx-background-radius: 20 20 20 20;
     -fx-padding: 10 10 10 10;
 }
 
-.bg Button:hover {
+.login {
+    -fx-background-color: #eccf27;
+}
+
+.login:hover {
     -fx-cursor: hand;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 12, 0, 0, 5);
-    -fx-background-color: radial-gradient(focus-angle 0.0deg, focus-distance 0.0% , center 50.0% 50.0%, radius 50.0%, #ebff50 0.0%, #ff9e05 100.0%);
+    -fx-effect: dropshadow(three-pass-box, #ffac00, 15, 0.45, 0, 0);
 }
 
 .bg Label {
@@ -33,3 +34,25 @@
     -fx-alignment: center;
 }
 
+.enter {
+    -fx-background-color:  #0196F3;
+}
+
+.enter:hover {
+    -fx-effect: dropshadow(gaussian, #0034ff, 15, 0.45, 0, 0);
+}
+
+.register {
+    -fx-background-color: #00FFA2;
+}
+
+.register:hover {
+    -fx-effect: dropshadow(gaussian, #00ffe1, 15, 0.45, 0, 0);
+
+}
+
+.text{}
+
+.text:focus {
+     -fx-effect: dropshadow(gaussian, #ff05e1, 15, 0.45, 0, 0);
+}

@@ -3,18 +3,83 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.media.MediaView?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="510.0" prefWidth="900.0" styleClass="bg" stylesheets="@../Css/welcome.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.WelcomeController">
+<AnchorPane id="AnchorPane" fx:id="pane" onMouseClicked="#untarget" prefHeight="510.0" prefWidth="900.0" styleClass="bg" stylesheets="@../Css/welcome.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.WelcomeController">
     <children>
       <MediaView fx:id="mediaView" fitHeight="340.0" fitWidth="600.0" />
         <VBox prefHeight="510.0" prefWidth="900.0">
             <children>
-            <FontAwesomeIconView glyphName="BOOK" size="40.0" text="" wrappingWidth="40.0" />
-                <Label prefHeight="184.0" prefWidth="600.0" text="EDUET" />
-                <Button fx:id="enterButton" mnemonicParsing="false" prefHeight="18.0" text="ẤN ĐỂ VÀO" />
+            <FontAwesomeIconView fill="#00c3ff" glyphName="BOOK" size="40.0" text="" wrappingWidth="40.0" />
+                <Label prefHeight="77.0" prefWidth="600.0" text="EDUET" />
+            <AnchorPane prefHeight="84.0" prefWidth="900.0">
+               <children>
+                  <PasswordField fx:id="password" layoutX="19.0" layoutY="51.0" prefHeight="35.0" prefWidth="500.0" promptText="Mật khẩu" style="-fx-font-weight: bold;" styleClass="text" AnchorPane.leftAnchor="200.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </PasswordField>
+                  <TextField fx:id="username" layoutX="-205.0" prefHeight="35.0" prefWidth="500.0" promptText="Tên đăng nhập" style="-fx-font-weight: bold;" styleClass="text" AnchorPane.leftAnchor="200.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="10.0" layoutY="260.0" prefHeight="31.0" prefWidth="900.0" />
+                <Button fx:id="loginBtn" mnemonicParsing="false" onMouseClicked="#login" prefHeight="18.0" style="-fx-text-fill: #000000;" styleClass="login" text="Đăng nhập">
+               <effect>
+                  <DropShadow spread="0.62">
+                     <color>
+                        <Color red="1.0" green="0.6738578677177429" />
+                     </color>
+                  </DropShadow>
+               </effect></Button>
+            <AnchorPane layoutX="10.0" layoutY="262.0" prefHeight="81.0" prefWidth="900.0">
+               <children>
+                  <Button fx:id="enterButton" layoutX="60.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#enterButton" prefHeight="18.0" style="-fx-text-fill: #111111;" styleClass="enter" text="Tham gia không đăng nhập" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="20.0">
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="1.0" blue="0.437817245721817" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="0.6890863180160522" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <effect>
+                        <DropShadow blurType="GAUSSIAN" height="77.15" radius="42.7525" spread="0.51" width="95.86">
+                           <color>
+                              <Color green="0.204314723610878" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect></Button>
+                  <Button fx:id="registerBtn" layoutX="603.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#register" prefHeight="18.0" style="-fx-text-fill: #000000;" styleClass="register" text="Đăng ký" textFill="#ff05e1" AnchorPane.bottomAnchor="15.400000000000006" AnchorPane.rightAnchor="97.0" AnchorPane.topAnchor="15.0">
+                     <effect>
+                        <DropShadow spread="0.67">
+                           <color>
+                              <Color green="1.0" blue="0.8833333253860474" />
+                           </color>
+                        </DropShadow>
+                     </effect></Button>
+               </children>
+            </AnchorPane>
             </children>
         </VBox>
     </children>
