@@ -111,18 +111,6 @@ public class SearchController implements Initializable {
         haveNotChoose.setVisible(false);
     }
 
-    private void normalizeChild() {
-        for (Node x : searchView.getChildren()) {
-            HandleInput.normalize(x);
-        }
-    }
-
-    private void disableChild() {
-        for (Node child: searchView.getChildren()) {
-            HandleInput.disable(child);
-        }
-    }
-
    public List<String> searchList(String searchWords, List<String> listOfStrings) {
     List<String> searchWordArray = Arrays.asList(searchWords.trim().split(","));
     return listOfStrings.stream()
@@ -147,7 +135,7 @@ public class SearchController implements Initializable {
         reset();
         String selectedWord = listView.getSelectionModel().getSelectedItem();
         if (selectedWord != null) {
-            disableChild();
+            HandleInput.disablePane(searchView);
             HandleInput.normalize(editTab);
         } else {
             haveNotChoose.setVisible(true);
@@ -156,13 +144,13 @@ public class SearchController implements Initializable {
     
     public void onActionAddWord() {
         reset();
-        disableChild();
+        HandleInput.disablePane(searchView);
         HandleInput.normalize(addNewWord);
     }
 
     public void onActionDelWord() {
         reset();
-        disableChild();
+        HandleInput.disablePane(searchView);
         HandleInput.normalize(delTab);
 
     }
@@ -235,16 +223,16 @@ public class SearchController implements Initializable {
     }
 
     public void closeAddNewWord() {
-        normalizeChild();
+        HandleInput.normalizePane(searchView);
         specialDisable();
     }
 
     public void closeEditTab() {
-        normalizeChild();
+        HandleInput.normalizePane(searchView);
         specialDisable();
     }
     public void closeDelTab() {
-        normalizeChild();
+        HandleInput.normalizePane(searchView);
         specialDisable();
     }
 }

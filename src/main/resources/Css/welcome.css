@@ -1,7 +1,6 @@
 .bg {
     -fx-background-color: linear-gradient(to bottom right, #0f6789, #4ce699);
 }
-
 .bg Button {
     -fx-pref-height: 50;
     -fx-pref-width: 200;
@@ -36,6 +35,7 @@
 
 .enter {
     -fx-background-color:  #0196F3;
+    -fx-pref-height: 35;
 }
 
 .enter:hover {
@@ -44,6 +44,7 @@
 
 .register {
     -fx-background-color: #00FFA2;
+    -fx-pref-height: 35;
 }
 
 .register:hover {
@@ -55,4 +56,21 @@
 
 .text:focus {
      -fx-effect: dropshadow(gaussian, #ff05e1, 15, 0.45, 0, 0);
+}
+
+.close {
+-fx-pref-height: 40;
+-fx-pref-width: 40;
+-fx-background-color: red;
+-fx-fill: white;
+}
+
+.confirmRegist {
+-fx-pref-width: 100;
+-fx-pref-height: 36;
+-fx-background-color: null;
+}
+
+.confirmRegist:hover {
+-fx-background-color:white;
 }

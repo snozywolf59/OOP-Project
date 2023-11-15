@@ -44,9 +44,10 @@
                      </color>
                   </DropShadow>
                </effect></Button>
-            <AnchorPane layoutX="10.0" layoutY="262.0" prefHeight="81.0" prefWidth="900.0">
+            <AnchorPane prefHeight="11.0" prefWidth="900.0" />
+            <AnchorPane layoutX="10.0" layoutY="262.0" prefHeight="46.0" prefWidth="900.0">
                <children>
-                  <Button fx:id="enterButton" layoutX="60.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#enterButton" prefHeight="18.0" style="-fx-text-fill: #111111;" styleClass="enter" text="Tham gia không đăng nhập" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="20.0">
+                  <Button fx:id="enterButton" layoutX="104.0" layoutY="8.0" mnemonicParsing="false" onMouseClicked="#enter" prefHeight="31.0" style="-fx-text-fill: #111111;" styleClass="enter" text="Tham gia không đăng nhập" AnchorPane.leftAnchor="100.0">
                      <textFill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -70,7 +71,7 @@
                            </color>
                         </DropShadow>
                      </effect></Button>
-                  <Button fx:id="registerBtn" layoutX="603.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#register" prefHeight="18.0" style="-fx-text-fill: #000000;" styleClass="register" text="Đăng ký" textFill="#ff05e1" AnchorPane.bottomAnchor="15.400000000000006" AnchorPane.rightAnchor="97.0" AnchorPane.topAnchor="15.0">
+                  <Button fx:id="registerBtn" layoutX="577.0" layoutY="8.0" mnemonicParsing="false" onMouseClicked="#register" prefHeight="35.0" style="-fx-text-fill: #000000;" styleClass="register" text="Đăng ký" textFill="#ff05e1" AnchorPane.rightAnchor="100.0">
                      <effect>
                         <DropShadow spread="0.67">
                            <color>
@@ -82,5 +83,21 @@
             </AnchorPane>
             </children>
         </VBox>
+      <AnchorPane fx:id="registerPane" layoutX="193.0" layoutY="75.0" prefHeight="330.0" prefWidth="511.0">
+         <children>
+            <Label layoutX="111.0" layoutY="24.0" text="Đăng ký tài khoản" />
+            <Button layoutX="445.0" layoutY="12.0" mnemonicParsing="false" styleClass="close">
+               <graphic>
+                  <FontAwesomeIconView glyphName="CLOSE" />
+               </graphic>
+            </Button>
+            <TextField layoutX="134.0" layoutY="88.0" />
+            <TextField layoutX="135.0" layoutY="124.0" />
+            <PasswordField layoutX="135.0" layoutY="161.0" />
+            <PasswordField layoutX="135.0" layoutY="201.0" />
+            <PasswordField layoutX="136.0" layoutY="238.0" />
+            <Button layoutX="445.0" layoutY="264.0" mnemonicParsing="false" styleClass="confirmRegist" text="Tạo tài khoản" />
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>

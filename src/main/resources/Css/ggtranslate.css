@@ -102,16 +102,6 @@
     -fx-text-fill: red;
     -fx-background-radius: 15px;
 }
-
-.mode MenuItem{
--fx-background-color: null;
--fx-background-radius: 15px;
-}
-
-.mode MenuItem:hover{
-    -fx-background-color: white;
-}
-
 .mode:hover {
     -fx-cursor: hand;
     -fx-background-color: white;
