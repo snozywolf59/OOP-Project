@@ -8,6 +8,8 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
@@ -15,18 +17,18 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="pane" onMouseClicked="#untarget" prefHeight="600.0" prefWidth="400.0" styleClass="bg" stylesheets="@../Css/welcome.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.WelcomeController">
-    <VBox prefHeight="600.0" prefWidth="694.0">
-      <AnchorPane prefHeight="73.0" prefWidth="694.0" />
-        <FontAwesomeIconView fill="#00c3ff" glyphName="BOOK" size="40.0" text="" wrappingWidth="40.0" />
+<AnchorPane id="AnchorPane" fx:id="pane" onMouseClicked="#untarget" prefHeight="598.0" prefWidth="762.0" styleClass="bg" stylesheets="@../Css/welcome.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.WelcomeController">
+    <VBox layoutX="342.0" layoutY="4.0" prefHeight="590.0" prefWidth="400.0" style="-fx-alignment: center;" AnchorPane.topAnchor="4.0">
+      <AnchorPane prefHeight="41.0" prefWidth="694.0" />
+        <FontAwesomeIconView fill="#00c3ff" glyphName="BOOK" size="5em" text="" wrappingWidth="56.0" />
         <Label prefHeight="77.0" prefWidth="600.0" text="EDUET" />
         <AnchorPane prefHeight="84.0" prefWidth="900.0">
-            <PasswordField fx:id="password" layoutX="19.0" layoutY="51.0" prefHeight="35.0" prefWidth="500.0" promptText="Mật khẩu" style="-fx-font-weight: bold;" styleClass="text1" AnchorPane.leftAnchor="80.0">
+            <PasswordField fx:id="password" layoutX="19.0" layoutY="51.0" prefHeight="35.0" prefWidth="360.0" promptText="Mật khẩu" style="-fx-font-weight: bold;" styleClass="text1" AnchorPane.leftAnchor="20.0">
                 <font>
                     <Font size="14.0" />
                 </font>
             </PasswordField>
-            <TextField fx:id="username" layoutX="-205.0" prefHeight="35.0" prefWidth="500.0" promptText="Tên đăng nhập" style="-fx-font-weight: bold;" styleClass="text1" AnchorPane.leftAnchor="80.0">
+            <TextField fx:id="username" layoutX="-205.0" prefHeight="35.0" prefWidth="360.0" promptText="Tên đăng nhập" style="-fx-font-weight: bold;" styleClass="text1" AnchorPane.leftAnchor="20.0">
                 <font>
                     <Font size="14.0" />
                 </font>
@@ -46,9 +48,9 @@
             <String fx:value="button1" />
          </styleClass>
         </Button>
-        <AnchorPane prefHeight="39.0" prefWidth="694.0" />
-        <AnchorPane layoutX="10.0" layoutY="262.0" prefHeight="50.0" prefWidth="700.0">
-            <Button layoutX="104.0" layoutY="8.0" mnemonicParsing="false" onMouseClicked="#enter" prefHeight="31.0" style="-fx-text-fill: #111111;" text="Tham gia không đăng nhập" AnchorPane.leftAnchor="100.0">
+        <AnchorPane prefHeight="20.0" prefWidth="400.0" />
+        <AnchorPane layoutX="10.0" layoutY="262.0" prefHeight="103.0" prefWidth="400.0">
+            <Button layoutX="100.0" layoutY="79.0" mnemonicParsing="false" onMouseClicked="#enter" prefHeight="31.0" style="-fx-text-fill: #111111;" text="Tham gia không đăng nhập" AnchorPane.leftAnchor="100.0">
                 <textFill>
                     <LinearGradient>
                         <stops>
@@ -77,7 +79,7 @@
                <String fx:value="button1" />
             </styleClass>
             </Button>
-            <Button layoutX="577.0" layoutY="8.0" mnemonicParsing="false" onMouseClicked="#register" prefHeight="35.0" style="-fx-text-fill: #000000;" text="Đăng ký" textFill="#ff05e1" AnchorPane.rightAnchor="100.0">
+            <Button layoutX="100.0" layoutY="32.0" mnemonicParsing="false" onMouseClicked="#register" prefHeight="35.0" style="-fx-text-fill: #000000;" text="Đăng ký" textFill="#ff05e1" AnchorPane.rightAnchor="100.0">
                 <effect>
                     <DropShadow spread="0.67">
                         <color>
@@ -92,23 +94,29 @@
             </Button>
         </AnchorPane>
     </VBox>
-    <AnchorPane fx:id="registerPane" layoutX="6.0" layoutY="113.0" prefHeight="406.0" prefWidth="683.0">
-        <Label layoutX="150.0" layoutY="5.0" styleClass="label1" text="Đăng ký tài khoản" />
+    <AnchorPane fx:id="registerPane" layoutX="350.6" layoutY="56.8" prefHeight="442.0" prefWidth="400.0" AnchorPane.bottomAnchor="100.79999999999995" AnchorPane.leftAnchor="350.6" AnchorPane.topAnchor="56.8">
+        <Label layoutX="34.0" layoutY="78.0" prefHeight="46.0" prefWidth="403.0" style="-fx-font-color: FFFFFF;" styleClass="label1" text="Đăng ký tài khoản" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
         <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#closeRegister" styleClass="close">
          <graphic>
             <FontAwesomeIconView fill="#006aff" fontSmoothingType="LCD" glyphName="ARROW_LEFT" size="2.1em" />
          </graphic>
         </Button>
-        <TextField layoutX="134.0" layoutY="88.0" prefHeight="26.0" prefWidth="428.0" promptText="Họ tên" styleClass="text1" />
-        <TextField layoutX="134.0" layoutY="164.0" prefHeight="26.0" prefWidth="428.0" promptText="Tên đăng nhập" styleClass="text1" />
-        <PasswordField layoutX="135.0" layoutY="201.0" prefHeight="26.0" prefWidth="428.0" promptText="Mật khẩu" styleClass="text1" />
-        <PasswordField fx:id="rePassword" layoutX="136.0" layoutY="238.0" prefHeight="26.0" prefWidth="428.0" promptText="Nhập lại mật khẩu" styleClass="text1" />
-        <Button layoutX="525.0" layoutY="286.0" mnemonicParsing="false" onMouseClicked="#createAccount" text="Tạo tài khoản">
+        <TextField layoutX="132.0" layoutY="137.0" prefHeight="30.0" prefWidth="360.0" promptText="Họ tên" styleClass="text1" AnchorPane.leftAnchor="20.0" />
+        <TextField layoutX="132.0" layoutY="213.0" prefHeight="30.0" prefWidth="360.0" promptText="Tên đăng nhập" styleClass="text1" AnchorPane.leftAnchor="20.0" />
+        <PasswordField layoutX="133.0" layoutY="250.0" prefHeight="30.0" prefWidth="360.0" promptText="Mật khẩu" styleClass="text1" AnchorPane.leftAnchor="20.0" />
+        <PasswordField fx:id="rePassword" layoutX="134.0" layoutY="287.0" prefHeight="30.0" prefWidth="360.0" promptText="Nhập lại mật khẩu" styleClass="text1" AnchorPane.leftAnchor="20.0" />
+        <Button layoutX="277.0" layoutY="345.0" mnemonicParsing="false" onMouseClicked="#createAccount" prefWidth="400.0" text="Tạo tài khoản">
          <styleClass>
             <String fx:value="confirmRegister" />
             <String fx:value="button1" />
          </styleClass>
       </Button>
-      <DatePicker layoutX="135.0" layoutY="125.0" prefHeight="30.0" prefWidth="428.0" promptText="Ngày sinh" styleClass="text1" />
+      <DatePicker layoutX="133.0" layoutY="174.0" prefHeight="30.0" prefWidth="360.0" promptText="Ngày sinh" styleClass="text1" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="23.0" />
+      <FontAwesomeIconView fill="#433636" glyphName="USER_PLUS" layoutX="263.0" layoutY="49.0" size="3.5em" textAlignment="JUSTIFY" wrappingWidth="40.0" />
     </AnchorPane>
+   <ImageView fitHeight="608.0" fitWidth="342.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <image>
+         <Image url="@../Images/loginImage.jpg" />
+      </image>
+   </ImageView>
 </AnchorPane>
