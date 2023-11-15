@@ -29,12 +29,11 @@ public class TextToSpeech {
 
         String encoded = URLEncoder.encode(synthText, StandardCharsets.UTF_8); //Encode
 
-        StringBuilder sb = new StringBuilder(GOOGLE_SYNTHESISER_URL);
-        sb.append("&key=" + API_KEY);
-        sb.append("&text=").append(encoded);
-        sb.append("&lang=").append(languageCode);
+        String sb = GOOGLE_SYNTHESISER_URL + "&key=" + API_KEY +
+                "&text=" + encoded +
+                "&lang=" + languageCode;
 
-        URL url = new URL(sb.toString());
+        URL url = new URL(sb);
 
         URLConnection urlConn = url.openConnection();
 
@@ -48,7 +47,7 @@ public class TextToSpeech {
                 AdvancedPlayer player = new AdvancedPlayer(this.getMP3Data(text));
                 player.play();
             } catch (IOException | JavaLayerException e) {
-                e.printStackTrace();
+                System.out.println(e.getMessage());
             }
         });
 

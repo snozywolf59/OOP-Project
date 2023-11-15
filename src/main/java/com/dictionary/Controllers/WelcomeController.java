@@ -31,8 +31,6 @@ public class WelcomeController implements Initializable {
     @FXML
     private AnchorPane registerPane;
 
-    private final MediaBackground mediaBackground = new MediaBackground("src/main/resources/Video/HomeBackground.mp4");
-
     static {
 
     }
@@ -43,13 +41,6 @@ public class WelcomeController implements Initializable {
         username.setFocusTraversable(false);
         HandleInput.disable(registerPane);
         registerPane.setVisible(false);
-        try {
-            mediaBackground.playVideo(mediaView,1);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        mediaView.setFitHeight(510);
-        mediaView.setFitWidth(900);
     }
     @FXML
     public void untarget() {

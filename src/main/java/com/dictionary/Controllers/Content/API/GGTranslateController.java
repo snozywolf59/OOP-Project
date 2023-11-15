@@ -1,11 +1,9 @@
 package com.dictionary.Controllers.Content.API;
 
-import animatefx.animation.SlideInDown;
-import animatefx.animation.SlideInUp;
-import com.dictionary.Controllers.Content.HomeController;
-
-import com.dictionary.Controllers.MediaBackground;
-
+import com.darkprograms.speech.microphone.Microphone;
+import com.darkprograms.speech.recognizer.GSpeechDuplex;
+import com.darkprograms.speech.recognizer.GSpeechResponseListener;
+import com.darkprograms.speech.recognizer.GoogleResponse;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,19 +11,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
-import com.darkprograms.speech.microphone.Microphone;
-import com.darkprograms.speech.recognizer.GSpeechDuplex;
-import com.darkprograms.speech.recognizer.GSpeechResponseListener;
-import com.darkprograms.speech.recognizer.GoogleResponse;
-import javafx.scene.layout.VBox;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
 import net.sourceforge.javaflacencoder.FLACFileWriter;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -49,9 +37,9 @@ public class GGTranslateController implements Initializable {
     private final TextToSpeech textToSpeech = new TextToSpeech();
     private final Translator translator = new Translator();
     private final Microphone mic = new Microphone(FLACFileWriter.FLAC);
-    private Checker checker = new Checker();
-    private ChatAI chatAI = new ChatAI();
-    private ReWriter reWriter = new ReWriter();
+    private final Checker checker = new Checker();
+    private final ChatAI chatAI = new ChatAI();
+    private final ReWriter reWriter = new ReWriter();
     GSpeechDuplex duplex = new GSpeechDuplex("AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw");
 
     @Override
@@ -87,19 +75,19 @@ public class GGTranslateController implements Initializable {
     }
 
     @FXML
-    void speak1(ActionEvent event) {
+    void speak1() {
         textToSpeech.setLanguageCode(translator.getFromLanguage());
         textToSpeech.speak(originalText.getText());
     }
 
     @FXML
-    void speak2(ActionEvent event) {
+    void speak2() {
         textToSpeech.setLanguageCode(translator.getToLanguage());
         textToSpeech.speak(resultText.getText());
     }
 
     @FXML
-    void swap(ActionEvent event) {
+    void swap() {
         String temp = buttonFromLanguage.getText();
         buttonFromLanguage.setText(buttonToLanguage.getText());
         buttonToLanguage.setText(temp);
@@ -133,7 +121,7 @@ public class GGTranslateController implements Initializable {
             try {
                 duplex.recognize(mic.getTargetDataLine(), mic.getAudioFormat());
             } catch (Exception ex) {
-                ex.printStackTrace();
+                System.out.println(ex.getMessage());
             }
 
         }).start();
@@ -141,7 +129,7 @@ public class GGTranslateController implements Initializable {
             String old_text = "";
 
             public void onResponse(GoogleResponse gr) {
-                String output = "";
+                String output;
                 output = gr.getResponse();
                 if (gr.getResponse() == null) {
                     if (this.old_text.contains("(")) {
@@ -156,7 +144,7 @@ public class GGTranslateController implements Initializable {
                     output = output.substring(0, output.indexOf('('));
                 }
                 if (!gr.getOtherPossibleResponses().isEmpty()) {
-                    output = output + " (" + (String) gr.getOtherPossibleResponses().get(0) + ")";
+                    output = output + " (" + gr.getOtherPossibleResponses().get(0) + ")";
                 }
                 originalText.setText(output);
             }
@@ -170,7 +158,7 @@ public class GGTranslateController implements Initializable {
     }
 
     @FXML
-    void actionCheck() throws IOException, InterruptedException {
+    void actionCheck() {
         Thread thread = new Thread(()->{
             try {
                 resultText.setText(checker.check(originalText.getText()));
@@ -183,7 +171,7 @@ public class GGTranslateController implements Initializable {
     }
 
     @FXML
-    void chatAI() throws IOException, InterruptedException {
+    void chatAI() {
         Thread thread = new Thread(()->{
             try {
                 resultText.setText(chatAI.chatAI(originalText.getText()));
@@ -195,7 +183,7 @@ public class GGTranslateController implements Initializable {
         thread.start();
     }
     @FXML
-    void rewrite() throws IOException, InterruptedException {
+    void rewrite() {
         Thread thread = new Thread(()->{
             try {
                 resultText.setText(reWriter.rewrite(originalText.getText()));

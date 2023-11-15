@@ -17,8 +17,8 @@ public class Answer {
     public int getPoint(String userAnswer) {
         int point = 0;
         userAnswer = userAnswer.toLowerCase().trim();
-        for (int i = 0; i < (int) listAnswers.length; i++) {
-            if (userAnswer.contains(listAnswers[i])) {
+        for (String listAnswer : listAnswers) {
+            if (userAnswer.contains(listAnswer)) {
                 point++;
             }
         }
