@@ -56,14 +56,15 @@ public class WelcomeController implements Initializable {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        enterButton.setOnAction(event -> Model.getInstance().getViewFactory().showWindow());
         mediaView.setFitHeight(510);
         mediaView.setFitWidth(900);
     }
-
+    @FXML
     public void untarget() {
         pane.requestFocus();
     }
-
+    @FXML
     public void login() {
         String name = username.getText();
         String pass = password.getText();
@@ -72,7 +73,7 @@ public class WelcomeController implements Initializable {
     public void enter() {
         Model.getInstance().getViewFactory().showWindow();
     }
-
+    
     public void register() {
         HandleInput.disablePane(pane);
         HandleInput.normalize(registerPane);

@@ -24,6 +24,7 @@ public final class ViewFactory {
 
     public ViewFactory() {
         currentSelect = new SimpleStringProperty();
+        searchView = getSearchView();
     }
 
     public StringProperty getCurrentSelect() {
@@ -95,6 +96,10 @@ public final class ViewFactory {
             }
         }
         return playView;
+    }
+
+    public void resetHome() {
+        this.homeView = null;
     }
 
     public AnchorPane getListeningTestView() {

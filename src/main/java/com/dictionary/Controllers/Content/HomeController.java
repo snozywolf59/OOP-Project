@@ -1,5 +1,6 @@
 package com.dictionary.Controllers.Content;
 
+import animatefx.animation.BounceInDown;
 import animatefx.animation.BounceInLeft;
 import animatefx.animation.SlideInDown;
 import animatefx.animation.SlideInUp;
@@ -22,7 +23,7 @@ public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        new BounceInLeft(home).play();
+        new BounceInDown(home).play();
 //        Thread thread = new Thread(()->{
 //            //while (true) {
 //                if (isSelected) {

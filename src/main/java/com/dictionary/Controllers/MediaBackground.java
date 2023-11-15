@@ -27,7 +27,6 @@ public class MediaBackground {
             });
             mediaPlayer.play();
         });
-        thread.join();
         thread.setDaemon(false);
         thread.start();
     }
