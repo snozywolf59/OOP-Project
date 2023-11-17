@@ -2,121 +2,172 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.lang.String?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="pane" onMouseClicked="#untarget" prefHeight="598.0" prefWidth="762.0" styleClass="bg" stylesheets="@../Css/welcome.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.WelcomeController">
-    <VBox layoutX="342.0" layoutY="4.0" prefHeight="590.0" prefWidth="400.0" style="-fx-alignment: center;" AnchorPane.topAnchor="4.0">
-      <AnchorPane prefHeight="41.0" prefWidth="694.0" />
-        <FontAwesomeIconView fill="#00c3ff" glyphName="BOOK" size="5em" text="" wrappingWidth="56.0" />
-        <Label prefHeight="77.0" prefWidth="600.0" text="EDUET" />
-        <AnchorPane prefHeight="84.0" prefWidth="900.0">
-            <PasswordField fx:id="password" layoutX="19.0" layoutY="51.0" prefHeight="35.0" prefWidth="360.0" promptText="Mật khẩu" style="-fx-font-weight: bold;" styleClass="text1" AnchorPane.leftAnchor="20.0">
-                <font>
-                    <Font size="14.0" />
-                </font>
-            </PasswordField>
-            <TextField fx:id="username" layoutX="-205.0" prefHeight="35.0" prefWidth="360.0" promptText="Tên đăng nhập" style="-fx-font-weight: bold;" styleClass="text1" AnchorPane.leftAnchor="20.0">
-                <font>
-                    <Font size="14.0" />
-                </font>
-            </TextField>
-        </AnchorPane>
-        <AnchorPane layoutX="10.0" layoutY="260.0" prefHeight="31.0" prefWidth="900.0" />
-        <Button mnemonicParsing="false" onMouseClicked="#login" prefHeight="46.0" style="-fx-text-fill: #000000;" text="Đăng nhập">
-            <effect>
-                <DropShadow spread="0.62">
-                    <color>
-                        <Color red="1.0" green="0.6738578677177429" />
-                    </color>
-                </DropShadow>
-            </effect>
-         <styleClass>
-            <String fx:value="login" />
-            <String fx:value="button1" />
-         </styleClass>
-        </Button>
-        <AnchorPane prefHeight="20.0" prefWidth="400.0" />
-        <AnchorPane layoutX="10.0" layoutY="262.0" prefHeight="103.0" prefWidth="400.0">
-            <Button layoutX="100.0" layoutY="79.0" mnemonicParsing="false" onMouseClicked="#enter" prefHeight="31.0" style="-fx-text-fill: #111111;" text="Tham gia không đăng nhập" AnchorPane.leftAnchor="100.0">
-                <textFill>
-                    <LinearGradient>
-                        <stops>
-                            <Stop>
-                                <color>
-                                    <Color red="1.0" blue="0.437817245721817" />
-                                </color>
-                            </Stop>
-                            <Stop offset="1.0">
-                                <color>
-                                    <Color red="1.0" green="0.6890863180160522" />
-                                </color>
-                            </Stop>
-                        </stops>
-                    </LinearGradient>
-                </textFill>
-                <effect>
-                    <DropShadow blurType="GAUSSIAN" height="77.15" radius="42.7525" spread="0.51" width="95.86">
-                        <color>
-                            <Color green="0.204314723610878" blue="1.0" />
-                        </color>
-                    </DropShadow>
-                </effect>
-            <styleClass>
-               <String fx:value="enter" />
-               <String fx:value="button1" />
-            </styleClass>
-            </Button>
-            <Button layoutX="100.0" layoutY="32.0" mnemonicParsing="false" onMouseClicked="#register" prefHeight="35.0" style="-fx-text-fill: #000000;" text="Đăng ký" textFill="#ff05e1" AnchorPane.rightAnchor="100.0">
-                <effect>
-                    <DropShadow spread="0.67">
-                        <color>
-                            <Color green="1.0" blue="0.8833333253860474" />
-                        </color>
-                    </DropShadow>
-                </effect>
-            <styleClass>
-               <String fx:value="register" />
-               <String fx:value="button1" />
-            </styleClass>
-            </Button>
-        </AnchorPane>
-    </VBox>
-    <AnchorPane fx:id="registerPane" layoutX="350.6" layoutY="56.8" prefHeight="442.0" prefWidth="400.0" AnchorPane.bottomAnchor="100.79999999999995" AnchorPane.leftAnchor="350.6" AnchorPane.topAnchor="56.8">
+<AnchorPane id="AnchorPane" fx:id="pane" onMouseClicked="#untarget" prefHeight="594.0" prefWidth="785.0" styleClass="bg" stylesheets="@../Css/welcome.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.WelcomeController">
+   <AnchorPane layoutX="31.2" layoutY="18.4" prefHeight="560.0" prefWidth="319.0" styleClass="image" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="31.0" AnchorPane.topAnchor="18.0" />
+   <AnchorPane layoutX="370.0" layoutY="4.0" AnchorPane.leftAnchor="349.0" AnchorPane.topAnchor="4.0">
+      <children>
+          <VBox layoutY="14.0" prefHeight="560.0" prefWidth="416.0" style="-fx-alignment: center;" styleClass="round-bg" AnchorPane.leftAnchor="0.0">
+              <FontAwesomeIconView fill="#00c3ff" glyphName="BOOK" size="5em" text="" wrappingWidth="56.0" />
+              <Label prefHeight="80.0" prefWidth="600.0" text="EDUET" />
+              <AnchorPane prefHeight="110.0" prefWidth="416.0">
+               <HBox layoutX="7.800000000000001" layoutY="56.0" styleClass="boxText" AnchorPane.leftAnchor="7.800000000000001">
+                  <children>
+                     <FontAwesomeIconView glyphName="LOCK" size="3em">
+                        <HBox.margin>
+                           <Insets bottom="1.0" left="7.0" right="1.0" />
+                        </HBox.margin>
+                     </FontAwesomeIconView>
+                        <PasswordField fx:id="password" prefHeight="35.0" prefWidth="362.0" promptText="Mật khẩu" style="-fx-font-weight: bold;" styleClass="text1">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </PasswordField>
+                  </children>
+               </HBox>
+               <HBox layoutX="7.800000000000001" styleClass="boxText" AnchorPane.leftAnchor="7.800000000000001">
+                  <children>
+                     <FontAwesomeIconView glyphName="USER" size="3em">
+                        <HBox.margin>
+                           <Insets left="5.0" />
+                        </HBox.margin>
+                     </FontAwesomeIconView>
+                        <TextField fx:id="username" prefHeight="35.0" prefWidth="362.0" promptText="Tên đăng nhập" style="-fx-font-weight: bold;" styleClass="text1">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        <HBox.margin>
+                           <Insets />
+                        </HBox.margin>
+                        </TextField>
+                  </children>
+               </HBox>
+              </AnchorPane>
+              <AnchorPane layoutX="10.0" layoutY="260.0" prefHeight="31.0" prefWidth="900.0" />
+              <Button mnemonicParsing="false" onMouseClicked="#login" prefHeight="46.0" style="-fx-text-fill: #000000;" text="Đăng nhập">
+                  <effect>
+                      <DropShadow spread="0.62">
+                          <color>
+                              <Color red="1.0" green="0.6738578677177429" />
+                          </color>
+                      </DropShadow>
+                  </effect>
+               <styleClass>
+                  <String fx:value="login" />
+                  <String fx:value="button1" />
+               </styleClass>
+              </Button>
+              <AnchorPane layoutX="10.0" layoutY="262.0" prefHeight="103.0" prefWidth="400.0">
+                  <Button layoutX="108.0" layoutY="79.0" mnemonicParsing="false" onMouseClicked="#enter" prefHeight="31.0" style="-fx-text-fill: #111111;" text="Tham gia không đăng nhập" AnchorPane.leftAnchor="108.0">
+                      <textFill>
+                          <LinearGradient>
+                              <stops>
+                                  <Stop>
+                                      <color>
+                                          <Color red="1.0" blue="0.437817245721817" />
+                                      </color>
+                                  </Stop>
+                                  <Stop offset="1.0">
+                                      <color>
+                                          <Color red="1.0" green="0.6890863180160522" />
+                                      </color>
+                                  </Stop>
+                              </stops>
+                          </LinearGradient>
+                      </textFill>
+                      <effect>
+                          <DropShadow blurType="GAUSSIAN" height="77.15" radius="42.7525" spread="0.51" width="95.86">
+                              <color>
+                                  <Color green="0.204314723610878" blue="1.0" />
+                              </color>
+                          </DropShadow>
+                      </effect>
+                  <styleClass>
+                     <String fx:value="button1" />
+                     <String fx:value="enter" />
+                  </styleClass>
+                  </Button>
+                  <Button layoutX="108.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#register" prefHeight="38.0" prefWidth="142.0" style="-fx-text-fill: #000000;" text="Đăng ký" textFill="#ff05e1" AnchorPane.rightAnchor="108.0">
+                      <effect>
+                          <DropShadow spread="0.67">
+                              <color>
+                                  <Color green="1.0" blue="0.8833333253860474" />
+                              </color>
+                          </DropShadow>
+                      </effect>
+                  <styleClass>
+                     <String fx:value="button1" />
+                     <String fx:value="register" />
+                  </styleClass>
+                  </Button>
+              </AnchorPane>
+          </VBox>
+      </children>
+   </AnchorPane>
+    <AnchorPane fx:id="registerPane" layoutX="207.2" layoutY="99.0" prefHeight="396.0" prefWidth="400.0" AnchorPane.bottomAnchor="99.39999999999998" AnchorPane.leftAnchor="207.2" AnchorPane.topAnchor="99.0">
         <Label layoutX="34.0" layoutY="78.0" prefHeight="46.0" prefWidth="403.0" style="-fx-font-color: FFFFFF;" styleClass="label1" text="Đăng ký tài khoản" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
         <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#closeRegister" styleClass="close">
          <graphic>
             <FontAwesomeIconView fill="#006aff" fontSmoothingType="LCD" glyphName="ARROW_LEFT" size="2.1em" />
          </graphic>
         </Button>
-        <TextField layoutX="132.0" layoutY="137.0" prefHeight="30.0" prefWidth="360.0" promptText="Họ tên" styleClass="text1" AnchorPane.leftAnchor="20.0" />
-        <TextField layoutX="132.0" layoutY="213.0" prefHeight="30.0" prefWidth="360.0" promptText="Tên đăng nhập" styleClass="text1" AnchorPane.leftAnchor="20.0" />
-        <PasswordField layoutX="133.0" layoutY="250.0" prefHeight="30.0" prefWidth="360.0" promptText="Mật khẩu" styleClass="text1" AnchorPane.leftAnchor="20.0" />
-        <PasswordField fx:id="rePassword" layoutX="134.0" layoutY="287.0" prefHeight="30.0" prefWidth="360.0" promptText="Nhập lại mật khẩu" styleClass="text1" AnchorPane.leftAnchor="20.0" />
-        <Button layoutX="277.0" layoutY="345.0" mnemonicParsing="false" onMouseClicked="#createAccount" prefWidth="400.0" text="Tạo tài khoản">
+        <TextField layoutX="132.0" layoutY="137.0" prefHeight="30.0" prefWidth="360.0" promptText="Họ tên" AnchorPane.leftAnchor="20.0">
          <styleClass>
-            <String fx:value="confirmRegister" />
+            <String fx:value="text1" />
+            <String fx:value="text2" />
+         </styleClass>
+      </TextField>
+        <TextField layoutX="132.0" layoutY="213.0" prefHeight="30.0" prefWidth="360.0" promptText="Tên đăng nhập" AnchorPane.leftAnchor="20.0">
+         <styleClass>
+            <String fx:value="text1" />
+            <String fx:value="text2" />
+         </styleClass>
+      </TextField>
+        <PasswordField layoutX="133.0" layoutY="250.0" prefHeight="30.0" prefWidth="360.0" promptText="Mật khẩu" AnchorPane.leftAnchor="20.0">
+         <styleClass>
+            <String fx:value="text1" />
+            <String fx:value="text2" />
+         </styleClass>
+      </PasswordField>
+        <PasswordField fx:id="rePassword" layoutX="134.0" layoutY="287.0" prefHeight="30.0" prefWidth="360.0" promptText="Nhập lại mật khẩu" AnchorPane.leftAnchor="20.0">
+         <styleClass>
+            <String fx:value="text1" />
+            <String fx:value="text2" />
+         </styleClass>
+      </PasswordField>
+        <Button layoutX="277.0" layoutY="345.0" mnemonicParsing="false" onMouseClicked="#createAccount" prefHeight="30.0" prefWidth="400.0" text="Tạo tài khoản">
+         <styleClass>
             <String fx:value="button1" />
+            <String fx:value="confirmRegister" />
          </styleClass>
       </Button>
-      <DatePicker layoutX="133.0" layoutY="174.0" prefHeight="30.0" prefWidth="360.0" promptText="Ngày sinh" styleClass="text1" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="23.0" />
-      <FontAwesomeIconView fill="#433636" glyphName="USER_PLUS" layoutX="263.0" layoutY="49.0" size="3.5em" textAlignment="JUSTIFY" wrappingWidth="40.0" />
+      <DatePicker layoutX="133.0" layoutY="174.0" prefHeight="30.0" prefWidth="360.0" promptText="Ngày sinh" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+         <styleClass>
+            <String fx:value="text1" />
+            <String fx:value="text2" />
+         </styleClass>
+      </DatePicker>
+      <FontAwesomeIconView fill="#433636" glyphName="USER_PLUS" layoutX="180.0" layoutY="62.0" size="3.5em" textAlignment="JUSTIFY" wrappingWidth="40.0" />
+      <styleClass>
+         <String fx:value="round-bg" />
+         <String fx:value="registerBg" />
+      </styleClass>
     </AnchorPane>
-   <ImageView fitHeight="608.0" fitWidth="342.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <image>
-         <Image url="@../Images/loginImage.jpg" />
-      </image>
-   </ImageView>
 </AnchorPane>

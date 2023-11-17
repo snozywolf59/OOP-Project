@@ -4,7 +4,7 @@
 }
 .button1 {
     -fx-pref-height: 50;
-    -fx-pref-width: 200;
+    -fx-pref-width: 230;
     -fx-font-weight: bold;
     -fx-effect: dropshadow(three-pass-box, rgba(50,50,50,0.3), 1, 0.5, 0.5, 5);
     -fx-background-radius: 20 20 20 20;
@@ -38,6 +38,7 @@
 .enter {
     -fx-background-color:  #0196F3;
     -fx-pref-height: 35;
+    -fx-pref-width: 200;
 }
 
 .enter:hover {
@@ -47,19 +48,32 @@
 .register {
     -fx-background-color: #00FFA2;
     -fx-pref-height: 35;
+    -fx-pref-width: 200;
 }
 
 .register:hover {
     -fx-effect: dropshadow(gaussian, #00ffe1, 15, 0.45, 0, 0);
 
 }
+.boxText {
+    -fx-background-color: white;
+    -fx-background-radius: 10.5;
+    -fx-border-color: #00c3ff;
+    -fx-border-width: 3.5;
+    -fx-border-radius: 9;
+}
+
+.boxText FontAwesomeIconView{
+    -fx-fill: #00c3ff;
+}
 
 .text1{
     -fx-font-size: 14;
+    -fx-background-color: transparent;
 }
 
-.text1:hover, .text1:focused{
-    -fx-cursor: hand;
+
+.boxText:hover{
     -fx-effect: dropshadow(gaussian, #004dff, 15, 0.45, 0, 0);
 }
 
@@ -85,17 +99,17 @@
 .confirmRegister {
 -fx-pref-width: 100;
 -fx-pref-height: 36;
--fx-background-color: null;
+-fx-background-color: transparent;
 }
 
 .confirmRegister:hover {
--fx-background-color:white;
+-fx-background-color: dodgerblue;
 }
 
 .label1 {
     -fx-background-radius: 15px;
     -fx-pref-height: 40;
-    -fx-pref-width: 400;
+    -fx-pref-width: 380;
 }
 
 .label1:hover {
@@ -146,4 +160,27 @@
 .date-picker .day-cell:selected {
     -fx-background-color: #4CAF50; /* Màu nền khi ô ngày được chọn */
     -fx-text-fill: white; /* Màu chữ khi ô ngày được chọn */
+}
+
+.round-bg {
+    -fx-background-color: white;
+    -fx-background-radius: 0 25 25 0;
+}
+
+.image {
+    -fx-background-color: white;
+    -fx-background-image: url('../Images/login.png');
+    -fx-background-size: cover;
+    -fx-border-width: 5;
+    -fx-border-color: white;
+    -fx-border-radius: 25 0 0 25;
+}
+
+.registerBg {
+    -fx-background-radius:30;
+}
+
+.text2 {
+    -fx-border-color: dodgerblue;
+    -fx-border-radius: 9;
 }
