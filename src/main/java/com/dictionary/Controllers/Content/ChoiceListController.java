@@ -1,10 +1,9 @@
 package com.dictionary.Controllers.Content;
 
-import com.dictionary.Controllers.Content.API.GGTranslateController;
 import com.dictionary.Models.Model;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,25 +11,26 @@ import java.util.ResourceBundle;
 public class ChoiceListController implements Initializable {
 
     @FXML
-    private Button exitBtn;
+    private ToggleButton exitBtn;
 
     @FXML
-    private Button gameBtn;
+    private ToggleButton gameBtn;
 
     @FXML
-    private Button homeBtn;
+    private ToggleButton homeBtn;
 
     @FXML
-    private Button learnBtn;
+    private ToggleButton learnBtn;
 
     @FXML
-    private Button searchBtn;
+    private ToggleButton searchBtn;
 
     @FXML
-    private Button ggTranslate;
+    private ToggleButton apiBtn;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        homeBtn.setSelected(true);
         addListener();
     }    
     
@@ -38,18 +38,38 @@ public class ChoiceListController implements Initializable {
         homeBtn.setOnAction(e->{
             setSelect("Home");
             HomeController.isSelected = true;
+            disableExcept(homeBtn);
         });
-        searchBtn.setOnAction(e->setSelect("Search"));
-        gameBtn.setOnAction(e->setSelect("Play"));
-        learnBtn.setOnAction(e->setSelect("Learn"));
+        searchBtn.setOnAction(e->{
+            setSelect("Search");
+            disableExcept(searchBtn);
+        });
+        gameBtn.setOnAction(e->{
+            setSelect("Play");
+            disableExcept(gameBtn);
+        });
+        learnBtn.setOnAction(e->{
+            setSelect("Learn");
+            disableExcept(learnBtn);
+        });
         exitBtn.setOnAction(e->setSelect("Exit"));
-        ggTranslate.setOnAction(e->{
+        apiBtn.setOnAction(e->{
             setSelect("GoogleTranslate");
+            disableExcept(apiBtn);
         });
     }
     
     private void setSelect(String t) {
         Model.getInstance().getViewFactory().getCurrentSelect().set(t);
-        if (!t.equals("Home"))Model.getInstance().getViewFactory().resetHome();
+        if (!t.equals("Home")) Model.getInstance().getViewFactory().resetHome();
+    }
+
+    private void disableExcept(ToggleButton x) {
+        gameBtn.setSelected(false);
+        homeBtn.setSelected(false);
+        learnBtn.setSelected(false);
+        searchBtn.setSelected(false);
+        apiBtn.setSelected(false);
+        x.setSelected(true);
     }
 }

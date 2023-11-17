@@ -22,7 +22,7 @@
     -fx-spacing: 24;
 }
 
-.menu Button {
+.menu ToggleButton {
     -fx-pref-height: 70;
     -fx-pref-width: 180;
     -fx-background-color: #FFFFFF;
@@ -39,14 +39,14 @@
     -fx-size: 15.0;
 }
 
-.menu Button:hover {
+.menu ToggleButton:hover, .menu ToggleButton:selected {
     -fx-cursor: hand;
     -fx-text-fill: #FFFFFF;
     -fx-background-color: #0d8c79;
     -fx-effect: dropshadow(three-pass-box, rgba(20,255,0,0.3), 1, 0.5, 0.5, 5);
 }
 
-.menu Button:hover FontAwesomeIconView {
+.menu ToggleButton:hover FontAwesomeIconView, .menu ToggleButton:selected FontAwesomeIconView{
     -fx-fill: #FFFFFF;
 }
 
