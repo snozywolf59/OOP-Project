@@ -1,10 +1,12 @@
-/*.bg {
+.bg {
     -fx-background-color: linear-gradient(to bottom right, #0f6789, #4ce699);
-}*/
+}
 
 .origin {
     -fx-pref-width: 700;
     -fx-pref-height: 300;
+    -fx-background-radius: 20 0 0 0;
+    -fx-background-color: white;
 }
 
 .origin HBox{
@@ -17,7 +19,7 @@
     -fx-background-radius: 5 5 5 5 ;
     -fx-pref-width: 200;
     -fx-pref-height: 60;
-    -fx-background-color: null;
+    -fx-background-color: transparent;
 }
 
 .origin MenuButton:hover {
@@ -29,37 +31,24 @@
 
 .toggleButton {
     -fx-background-radius: 30 30 30 30 ;
-    -fx-background-color: null;
+    -fx-background-color: transparent;
     -fx-pref-width: 120;
     -fx-pref-height: 60;
     -fx-font-weight: bold;
 }
 
 .toggleButton:hover {
-    -fx-background-color: #FFFFFF;
+    -fx-background-color: skyblue;
     -fx-cursor: hand;
 }
 
 .toggleButton:selected {
-    -fx-background-color: #FF4444;
+    -fx-background-color: skyblue;
 }
 
-.orgButton {
-    -fx-background-radius: 30 30 30 30;
-    -fx-background-color: null;
-    -fx-pref-width: 120;
-    -fx-pref-height: 60;
-    -fx-fill: null;
-    -fx-font-weight: bold;
+.toggleButton:hover FontAwesomeIconView, .toggleButton:selected FontAwesomeIconView{
+    -fx-fill: white;
 }
-
-.orgButton:hover {
-    -fx-background-color: #FFFFFF;
-    -fx-fill: #FFFFFF;
-    -fx-cursor: hand;
-    -fx-font-weight: bold;
-}
-
 .origin TextArea {
     -fx-pref-height: 260;
     -fx-pref-width: 700;
@@ -73,35 +62,59 @@
     -fx-pref-width: 400;
     -fx-font-size: 22;
     -fx-background-color: #B5FFE9;
-    -fx-text-fill: #333333; /* Màu chữ */
+    -fx-text-fill: #333943; /* Màu chữ */
 }
 
 .swap {
-    -fx-pref-width: 40;
+    -fx-pref-width: 80;
     -fx-pref-height: 40;
-    -fx-background-color: null;
+    -fx-background-color: transparent;
     -fx-alignment: center;
     -fx-background-radius: 20 20 20 20;
 }
 
+.orgButton {
+    -fx-background-radius: 30 30 30 30;
+    -fx-background-color: transparent;
+    -fx-pref-width: 120;
+    -fx-pref-height: 60;
+    -fx-font-weight: bold;
+}
+
+.orgButton FontAwesomeIconView{
+-fx-fill: #455a64;
+}
+
+.orgButton:hover {
+    -fx-background-color: skyblue ;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+}
+
+.orgButton:hover FontAwesomeIconView {
+    -fx-fill: white ;
+}
+
+
 .swap:hover{
-    -fx-background-color: #FFFFFF;
+    -fx-background-color: skyblue;
     -fx-cursor: hand;
 }
 
-.swap VBox FontAwesomeIconView {
+.swap HBox FontAwesomeIconView {
     -fx-size: 15.0;
 }
 
-.swap VBox{
+.swap HBox{
     -fx-alignment: center;
 }
 
 .mode {
-    -fx-background-color: null;
-    -fx-text-fill: red;
+    -fx-background-color: transparent;
     -fx-background-radius: 15px;
+    -fx-font-size: 14;
 }
+
 .mode:hover {
     -fx-cursor: hand;
     -fx-background-color: white;
@@ -114,20 +127,57 @@
     -fx-my-menu-font-color: #FFFFFF;             /* Change according to your needs */
     -fx-my-menu-font-color-highlighted: #FFFFFF; /* Change according to your needs */
 }
+
 .menu-item {
-    -fx-background-color: null;
+    -fx-background-color: transparent;
     -fx-background-radius: 30px;
 }
 
-.menu-item .label {
+.mode .menu-item .label {
     -fx-text-fill: #263238;
+    -fx-font-size: 14;
 }
 
-.menu-item:focused, .menu-item:hovered {
+.mode .menu-item:focused, .menu-item:hover{
     -fx-background-color: -fx-my-menu-color-highlighted;
 }
 
+.mode .menu-item:focused .label {
+    -fx-text-fill: white;
+}
+
+.mode .context-menu {
+    -fx-pref-width: 100;
+    -fx-background-color: transparent;
+    -fx-border-color: #455a64;
+    -fx-border-radius: 10;
+    -fx-border-width: 5;
+}
+
 /*** The item's label (hovered / focused) ***/
-.menu-item:focused .label, .menu-item:hovered .label {
+.mode .menu-item:focused .label {
     -fx-text-fill: -fx-my-menu-font-color-highlighted;
+    -fx-font-weight: bold;
+}
+
+.language:hover{
+    -fx-background-color: skyblue;
+}
+
+.language .menu-item {
+    -fx-pref-width: 200;
+}
+
+.language .menu-item:focused {
+    -fx-background-color: skyblue;
+}
+
+
+.language .menu-item .label {
+    -fx-font-weight: bold;
+}
+
+
+.language .menu-item:focused .label {
+    -fx-text-fill: white;
 }

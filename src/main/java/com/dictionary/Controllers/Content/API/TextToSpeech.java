@@ -15,6 +15,12 @@ public class TextToSpeech {
     private static final String GOOGLE_SYNTHESISER_URL = "https://www.google.com/speech-api/v2/synthesize?enc=mpeg"
                                                         + "&client=chromium";
     private String languageCode = null;
+    private Thread speakThread;
+
+    private boolean isSpeaking() {
+        return speakThread.isAlive();
+    }
+
 
     public void setLanguageCode(String languageCode) {
         this.languageCode = languageCode;
@@ -42,17 +48,19 @@ public class TextToSpeech {
         return urlConn.getInputStream();
     }
     public void speak(String text) {
-        Thread thread = new Thread(() -> {
-            try {
-                AdvancedPlayer player = new AdvancedPlayer(this.getMP3Data(text));
-                player.play();
-            } catch (IOException | JavaLayerException e) {
-                System.out.println(e.getMessage());
-            }
-        });
+        if (speakThread == null || !isSpeaking()) {
+            speakThread = new Thread(() -> {
+                try {
+                    AdvancedPlayer player = new AdvancedPlayer(this.getMP3Data(text));
+                    player.play();
+                } catch (IOException | JavaLayerException e) {
+                    System.out.println(e.getMessage());
+                }
+            });
 
-        thread.setDaemon(false);
+            speakThread.setDaemon(false);
 
-        thread.start();
+            speakThread.start();
+        }
     }
 }

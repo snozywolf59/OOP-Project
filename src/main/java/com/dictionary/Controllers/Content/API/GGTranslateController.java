@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 
 public class GGTranslateController implements Initializable {
     @FXML
-    public FontAwesomeIconView recordIcon;
+    private FontAwesomeIconView recordIcon;
 
     @FXML
     private TextArea originalText;
