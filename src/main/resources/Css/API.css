@@ -5,7 +5,7 @@
 .origin {
     -fx-pref-width: 700;
     -fx-pref-height: 300;
-    -fx-background-radius: 20 0 0 0;
+    -fx-background-radius: 21 0 0 0;
     -fx-background-color: white;
 }
 
@@ -37,13 +37,17 @@
     -fx-font-weight: bold;
 }
 
+.toggleButton FontAwesomeIconView {
+    -fx-fill: royalblue;
+}
+
 .toggleButton:hover {
-    -fx-background-color: skyblue;
+    -fx-background-color: royalblue;
     -fx-cursor: hand;
 }
 
 .toggleButton:selected {
-    -fx-background-color: skyblue;
+    -fx-background-color: royalblue;
 }
 
 .toggleButton:hover FontAwesomeIconView, .toggleButton:selected FontAwesomeIconView{
@@ -82,11 +86,11 @@
 }
 
 .orgButton FontAwesomeIconView{
--fx-fill: #455a64;
+    -fx-fill: royalblue;
 }
 
 .orgButton:hover {
-    -fx-background-color: skyblue ;
+    -fx-background-color: royalblue ;
     -fx-cursor: hand;
     -fx-font-weight: bold;
 }
@@ -97,12 +101,8 @@
 
 
 .swap:hover{
-    -fx-background-color: skyblue;
+    -fx-background-color: royalblue;
     -fx-cursor: hand;
-}
-
-.swap HBox FontAwesomeIconView {
-    -fx-size: 15.0;
 }
 
 .swap HBox{
@@ -112,7 +112,6 @@
 .mode {
     -fx-background-color: transparent;
     -fx-background-radius: 15px;
-    -fx-font-size: 14;
 }
 
 .mode:hover {
@@ -133,9 +132,10 @@
     -fx-background-radius: 30px;
 }
 
-.mode .menu-item .label {
+.mode .label, .mode .menu-item .label {
     -fx-text-fill: #263238;
     -fx-font-size: 14;
+    -fx-font-weight: bold;
 }
 
 .mode .menu-item:focused, .menu-item:hover{
@@ -160,8 +160,21 @@
     -fx-font-weight: bold;
 }
 
+.language {
+    -fx-background-color: transparent;
+}
+
 .language:hover{
-    -fx-background-color: skyblue;
+    -fx-background-color: royalblue;
+}
+
+.language .label, .language .menu-item .label{
+    -fx-font-weight: bold;
+    -fx-text-fill: blue;
+}
+
+.language:hover .label{
+-fx-text-fill: white;
 }
 
 .language .menu-item {
@@ -169,14 +182,8 @@
 }
 
 .language .menu-item:focused {
-    -fx-background-color: skyblue;
+    -fx-background-color: royalblue;
 }
-
-
-.language .menu-item .label {
-    -fx-font-weight: bold;
-}
-
 
 .language .menu-item:focused .label {
     -fx-text-fill: white;
