@@ -8,73 +8,76 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="185.0" stylesheets="@../../Css/ChoiceList.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.ChoiceListController">
-   <children>
-      <VBox layoutX="1.0" layoutY="160.0" prefHeight="560.0" prefWidth="180.0" styleClass="menu" stylesheets="@../../Css/ChoiceList.css">
-         <children>
-            <ToggleButton fx:id="homeBtn" accessibleRole="TOGGLE_BUTTON" mnemonicParsing="false" prefHeight="45.0" prefWidth="164.0" text="HOME">
-               <graphic>
-                  <FontAwesomeIconView glyphName="HOME" size="2EM" text="" />
-               </graphic>
-               <font>
-                  <Font size="19.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </ToggleButton>
-            <ToggleButton fx:id="searchBtn" mnemonicParsing="false" prefHeight="50.0" prefWidth="160.0" text="SEARCH">
-               <font>
-                  <Font size="19.0" />
-               </font>
-               <graphic>
-                  <FontAwesomeIconView glyphName="SEARCH" size="2em" />
-               </graphic>
-            </ToggleButton>
-            <ToggleButton fx:id="learnBtn" mnemonicParsing="false" prefHeight="55.0" prefWidth="190.0" text="LEARN">
-               <font>
-                  <Font size="19.0" />
-               </font>
-               <graphic>
-                  <FontAwesomeIconView glyphName="BOOK" size="2em" />
-               </graphic>
-            </ToggleButton>
-            <ToggleButton fx:id="gameBtn" mnemonicParsing="false" prefHeight="50.0" prefWidth="160.0" text="GAME">
-               <font>
-                  <Font size="19.0" />
-               </font>
-               <graphic>
-                  <FontAwesomeIconView glyphName="PLAY" size="2em" text="" />
-               </graphic>
-            </ToggleButton>
-            <ToggleButton fx:id="apiBtn" mnemonicParsing="false" text="API">
-               <graphic>
-                  <FontAwesomeIconView glyphName="CHAIN" />
-               </graphic></ToggleButton>
-            <ToggleButton fx:id="exitBtn" mnemonicParsing="false" styleClass="exit" text="EXIT">
-               <graphic>
-                  <FontAwesomeIconView glyphName="EXTERNAL_LINK" size="2em" />
-               </graphic>
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </ToggleButton>
-         </children>
-      </VBox>
-      <VBox prefHeight="170.0" prefWidth="180.0" styleClass="head">
-         <children>
-            <FontAwesomeIconView glyphName="LANGUAGE" size="6em">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin></FontAwesomeIconView>
-            <Label prefHeight="89.0" prefWidth="168.0" style="-fx-alignment: center;" text="UETED" textAlignment="CENTER">
-               <font>
-                  <Font name="Freestyle Script" size="27.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="-5.0" />
-               </VBox.margin>
-            </Label>
-         </children></VBox>
-   </children>
+<AnchorPane prefHeight="720.0" prefWidth="185.0" stylesheets="@../../Css/ChoiceList.css"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.dictionary.Controllers.Content.ChoiceListController">
+   <VBox layoutX="1.0" layoutY="160.0" prefHeight="560.0" prefWidth="180.0" styleClass="menu"
+         stylesheets="@../../Css/ChoiceList.css">
+      <ToggleButton fx:id="homeBtn" mnemonicParsing="false" prefHeight="45.0"
+                    prefWidth="164.0" text="HOME">
+         <graphic>
+            <FontAwesomeIconView glyphName="HOME" size="2EM" text=""/>
+         </graphic>
+         <font>
+            <Font size="19.0"/>
+         </font>
+         <opaqueInsets>
+            <Insets/>
+         </opaqueInsets>
+      </ToggleButton>
+      <ToggleButton fx:id="searchBtn" mnemonicParsing="false" prefHeight="50.0" prefWidth="160.0" text="SEARCH">
+         <font>
+            <Font size="19.0"/>
+         </font>
+         <graphic>
+            <FontAwesomeIconView glyphName="SEARCH" size="2em"/>
+         </graphic>
+      </ToggleButton>
+      <ToggleButton fx:id="learnBtn" mnemonicParsing="false" prefHeight="55.0" prefWidth="190.0" text="LEARN">
+         <font>
+            <Font size="19.0"/>
+         </font>
+         <graphic>
+            <FontAwesomeIconView glyphName="BOOK" size="2em"/>
+         </graphic>
+      </ToggleButton>
+      <ToggleButton fx:id="gameBtn" mnemonicParsing="false" prefHeight="50.0" prefWidth="160.0" text="GAME">
+         <font>
+            <Font size="19.0"/>
+         </font>
+         <graphic>
+            <FontAwesomeIconView glyphName="PLAY" size="2em" text=""/>
+         </graphic>
+      </ToggleButton>
+      <ToggleButton fx:id="apiBtn" mnemonicParsing="false" text="API">
+         <graphic>
+            <FontAwesomeIconView glyphName="CHAIN"/>
+         </graphic>
+      </ToggleButton>
+      <ToggleButton fx:id="exitBtn" mnemonicParsing="false" styleClass="exit" text="EXIT">
+         <graphic>
+            <FontAwesomeIconView glyphName="EXTERNAL_LINK" size="2em"/>
+         </graphic>
+         <font>
+            <Font size="19.0"/>
+         </font>
+      </ToggleButton>
+   </VBox>
+   <VBox prefHeight="170.0" prefWidth="180.0" styleClass="head">
+      <children>
+         <FontAwesomeIconView glyphName="LANGUAGE" size="6em">
+            <VBox.margin>
+               <Insets top="10.0"/>
+            </VBox.margin>
+         </FontAwesomeIconView>
+         <Label prefHeight="89.0" prefWidth="168.0" style="-fx-alignment: center;" text="UETED" textAlignment="CENTER">
+            <font>
+               <Font name="Freestyle Script" size="27.0"/>
+            </font>
+            <VBox.margin>
+               <Insets top="-5.0"/>
+            </VBox.margin>
+         </Label>
+      </children>
+   </VBox>
 </AnchorPane>
