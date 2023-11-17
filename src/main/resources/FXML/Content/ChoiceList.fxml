@@ -64,20 +64,18 @@
       </ToggleButton>
    </VBox>
    <VBox prefHeight="170.0" prefWidth="180.0" styleClass="head">
-      <children>
-         <FontAwesomeIconView glyphName="LANGUAGE" size="6em">
-            <VBox.margin>
-               <Insets top="10.0"/>
-            </VBox.margin>
-         </FontAwesomeIconView>
-         <Label prefHeight="89.0" prefWidth="168.0" style="-fx-alignment: center;" text="UETED" textAlignment="CENTER">
-            <font>
-               <Font name="Freestyle Script" size="27.0"/>
-            </font>
-            <VBox.margin>
-               <Insets top="-5.0"/>
-            </VBox.margin>
-         </Label>
-      </children>
+      <FontAwesomeIconView glyphName="LANGUAGE" size="6em">
+         <VBox.margin>
+            <Insets top="10.0"/>
+         </VBox.margin>
+      </FontAwesomeIconView>
+      <Label prefHeight="89.0" prefWidth="168.0" style="-fx-alignment: center;" text="UETED" textAlignment="CENTER">
+         <font>
+            <Font name="Freestyle Script" size="27.0"/>
+         </font>
+         <VBox.margin>
+            <Insets top="-5.0"/>
+         </VBox.margin>
+      </Label>
    </VBox>
 </AnchorPane>
