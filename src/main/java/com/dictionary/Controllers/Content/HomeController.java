@@ -7,17 +7,18 @@ import animatefx.animation.SlideInUp;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
-    public Button getHome() {
+    public Label getHome() {
         return home;
     }
 
     @FXML
-    private Button home;
+    private Label home;
 
     public static volatile boolean isSelected = false;
 

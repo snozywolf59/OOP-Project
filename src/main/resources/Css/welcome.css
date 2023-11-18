@@ -169,6 +169,7 @@
 
 .image {
     -fx-background-color: white;
+    -fx-background-radius: 25 0 0 25;
     -fx-background-image: url('../Images/login.png');
     -fx-background-size: cover;
     -fx-border-width: 5;

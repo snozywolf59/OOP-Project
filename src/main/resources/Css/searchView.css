@@ -4,6 +4,18 @@
 }
 .bodybg1{
     -fx-background-color: #669999;
+    -fx-background-radius: 30;
+    -fx-border-width: 10;
+    -fx-border-radius: 15;
+    -fx-border-color: white;
+}
+
+.button {
+    -fx-background-color: transparent;
+}
+
+.button:hover {
+    -fx-background-color: white;
 }
 
 .list-cell {
@@ -69,4 +81,21 @@
 }
 .imageView {
     -fx-background-color: red;
+}
+
+.close {
+    -fx-pref-height: 40;
+    -fx-pref-width: 40;
+}
+.close FontAwesomeIconView {
+    -fx-fill: red;
+    -fx-size: 3em;
+}
+
+.close:hover {
+    -fx-cursor: hand;
+    -fx-background-color: red;
+}
+.close:hover FontAwesomeIconView {
+    -fx-fill: white;
 }

@@ -3,7 +3,6 @@ package com.dictionary.Controllers.Content.Search;
 import com.dictionary.Controllers.HandleInput;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
@@ -30,7 +29,7 @@ import static java.lang.Math.min;
 public class SearchController implements Initializable {
     private final Dictionary dictionary = new Dictionary();
 
-    private Thread speakingThread = new Thread();
+    private Thread speakingThread;
     private List<String> readTxtFile() {
         ArrayList<Word> words = dictionary.ListWordTxt();
         List<String> listWord = new ArrayList<>();
@@ -72,10 +71,8 @@ public class SearchController implements Initializable {
     private TextField addTargetWord;
     @FXML
     private TextArea addExWord;
-
     @FXML
     private Label haveNotChoose;
-
     @FXML
     private TextArea delWord;
     @FXML
@@ -87,6 +84,7 @@ public class SearchController implements Initializable {
         
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        speakingThread = new Thread();
         listView.getItems().addAll(words);
         setTree();
         definitionArea.setEditable(false);
@@ -202,9 +200,11 @@ public class SearchController implements Initializable {
 
     public void onActionSpeakBtn() {
         String selectedWord = listView.getSelectionModel().getSelectedItem();
-        if (!speakingThread.isAlive() && selectedWord != null ) {
+        if (selectedWord != null && !speakingThread.isAlive() && selectedWord != null ) {
             speakingThread = new Thread(()-> Dictionary.textToSpeech(selectedWord));
             speakingThread.start();
+        } else if (selectedWord == null) {
+            haveNotChoose.setVisible(true);
         }
     }
 
@@ -218,6 +218,7 @@ public class SearchController implements Initializable {
                     writer.write("\n");
             } catch (IOException e) {
                 e.printStackTrace();
+                System.out.println(e.getMessage());
             }
         }
     }
