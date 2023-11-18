@@ -1,6 +1,7 @@
 package com.dictionary.Controllers.Content;
 
 import com.dictionary.Models.Model;
+import com.dictionary.Views.ViewFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ToggleButton;
@@ -60,8 +61,8 @@ public class ChoiceListController implements Initializable {
     }
     
     private void setSelect(String t) {
-        Model.getInstance().getViewFactory().getCurrentSelect().set(t);
-        if (!t.equals("Home")) Model.getInstance().getViewFactory().resetHome();
+        Model.setSelect(t);
+        if (!t.equals(ViewFactory.HOME)) Model.getInstance().getViewFactory().resetHome();
     }
 
     private void disableExcept(ToggleButton x) {

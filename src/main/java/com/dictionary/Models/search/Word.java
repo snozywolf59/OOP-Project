@@ -4,7 +4,6 @@ package com.dictionary.Models.search;
  *
  * @author Admin
  */
-import java.security.PublicKey;
 
 public class Word {
     private String wordTarget;

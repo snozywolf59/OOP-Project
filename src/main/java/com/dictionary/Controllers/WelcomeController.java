@@ -1,20 +1,17 @@
 package com.dictionary.Controllers;
 
+import com.dictionary.Views.Effect;
 import com.dictionary.Models.Model;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.media.MediaView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class WelcomeController implements Initializable {
-
-    @FXML
-    private MediaView mediaView;
 
     @FXML
     private PasswordField password;
@@ -39,7 +36,7 @@ public class WelcomeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         password.setFocusTraversable(false);
         username.setFocusTraversable(false);
-        HandleInput.disable(registerPane);
+        Effect.disable(registerPane);
         registerPane.setVisible(false);
     }
     @FXML
@@ -57,9 +54,9 @@ public class WelcomeController implements Initializable {
     }
 
     public void register() {
-        HandleInput.disablePane(pane);
-        HandleInput.normalize(registerPane);
-        HandleInput.normalizePane(registerPane);
+        Effect.disablePane(pane);
+        Effect.enable(registerPane);
+        Effect.enablePane(registerPane);
     }
 
     public void createAccount() {
@@ -72,9 +69,9 @@ public class WelcomeController implements Initializable {
     }
 
     public void closeRegister() {
-        HandleInput.normalize(pane);
-        HandleInput.normalizePane(pane);
-        HandleInput.disablePane(registerPane);
-        HandleInput.disable(registerPane);
+        Effect.enable(pane);
+        Effect.enablePane(pane);
+        Effect.disablePane(registerPane);
+        Effect.disable(registerPane);
     }
 }

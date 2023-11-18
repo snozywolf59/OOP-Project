@@ -1,10 +1,17 @@
-package com.dictionary.Controllers;
+package com.dictionary.Views;
 
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
-public class HandleInput {
+public class Effect {
+    private Effect() {
+
+    }
+
+    public static final double WINDOW_WIDTH = 1280.0;
+    public static final double WINDOW_HEIGHT = 720.0;
+
     public static boolean mouseClickInside(Node node, MouseEvent event) {
         double mouseX = event.getSceneX();
         double mouseY = event.getSceneY();
@@ -18,7 +25,7 @@ public class HandleInput {
                 mouseY >= nodeY && mouseY <= nodeY + nodeHeight;
     }
 
-    public static void normalize(Node x) {
+    public static void enable(Node x) {
         x.setVisible(true);
         x.setDisable(false);
         x.setOpacity(1.0);
@@ -29,9 +36,9 @@ public class HandleInput {
         x.setDisable(true);
     }
 
-    public static void normalizePane(Pane x) {
+    public static void enablePane(Pane x) {
         for (Node y : x.getChildren()) {
-            normalize(y);
+            enable(y);
         }
     }
 

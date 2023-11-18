@@ -20,4 +20,8 @@ public final class Model {
     public ViewFactory getViewFactory() {
         return viewFactory;
     }
+
+    public static void setSelect(String s) {
+        getInstance().getViewFactory().getCurrentSelect().set(s);
+    }
 }

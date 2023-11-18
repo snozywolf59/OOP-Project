@@ -1,2 +1,0 @@
-go    di
-hello    chao

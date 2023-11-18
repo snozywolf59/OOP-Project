@@ -1,6 +1,6 @@
 package com.dictionary.Controllers.Content.Search;
 
-import com.dictionary.Controllers.HandleInput;
+import com.dictionary.Views.Effect;
 import com.dictionary.Models.search.Dictionary;
 import com.dictionary.Models.search.Word;
 import javafx.fxml.FXML;
@@ -135,8 +135,8 @@ public class SearchController implements Initializable {
         reset();
         String selectedWord = listView.getSelectionModel().getSelectedItem();
         if (selectedWord != null) {
-            HandleInput.disablePane(searchView);
-            HandleInput.normalize(editTab);
+            Effect.disablePane(searchView);
+            Effect.enable(editTab);
         } else {
             haveNotChoose.setVisible(true);
         }
@@ -144,14 +144,14 @@ public class SearchController implements Initializable {
     
     public void onActionAddWord() {
         reset();
-        HandleInput.disablePane(searchView);
-        HandleInput.normalize(addNewWord);
+        Effect.disablePane(searchView);
+        Effect.enable(addNewWord);
     }
 
     public void onActionDelWord() {
         reset();
-        HandleInput.disablePane(searchView);
-        HandleInput.normalize(delTab);
+        Effect.disablePane(searchView);
+        Effect.enable(delTab);
 
     }
 
@@ -226,16 +226,16 @@ public class SearchController implements Initializable {
     }
 
     public void closeAddNewWord() {
-        HandleInput.normalizePane(searchView);
+        Effect.enablePane(searchView);
         specialDisable();
     }
 
     public void closeEditTab() {
-        HandleInput.normalizePane(searchView);
+        Effect.enablePane(searchView);
         specialDisable();
     }
     public void closeDelTab() {
-        HandleInput.normalizePane(searchView);
+        Effect.enablePane(searchView);
         specialDisable();
     }
 }

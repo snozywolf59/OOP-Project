@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane prefHeight="888.0" prefWidth="1110.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.Learn.LearnController">
+<ScrollPane prefHeight="630.0" prefWidth="1110.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.LearnController">
    <content>
-      <AnchorPane prefHeight="720.0" prefWidth="1095.0">
+      <AnchorPane prefHeight="630.0" prefWidth="1095.0">
          <children>
-            <Button layoutX="182.0" layoutY="104.0" mnemonicParsing="false">
+            <Button layoutX="122.0" layoutY="42.0" mnemonicParsing="false" onMouseClicked="#toFavorList">
                <graphic>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
@@ -22,7 +22,7 @@
                               <Image url="@../../Images/Family.jpg" />
                            </image>
                         </ImageView>
-                        <Label alignment="CENTER" prefHeight="49.0" prefWidth="200.0" text="FAMILY" textAlignment="CENTER">
+                        <Label alignment="CENTER" prefHeight="49.0" prefWidth="200.0" text="Favourite Words" textAlignment="CENTER">
                            <font>
                               <Font size="25.0" />
                            </font>
@@ -49,21 +49,7 @@
                   </VBox>
                </graphic>
             </Button>
-            <Button layoutX="100.0" layoutY="398.0" mnemonicParsing="false">
-               <graphic>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label alignment="CENTER" prefHeight="49.0" prefWidth="200.0" text="Label" textAlignment="CENTER">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
-               </graphic>
-            </Button>
-            <Button fx:id="enterLisTest" layoutX="398.0" layoutY="398.0" mnemonicParsing="false">
+            <Button fx:id="enterLisTest" layoutX="138.0" layoutY="398.0" mnemonicParsing="false">
                <graphic>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>

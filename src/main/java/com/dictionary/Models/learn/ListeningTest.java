@@ -88,6 +88,7 @@ public class ListeningTest {
                     player = new AdvancedPlayer(inputStream);
                     player.play();
                 } catch (IOException | JavaLayerException e) {
+                    e.printStackTrace();
                     System.out.println(e.getMessage());
                 }
             });

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.Learn.ListeningTestController">
+   <children>
+      <TextArea fx:id="text" editable="false" layoutX="226.0" layoutY="104.0" prefHeight="552.0" prefWidth="566.0" />
+      <Button layoutX="675.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#playAudio">
+         <graphic>
+            <FontAwesomeIconView glyphName="VOLUME_UP" size="2em" textAlignment="CENTER" wrappingWidth="41.683311462402344" />
+         </graphic>
+      </Button>
+      <VBox layoutX="928.0" layoutY="104.0" prefHeight="558.0" prefWidth="187.0" style="-fx-alignment: center;">
+         <children>
+            <Label prefHeight="35.0" prefWidth="187.0" text="Your answers:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label prefHeight="18.0" prefWidth="187.0" text="(You should answer " />
+            <Label layoutX="10.0" layoutY="39.0" prefHeight="18.0" prefWidth="210.0" text="in the format below" />
+            <Label prefHeight="18.0" prefWidth="326.0" text="1. Your answer" />
+            <Label layoutX="10.0" layoutY="119.0" prefHeight="18.0" prefWidth="326.0" text="2. Your answer" />
+            <Label layoutX="10.0" layoutY="137.0" prefHeight="18.0" prefWidth="326.0" text="     ...   )" />
+            <TextArea fx:id="userAnswer" prefHeight="286.0" prefWidth="106.0" promptText="1. Your answer 2. Your answer 3. Your answer ..." wrapText="true">
+               <font>
+                  <Font size="13.0" />
+               </font></TextArea>
+            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#submit" prefHeight="35.0" prefWidth="111.0" text="Submit" />
+         </children>
+      </VBox>
+      <VBox layoutX="237.0" layoutY="39.0" prefHeight="54.0" prefWidth="338.0">
+         <children>
+            <Label prefHeight="18.0" prefWidth="289.0" text="Choose a section: ">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="31.0" prefWidth="330.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#c17_t1_s1" text="Section 1">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Button mnemonicParsing="false" onAction="#c17_t1_s2" text="Section 2">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Button layoutX="80.0" layoutY="10.0" mnemonicParsing="false" onAction="#c17_t1_s3" text="Section 3">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Button layoutX="143.0" layoutY="10.0" mnemonicParsing="false" onAction="#c17_t1_s4" text="Section 4">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Button layoutX="733.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#stopAudio">
+         <graphic>
+            <FontAwesomeIconView glyphName="STOP" size="2em" textAlignment="CENTER" wrappingWidth="41.683311462402344" />
+         </graphic>
+      </Button>
+      <Button layoutX="41.0" layoutY="38.0" mnemonicParsing="false" onMouseClicked="#backToLearn">
+         <graphic>
+            <FontAwesomeIconView glyphName="ARROW_LEFT" size="3em" />
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

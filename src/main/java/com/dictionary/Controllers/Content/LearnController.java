@@ -1,6 +1,7 @@
-package com.dictionary.Controllers.Content.Learn;
+package com.dictionary.Controllers.Content;
 
 import com.dictionary.Models.Model;
+import com.dictionary.Views.ViewFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -14,12 +15,13 @@ public class LearnController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        add();
+        toListeningTest();
     }
-    private void add() {
-        enterLisTest.setOnAction(e->setSelect("ListeningTest"));
+    private void toListeningTest() {
+        enterLisTest.setOnAction(e->Model.setSelect(ViewFactory.LISTENING_TEST));
     }
-    private void setSelect(String s) {
-        Model.getInstance().getViewFactory().getCurrentSelect().set(s);
+
+    public void toFavorList() {
+        Model.setSelect(ViewFactory.FAVOURITE_LIST);
     }
 }

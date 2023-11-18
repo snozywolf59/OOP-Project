@@ -1,6 +1,8 @@
 package com.dictionary.Controllers.Content.Learn;
 
+import com.dictionary.Models.Model;
 import com.dictionary.Models.learn.ListeningTest;
+import com.dictionary.Views.ViewFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -72,5 +74,9 @@ public class ListeningTestController implements Initializable {
             playAudio(mouseEvent);
         }
         isPlaying = !isPlaying;
+    }
+
+    public void backToLearn(MouseEvent mouseEvent) {
+        Model.setSelect(ViewFactory.BACK);
     }
 }

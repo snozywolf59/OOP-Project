@@ -13,6 +13,18 @@ public final class ViewFactory {
     private final Stage stage = new Stage();
     private static final String appName = "UETED";
 
+    public static final String HOME = "Home";
+    public static final String SEARCH = "Search";
+    public static final String PLAY = "Play";
+    public static final String EXIT = "Exit";
+    public static final String BACK = "Back";
+    public static final String LEARN = "Learn";
+    public static final String LISTENING_TEST = "ListeningTest";
+    public static final String API = "GoogleTranslate";
+    public static final String FAVOURITE_LIST = "FavouriteList";
+
+
+
     private final StringProperty currentSelect;
     private AnchorPane choiceList;
     private AnchorPane homeView;
@@ -21,6 +33,7 @@ public final class ViewFactory {
     private ScrollPane learnView;
     private AnchorPane ggTranslateView;
     private AnchorPane listeningTestView;
+    private AnchorPane favoriteWordList;
 
     public ViewFactory() {
         currentSelect = new SimpleStringProperty();
@@ -90,12 +103,24 @@ public final class ViewFactory {
     public AnchorPane getPlayView() {
         if (playView == null) {
             try {
-                playView = new FXMLLoader(getClass().getResource("/FXML/Content/Game/GameList.fxml")).load();
+                playView = new FXMLLoader(getClass().getResource("/FXML/Content/GameList.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         return playView;
+    }
+
+    public AnchorPane getFavoriteWordList() {
+        if (favoriteWordList == null) {
+            try {
+                favoriteWordList = new FXMLLoader(getClass().getResource("/FXML/Content/learn/FavouriteList.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println(e.getMessage());
+            }
+        }
+        return favoriteWordList;
     }
 
     public void resetHome() {
@@ -105,9 +130,10 @@ public final class ViewFactory {
     public AnchorPane getListeningTestView() {
         if (listeningTestView == null) {
             try {
-                listeningTestView = new FXMLLoader(getClass().getResource("/FXML/Content/ListeningTest.fxml")).load();
+                listeningTestView = new FXMLLoader(getClass().getResource("/FXML/Content/learn/ListeningTest.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
+                System.out.println(e.getMessage());
             }
         }
         return listeningTestView;

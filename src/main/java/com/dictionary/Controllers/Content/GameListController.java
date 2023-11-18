@@ -1,4 +1,4 @@
-package com.dictionary.Controllers.Content.game;
+package com.dictionary.Controllers.Content;
 
 import java.net.URL;
 import java.util.ResourceBundle;

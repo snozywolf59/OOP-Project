@@ -9,9 +9,9 @@
 
 <AnchorPane prefHeight="388.0" prefWidth="254.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.game.GameCardController">
    <children>
-      <ImageView fitHeight="256.0" fitWidth="200.0" layoutX="27.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="105.0" layoutY="337.0" mnemonicParsing="false" text="PLAY" />
-      <Label layoutX="49.0" layoutY="278.0" prefHeight="18.0" prefWidth="154.0" style="-fx-alignment: center;" text="name" textAlignment="CENTER">
+      <ImageView fx:id="image" fitHeight="256.0" fitWidth="200.0" layoutX="27.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="play" layoutX="105.0" layoutY="337.0" mnemonicParsing="false" text="PLAY" />
+      <Label fx:id="name" layoutX="49.0" layoutY="278.0" prefHeight="18.0" prefWidth="154.0" style="-fx-alignment: center;" text="name" textAlignment="CENTER">
          <font>
             <Font size="29.0" />
          </font>
