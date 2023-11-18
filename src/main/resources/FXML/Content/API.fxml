@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="630.0" prefWidth="1095.0" styleClass="bg" stylesheets="@../../Css/API.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.API.GGTranslateController">
+<AnchorPane prefHeight="630.0" prefWidth="1095.0" styleClass="bg" stylesheets="@../../Css/API.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.API.APIController">
     <AnchorPane layoutX="175.0" layoutY="332.8" prefHeight="231.0" styleClass="origin" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="333.0">
         <VBox prefHeight="234.0" prefWidth="700.0" AnchorPane.topAnchor="0.0">
             <HBox prefHeight="70.0" prefWidth="700.0">

@@ -1,4 +1,4 @@
-package com.dictionary.Controllers.Content.Learn;
+package com.dictionary.Models.learn;
 
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.advanced.AdvancedPlayer;

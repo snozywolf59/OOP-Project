@@ -1,6 +1,8 @@
 package com.dictionary.Controllers.Content.Search;
 
 import com.dictionary.Controllers.HandleInput;
+import com.dictionary.Models.search.Dictionary;
+import com.dictionary.Models.search.Word;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;

@@ -38,4 +38,12 @@ module com.dictionary {
     exports com.dictionary.Controllers.Content.API;
     exports com.dictionary.Controllers.Content.Learn;
     exports com.dictionary.Controllers.Content.Search;
+    exports com.dictionary.Controllers.Content.game;
+    opens com.dictionary.Controllers.Content.game to javafx.fxml;
+    exports com.dictionary.Models.API;
+    opens com.dictionary.Models.API to com.google.gson, javafx.fxml;
+    exports com.dictionary.Models.search;
+    opens com.dictionary.Models.search to javafx.fxml;
+    exports com.dictionary.Models.learn;
+    opens com.dictionary.Models.learn to javafx.fxml;
 }
