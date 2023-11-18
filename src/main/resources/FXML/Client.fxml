@@ -22,27 +22,24 @@
             <fx:include source="Content/Home.fxml" />
         </center>
       <top>
-         <AnchorPane prefHeight="95.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
-            <children>
-               <HBox layoutX="-1.0" layoutY="-2.0" prefHeight="95.0" prefWidth="1280.0" styleClass="head" stylesheets="@../Css/ChoiceList.css">
-                  <children>
-                     <FontAwesomeIconView glyphName="LANGUAGE" size="8.5em" wrappingWidth="87.42857360839844">
-                        <HBox.margin>
-                           <Insets />
-                        </HBox.margin>
-                     </FontAwesomeIconView>
-                     <Line endX="-100.0" endY="80.0" startX="-100.0" />
-                     <Label prefHeight="90.0" prefWidth="576.0" text="UETED">
-                        <font>
-                           <Font name="Berlin Sans FB Demi Bold" size="32.0" />
-                        </font>
-                     </Label>
-                     <Line endX="-100.0" endY="80.0" startX="-100.0" />
-                     <Label prefWidth="403.0" text="Label" />
-                  </children>
-               </HBox>
-            </children>
-         </AnchorPane>
+          <AnchorPane prefHeight="95.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+              <HBox layoutX="-1.0" layoutY="-2.0" prefHeight="95.0" prefWidth="1280.0" styleClass="head"
+                    stylesheets="@../Css/ChoiceList.css">
+                  <FontAwesomeIconView glyphName="LANGUAGE" size="8.5em" wrappingWidth="87.42857360839844">
+                      <HBox.margin>
+                          <Insets/>
+                      </HBox.margin>
+                  </FontAwesomeIconView>
+                  <Line endX="-100.0" endY="80.0" startX="-100.0"/>
+                  <Label prefHeight="90.0" prefWidth="576.0" text="UETED">
+                      <font>
+                          <Font name="Berlin Sans FB Demi Bold" size="32.0"/>
+                      </font>
+                  </Label>
+                  <Line endX="-100.0" endY="80.0" startX="-100.0"/>
+                  <Label prefWidth="403.0" text="Label"/>
+              </HBox>
+          </AnchorPane>
       </top>
 
     </BorderPane>

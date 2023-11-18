@@ -200,7 +200,7 @@ public class SearchController implements Initializable {
 
     public void onActionSpeakBtn() {
         String selectedWord = listView.getSelectionModel().getSelectedItem();
-        if (selectedWord != null && !speakingThread.isAlive() && selectedWord != null ) {
+        if (!speakingThread.isAlive() && selectedWord != null ) {
             speakingThread = new Thread(()-> Dictionary.textToSpeech(selectedWord));
             speakingThread.start();
         } else if (selectedWord == null) {
