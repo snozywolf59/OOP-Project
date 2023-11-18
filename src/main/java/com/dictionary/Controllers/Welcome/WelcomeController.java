@@ -87,16 +87,20 @@ public class WelcomeController implements Initializable {
 
     @FXML
     public void login() throws ExecutionException, InterruptedException {
-        String userName = username.getText();
-        String pass = password.getText();
-        if (!User.exists(userName, pass)) {
-            errorLogin = "Tên đăng nhập hoặc mật khẩu không đúng."; // Sửa thành label
-            return;
+        try {
+            String userName = username.getText();
+            String pass = password.getText();
+            if (!User.exists(userName, pass)) {
+                errorLogin = "Tên đăng nhập hoặc mật khẩu không đúng."; // Sửa thành label
+                return;
+            }
+            App.user.setUser(userName, pass);
+            App.user.pullUserData();
+            System.out.println("Đăng nhập thành công.");
+            Model.getInstance().getViewFactory().showWindow();
+        } catch (Exception e) {
+            System.out.println("Sign in thất bại.");
         }
-        App.user.setUser(userName, pass);
-        App.user.pullUserData();
-        System.out.println("Đăng nhập thành công.");
-        Model.getInstance().getViewFactory().showWindow();
     }
 
     public void enter() {
@@ -121,51 +125,59 @@ public class WelcomeController implements Initializable {
     }
 
     @FXML
-    public void createAccount() throws ExecutionException, InterruptedException {
-        createAccountInSignUp();
+    public void createAccount() {
+        if (!createAccountInSignUp()) {
+            return;
+        }
         closeRegister();
     }
 
-    private void createAccountInSignUp() throws ExecutionException, InterruptedException {
-        if (name.getText().isEmpty()) {
-            errorUser.setText("Chưa nhập họ và tên.");
-            return;
+    private boolean createAccountInSignUp() {
+        try {
+            if (name.getText().isEmpty()) {
+                errorUser.setText("Chưa nhập họ và tên.");
+                return false;
+            }
+            if (userNameSignUp.getText().isEmpty()) {
+                errorUser.setText("Chưa nhập tên đăng nhập.");
+                return false;
+            }
+            if (passwordSignUp.getText().isEmpty()) {
+                errorUser.setText("Chưa nhập mật khẩu.");
+                return false;
+            }
+            if (rePasswordSignUp.getText().isEmpty()) {
+                errorUser.setText("Chưa nhập nhập lại mật khẩu.");
+                return false;
+            }
+            if (dateOfBirth.getValue() == null) {
+                errorUser.setText("Chưa nhập ngày sinh.");
+                return false;
+            }
+            if (gmailAddress.getText().isEmpty()) {
+                errorUser.setText("Chưa nhập địa chỉ gmail.");
+                return false;
+            }
+            if (!rePasswordSignUp.getText().equals(passwordSignUp.getText())) {
+                errorUser.setText("Nhập lại mật khẩu không đúng.");
+                return false;
+            }
+            if (User.exists(userNameSignUp.getText(), passwordSignUp.getText())) {
+                errorUser.setText("Tài khoản đã tồn tại.");
+                return false;
+            }
+            if (!auCode.equals(MD5.md5HashString(otpCode.getText()))) {
+                errorOTP.setText("Mã otp không đúng");
+                return false;
+            }
+            App.user.setUser(userNameSignUp.getText(), passwordSignUp.getText(), name.getText(), dateOfBirth.toString(), gmailAddress.getText());
+            App.user.createNewUserToFSCloud();
+            System.out.println("Tạo tài khoản thành công.");
+            return true;
+        } catch (Exception e) {
+            System.out.println("Tạo tài khoản thất bại");
+            return false;
         }
-        if (userNameSignUp.getText().isEmpty()) {
-            errorUser.setText("Chưa nhập tên đăng nhập.");
-            return;
-        }
-        if (passwordSignUp.getText().isEmpty()) {
-            errorUser.setText("Chưa nhập mật khẩu.");
-            return;
-        }
-        if (rePasswordSignUp.getText().isEmpty()) {
-            errorUser.setText("Chưa nhập nhập lại mật khẩu.");
-            return;
-        }
-        if (dateOfBirth.getValue() == null) {
-            errorUser.setText("Chưa nhập ngày sinh.");
-            return;
-        }
-        if (gmailAddress.getText().isEmpty()) {
-            errorUser.setText("Chưa nhập địa chỉ gmail.");
-            return;
-        }
-        if (!rePasswordSignUp.getText().equals(passwordSignUp.getText())) {
-            errorUser.setText("Nhập lại mật khẩu không đúng.");
-            return;
-        }
-        if (User.exists(userNameSignUp.getText(), passwordSignUp.getText())) {
-            errorUser.setText("Tài khoản đã tồn tại.");
-            return;
-        }
-        if (!auCode.equals(MD5.md5HashString(otpCode.getText()))) {
-            errorOTP.setText("Mã otp không đúng");
-            return;
-        }
-        App.user.setUser(userNameSignUp.getText(), passwordSignUp.getText(), name.getText(), dateOfBirth.toString(), gmailAddress.getText());
-        App.user.createNewUserToFSCloud();
-        System.out.println("Tạo tài khoản thành công.");
     }
 
     public void closeRegister() {
