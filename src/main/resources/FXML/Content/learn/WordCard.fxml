@@ -7,10 +7,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="283.0" prefWidth="242.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.Learn.WordCardController">
+<AnchorPane prefHeight="280.0" prefWidth="242.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.Learn.WordCardController">
    <children>
-      <VBox prefHeight="285.0" prefWidth="242.0" style="-fx-alignment: center;">
+      <VBox prefHeight="280.0" prefWidth="242.0" style="-fx-alignment: center;">
          <children>
             <Label fx:id="word_target" prefHeight="57.0" prefWidth="245.0" style="-fx-alignment: center;" text="Label">
                <font>

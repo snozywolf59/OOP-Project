@@ -19,6 +19,13 @@ module com.dictionary {
     requires javafx.media;
     requires freetts;
     requires AnimateFX;
+    requires com.google.api.apicommon;
+    requires google.cloud.firestore;
+    requires firebase.admin;
+    requires com.google.auth.oauth2;
+    requires google.cloud.core;
+    requires google.cloud.core.grpc;
+    requires com.google.auth;
 
     opens com.dictionary to javafx.fxml;
     opens com.dictionary.Controllers to javafx.fxml;
@@ -28,7 +35,7 @@ module com.dictionary {
     opens com.dictionary.Controllers.Content.API to javafx.fxml, com.google.gson;
     opens com.dictionary.Controllers.Content.Learn to javafx.fxml;
     opens com.dictionary.Controllers.Content.Search to javafx.fxml;
-
+    opens com.dictionary.Controllers.Welcome to javafx.fxml;
 
     exports com.dictionary;
     exports com.dictionary.Views;
