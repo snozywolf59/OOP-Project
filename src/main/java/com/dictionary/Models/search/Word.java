@@ -1,4 +1,4 @@
-package com.dictionary.Controllers.Content.Search;
+package com.dictionary.Models.search;
 
 /**
  *

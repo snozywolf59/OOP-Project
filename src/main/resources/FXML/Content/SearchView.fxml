@@ -2,6 +2,7 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
@@ -17,136 +18,139 @@
    <stylesheets>
       <URL value="@../../Css/searchView.css" />
    </stylesheets>
-   <HBox prefHeight="694.0" prefWidth="1089.0">
-      <children>
-         <AnchorPane prefHeight="694.0" prefWidth="359.0">
-            <children>
-               <Label layoutX="7.0" prefHeight="51.0" prefWidth="264.0" text="SEARCH WORD" textAlignment="CENTER" textFill="#214563">
+   <HBox prefHeight="586.0" prefWidth="1090.0">
+      <AnchorPane prefHeight="694.0" prefWidth="304.0" style="-fx-pref-height: 500;">
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin>
+         <Label layoutX="9.0" prefHeight="51.0" prefWidth="264.0" text="SEARCH WORD" textAlignment="CENTER" textFill="#214563">
+            <font>
+               <Font name=".VnTime" size="29.0" />
+            </font>
+         </Label>
+         <TextField fx:id="searchField" layoutX="9.0" layoutY="61.0" onKeyTyped="#search" prefHeight="40.0" prefWidth="303.0" promptText="Enter Word Here" AnchorPane.leftAnchor="9.0">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </TextField>
+         <Button layoutX="312.0" layoutY="60.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="46.0">
+            <graphic>
+               <FontAwesomeIconView glyphName="SEARCH" size="20.0" />
+            </graphic>
+         </Button>
+         <ListView fx:id="listView" layoutX="9.0" layoutY="114.0" onMouseClicked="#onMouseClickListView" prefHeight="430.0" prefWidth="303.0" />
+      </AnchorPane>
+      <AnchorPane cache="true" focusTraversable="true" prefHeight="669.0" prefWidth="674.0">
+         <effect>
+            <Blend mode="OVERLAY" />
+         </effect>
+         <AnchorPane focusTraversable="true" layoutX="-33.0" layoutY="65.0" prefHeight="475.0" prefWidth="706.0">
+            <Label fx:id="targetWord" layoutX="94.0" layoutY="29.0" prefHeight="35.0" prefWidth="369.0" textFill="#3b8d72">
+               <font>
+                  <Font name=".VnTime Bold Italic" size="31.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="definitionArea" layoutX="94.0" layoutY="128.0" prefHeight="345.0" prefWidth="586.0" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </TextArea>
+            <HBox layoutX="94.0" layoutY="86.0" prefHeight="40.0" prefWidth="586.0" styleClass="listBtn">
+               <Label fx:id="pronounceWord" prefHeight="40.0" prefWidth="345.0" textFill="#173e80">
                   <font>
-                     <Font name=".VnTime" size="29.0" />
+                     <Font name="System Bold Italic" size="19.0" />
                   </font>
                </Label>
-               <TextField fx:id="searchField" layoutX="6.0" layoutY="61.0" onKeyTyped="#search" prefHeight="40.0" prefWidth="303.0" promptText="Enter Word Here" AnchorPane.leftAnchor="7.0">
-                  <font>
-                     <Font size="14.0" />
-                  </font>
-               </TextField>
-               <Button layoutX="310.0" layoutY="60.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="46.0">
-                  <graphic>
-                     <FontAwesomeIconView glyphName="SEARCH" size="20.0" />
-                  </graphic>
-               </Button>
-               <ListView fx:id="listView" layoutX="7.0" layoutY="114.0" onMouseClicked="#onMouseClickListView" prefHeight="519.0" prefWidth="303.0" />
-            </children>
+               <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                  <buttons>
+                     <Button mnemonicParsing="false" onAction="#onActionSpeakBtn" text="Speak" />
+                     <Button mnemonicParsing="false" onAction="#onActionEditWord" prefHeight="37.0" prefWidth="47.0" styleClass="buttonEditWord" text="Edit" textFill="#5ec487" />
+                     <Button mnemonicParsing="false" onAction="#onActionDelWord" prefHeight="38.0" prefWidth="54.0" styleClass="buttonDeleteWord" text="Delete" />
+                     <Button mnemonicParsing="false" onMouseClicked="#onActionFavorite">
+                        <graphic>
+                           <FontAwesomeIconView fill="#fff500" glyphName="STAR" size="2.4em" />
+                        </graphic>
+                     </Button>
+                     <Button mnemonicParsing="false" onAction="#onActionAddWord" prefHeight="37.0" prefWidth="52.0" styleClass="buttonAddWord" text="Add" textFill="#f43838" />
+                  </buttons>
+               </ButtonBar>
+            </HBox>
          </AnchorPane>
-         <AnchorPane cache="true" focusTraversable="true" prefHeight="683.0" prefWidth="721.0">
-            <children>
-               <AnchorPane focusTraversable="true" layoutX="12.0" layoutY="65.0" prefHeight="500.0" prefWidth="705.0">
-                  <children>
-                     <Label fx:id="targetWord" layoutX="94.0" layoutY="86.0" prefHeight="35.0" prefWidth="369.0" textFill="#3b8d72">
-                        <font>
-                           <Font name=".VnTime Bold Italic" size="31.0" />
-                        </font>
-                     </Label>
-                     <TextArea fx:id="definitionArea" layoutX="94.0" layoutY="166.0" prefHeight="408.0" prefWidth="586.0" wrapText="true">
-                        <font>
-                           <Font name="System Bold" size="22.0" />
-                        </font>
-                     </TextArea>
-                     <HBox layoutX="94.0" layoutY="122.0" prefHeight="40.0" prefWidth="586.0" styleClass="listBtn">
-                        <children>
-                           <Label fx:id="pronounceWord" prefHeight="40.0" prefWidth="345.0" textFill="#173e80">
-                              <font>
-                                 <Font name="System Bold Italic" size="19.0" />
-                              </font>
-                           </Label>
-                           <ButtonBar prefHeight="40.0" prefWidth="200.0">
-                             <buttons>
-                                 <Button mnemonicParsing="false" onAction="#onActionSpeakBtn" text="Speak" />
-                                 <Button mnemonicParsing="false" onAction="#onActionEditWord" prefHeight="37.0" prefWidth="47.0" styleClass="buttonEditWord" text="Edit" textFill="#5ec487" />
-                                 <Button mnemonicParsing="false" onAction="#onActionDelWord" prefHeight="38.0" prefWidth="54.0" styleClass="buttonDeleteWord" text="Delete" />
-                                 <Button mnemonicParsing="false" onMouseClicked="#onActionFavorite">
-                                    <graphic>
-                                       <FontAwesomeIconView fill="#fff500" glyphName="STAR" size="2.4em" />
-                                    </graphic>
-                                 </Button>
-                                 <Button mnemonicParsing="false" onAction="#onActionAddWord" prefHeight="37.0" prefWidth="52.0" styleClass="buttonAddWord" text="Add" textFill="#f43838" />
-                             </buttons>
-                           </ButtonBar>
-                        </children>
-                     </HBox>
-                  </children>
-               </AnchorPane>
-               <Label layoutX="276.0" prefHeight="61.0" prefWidth="290.0" text="DEFINITION" textFill="#214563">
-                  <font>
-                     <Font name=".VnTime" size="49.0" />
-                  </font>
-               </Label>
-            </children>
-            <effect>
-               <Blend mode="OVERLAY" />
-            </effect>
-         </AnchorPane>
-      </children>
+         <Label layoutX="276.0" prefHeight="42.0" prefWidth="290.0" text="DEFINITION" textFill="#214563">
+            <font>
+               <Font name=".VnTime" size="49.0" />
+            </font>
+         </Label>
+      </AnchorPane>
    </HBox>
-   <AnchorPane fx:id="addNewWord" layoutX="342.0" layoutY="112.0" prefHeight="525.0" prefWidth="451.0" styleClass="bodybg1">
-      <children>
-         <Label layoutX="14.0" layoutY="81.0" prefHeight="18.0" prefWidth="236.0" text="Nhập từ muốn thêm(Tiếng Anh) :">
-            <font>
-               <Font name="System Bold" size="14.0" />
-            </font>
-         </Label>
-         <TextField fx:id="addTargetWord" layoutX="47.0" layoutY="114.0" prefHeight="34.0" prefWidth="342.0" />
-         <Label layoutX="14.0" layoutY="207.0" prefHeight="18.0" prefWidth="236.0" text="Nhập nghĩa của từ:">
-            <font>
-               <Font name="System Bold" size="14.0" />
-            </font>
-         </Label>
-         <Label layoutX="14.0" prefHeight="18.0" prefWidth="311.0" text="Thêm từ mới" textFill="#182af2">
-            <font>
-               <Font name="System Bold" size="37.0" />
-            </font>
-         </Label>
-         <Button layoutX="388.0" layoutY="479.0" mnemonicParsing="false" onAction="#confirmAddWord" text="OK" />
-         <Button fx:id="closeAddNewWord" layoutX="389.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#closeAddNewWord" text="Close" textAlignment="CENTER" textFill="RED">
-            <graphic>
-               <FontAwesomeIconView fill="RED" glyphName="CLOSE" />
-            </graphic>
-         </Button>
-         <TextArea fx:id="addExWord" layoutX="47.0" layoutY="233.0" prefHeight="237.0" prefWidth="342.0" />
-      </children>
+   <AnchorPane fx:id="addNewWord" layoutX="342.0" layoutY="22.0" prefHeight="504.0" prefWidth="482.0" styleClass="bodybg1">
+      <Label layoutX="44.0" layoutY="81.0" prefHeight="18.0" prefWidth="236.0" text="Nhập từ muốn thêm(Tiếng Anh) :">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="addTargetWord" layoutX="47.0" layoutY="114.0" prefHeight="34.0" prefWidth="398.0" />
+      <Label layoutX="44.0" layoutY="167.0" prefHeight="18.0" prefWidth="236.0" text="Nhập nghĩa của từ:">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="10.0" prefHeight="18.0" prefWidth="311.0" text="Thêm từ mới" textFill="#ffe200">
+         <font>
+            <Font name="System Bold" size="37.0" />
+         </font>
+      </Label>
+      <Button layoutX="369.0" layoutY="462.0" mnemonicParsing="false" onAction="#confirmAddWord" prefHeight="31.0" prefWidth="75.0" text="OK">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="closeAddNewWord" layoutX="424.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#closeAddNewWord" styleClass="close" textAlignment="CENTER" textFill="RED">
+         <graphic>
+            <FontAwesomeIconView fill="RED" glyphName="CLOSE" size="2em" />
+         </graphic>
+      </Button>
+      <TextArea fx:id="addExWord" layoutX="47.0" layoutY="203.0" prefHeight="238.0" prefWidth="398.0" />
    </AnchorPane>
-   <AnchorPane fx:id="editTab" layoutX="389.0" layoutY="198.0" prefHeight="387.0" prefWidth="377.0" styleClass="bodybg1" AnchorPane.bottomAnchor="183.0" AnchorPane.topAnchor="124.0">
-      <children>
-         <Label layoutX="9.0" layoutY="29.0" prefHeight="18.0" prefWidth="264.0" text="Mời nhập nghĩa bổ sung cho từ :" textFill="#33123a">
-            <font>
-               <Font name="System Bold" size="15.0" />
-            </font>
-         </Label>
-         <TextArea fx:id="editTabTextArea" layoutX="13.0" layoutY="66.0" prefHeight="190.0" prefWidth="348.0" />
-         <Button layoutX="302.0" layoutY="264.0" mnemonicParsing="false" onMouseClicked="#confirmEditWord" prefHeight="31.0" prefWidth="75.0" text="OK" />
-         <Button layoutX="302.0" layoutY="16.0" mnemonicParsing="false" onMouseClicked="#closeEditTab" text="Close" textAlignment="CENTER" textFill="RED">
-            <graphic>
-               <FontAwesomeIconView fill="RED" glyphName="CLOSE" />
-            </graphic>
-         </Button>
-         <Label fx:id="haveNotChoose" layoutX="48.0" layoutY="84.0" prefHeight="70.0" prefWidth="220.0" text="Bạn chưa chọn từ!" textFill="RED">
-            <font>
-               <Font name="System Bold" size="25.0" />
-            </font>
-         </Label>
-      </children>
+   <AnchorPane fx:id="editTab" layoutX="383.0" layoutY="123.6" prefHeight="358.0" prefWidth="388.0" styleClass="bodybg1" AnchorPane.bottomAnchor="230.0" AnchorPane.topAnchor="123.6">
+      <Label layoutX="29.0" layoutY="29.0" prefHeight="18.0" prefWidth="264.0" text="Mời nhập nghĩa bổ sung cho từ :" textFill="#33123a">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="editTabTextArea" layoutX="24.0" layoutY="66.0" prefHeight="190.0" prefWidth="359.0" />
+      <Button layoutX="311.0" layoutY="293.0" mnemonicParsing="false" onMouseClicked="#confirmEditWord" prefHeight="31.0" prefWidth="75.0" text="OK">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="349.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#closeEditTab" styleClass="close" textAlignment="CENTER" textFill="RED">
+         <graphic>
+            <FontAwesomeIconView fill="RED" glyphName="CLOSE" size="2em" />
+         </graphic>
+      </Button>
    </AnchorPane>
-   <AnchorPane fx:id="delTab" layoutX="349.0" layoutY="234.0" prefHeight="273.0" prefWidth="444.0" styleClass="bodybg1" AnchorPane.leftAnchor="349.0" AnchorPane.rightAnchor="296.0" AnchorPane.topAnchor="230.0">
-      <children>
-         <Button layoutX="370.0" layoutY="233.0" mnemonicParsing="false" onAction="#confirmDelWord" prefHeight="20.0" prefWidth="60.0" text="OK" textFill="#cc2626" />
-         <Button layoutX="374.0" layoutY="12.0" mnemonicParsing="false" onAction="#closeDelTab" prefHeight="25.0" prefWidth="59.0" text="Close" textFill="#e22727" />
-         <TextArea fx:id="delWord" layoutX="27.0" layoutY="84.0" prefHeight="106.0" prefWidth="359.0" styleClass="bodybg1" />
-         <Label layoutX="27.0" layoutY="12.0" prefHeight="51.0" prefWidth="236.0" text="Nhập từ bạn muốn xóa:" textFill="#423434">
-            <font>
-               <Font name="System Bold" size="19.0" />
-            </font>
-         </Label>
-      </children>
+   <AnchorPane fx:id="delTab" layoutX="368.8" layoutY="172.4" prefHeight="245.0" prefWidth="453.0" styleClass="bodybg1" AnchorPane.leftAnchor="368.8" AnchorPane.rightAnchor="314.39999999999986" AnchorPane.topAnchor="172.4">
+      <Button layoutX="356.0" layoutY="208.0" mnemonicParsing="false" onAction="#confirmDelWord" prefHeight="20.0" prefWidth="60.0" text="OK">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="389.0" layoutY="15.0" mnemonicParsing="false" onAction="#closeDelTab" prefHeight="26.0" prefWidth="33.0" styleClass="close" textFill="#e22727">
+         <graphic>
+            <FontAwesomeIconView glyphName="CLOSE" size="2em" />
+         </graphic>
+      </Button>
+      <TextArea fx:id="delWord" layoutX="27.0" layoutY="84.0" prefHeight="106.0" prefWidth="398.0" styleClass="bodybg1" />
+      <Label layoutX="27.0" layoutY="12.0" prefHeight="51.0" prefWidth="236.0" text="Nhập từ bạn muốn xóa:" textFill="#423434">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
    </AnchorPane>
+   <Label fx:id="haveNotChoose" layoutX="430.0" layoutY="250.0" prefHeight="70.0" prefWidth="281.0" style="-fx-background-color: royalblue; -fx-background-radius: 25; -fx-alignment: center;" text="Bạn chưa chọn từ!" textFill="WHITE">
+      <font>
+         <Font name="System Bold" size="25.0" />
+      </font>
+   </Label>
 </AnchorPane>

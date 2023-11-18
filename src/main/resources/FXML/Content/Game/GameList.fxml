@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="635.0" prefWidth="1095.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.game.GameListController">
+   <children>
+      <ScrollPane layoutY="60.0" prefHeight="570.0" prefWidth="1095.0" vbarPolicy="NEVER">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="570.0" prefWidth="1114.0">
+               <children>
+                  <Button layoutY="-2.0" mnemonicParsing="false" prefHeight="550.0" prefWidth="266.0" text="SNAKE GAME" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <HBox layoutY="-2.0" prefHeight="65.0" prefWidth="340.0" style="-fx-alignment: center;">
+         <children>
+            <Label ellipsisString="" prefHeight="38.0" prefWidth="339.0" style="-fx-alignment: center;" text="Game" textAlignment="CENTER">
+               <font>
+                  <Font name="Broadway" size="54.0" />
+               </font>
+            </Label>
+            <Line endX="-100.0" endY="80.0" startX="-100.0" startY="30.0" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

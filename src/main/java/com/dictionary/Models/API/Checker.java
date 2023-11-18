@@ -1,4 +1,4 @@
-package com.dictionary.Controllers.Content.API;
+package com.dictionary.Models.API;
 
 import java.io.IOException;
 import java.net.URI;

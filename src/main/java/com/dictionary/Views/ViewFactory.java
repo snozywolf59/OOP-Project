@@ -1,6 +1,6 @@
 package com.dictionary.Views;
 
-import com.dictionary.Controllers.Content.Learn.ListeningTest;
+import com.dictionary.Models.learn.ListeningTest;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
@@ -90,7 +90,7 @@ public final class ViewFactory {
     public AnchorPane getPlayView() {
         if (playView == null) {
             try {
-                playView = new FXMLLoader(getClass().getResource("/FXML/Content/GameList.fxml")).load();
+                playView = new FXMLLoader(getClass().getResource("/FXML/Content/Game/GameList.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }

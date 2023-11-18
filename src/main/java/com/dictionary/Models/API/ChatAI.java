@@ -1,4 +1,4 @@
-package com.dictionary.Controllers.Content.API;
+package com.dictionary.Models.API;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;

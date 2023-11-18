@@ -1,9 +1,8 @@
-package com.dictionary.Controllers.Content.Search;
+package com.dictionary.Models.search;
 /**
  *
  * @author Admin
  */
-import java.util.ArrayList;
 
 public class TreeNode {
    private char a;

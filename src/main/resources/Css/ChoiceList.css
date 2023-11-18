@@ -46,6 +46,13 @@
     -fx-effect: dropshadow(three-pass-box, rgba(20,255,0,0.3), 1, 0.5, 0.5, 5);
 }
 
+.menu ToggleButton:selected {
+    -fx-border-color: white;
+    -fx-border-width: 0 0 0 8;
+    -fx-border-radius: 30;
+    -fx-border-style: solid;
+}
+
 .menu ToggleButton:hover FontAwesomeIconView, .menu ToggleButton:selected FontAwesomeIconView{
     -fx-fill: #FFFFFF;
 }

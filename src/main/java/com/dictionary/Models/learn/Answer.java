@@ -1,4 +1,4 @@
-package com.dictionary.Controllers.Content.Learn;
+package com.dictionary.Models.learn;
 
 public class Answer {
     private String [] listAnswers = new String[]{};
