@@ -5,15 +5,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" onMouseClicked="#animation" prefHeight="720.0" prefWidth="1095.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.HomeController">
+<AnchorPane id="AnchorPane" onMouseClicked="#animation" prefHeight="720.0" prefWidth="1095.0"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.dictionary.Controllers.Content.HomeController">
     <stylesheets>
-        <URL value="@../../Css/home.css" />
+        <URL value="@../../Css/home.css"/>
     </stylesheets>
-   <children>
-      <Label fx:id="home" layoutX="159.0" layoutY="91.0" prefHeight="522.0" prefWidth="702.0" text="Chào mừng các bạn đã đến với UETED!">
-         <font>
-            <Font size="39.0" />
-         </font>
-      </Label>
-   </children>
+    <Label fx:id="home" layoutX="159.0" layoutY="91.0" prefHeight="522.0" prefWidth="702.0"
+           text="Chào mừng các bạn đã đến với UETED!">
+        <font>
+          <Font size="39.0"/>
+        </font>
+    </Label>
 </AnchorPane>

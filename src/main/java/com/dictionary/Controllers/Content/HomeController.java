@@ -1,12 +1,8 @@
 package com.dictionary.Controllers.Content;
 
 import animatefx.animation.BounceInDown;
-import animatefx.animation.BounceInLeft;
-import animatefx.animation.SlideInDown;
-import animatefx.animation.SlideInUp;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.net.URL;
