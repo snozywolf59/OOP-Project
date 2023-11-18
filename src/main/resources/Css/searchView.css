@@ -1,5 +1,4 @@
 .bodybg{
-    -fx-background-image: url("../Images/background.jpg");
     -fx-background-radius: 3 3 3 3;
 }
 .bodybg1{
@@ -48,11 +47,11 @@
 }
 
 .text-area {
+  -fx-background-radius: 12px;
   -fx-border-radius: 10px; /* Đặt bán kính bo cong */
   -fx-background-radius: 10px; /* Đặt bán kính bo cong cho nền */
-  -fx-border-color: #b0a458; /* Đặt màu viền */
   -fx-border-width: 1px; /* Đặt độ dày viền */
-   -fx-background-color: red;
+  -fx-border-color: black;
 }
 
 .text-field {
@@ -78,9 +77,6 @@
     -fx-background-color: #333399;
     -fx-text-fill: #FFFFFF;
     -fx-cursor: hand;
-}
-.imageView {
-    -fx-background-color: red;
 }
 
 .close {

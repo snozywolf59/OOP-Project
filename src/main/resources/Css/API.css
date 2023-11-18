@@ -4,36 +4,33 @@
 
 .origin {
     -fx-pref-width: 700;
-    -fx-pref-height: 300;
     -fx-background-radius: 21 0 0 0;
     -fx-background-color: white;
 }
 
 .origin HBox{
     -fx-pref-width: 400;
-    -fx-pref-height: 40;
+    -fx-pref-height: 35;
     -fx-font-size: 18;
 }
 
 .origin MenuButton {
     -fx-background-radius: 5 5 5 5 ;
     -fx-pref-width: 200;
-    -fx-pref-height: 60;
+    -fx-pref-height: 35;
     -fx-background-color: transparent;
 }
 
 .origin MenuButton:hover {
-    -fx-background-radius: 30 30 30 30 ;
-    -fx-pref-width: 200;
-    -fx-pref-height: 60;
+    -fx-background-radius: 20 20 20 20 ;
     -fx-background-color: white;
 }
 
 .toggleButton {
-    -fx-background-radius: 30 30 30 30 ;
+    -fx-background-radius: 20 20 20 20 ;
     -fx-background-color: transparent;
     -fx-pref-width: 120;
-    -fx-pref-height: 60;
+    -fx-pref-height: 35;
     -fx-font-weight: bold;
 }
 
@@ -78,10 +75,10 @@
 }
 
 .orgButton {
-    -fx-background-radius: 30 30 30 30;
+    -fx-background-radius: 20 20 20 20;
     -fx-background-color: transparent;
     -fx-pref-width: 120;
-    -fx-pref-height: 60;
+    -fx-pref-height: 40;
     -fx-font-weight: bold;
 }
 
