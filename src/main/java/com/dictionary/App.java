@@ -1,6 +1,6 @@
 package com.dictionary;
 
-import com.dictionary.Controllers.User;
+import com.dictionary.Models.Login.User;
 import com.dictionary.Models.Model;
 import javafx.application.Application;
 import javafx.stage.Stage;

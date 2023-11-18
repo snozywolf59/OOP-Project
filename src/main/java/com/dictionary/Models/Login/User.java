@@ -1,4 +1,4 @@
-package com.dictionary.Controllers;
+package com.dictionary.Models.Login;
 
 import com.google.api.core.ApiFuture;
 import com.google.auth.oauth2.GoogleCredentials;

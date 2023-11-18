@@ -1,4 +1,4 @@
-package com.dictionary.Controllers.Welcome;
+package com.dictionary.Models.Login;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

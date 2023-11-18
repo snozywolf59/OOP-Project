@@ -35,7 +35,6 @@ module com.dictionary {
     opens com.dictionary.Controllers.Content.API to javafx.fxml, com.google.gson;
     opens com.dictionary.Controllers.Content.Learn to javafx.fxml;
     opens com.dictionary.Controllers.Content.Search to javafx.fxml;
-    opens com.dictionary.Controllers.Welcome to javafx.fxml;
 
     exports com.dictionary;
     exports com.dictionary.Views;
@@ -53,4 +52,6 @@ module com.dictionary {
     opens com.dictionary.Models.search to javafx.fxml;
     exports com.dictionary.Models.learn;
     opens com.dictionary.Models.learn to javafx.fxml;
+    exports com.dictionary.Models.Login;
+    opens com.dictionary.Models.Login to javafx.fxml;
 }
