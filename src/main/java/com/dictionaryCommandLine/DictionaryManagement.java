@@ -2,8 +2,7 @@ package com.dictionaryCommandLine;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.FileWriter;
 import java.util.Scanner;
 
 public class DictionaryManagement {
@@ -44,20 +43,36 @@ public class DictionaryManagement {
     private static void insertFromFile(Scanner reader) {
         while (reader.hasNext()) {
             String s = reader.nextLine();
-            String word[] = s.split(" {4}");
+            String[] word = s.split(" {4}");
             if (word.length != 2) throw new WordException(s);
             Dictionary.getInstance().add(new Word(word[0].toLowerCase(), word[1].toLowerCase()));
         }
     }
 
-    private static List<Word> dictionaryLookup(String s) {
-        List<Word> foundWords = new ArrayList<>();
+    public static BoardWord dictionaryLookup(String s) {
+        BoardWord foundWords = new BoardWord();
         for (Word word : Dictionary.getInstance()) {
             if (word.getWord_target().contains(s)) {
                 foundWords.add(word);
             }
         }
         return foundWords;
+    }
+
+    public static void dictionaryExportToFile() {
+        String linkToFile = AppCommandLine.getSc().nextLine();
+        try {
+            File exportTo = new File(linkToFile);
+            FileWriter exporter = new FileWriter(exportTo);
+            for (Word word: Dictionary.getInstance()) {
+                exporter.write(word.getWord_target() + "\t" + word.getWord_explain() + "\n");
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void deleteWordFromCommandLine() {
@@ -105,8 +120,7 @@ public class DictionaryManagement {
         return false;
     }
 
-
-    public static boolean deleteWord(String word_target) {
+    private static boolean deleteWord(String word_target) {
         if (Dictionary.getInstance().contains(word_target)) {
             Dictionary.getInstance().remove(word_target);
             return true;

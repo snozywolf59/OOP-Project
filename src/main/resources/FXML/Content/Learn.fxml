@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane prefHeight="630.0" prefWidth="1110.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.LearnController">
+<ScrollPane prefHeight="630.0" prefWidth="1110.0" stylesheets="@../../Css/learn.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.LearnController">
    <content>
       <AnchorPane prefHeight="630.0" prefWidth="1095.0">
          <children>

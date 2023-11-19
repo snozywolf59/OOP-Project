@@ -3,9 +3,13 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+
 <AnchorPane fx:id="grandParentPane" styleClass="bg" stylesheets="@../Css/client.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.ClientController">
     <BorderPane id="BorderPane" fx:id="parent_pane" prefHeight="720.0" prefWidth="1280.0">
 
@@ -19,19 +23,40 @@
       <top>
           <AnchorPane prefHeight="95.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
               <HBox layoutX="-1.0" layoutY="-2.0" prefHeight="95.0" prefWidth="1280.0" styleClass="head" stylesheets="@../Css/ChoiceList.css">
-                  <FontAwesomeIconView glyphName="LANGUAGE" size="8.5em" wrappingWidth="87.42857360839844">
-                      <HBox.margin>
-                          <Insets />
-                      </HBox.margin>
-                  </FontAwesomeIconView>
+               <VBox prefHeight="102.0" prefWidth="138.0" style="-fx-alignment: center;">
+                  <HBox.margin>
+                     <Insets left="-20.0" />
+                  </HBox.margin>
+                  <children>
+                        <FontAwesomeIconView glyphName="LANGUAGE" size="8em" wrappingWidth="87.42857360839844" />
+                     <Line endX="100.0" startX="230.0">
+                        <VBox.margin>
+                           <Insets top="5.0" />
+                        </VBox.margin>
+                     </Line>
+                  </children>
+               </VBox>
+                  <Line endX="-100.0" endY="80.0" startX="-100.0">
+                  <HBox.margin>
+                     <Insets />
+                  </HBox.margin></Line>
+               <VBox>
+                  <children>
+                        <Label prefHeight="90.0" prefWidth="576.0" text="UETED">
+                            <font>
+                                <Font name="Berlin Sans FB Demi Bold" size="32.0" />
+                            </font>
+                        </Label>
+                     <Line endX="463.2928466796875" startX="1040.0" />
+                  </children>
+               </VBox>
                   <Line endX="-100.0" endY="80.0" startX="-100.0" />
-                  <Label prefHeight="90.0" prefWidth="576.0" text="UETED">
-                      <font>
-                          <Font name="Berlin Sans FB Demi Bold" size="32.0" />
-                      </font>
-                  </Label>
-                  <Line endX="-100.0" endY="80.0" startX="-100.0" />
-                  <Label prefWidth="403.0" text="User Name" />
+               <VBox>
+                  <children>
+                        <Label prefWidth="403.0" text="User Name" />
+                     <Line endX="300.0" startX="-100.0" />
+                  </children>
+               </VBox>
               </HBox>
           </AnchorPane>
       </top>

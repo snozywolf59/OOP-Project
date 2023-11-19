@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="630.0" prefWidth="1095.0" styleClass="bg" stylesheets="@../../Css/API.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.API.APIController">
+<AnchorPane prefHeight="630.0" prefWidth="1095.0" stylesheets="@../../Css/API.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.API.APIController">
     <AnchorPane layoutX="175.0" layoutY="332.8" prefHeight="231.0" styleClass="origin" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="333.0">
         <VBox prefHeight="234.0" prefWidth="700.0" AnchorPane.topAnchor="0.0">
             <HBox prefHeight="70.0" prefWidth="700.0">
@@ -42,53 +42,46 @@
             <TextArea fx:id="resultText" editable="false" prefHeight="217.0" prefWidth="716.0" styleClass="content" wrapText="true" />
         </VBox>
     </AnchorPane>
-    <AnchorPane layoutX="175.1999969482422" layoutY="24.799999237060547" prefHeight="213.0" styleClass="origin"
-                AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="25.0">
+    <AnchorPane layoutX="175.1999969482422" layoutY="24.799999237060547" prefHeight="213.0" styleClass="origin" AnchorPane.leftAnchor="175.0" AnchorPane.topAnchor="25.0">
         <VBox prefHeight="224.0" prefWidth="700.0">
             <HBox prefHeight="20.0" prefWidth="700.0">
-                <MenuButton fx:id="buttonFromLanguage" mnemonicParsing="false" prefHeight="40.0"
-                            prefWidth="158.0" styleClass="language" text="English">
+                <MenuButton fx:id="buttonFromLanguage" mnemonicParsing="false" prefHeight="40.0" prefWidth="158.0" styleClass="language" text="English">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#getLangFrom" text="English"/>
-                        <MenuItem mnemonicParsing="false" onAction="#getLangFrom" text="Tiếng Việt"/>
+                        <MenuItem mnemonicParsing="false" onAction="#getLangFrom" text="English" />
+                        <MenuItem mnemonicParsing="false" onAction="#getLangFrom" text="Tiếng Việt" />
                     </items>
                 </MenuButton>
                 <Line endX="-100.0" endY="35.0" startX="-100.0">
                     <HBox.margin>
-                        <Insets bottom="2.0" top="2.0"/>
+                        <Insets bottom="2.0" top="2.0" />
                     </HBox.margin>
                 </Line>
-                <ToggleButton mnemonicParsing="false" onAction="#doRecord" prefHeight="40.0" prefWidth="121.0"
-                              styleClass="toggleButton">
+                <ToggleButton mnemonicParsing="false" onAction="#doRecord" prefHeight="40.0" prefWidth="121.0" styleClass="toggleButton">
                     <graphic>
-                        <FontAwesomeIconView fx:id="recordIcon" glyphName="MICROPHONE"
-                                             selectionFill="TRANSPARENT"/>
+                        <FontAwesomeIconView fx:id="recordIcon" glyphName="MICROPHONE" selectionFill="TRANSPARENT" />
                     </graphic>
                 </ToggleButton>
                 <Line endX="-100.0" endY="35.0" startX="-100.0">
                     <HBox.margin>
-                        <Insets bottom="2.0" top="2.0"/>
+                        <Insets bottom="2.0" top="2.0" />
                     </HBox.margin>
                 </Line>
 
-                <Button mnemonicParsing="false" onAction="#speak1" prefHeight="40.0" prefWidth="123.0"
-                        styleClass="orgButton" textFill="#0b4473">
+                <Button mnemonicParsing="false" onAction="#speak1" prefHeight="40.0" prefWidth="123.0" styleClass="orgButton" textFill="#0b4473">
                     <graphic>
-                        <FontAwesomeIconView fill="#ff0f0f" glyphName="VOLUME_UP" selectionFill="#ffffff00"
-                                             size="20.0"/>
+                        <FontAwesomeIconView fill="#ff0f0f" glyphName="VOLUME_UP" selectionFill="#ffffff00" size="20.0" />
                     </graphic>
                 </Button>
                 <Line endX="-100.0" endY="35.0" startX="-100.0">
                     <HBox.margin>
-                        <Insets bottom="2.0" top="2.0"/>
+                        <Insets bottom="2.0" top="2.0" />
                     </HBox.margin>
                 </Line>
 
             </HBox>
-            <TextArea fx:id="originalText" prefHeight="180.0" prefWidth="338.0" promptText="Fill the text"
-                      stylesheets="@../../Css/API.css" wrapText="true">
+            <TextArea fx:id="originalText" prefHeight="180.0" prefWidth="338.0" promptText="Fill the text" stylesheets="@../../Css/API.css" wrapText="true">
                 <font>
-                    <Font size="23.0"/>
+                    <Font size="23.0" />
                 </font>
             </TextArea>
         </VBox>
@@ -96,8 +89,8 @@
     <Button layoutX="175.2" layoutY="269.2" mnemonicParsing="false" onAction="#swap" prefHeight="20.0" prefWidth="89.0" styleClass="swap" AnchorPane.leftAnchor="175.2" AnchorPane.topAnchor="269.2">
         <graphic>
             <HBox prefHeight="32.0" prefWidth="60.0">
-                <FontAwesomeIconView glyphName="ARROW_UP" size="2.7em"/>
-                <FontAwesomeIconView glyphName="ARROW_DOWN" size="2.7em"/>
+                <FontAwesomeIconView glyphName="ARROW_UP" size="2.7em" />
+                <FontAwesomeIconView glyphName="ARROW_DOWN" size="2.7em" />
             </HBox>
         </graphic>
     </Button>

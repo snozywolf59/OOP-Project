@@ -2,7 +2,7 @@ package com.dictionaryCommandLine;
 
 import java.util.ArrayList;
 
-public class Dictionary extends ArrayList<Word> {
+public class Dictionary extends BoardWord {
     public static Dictionary dictionary = new Dictionary();
     public Dictionary() {
         super();

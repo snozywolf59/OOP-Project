@@ -18,9 +18,10 @@
 }
 
 .list-cell {
+    -fx-background-radius: 10px;
     -fx-text-fill: #000000; /* Màu chữ */
     -fx-font-size: 14px; /* Cỡ chữ */
-    -fx-background-color: #F5F5F5; /* Màu nền */
+    -fx-background-color: transparent; /* Màu nền */
     -fx-font-family: "Time NewRoman", sans-serif;
     -fx-font-weight: bold;
 }
@@ -33,7 +34,7 @@
     -fx-text-fill: #111111; /* Màu chữ khi được chọn */
 }
 .list-view {
-    -fx-background-color: #F0F0F0;
+    -fx-background-color: transparent;
     -fx-padding: 3px;
     -fx-border-radius: 5px;
     -fx-background-radius: 10px;
@@ -49,7 +50,6 @@
 .text-area {
   -fx-background-radius: 12px;
   -fx-border-radius: 10px; /* Đặt bán kính bo cong */
-  -fx-background-radius: 10px; /* Đặt bán kính bo cong cho nền */
   -fx-border-width: 1px; /* Đặt độ dày viền */
   -fx-border-color: black;
 }

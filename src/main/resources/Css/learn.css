@@ -1,0 +1,22 @@
+* {
+-fx-background-color: transparent;
+}
+
+.button {
+    -fx-background-color: white;
+    -fx-background-radius: 0 0 20 20;
+}
+
+.label {
+    -fx-background-radius: 20;
+    -fx-font-weight: bold;
+    -fx-font-size: 15;
+    -fx-text-fill: navy;
+}
+.button:hover {
+-fx-background-color: navy;
+}
+
+.button:hover .label{
+    -fx-text-fill: white;
+}
