@@ -13,23 +13,21 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.media.MediaView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 
 public class WelcomeController implements Initializable {
-    private String errorLogin = ""; // Sửa thành label
+    @FXML
+    private Label errorLogin; // Sửa thành label
 
     private String auCode;
 
     @FXML
     private PasswordField password;
-
-    @FXML
-    private PasswordField rePassword;
 
     @FXML
     private TextField username;
@@ -61,27 +59,19 @@ public class WelcomeController implements Initializable {
     @FXML
     private TextField otpCode;
 
-    @FXML
-    private Label errorUser;
-
-    @FXML
-    private Label errorOTP;
-
-
-    static {
-
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Effect.disable(errorLogin);
         password.setFocusTraversable(false);
         username.setFocusTraversable(false);
         Effect.disable(registerPane);
         registerPane.setVisible(false);
     }
     @FXML
-    public void untarget() {
-        pane.requestFocus();
+    private void untarget(MouseEvent event) {
+        if (!Effect.mouseClickInside(errorLogin, event)) {
+            Effect.disable(errorLogin);
+        }
     }
 
     @FXML
@@ -90,7 +80,7 @@ public class WelcomeController implements Initializable {
             String userName = username.getText();
             String pass = password.getText();
             if (!User.exists(userName, pass)) {
-                errorLogin = "Tên đăng nhập hoặc mật khẩu không đúng."; // Sửa thành label
+                errorLogin.setText("Tên đăng nhập hoặc mật khẩu không đúng."); // Sửa thành label
                 return;
             }
             App.user.setUser(userName, pass);
@@ -115,7 +105,8 @@ public class WelcomeController implements Initializable {
     @FXML
     void confirmGmail(ActionEvent event) {
         if (gmailAddress.getText().isEmpty()) {
-            errorUser.setText("Lỗi gmail.");
+            errorLogin.setText("Lỗi gmail.");
+            Effect.enable(errorLogin);
             return;
         }
         GmailOTP gmailOTP = new GmailOTP(gmailAddress.getText());
@@ -125,7 +116,9 @@ public class WelcomeController implements Initializable {
 
     @FXML
     public void createAccount() {
-        if (!createAccountInSignUp()) {
+        boolean b = createAccountInSignUp();
+        if (!b) {
+            Effect.enable(errorLogin);
             return;
         }
         closeRegister();
@@ -134,39 +127,31 @@ public class WelcomeController implements Initializable {
     private boolean createAccountInSignUp() {
         try {
             if (name.getText().isEmpty()) {
-                errorUser.setText("Chưa nhập họ và tên.");
+                errorLogin.setText("Chưa nhập họ và tên.");
                 return false;
-            }
-            if (userNameSignUp.getText().isEmpty()) {
-                errorUser.setText("Chưa nhập tên đăng nhập.");
+            } else if (userNameSignUp.getText().isEmpty()) {
+                errorLogin.setText("Chưa nhập tên đăng nhập.");
                 return false;
-            }
-            if (passwordSignUp.getText().isEmpty()) {
-                errorUser.setText("Chưa nhập mật khẩu.");
+            } else if (passwordSignUp.getText().isEmpty()) {
+                errorLogin.setText("Chưa nhập mật khẩu.");
                 return false;
-            }
-            if (rePasswordSignUp.getText().isEmpty()) {
-                errorUser.setText("Chưa nhập nhập lại mật khẩu.");
+            } else if (rePasswordSignUp.getText().isEmpty()) {
+                errorLogin.setText("Chưa nhập nhập lại mật khẩu.");
                 return false;
-            }
-            if (dateOfBirth.getValue() == null) {
-                errorUser.setText("Chưa nhập ngày sinh.");
+            } else if (dateOfBirth.getValue() == null) {
+                errorLogin.setText("Chưa nhập ngày sinh.");
                 return false;
-            }
-            if (gmailAddress.getText().isEmpty()) {
-                errorUser.setText("Chưa nhập địa chỉ gmail.");
+            } else if (gmailAddress.getText().isEmpty()) {
+                errorLogin.setText("Chưa nhập địa chỉ gmail.");
                 return false;
-            }
-            if (!rePasswordSignUp.getText().equals(passwordSignUp.getText())) {
-                errorUser.setText("Nhập lại mật khẩu không đúng.");
+            } else if (!rePasswordSignUp.getText().equals(passwordSignUp.getText())) {
+                errorLogin.setText("Nhập lại mật khẩu không đúng.");
                 return false;
-            }
-            if (User.exists(userNameSignUp.getText(), passwordSignUp.getText())) {
-                errorUser.setText("Tài khoản đã tồn tại.");
+            } else if (User.exists(userNameSignUp.getText(), passwordSignUp.getText())) {
+                errorLogin.setText("Tài khoản đã tồn tại.");
                 return false;
-            }
-            if (!auCode.equals(MD5.md5HashString(otpCode.getText()))) {
-                errorOTP.setText("Mã otp không đúng");
+            } else if (!auCode.equals(MD5.md5HashString(otpCode.getText()))) {
+                errorLogin.setText("Mã otp không đúng");
                 return false;
             }
             App.user.setUser(userNameSignUp.getText(), passwordSignUp.getText(), name.getText(), dateOfBirth.toString(), gmailAddress.getText());

@@ -5,9 +5,12 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.scene.control.ScrollPane;
+
+import java.io.FileNotFoundException;
 
 public final class ViewFactory {
     private final Stage stage = new Stage();
@@ -22,8 +25,6 @@ public final class ViewFactory {
     public static final String LISTENING_TEST = "ListeningTest";
     public static final String API = "GoogleTranslate";
     public static final String FAVOURITE_LIST = "FavouriteList";
-
-
 
     private final StringProperty currentSelect;
     private AnchorPane choiceList;
@@ -156,8 +157,10 @@ public final class ViewFactory {
 
         try {
             scene = new Scene(loader.load());
+            stage.getIcons().add(new Image(ViewFactory.class.getResourceAsStream("/Images/icon.png")));
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println(e.getMessage());
         }
 
         stage.setScene(scene);

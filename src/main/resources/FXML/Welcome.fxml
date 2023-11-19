@@ -178,19 +178,12 @@
             <String fx:value="text2" />
          </styleClass>
       </TextField>
-      <VBox layoutX="20.0" layoutY="459.0" prefHeight="19.0" prefWidth="249.0">
-         <children>
-            <Label fx:id="errorOTP" prefHeight="0.0" prefWidth="249.0" />
-         </children>
-      </VBox>
-      <VBox layoutX="20.0" layoutY="364.0" prefHeight="19.0" prefWidth="249.0">
-         <children>
-            <Label fx:id="errorUser" prefHeight="0.0" prefWidth="249.0" />
-         </children>
-      </VBox>
+      <VBox layoutX="20.0" layoutY="459.0" prefHeight="19.0" prefWidth="249.0" />
+      <VBox layoutX="20.0" layoutY="364.0" prefHeight="19.0" prefWidth="249.0" />
       <styleClass>
          <String fx:value="round-bg" />
          <String fx:value="registerBg" />
       </styleClass>
     </AnchorPane>
+   <Label fx:id="errorLogin" layoutX="240.0" layoutY="236.0" styleClass="errorlog" text="Label" />
 </AnchorPane>

@@ -185,3 +185,10 @@
     -fx-border-color: dodgerblue;
     -fx-border-radius: 9;
 }
+
+.errorlog {
+    -fx-background-color: red;
+    -fx-background-radius: 25;
+    -fx-font-size: 16;
+    -fx-text-fill: white;
+}
