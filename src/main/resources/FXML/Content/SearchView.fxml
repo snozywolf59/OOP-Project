@@ -14,12 +14,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="searchView" focusTraversable="true" onMouseClicked="#reset" prefHeight="630.0" prefWidth="1003.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.Search.SearchController">
+<AnchorPane id="AnchorPane" fx:id="searchView" focusTraversable="true" onMouseClicked="#reset" prefHeight="630.0" prefWidth="1133.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.Search.SearchController">
    <stylesheets>
       <URL value="@../../Css/searchView.css" />
    </stylesheets>
    <HBox prefHeight="586.0" prefWidth="1090.0">
-      <AnchorPane prefHeight="694.0" prefWidth="304.0" style="-fx-pref-height: 500;">
+      <AnchorPane prefHeight="562.0" prefWidth="358.0" style="-fx-background-radius: 20; -fx-background-color: white;">
          <HBox.margin>
             <Insets left="20.0" />
          </HBox.margin>
@@ -40,22 +40,22 @@
          </Button>
          <ListView fx:id="listView" layoutX="9.0" layoutY="114.0" onMouseClicked="#onMouseClickListView" prefHeight="430.0" prefWidth="303.0" />
       </AnchorPane>
-      <AnchorPane cache="true" focusTraversable="true" prefHeight="669.0" prefWidth="674.0">
+      <AnchorPane cache="true" focusTraversable="true" prefHeight="561.0" prefWidth="674.0" style="-fx-background-color: white; -fx-background-radius: 20;">
          <effect>
             <Blend mode="OVERLAY" />
          </effect>
-         <AnchorPane focusTraversable="true" layoutX="-33.0" layoutY="65.0" prefHeight="475.0" prefWidth="706.0">
+         <AnchorPane focusTraversable="true" layoutX="-33.0" layoutY="42.0" prefHeight="498.0" prefWidth="706.0">
             <Label fx:id="targetWord" layoutX="94.0" layoutY="29.0" prefHeight="35.0" prefWidth="369.0" textFill="#3b8d72">
                <font>
                   <Font name=".VnTime Bold Italic" size="31.0" />
                </font>
             </Label>
-            <TextArea fx:id="definitionArea" layoutX="94.0" layoutY="128.0" prefHeight="345.0" prefWidth="586.0" wrapText="true">
+            <TextArea fx:id="definitionArea" layoutX="94.0" layoutY="128.0" prefHeight="345.0" prefWidth="586.0" wrapText="true" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
             </TextArea>
-            <HBox layoutX="94.0" layoutY="86.0" prefHeight="40.0" prefWidth="586.0" styleClass="listBtn">
+            <HBox layoutX="94.0" layoutY="86.0" prefHeight="40.0" prefWidth="586.0" styleClass="listBtn" AnchorPane.rightAnchor="70.0">
                <Label fx:id="pronounceWord" prefHeight="40.0" prefWidth="345.0" textFill="#173e80">
                   <font>
                      <Font name="System Bold Italic" size="19.0" />
@@ -73,12 +73,15 @@
                      </Button>
                      <Button mnemonicParsing="false" onAction="#onActionAddWord" prefHeight="37.0" prefWidth="52.0" styleClass="buttonAddWord" text="Add" textFill="#f43838" />
                   </buttons>
+                  <HBox.margin>
+                     <Insets />
+                  </HBox.margin>
                </ButtonBar>
             </HBox>
          </AnchorPane>
-         <Label layoutX="276.0" prefHeight="42.0" prefWidth="290.0" text="DEFINITION" textFill="#214563">
+         <Label layoutX="276.0" prefHeight="35.0" prefWidth="290.0" text="DEFINITION" textFill="#214563">
             <font>
-               <Font name=".VnTime" size="49.0" />
+               <Font name=".VnTime" size="40.0" />
             </font>
          </Label>
       </AnchorPane>

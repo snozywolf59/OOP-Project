@@ -1,0 +1,4 @@
+.bg {
+    -fx-background-image: url('../Images/bg.jpg');
+    -fx-background-size: cover;
+}
