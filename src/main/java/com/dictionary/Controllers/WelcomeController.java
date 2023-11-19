@@ -103,7 +103,7 @@ public class WelcomeController implements Initializable {
     }
 
     @FXML
-    void confirmGmail(ActionEvent event) {
+    void confirmGmail() {
         if (gmailAddress.getText().isEmpty()) {
             errorLogin.setText("Lỗi gmail.");
             Effect.enable(errorLogin);

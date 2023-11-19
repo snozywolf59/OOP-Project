@@ -5,12 +5,10 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.scene.control.ScrollPane;
-
-import java.io.FileNotFoundException;
 
 public final class ViewFactory {
     private final Stage stage = new Stage();
