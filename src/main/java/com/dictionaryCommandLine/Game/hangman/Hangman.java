@@ -2,13 +2,14 @@ package com.dictionaryCommandLine.Game.hangman;
 
 import com.dictionaryCommandLine.AppCommandLine;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
 public class Hangman {
     private Hangman(){}
 
-    private static int MAX_TRIES = 6;
+    private static final int MAX_TRIES = 6;
     private static String getRandWord() {
         return "apple";
     }
@@ -26,9 +27,7 @@ public class Hangman {
     private static boolean gameLoop() {
         String wordNeedToGuess = getRandWord();
         char[] guessedLetters = new char[wordNeedToGuess.length()];
-        for (int i = 0; i < guessedLetters.length; i++) {
-            guessedLetters[i] = '_';
-        }
+        Arrays.fill(guessedLetters, '_');
         Set<Character> hasGuessed = new HashSet<>();
         int failed = 0;
         char userGuess;
@@ -58,11 +57,7 @@ public class Hangman {
             }
         }
 
-        if (choice == 1) {
-            return true;
-        }
-
-        return false;
+        return choice == 1;
     }
 
     private static int whenFailed(int failed) {
@@ -93,10 +88,7 @@ public class Hangman {
     }
 
     private static boolean isValidChoice(int x) {
-        if (x == 1 || x == 2) {
-            return true;
-        }
-        return false;
+        return x == 1 || x == 2;
     }
 
     private static boolean isAlreadyGuessed(char letter, Set<Character> hasGuessed) {
