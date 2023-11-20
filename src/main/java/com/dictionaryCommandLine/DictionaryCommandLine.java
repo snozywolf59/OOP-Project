@@ -1,5 +1,7 @@
 package com.dictionaryCommandLine;
 
+import com.dictionaryCommandLine.Game.hangman.Hangman;
+
 public class DictionaryCommandLine {
     public static void showAllWords() {
         System.out.printf("%-6s|%-30s|%-40s\n", "No", "English", "Vietnamese");
@@ -45,9 +47,6 @@ public class DictionaryCommandLine {
             choice = AppCommandLine.getSc().nextInt();
             AppCommandLine.getSc().nextLine();
             switch (choice) {
-                case 0-> {
-                    return;
-                }
                 case 1 ->
                         DictionaryManagement.insertFromCommandLine();
                 case 2 ->
@@ -58,10 +57,10 @@ public class DictionaryCommandLine {
                         DictionaryCommandLine.showAllWords();
                 case 5 -> {
                     String s = AppCommandLine.getSc().nextLine();
-                    System.out.println(DictionaryManagement.dictionaryLookup(s);
+                    System.out.println(DictionaryManagement.dictionaryLookup(s));
                 }
                 case 6 -> System.out.println(DictionaryCommandLine.dictionarySearcher());
-                //case 7 ->
+                case 7 -> Hangman.run();
                 case 8 -> DictionaryManagement.insertFromFile();
                 case 9 -> DictionaryManagement.dictionaryExportToFile();
                 default ->
