@@ -41,7 +41,7 @@ public class DictionaryCommandLine {
                     [5] Lookup
                     [6] Search
                     [7] Game
-                    [8] Import from file            
+                    [8] Import from file
                     [9] Export to file
                     """);
             choice = AppCommandLine.getSc().nextInt();
