@@ -10,7 +10,9 @@ import com.google.firebase.cloud.FirestoreClient;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
@@ -21,7 +23,18 @@ public class User {
     private String born;
     private String gmailAddress;
     private static Firestore db;
+
+    private Map<String, String> favoriteWords = new HashMap<>();
+
     public User() {};
+
+    public Map<String, String> getFavoriteWords() {
+        return favoriteWords;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
 
     public void setUser(String userName, String password, String name, String born, String gmailAddress) {
         this.userName = userName;
@@ -90,6 +103,41 @@ public class User {
         data.put("gmail", gmailAddress);
         ApiFuture<WriteResult> result = docRef.set(data);
         System.out.println("Update time : " + result.get().getUpdateTime());
+    }
+
+    public void addFavoriteWord(String word, String meaning) {
+        DocumentReference docRef = db.collection("User").document(userName).collection("FavoriteWords").document(word);
+        Map<String, Object> addNewFavoriteWord = new HashMap<>();
+        addNewFavoriteWord.put("Word", word);
+        addNewFavoriteWord.put("Meaning", meaning);
+        ApiFuture<WriteResult> writeResult = docRef.set(addNewFavoriteWord, SetOptions.merge());
+        try {
+            System.out.println("Update time : " + writeResult.get().getUpdateTime());
+        } catch (InterruptedException | ExecutionException e) {
+            System.out.println("Update error.");
+        }
+    }
+
+    public void deleteFavoriteWord(String word) {
+        DocumentReference docRef = db.collection("User").document(userName).collection("FavoriteWords").document(word);
+        docRef.delete();
+    }
+
+    public void readFavoriteWords() {
+        favoriteWords.clear();
+        ApiFuture<QuerySnapshot> query = db.collection("User").document(userName).collection("FavoriteWords").get();
+        QuerySnapshot querySnapshot = null;
+        try {
+            querySnapshot = query.get();
+        } catch (InterruptedException | ExecutionException e) {
+            System.out.println("Query snapshot error.");
+        }
+        assert querySnapshot != null;
+        List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
+        for (QueryDocumentSnapshot document : documents) {
+            favoriteWords.put(document.getString("Word"), document.getString("Meaning"));
+        }
+        System.out.println(favoriteWords);
     }
 
     @Override

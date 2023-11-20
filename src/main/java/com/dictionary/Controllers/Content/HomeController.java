@@ -21,21 +21,6 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         new BounceInDown(home).play();
-//        Thread thread = new Thread(()->{
-//            //while (true) {
-//                if (isSelected) {
-//                    new BounceInLeft(home).play();
-//                }
-//            //}
-//        });
-//        thread.setDaemon(false);
-//        thread.start();
-//        while (true) {
-//            if (isSelected) {
-//                new BounceInLeft(home).play();
-//            }
-//        }
-
     }
 
     @FXML

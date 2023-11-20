@@ -1,5 +1,6 @@
 package com.dictionary.Controllers.Content;
 
+import com.dictionary.App;
 import com.dictionary.Models.Model;
 import com.dictionary.Views.ViewFactory;
 import javafx.fxml.FXML;

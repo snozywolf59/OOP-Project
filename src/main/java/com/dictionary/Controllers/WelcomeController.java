@@ -154,7 +154,7 @@ public class WelcomeController implements Initializable {
                 errorLogin.setText("Mã otp không đúng");
                 return false;
             }
-            App.user.setUser(userNameSignUp.getText(), passwordSignUp.getText(), name.getText(), dateOfBirth.toString(), gmailAddress.getText());
+            App.user.setUser(userNameSignUp.getText(), passwordSignUp.getText(), name.getText(), dateOfBirth.getValue().toString(), gmailAddress.getText());
             App.user.createNewUserToFSCloud();
             System.out.println("Tạo tài khoản thành công.");
             return true;

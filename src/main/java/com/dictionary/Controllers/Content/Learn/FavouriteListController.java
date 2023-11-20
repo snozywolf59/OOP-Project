@@ -1,5 +1,6 @@
 package com.dictionary.Controllers.Content.Learn;
 
+import com.dictionary.App;
 import com.dictionary.Models.Card.WordCard;
 import com.dictionary.Models.Model;
 import com.dictionary.Views.ViewFactory;
@@ -12,6 +13,7 @@ import javafx.scene.layout.HBox;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 public class FavouriteListController implements Initializable {
@@ -44,11 +46,11 @@ public class FavouriteListController implements Initializable {
     }
 
     private List<WordCard> getFavorite() {
+        App.user.readFavoriteWords();
         List<WordCard> lwc = new ArrayList<>();
-        lwc.add(new WordCard("a", "aaaaaaa"));
-        lwc.add(new WordCard("b", "bbbbbbb"));
-        lwc.add(new WordCard("c", "cccccccc"));
-        lwc.add(new WordCard("d", "dddddddddd"));
+        for (Map.Entry<String, String> entry : App.user.getFavoriteWords().entrySet()) {
+            lwc.add(new WordCard(entry.getKey(), entry.getValue()));
+        }
         return lwc;
     }
 }

@@ -63,6 +63,7 @@ public class ChoiceListController implements Initializable {
     private void setSelect(String t) {
         Model.setSelect(t);
         if (!t.equals(ViewFactory.HOME)) Model.getInstance().getViewFactory().resetHome();
+        if (!t.equals(ViewFactory.FAVOURITE_LIST)) Model.getInstance().getViewFactory().resetFavoriteWordList();
     }
 
     private void disableExcept(ToggleButton x) {

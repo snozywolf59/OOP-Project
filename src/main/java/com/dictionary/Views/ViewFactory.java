@@ -125,6 +125,9 @@ public final class ViewFactory {
     public void resetHome() {
         this.homeView = null;
     }
+    public void resetFavoriteWordList() {
+        this.favoriteWordList = null;
+    }
 
     public AnchorPane getListeningTestView() {
         if (listeningTestView == null) {

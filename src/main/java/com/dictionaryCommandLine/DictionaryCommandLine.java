@@ -58,7 +58,7 @@ public class DictionaryCommandLine {
                         DictionaryCommandLine.showAllWords();
                 case 5 -> {
                     String s = AppCommandLine.getSc().nextLine();
-                    System.out.println(DictionaryManagement.dictionaryLookup(s);
+                    System.out.println(DictionaryManagement.dictionaryLookup(s));
                 }
                 case 6 -> System.out.println(DictionaryCommandLine.dictionarySearcher());
                 //case 7 ->
