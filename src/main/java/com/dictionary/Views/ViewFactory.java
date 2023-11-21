@@ -24,6 +24,8 @@ public final class ViewFactory {
     public static final String API = "GoogleTranslate";
     public static final String FAVOURITE_LIST = "FavouriteList";
 
+    public static final String SNAKE_GAME = "snake";
+
     private final StringProperty currentSelect;
     private AnchorPane choiceList;
     private AnchorPane homeView;
@@ -33,6 +35,7 @@ public final class ViewFactory {
     private AnchorPane ggTranslateView;
     private AnchorPane listeningTestView;
     private AnchorPane favoriteWordList;
+    private AnchorPane snakeGame;
 
     public ViewFactory() {
         currentSelect = new SimpleStringProperty();
@@ -141,6 +144,8 @@ public final class ViewFactory {
         return listeningTestView;
     }
 
+
+
     public void showWelcome() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Welcome.fxml"));
         createStage(loader);
@@ -151,6 +156,18 @@ public final class ViewFactory {
     public void showWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Client.fxml"));
         createStage(loader);
+    }
+
+    public AnchorPane getSnakeGame() {
+        if (snakeGame == null) {
+            try {
+                snakeGame = new FXMLLoader(getClass().getResource("/FXML/Content/Game/SnakeGame.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println(e.getMessage());
+            }
+        }
+        return snakeGame;
     }
 
     private void createStage(FXMLLoader loader) {

@@ -29,5 +29,6 @@
             <Line endX="-100.0" endY="80.0" startX="-100.0" startY="30.0" />
          </children>
       </HBox>
+      <Button layoutX="433.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#toSnakeGame" text="Button" />
    </children>
 </AnchorPane>

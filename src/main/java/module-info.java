@@ -54,4 +54,6 @@ module com.dictionary {
     opens com.dictionary.Models.learn to javafx.fxml;
     exports com.dictionary.Models.Login;
     opens com.dictionary.Models.Login to javafx.fxml;
+    opens com.dictionary.Controllers.Content.game.Snake to javafx.fxml;
+    exports com.dictionary.Controllers.Content.game.Snake;
 }
