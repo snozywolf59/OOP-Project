@@ -1,5 +1,6 @@
 package com.dictionary.Views;
 
+import com.dictionary.Controllers.Content.game.Snake.Snake;
 import com.dictionary.Models.learn.ListeningTest;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -23,9 +24,8 @@ public final class ViewFactory {
     public static final String LISTENING_TEST = "ListeningTest";
     public static final String API = "GoogleTranslate";
     public static final String FAVOURITE_LIST = "FavouriteList";
-
+    public static final String PLAYING_SNAKE = "PlaySnake";
     public static final String SNAKE_GAME = "snake";
-
     private final StringProperty currentSelect;
     private AnchorPane choiceList;
     private AnchorPane homeView;

@@ -4,14 +4,13 @@ import com.dictionary.Models.game.snake.FoodWord;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.fxml.Initializable;
+import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -21,12 +20,11 @@ import javax.sound.sampled.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
-public class Snake implements Initializable {
+public class Snake extends Application {
+    private static Snake snake;
     private static final int WIDTH = 1280;
     private static final int HEIGHT = 720;
     private static final int ROWS = 30;
@@ -38,18 +36,17 @@ public class Snake implements Initializable {
     private static final int UP = 2;
     private static final int DOWN = 3;
     private final java.util.List<Point> snakeBody = new ArrayList<>();
-    private final javafx.scene.image.Image HeadImageDown = new javafx.scene.image.Image("/img/down.png");
-    private final javafx.scene.image.Image HeadImageUp = new javafx.scene.image.Image("/img/up.png");
-    private final javafx.scene.image.Image HeadImageRight = new javafx.scene.image.Image("/img/right.png");
-    private final javafx.scene.image.Image HeadImageLeft = new javafx.scene.image.Image("/img/left.png");
-    private final javafx.scene.image.Image BodyImage = new javafx.scene.image.Image("/img/Body.png");
-    private final javafx.scene.image.Image BottomImageDown = new javafx.scene.image.Image("/img/downBottom.png");
-    private final javafx.scene.image.Image BottomImageUp = new javafx.scene.image.Image("/img/upBottom.png");
-    private final javafx.scene.image.Image BottomImageRight = new javafx.scene.image.Image("/img/rightBottom.png");
-    private final javafx.scene.image.Image BottomImageLeft = new Image("/img/LeftBottom.png");
-    private final AnchorPane pane = new AnchorPane();
+    private final Image HeadImageDown = new Image(getClass().getResourceAsStream("/snake/img/down.png"));
+    private final Image HeadImageUp = new Image(getClass().getResourceAsStream("/snake/img/up.png"));
+    private final Image HeadImageRight = new Image(getClass().getResourceAsStream("/snake/img/right.png"));
+    private final Image HeadImageLeft = new Image(getClass().getResourceAsStream("/snake/img/left.png"));
+    private final Image BodyImage = new Image(getClass().getResourceAsStream("/snake/img/Body.png"));
+    private final Image BottomImageDown = new Image(getClass().getResourceAsStream("/snake/img/downBottom.png"));
+    private final Image BottomImageUp = new Image(getClass().getResourceAsStream("/snake/img/upBottom.png"));
+    private final Image BottomImageRight = new Image(getClass().getResourceAsStream("/snake/img/rightBottom.png"));
+    private final Image BottomImageLeft = new Image(getClass().getResourceAsStream("/snake/img/LeftBottom.png"));
     private GraphicsContext gc;
-    private Point snakeHead;
+    private Point snakeHead = new Point();
     private List<FoodWord> foodImage = new ArrayList<>();
     private String word = "freetime";
     private boolean gameOver;
@@ -57,9 +54,15 @@ public class Snake implements Initializable {
     private int score = 0;
     private String Cause;
 
+    public static synchronized Snake getInstance() {
+        if (snake == null) {
+            snake = new Snake();
+        }
+        return snake;
+    }
+
     public static void playSound(String soundFilePath) {
         File soundFile = new File(soundFilePath);
-
         try {
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundFile);
             Clip clip = AudioSystem.getClip();
@@ -70,19 +73,19 @@ public class Snake implements Initializable {
         }
     }
 
-    public AnchorPane getPane() {
-        return pane;
-    }
-
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void start(Stage primaryStage) {
+        if(HeadImageDown == null) {
+            System.out.println("Anhr null");
+        }
         Group root = new Group();
-        pane.getChildren().add(root);
-        javafx.scene.canvas.Canvas canvas = new Canvas(WIDTH, HEIGHT);//giao dien co the ve do hoa len do
+        Canvas canvas = new Canvas(WIDTH, HEIGHT);//giao dien co the ve do hoa len do
         root.getChildren().add(canvas);
         Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.show();
         gc = canvas.getGraphicsContext2D();
-        playSound("src\\snake\\sound\\sound1.wav");
+        playSound("C:\\Users\\LENOVO\\OneDrive\\Desktop\\OOP-Project\\src\\main\\resources\\snake\\sound\\sound1.wav");
         //Xử lí sự kiện
         scene.setOnKeyPressed(event -> {
             WORD_LIST.add("have");
@@ -106,7 +109,6 @@ public class Snake implements Initializable {
                 }
             }
         });
-        playSound("src\\snake\\sound\\sound1.wav");
         for (int i = 0; i < word.length(); i++) {
             String s = "/snake/img/" + word.charAt(i) + ".png";
             FoodWord foodWord = new FoodWord();
@@ -298,14 +300,14 @@ public class Snake implements Initializable {
                 foodImage.set(i, food);
                 foodImage.remove(0);
                 score += 5;
-                playSound("src\\sound\\eatFood.wav");
+                playSound("src/snake/sound/eatFood.wav");
                 return;
             }
             if (snakeHead.getX() == foodImage.get(i).getX() && snakeHead.getY() == foodImage.get(i).getY() && foodImage.get(i).getWord() == foodImage.get(0).getWord() && i == 0) {
                 snakeBody.add(new Point(-1, -1));
                 foodImage.remove(i);
                 score += 5;
-                playSound("src\\sound\\eatFood.wav");
+                playSound("src/snake/sound/eatFood.wav");
                 return;
             } else if (snakeHead.getX() == foodImage.get(i).getX() && snakeHead.getY() == foodImage.get(i).getY()) {
                 gameOver = true;

@@ -20,7 +20,7 @@ public class FoodWord {
     }
 
     public void setImage(String path) {
-        this.Image = new Image(path);
+        this.Image = new Image(getClass().getResourceAsStream(path));
     }
 
     public int getX() {

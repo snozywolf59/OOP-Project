@@ -37,25 +37,25 @@ public class ChoiceListController implements Initializable {
     
     private void addListener() {
         homeBtn.setOnAction(e->{
-            setSelect("Home");
+            setSelect(ViewFactory.HOME);
             HomeController.isSelected = true;
             disableExcept(homeBtn);
         });
         searchBtn.setOnAction(e->{
-            setSelect("Search");
+            setSelect(ViewFactory.SEARCH);
             disableExcept(searchBtn);
         });
         gameBtn.setOnAction(e->{
-            setSelect("Play");
+            setSelect(ViewFactory.PLAY);
             disableExcept(gameBtn);
         });
         learnBtn.setOnAction(e->{
-            setSelect("Learn");
+            setSelect(ViewFactory.LEARN);
             disableExcept(learnBtn);
         });
-        exitBtn.setOnAction(e->setSelect("Exit"));
+        exitBtn.setOnAction(e->setSelect(ViewFactory.EXIT));
         apiBtn.setOnAction(e->{
-            setSelect("GoogleTranslate");
+            setSelect(ViewFactory.API);
             disableExcept(apiBtn);
         });
     }

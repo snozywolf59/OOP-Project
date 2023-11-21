@@ -23,21 +23,6 @@ public class Dictionary extends BoardWord {
         return false;
     }
 
-    @Override
-    public boolean add(Word word) {
-        if (this.contains(word.getWord_target())) return false;
-        if (this.isEmpty()) {
-            this.add(0, word);
-            return true;
-        }
-        int index = insertBinary(word.getWord_explain());
-        int cmp = word.getWord_target().compareTo(this.get(index).getWord_target());
-        if (cmp > 0) {
-            this.add(index + 1, word);
-        } else if (cmp < 0) this.add(index, word);
-        return true;
-    }
-
     public Word get(String word_target) {
         int index = insertBinary( word_target);
         if (index < 0 || index >= this.size()) return null;
@@ -57,7 +42,7 @@ public class Dictionary extends BoardWord {
         int left = 0;
         int right = this.size() - 1;
 
-        while (left <= right) {
+        while (left < right) {
             int mid = left + (right - left) / 2;
             Word midWord = this.get(mid);
             int cmp = midWord.getWord_target().compareTo(newWordTarget);

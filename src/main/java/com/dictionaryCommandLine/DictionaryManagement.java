@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.util.Scanner;
 
 public class DictionaryManagement {
-    public static final String linkDictionary = "src/main/java/com/dictionaryCommandLine/dictionaries.txt";
+    public static final String linkDictionary = "src/main/resources/Word/dictionaries.txt";
     public static void insertFromCommandLine() {
         System.out.print("Nhập số từ cần thêm: n = ");
         final int n = AppCommandLine.getSc().nextInt();
@@ -24,6 +24,7 @@ public class DictionaryManagement {
             System.out.println();
             Dictionary.getInstance().add(new Word(word_target, word_explain));
         }
+        Dictionary.getInstance().sort(Word::compareTo);
     }
 
     public static void insertFromFile() {
@@ -47,6 +48,7 @@ public class DictionaryManagement {
             if (word.length != 2) throw new WordException(s);
             Dictionary.getInstance().add(new Word(word[0].toLowerCase(), word[1].toLowerCase()));
         }
+        Dictionary.getInstance().sort(Word::compareTo);
     }
 
     public static BoardWord dictionaryLookup(String s) {
