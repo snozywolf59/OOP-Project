@@ -1,0 +1,7 @@
+greeting	 hi, hi. hello how are you ? hey . how's it going good morning good evening good afternoon howdy
+conversation-continue	 ok wow great oh is it ? oh ohh That's great Good Really hmm lemme think hm hmmm hmmmmm
+conversation-complete	 Thanks done that's all thats it. thats it I am done Thank you for information Thank. thanks. thank you. thanks nothing else thats it.z
+number-of-favorite-words    Can you give me the words that I liked? Can you tell me how many words I like? i need number of my [favorite words]. i want to know i have how many [favorite words].
+info-ChatBot    Who are you? I need some infomation about you? Can you tell me about you? Can you introduce yourself?
+feel-foolish    I'm so stupid
+how-to-learn-E    I want to learn English

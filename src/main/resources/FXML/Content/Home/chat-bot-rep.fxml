@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<HBox prefHeight="40.0" prefWidth="260.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.Home.ChatBotRepController">
+   <children>
+      <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/AvatarChatBot.png" />
+         </image></ImageView>
+      <TextFlow prefHeight="40.0" prefWidth="150.0">
+         <children>
+            <Text fx:id="chatBotRep" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="JUSTIFY" wrappingWidth="118.80339813232422" />
+         </children>
+         <HBox.margin>
+            <Insets left="20.0" top="10.0" />
+         </HBox.margin>
+      </TextFlow>
+   </children>
+</HBox>

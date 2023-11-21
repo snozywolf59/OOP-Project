@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<HBox alignment="TOP_RIGHT" minHeight="-Infinity" prefHeight="40.0" prefWidth="260.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.Home.UserRepController">
+   <children>
+      <TextFlow maxWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" textAlignment="RIGHT">
+         <children>
+            <Text fx:id="userRep" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="JUSTIFY" />
+         </children>
+         <HBox.margin>
+            <Insets right="20.0" top="10.0" />
+         </HBox.margin>
+      </TextFlow>
+      <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/AvatarUser.png" />
+         </image></ImageView>
+   </children>
+</HBox>

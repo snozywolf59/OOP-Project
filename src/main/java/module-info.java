@@ -26,6 +26,7 @@ module com.dictionary {
     requires google.cloud.core;
     requires google.cloud.core.grpc;
     requires com.google.auth;
+    requires org.apache.opennlp.tools;
 
     opens com.dictionary to javafx.fxml;
     opens com.dictionary.Controllers to javafx.fxml;
@@ -35,6 +36,8 @@ module com.dictionary {
     opens com.dictionary.Controllers.Content.API to javafx.fxml, com.google.gson;
     opens com.dictionary.Controllers.Content.Learn to javafx.fxml;
     opens com.dictionary.Controllers.Content.Search to javafx.fxml;
+    opens com.dictionary.Controllers.Content.Home to javafx.fxml;
+    opens com.dictionary.Models.Home to javafx.fxml;
 
     exports com.dictionary;
     exports com.dictionary.Views;
@@ -45,6 +48,8 @@ module com.dictionary {
     exports com.dictionary.Controllers.Content.Learn;
     exports com.dictionary.Controllers.Content.Search;
     exports com.dictionary.Controllers.Content.game;
+    exports com.dictionary.Controllers.Content.Home;
+    exports com.dictionary.Models.Home;
     opens com.dictionary.Controllers.Content.game to javafx.fxml;
     exports com.dictionary.Models.API;
     opens com.dictionary.Models.API to com.google.gson, javafx.fxml;
