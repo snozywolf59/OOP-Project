@@ -12,6 +12,10 @@ public class ChatBotRepController {
     private Text chatBotRep;
 
     public void setChatBotRep(String userInput) {
+        if (userInput.equals("@@")) {
+            chatBotRep.setText("Chào " + App.user.toString() + ", tớ là M, cậu thắc mắc gì thì cứ hỏi mình");
+            return;
+        }
         String category = ChatBot.getInstance().bestCategory(userInput);
         chatBotRep.setText(ChatBot.getInstance().answer(category));
     }

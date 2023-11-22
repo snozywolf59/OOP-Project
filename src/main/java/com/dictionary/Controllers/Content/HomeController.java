@@ -42,6 +42,17 @@ public class HomeController implements Initializable {
         new BounceInDown(imageHome).play();
         translator.setFromLanguage("Tiếng Việt");
         translator.setToLanguage("English");
+        FXMLLoader other = new FXMLLoader();
+        other.setLocation(getClass().getResource("/FXML/Content/Home/chat-bot-rep.fxml"));
+        HBox chatBotBox = null;
+        try {
+            chatBotBox = other.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        ChatBotRepController chatBotRep = other.getController();
+        chatBotRep.setChatBotRep("@@");
+        view.getChildren().add(chatBotBox);
     }
 
     @FXML
@@ -51,6 +62,10 @@ public class HomeController implements Initializable {
 
     @FXML
     void sendMessage(ActionEvent event) throws IOException {
+        if (userMessage.getText() == null) {
+            return;
+        }
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/FXML/Content/Home/user-rep.fxml"));
         HBox userBox = loader.load();
