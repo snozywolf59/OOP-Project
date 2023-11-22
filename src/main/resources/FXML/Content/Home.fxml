@@ -3,31 +3,29 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
 <AnchorPane id="AnchorPane" onMouseClicked="#animation" prefHeight="720.0" prefWidth="1095.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.HomeController">
     <stylesheets>
         <URL value="@../../Css/home.css" />
     </stylesheets>
-    <Label fx:id="home" layoutX="161.0" layoutY="52.0" prefHeight="11.0" prefWidth="683.0" text="Chào mừng các bạn đã đến với UETED!">
-        <font>
-          <Font size="39.0" />
-        </font>
-    </Label>
    <VBox alignment="CENTER" fillWidth="false" layoutX="577.0" layoutY="121.0" prefHeight="477.0" prefWidth="421.0" spacing="20.0">
       <padding>
          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
       </padding>
       <children>
-         <ScrollPane hbarPolicy="NEVER" hmin="1.0" prefHeight="361.0" prefWidth="346.0" style="-fx-background-color: 0; -fx-background-radius: 17 17 17 17; -fx-border-radius: 17 17 17 17; -fx-border-color: black;" stylesheets="@../../Css/home.css" vbarPolicy="NEVER" vvalue="1.0">
+         <ScrollPane hbarPolicy="NEVER" hmin="1.0" prefHeight="361.0" prefWidth="346.0" style="-fx-background-radius: 17 17 17 17; -fx-border-radius: 17 17 17 17; -fx-border-color: black;" stylesheets="@../../Css/home.css" vbarPolicy="NEVER" vvalue="1.0">
             <content>
-               <VBox id="scrollPane" fx:id="view" prefHeight="359.0" prefWidth="343.0" style="-fx-background-color: 0;" stylesheets="@../../Css/home.css" />
+               <VBox id="scrollPane" fx:id="view" prefHeight="359.0" prefWidth="343.0" stylesheets="@../../Css/home.css" />
             </content>
          </ScrollPane>
          <HBox prefHeight="25.0" prefWidth="347.0">
@@ -41,4 +39,24 @@
          </HBox>
       </children>
    </VBox>
+   <ImageView fx:id="imageHome" fitHeight="600.0" fitWidth="450.0" layoutX="44.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../Images/home1.png" />
+      </image>
+   </ImageView>
+   <TextFlow layoutX="74.0" layoutY="167.0" prefHeight="200.0" prefWidth="389.0" textAlignment="CENTER">
+      <children>
+         <Text fx:id="wordDay" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Text>
+      </children>
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets>
+      <padding>
+         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+      </padding>
+   </TextFlow>
 </AnchorPane>

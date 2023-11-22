@@ -10,8 +10,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,24 +22,24 @@ import java.util.ResourceBundle;
 public class HomeController implements Initializable {
     private Translator translator = new Translator();
 
-    public Label getHome() {
-        return home;
-    }
-
-    @FXML
-    private Label home;
-
     public static volatile boolean isSelected = false;
 
     @FXML
     private TextField userMessage;
 
     @FXML
+    private ImageView imageHome;
+
+    @FXML
     private VBox view;
+
+    @FXML
+    private Text wordDay;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        new BounceInDown(home).play();
+        wordDay.setText("Chào mừng bạn đã tới ứng dụng học tiếng anh EDUET!\nTừ mới mà chúng ta sẽ học trong ngày hôm nay là: ...");
+        new BounceInDown(imageHome).play();
         translator.setFromLanguage("Tiếng Việt");
         translator.setToLanguage("English");
     }
