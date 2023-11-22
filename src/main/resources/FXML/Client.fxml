@@ -53,7 +53,7 @@
                   <Line endX="-100.0" endY="80.0" startX="-100.0" />
                <VBox>
                   <children>
-                        <Label prefWidth="403.0" text="User Name" />
+                        <Label fx:id="userName" prefWidth="403.0" text="User Name" />
                      <Line endX="300.0" startX="-100.0" />
                   </children>
                </VBox>

@@ -321,5 +321,4 @@ public class Snake extends Application {
         gc.setFont(new Font("Digital-7", 35));
         gc.fillText("Score: " + score, 10, 35);
     }
-
 }

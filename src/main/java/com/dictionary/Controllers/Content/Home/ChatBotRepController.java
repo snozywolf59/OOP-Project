@@ -13,6 +13,6 @@ public class ChatBotRepController {
 
     public void setChatBotRep(String userInput) {
         String category = ChatBot.getInstance().bestCategory(userInput);
-        chatBotRep.setText(ChatBot.getInstance().answer(category, App.user.getUserName()));
+        chatBotRep.setText(ChatBot.getInstance().answer(category));
     }
 }

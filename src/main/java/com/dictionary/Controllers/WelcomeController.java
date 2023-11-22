@@ -113,7 +113,6 @@ public class WelcomeController implements Initializable {
         auCode = gmailOTP.getAuthenticationCode();
         System.out.println(auCode);
     }
-
     @FXML
     public void createAccount() {
         boolean b = createAccountInSignUp();

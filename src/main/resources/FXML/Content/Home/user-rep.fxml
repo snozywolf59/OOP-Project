@@ -4,22 +4,43 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<HBox alignment="TOP_RIGHT" minHeight="-Infinity" prefHeight="40.0" prefWidth="260.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.Home.UserRepController">
+<HBox alignment="TOP_RIGHT" minHeight="-Infinity" prefHeight="50.0" prefWidth="260.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.Home.UserRepController">
    <children>
-      <TextFlow maxWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" textAlignment="RIGHT">
+      <TextFlow maxWidth="-Infinity" minHeight="30.0" prefHeight="30.0" prefWidth="150.0" style="-fx-background-radius: 17 17 17 17;" textAlignment="RIGHT">
          <children>
-            <Text fx:id="userRep" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="JUSTIFY" />
+            <TextFlow maxWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: pink; -fx-background-radius: 17 17 17 17;" textAlignment="RIGHT">
+               <children>
+                  <Text fx:id="userRep" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="JUSTIFY">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="3.0" left="8.0" right="8.0" top="3.0" />
+               </padding>
+            </TextFlow>
          </children>
          <HBox.margin>
-            <Insets right="20.0" top="10.0" />
+            <Insets right="10.0" />
          </HBox.margin>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </TextFlow>
       <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Images/AvatarUser.png" />
          </image></ImageView>
    </children>
+   <padding>
+      <Insets top="5.0" />
+   </padding>
 </HBox>

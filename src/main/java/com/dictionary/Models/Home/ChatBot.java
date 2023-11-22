@@ -1,5 +1,6 @@
 package com.dictionary.Models.Home;
 
+import com.dictionary.App;
 import opennlp.tools.doccat.*;
 import opennlp.tools.lemmatizer.LemmatizerME;
 import opennlp.tools.lemmatizer.LemmatizerModel;
@@ -130,7 +131,7 @@ public final class ChatBot {
         return categorizer.getBestCategory(probabilitiesOfOutcomes);
     }
 
-    public String answer(String bestCategory, String username) {
+    public String answer(String bestCategory) {
         StringBuilder answer = new StringBuilder();
         if (questionAnswer.containsKey(bestCategory)) {
             answer.append(questionAnswer.get(bestCategory));
@@ -140,16 +141,15 @@ public final class ChatBot {
                     int ranNum = new Random().nextInt(2);
                     switch (ranNum) {
                         case 0:
-                            answer.append("Xin chào ").append(username).append(", tớ có thể giúp gì cho cậu nào");
+                            answer.append("Xin chào ").append(App.user.getUserName()).append(", tớ có thể giúp gì cho cậu nào");
                             break;
                         case 1:
-                            answer.append("Chào ").append(username).append(", cậu cần tớ việc gì nhỉ?");
+                            answer.append("Chào ").append(App.user.getUserName()).append(", cậu cần tớ việc gì nhỉ?");
                             break;
                     }
                     break;
                 case "number-of-favorite-words":
-                    int i = 1;
-                    answer.append("Một con số tuyệt vời đó! Cậu đã đánh dấu ").append(i).append(" từ rồi.");
+                    answer.append("Một con số tuyệt vời đó! Cậu đã đánh dấu ").append(App.user.getNumberOfFavoriteWords()).append(" từ rồi.");
                     break;
             }
         }

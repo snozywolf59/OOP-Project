@@ -140,6 +140,10 @@ public class User {
         System.out.println(favoriteWords);
     }
 
+    public int getNumberOfFavoriteWords() {
+        return favoriteWords.size();
+    }
+
     @Override
     public String toString() {
         return name;
