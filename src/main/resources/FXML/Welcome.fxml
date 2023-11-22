@@ -24,31 +24,34 @@
         <VBox layoutY="14.0" prefHeight="560.0" prefWidth="416.0" style="-fx-alignment: center;" styleClass="round-bg" AnchorPane.leftAnchor="0.0">
             <FontAwesomeIconView fill="#00c3ff" glyphName="BOOK" size="5em" text="" wrappingWidth="56.0" />
             <Label prefHeight="80.0" prefWidth="600.0" text="EDUET" />
-            <AnchorPane prefHeight="110.0" prefWidth="416.0">
+            <AnchorPane prefHeight="110.0" prefWidth="285.0">
                 <HBox layoutX="7.800000000000001" layoutY="56.0" styleClass="boxText" AnchorPane.leftAnchor="7.800000000000001">
                     <FontAwesomeIconView glyphName="LOCK" size="3em">
                         <HBox.margin>
                             <Insets bottom="1.0" left="7.0" right="1.0" />
                         </HBox.margin>
                     </FontAwesomeIconView>
-                    <PasswordField fx:id="password" prefHeight="35.0" prefWidth="362.0" promptText="Mật khẩu" style="-fx-font-weight: bold;" styleClass="text1">
+                    <PasswordField fx:id="password" prefHeight="35.0" prefWidth="300.0" promptText="Mật khẩu" style="-fx-font-weight: bold;" styleClass="text1">
                         <font>
                             <Font size="14.0" />
                         </font>
+                  <HBox.margin>
+                     <Insets left="20.0" />
+                  </HBox.margin>
                     </PasswordField>
                 </HBox>
-                <HBox layoutX="7.800000000000001" styleClass="boxText" AnchorPane.leftAnchor="7.800000000000001">
+                <HBox alignment="CENTER" layoutX="7.800000000000001" styleClass="boxText" AnchorPane.leftAnchor="7.800000000000001">
                     <FontAwesomeIconView glyphName="USER" size="3em">
                         <HBox.margin>
                             <Insets left="5.0" />
                         </HBox.margin>
                     </FontAwesomeIconView>
-                    <TextField fx:id="username" prefHeight="35.0" prefWidth="362.0" promptText="Tên đăng nhập" style="-fx-font-weight: bold;" styleClass="text1">
+                    <TextField fx:id="username" prefHeight="35.0" prefWidth="300.0" promptText="Tên đăng nhập" style="-fx-font-weight: bold;" styleClass="text1">
                         <font>
                             <Font size="14.0" />
                         </font>
                         <HBox.margin>
-                            <Insets />
+                            <Insets left="20.0" />
                         </HBox.margin>
                     </TextField>
                 </HBox>
@@ -185,5 +188,5 @@
          <String fx:value="registerBg" />
       </styleClass>
     </AnchorPane>
-   <Label fx:id="errorLogin" layoutX="240.0" layoutY="236.0" styleClass="errorlog" text="Label" />
+   <Label fx:id="errorLogin" layoutX="240.0" layoutY="236.0" opacity="0.56" styleClass="errorlog" text="Label" />
 </AnchorPane>

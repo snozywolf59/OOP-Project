@@ -118,7 +118,7 @@
 
 .date-picker {
     -fx-font-size: 14px;
-    -fx-prompt-text-fill: gray;
+    -fx-prompt-text-fill: grey;
 }
 
 .date-picker .arrow-button {
@@ -192,3 +192,5 @@
     -fx-font-size: 16;
     -fx-text-fill: white;
 }
+
+

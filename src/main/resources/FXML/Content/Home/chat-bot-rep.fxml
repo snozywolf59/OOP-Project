@@ -15,9 +15,9 @@
             <Image url="@../../../Images/AvatarChatBot.png" />
          </image>
       </ImageView>
-      <TextFlow maxWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: pink; -fx-background-radius: 17 17 17 17;" textAlignment="JUSTIFY">
+      <TextFlow maxWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: pink; -fx-background-radius: 17 17 17 17;">
          <children>
-            <TextFlow maxWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: pink; -fx-background-radius: 17 17 17 17;" textAlignment="JUSTIFY">
+            <TextFlow maxWidth="-Infinity" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: pink; -fx-background-radius: 17 17 17 17;">
                <children>
                   <Text fx:id="chatBotRep" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="JUSTIFY" wrappingWidth="118.80339813232422">
                      <font>
