@@ -7,6 +7,8 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -79,7 +81,7 @@
                 </Line>
 
             </HBox>
-            <TextArea fx:id="originalText" prefHeight="180.0" prefWidth="338.0" promptText="Fill the text" stylesheets="@../../Css/API.css" wrapText="true">
+            <TextArea fx:id="originalText" prefHeight="180.0" prefWidth="338.0" promptText="Bạn hãy điền vào đây..." stylesheets="@../../Css/API.css" wrapText="true">
                 <font>
                     <Font size="23.0" />
                 </font>
@@ -94,7 +96,7 @@
             </HBox>
         </graphic>
     </Button>
-    <MenuButton layoutX="474.0" layoutY="275.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="101.0" styleClass="mode" text="Action">
+    <MenuButton layoutX="476.0" layoutY="257.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" styleClass="mode">
         <items>
             <MenuItem mnemonicParsing="false" onAction="#actionCheck" text="Check" />
             <MenuItem mnemonicParsing="false" onAction="#rewrite" text="Rewrite" />
@@ -104,5 +106,17 @@
         <font>
         <Font name="System Bold" size="14.0" />
         </font>
+      <graphic>
+         <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../Images/pandafoot.png" />
+            </image>
+         </ImageView>
+      </graphic>
     </MenuButton>
+   <ImageView fitHeight="175.0" fitWidth="150.0" layoutX="838.0" layoutY="425.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../Images/panda.png" />
+      </image>
+   </ImageView>
 </AnchorPane>

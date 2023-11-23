@@ -1,20 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
-<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane id="AnchorPane" onMouseClicked="#animation" prefHeight="720.0" prefWidth="1095.0"
-            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.dictionary.Controllers.Content.HomeController">
+<AnchorPane id="AnchorPane" onMouseClicked="#animation" prefHeight="720.0" prefWidth="1095.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.HomeController">
     <stylesheets>
-        <URL value="@../../Css/home.css"/>
+        <URL value="@../../Css/home.css" />
     </stylesheets>
-    <Label fx:id="home" layoutX="159.0" layoutY="91.0" prefHeight="522.0" prefWidth="702.0"
-           text="Chào mừng các bạn đã đến với UETED!">
-        <font>
-          <Font size="39.0"/>
-        </font>
-    </Label>
+   <ImageView fitHeight="400.0" fitWidth="350.0" layoutX="600.0" layoutY="150.0" opacity="0.48" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../Images/chatbg.png" />
+      </image>
+   </ImageView>
+   <ScrollPane hbarPolicy="NEVER" hmin="1.0" layoutX="600.0" layoutY="150.0" prefHeight="325.0" prefWidth="350.0" style="-fx-background-radius: 17 17 17 17; -fx-border-radius: 17 17 17 17;" stylesheets="@../../Css/home.css" vbarPolicy="NEVER" vvalue="1.0">
+      <content>
+         <VBox id="scrollPane" fx:id="view" prefHeight="287.0" prefWidth="307.0" stylesheets="@../../Css/home.css" />
+      </content>
+      <padding>
+         <Insets left="20.0" right="20.0" top="20.0" />
+      </padding>
+   </ScrollPane>
+   <ImageView fx:id="imageHome" fitHeight="600.0" fitWidth="450.0" layoutX="44.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../Images/home1.png" />
+      </image>
+   </ImageView>
+   <TextFlow layoutX="74.0" layoutY="108.0" prefHeight="272.0" prefWidth="389.0" textAlignment="CENTER">
+      <children>
+         <Text fx:id="wordDay" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Text" textAlignment="CENTER">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Text>
+      </children>
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets>
+      <padding>
+         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+      </padding>
+   </TextFlow>
+   <Button alignment="CENTER" layoutX="886.0" layoutY="496.0" mnemonicParsing="false" onAction="#sendMessage" stylesheets="@../../Css/home.css" textAlignment="CENTER">
+      <graphic>
+         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../Images/sendchat.png" />
+            </image>
+         </ImageView>
+      </graphic>
+   </Button>
+   <TextField fx:id="userMessage" layoutX="632.0" layoutY="498.0" prefHeight="24.0" prefWidth="254.0" style="-fx-background-radius: 17 17 17 17; -fx-background-color: transparent; -fx-border-radius: 17 17 17 17; -fx-font-weight: bold;" stylesheets="@../../Css/home.css">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </TextField>
 </AnchorPane>

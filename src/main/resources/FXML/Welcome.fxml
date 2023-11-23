@@ -9,181 +9,187 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="pane" onMouseClicked="#untarget" prefHeight="594.0" prefWidth="785.0" styleClass="bg" stylesheets="@../Css/welcome.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.WelcomeController">
-   <AnchorPane layoutX="31.2" layoutY="18.4" prefHeight="560.0" prefWidth="319.0" style="-fx-border-radius: 20;" styleClass="image" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="31.0" AnchorPane.topAnchor="18.0" />
-
-    <AnchorPane layoutX="370.0" layoutY="4.0" AnchorPane.leftAnchor="349.0" AnchorPane.topAnchor="4.0">
-        <VBox layoutY="14.0" prefHeight="560.0" prefWidth="416.0" style="-fx-alignment: center;" styleClass="round-bg" AnchorPane.leftAnchor="0.0">
-            <FontAwesomeIconView fill="#00c3ff" glyphName="BOOK" size="5em" text="" wrappingWidth="56.0" />
-            <Label prefHeight="80.0" prefWidth="600.0" text="EDUET" />
-            <AnchorPane prefHeight="110.0" prefWidth="416.0">
-                <HBox layoutX="7.800000000000001" layoutY="56.0" styleClass="boxText" AnchorPane.leftAnchor="7.800000000000001">
-                    <FontAwesomeIconView glyphName="LOCK" size="3em">
-                        <HBox.margin>
-                            <Insets bottom="1.0" left="7.0" right="1.0" />
-                        </HBox.margin>
-                    </FontAwesomeIconView>
-                    <PasswordField fx:id="password" prefHeight="35.0" prefWidth="362.0" promptText="Mật khẩu" style="-fx-font-weight: bold;" styleClass="text1">
-                        <font>
-                            <Font size="14.0" />
-                        </font>
-                    </PasswordField>
-                </HBox>
-                <HBox layoutX="7.800000000000001" styleClass="boxText" AnchorPane.leftAnchor="7.800000000000001">
-                    <FontAwesomeIconView glyphName="USER" size="3em">
-                        <HBox.margin>
-                            <Insets left="5.0" />
-                        </HBox.margin>
-                    </FontAwesomeIconView>
-                    <TextField fx:id="username" prefHeight="35.0" prefWidth="362.0" promptText="Tên đăng nhập" style="-fx-font-weight: bold;" styleClass="text1">
-                        <font>
-                            <Font size="14.0" />
-                        </font>
-                        <HBox.margin>
-                            <Insets />
-                        </HBox.margin>
-                    </TextField>
-                </HBox>
-            </AnchorPane>
-            <AnchorPane layoutX="10.0" layoutY="260.0" prefHeight="31.0" prefWidth="900.0" />
-            <Button mnemonicParsing="false" onMouseClicked="#login" prefHeight="46.0" style="-fx-text-fill: #000000;" text="Đăng nhập">
-                <effect>
-                    <DropShadow spread="0.62">
-                        <color>
-                            <Color red="1.0" green="0.6738578677177429" />
-                        </color>
-                    </DropShadow>
-                </effect>
-                <styleClass>
-                    <String fx:value="login" />
-                    <String fx:value="button1" />
-                </styleClass>
-            </Button>
-            <AnchorPane layoutX="10.0" layoutY="262.0" prefHeight="103.0" prefWidth="400.0">
-                <Button layoutX="108.0" layoutY="79.0" mnemonicParsing="false" onMouseClicked="#enter" prefHeight="31.0" style="-fx-text-fill: #111111;" text="Tham gia không đăng nhập" AnchorPane.leftAnchor="108.0">
-                    <textFill>
-                        <LinearGradient>
-                            <stops>
-                                <Stop>
-                                    <color>
-                                        <Color red="1.0" blue="0.437817245721817" />
-                                    </color>
-                                </Stop>
-                                <Stop offset="1.0">
-                                    <color>
-                                        <Color red="1.0" green="0.6890863180160522" />
-                                    </color>
-                                </Stop>
-                            </stops>
-                        </LinearGradient>
-                    </textFill>
-                    <effect>
-                        <DropShadow blurType="GAUSSIAN" height="77.15" radius="42.7525" spread="0.51" width="95.86">
-                            <color>
-                                <Color green="0.204314723610878" blue="1.0" />
-                            </color>
-                        </DropShadow>
-                    </effect>
-                    <styleClass>
-                        <String fx:value="button1" />
-                        <String fx:value="enter" />
-                    </styleClass>
-                </Button>
-                <Button layoutX="108.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#register" prefHeight="38.0" prefWidth="142.0" style="-fx-text-fill: #000000;" text="Đăng ký" textFill="#ff05e1" AnchorPane.rightAnchor="108.0">
-                    <effect>
-                        <DropShadow spread="0.67">
-                            <color>
-                                <Color green="1.0" blue="0.8833333253860474" />
-                            </color>
-                        </DropShadow>
-                    </effect>
-                    <styleClass>
-                        <String fx:value="button1" />
-                        <String fx:value="register" />
-                    </styleClass>
-                </Button>
-            </AnchorPane>
-        </VBox>
-    </AnchorPane>
-    <AnchorPane fx:id="registerPane" layoutX="207.33333333333334" layoutY="39.333333333333336" prefHeight="537.0" prefWidth="400.0" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="207.0" AnchorPane.topAnchor="39.0">
-        <Label layoutX="34.0" layoutY="78.0" prefHeight="46.0" prefWidth="403.0" style="-fx-font-color: FFFFFF;" styleClass="label1" text="Đăng ký tài khoản" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-        <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#closeRegister" styleClass="close">
-         <graphic>
-            <FontAwesomeIconView fill="#006aff" fontSmoothingType="LCD" glyphName="ARROW_LEFT" size="2.1em" />
-         </graphic>
-        </Button>
-        <TextField fx:id="name" layoutX="132.0" layoutY="137.0" prefHeight="30.0" prefWidth="360.0" promptText="Họ tên" AnchorPane.leftAnchor="20.0">
-         <styleClass>
-            <String fx:value="text1" />
-            <String fx:value="text2" />
-         </styleClass>
-      </TextField>
-        <TextField fx:id="userNameSignUp" layoutX="132.0" layoutY="213.0" prefHeight="30.0" prefWidth="360.0" promptText="Tên đăng nhập" AnchorPane.leftAnchor="20.0">
-         <styleClass>
-            <String fx:value="text1" />
-            <String fx:value="text2" />
-         </styleClass>
-      </TextField>
-        <PasswordField fx:id="passwordSignUp" layoutX="133.0" layoutY="250.0" prefHeight="30.0" prefWidth="360.0" promptText="Mật khẩu" AnchorPane.leftAnchor="20.0">
-         <styleClass>
-            <String fx:value="text1" />
-            <String fx:value="text2" />
-         </styleClass>
-      </PasswordField>
-        <PasswordField fx:id="rePasswordSignUp" layoutX="134.0" layoutY="287.0" prefHeight="30.0" prefWidth="360.0" promptText="Nhập lại mật khẩu" AnchorPane.leftAnchor="20.0">
-         <styleClass>
-            <String fx:value="text1" />
-            <String fx:value="text2" />
-         </styleClass>
-      </PasswordField>
-        <Button layoutX="245.0" layoutY="462.0" mnemonicParsing="false" onAction="#createAccount" onMouseClicked="#createAccount" prefHeight="30.0" prefWidth="400.0" text="Tạo tài khoản">
-         <styleClass>
-            <String fx:value="button1" />
-            <String fx:value="confirmRegister" />
-         </styleClass>
-      </Button>
-      <DatePicker fx:id="dateOfBirth" layoutX="133.0" layoutY="174.0" prefHeight="30.0" prefWidth="360.0" promptText="Ngày sinh" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
-         <padding>
-            <Insets left="5.0" />
-         </padding>
-         <styleClass>
-            <String fx:value="text1" />
-            <String fx:value="text2" />
-         </styleClass>
-      </DatePicker>
-      <FontAwesomeIconView fill="#433636" glyphName="USER_PLUS" layoutX="180.0" layoutY="62.0" size="3.5em" textAlignment="JUSTIFY" wrappingWidth="40.0" />
-      <TextField fx:id="gmailAddress" layoutX="20.0" layoutY="326.0" prefHeight="30.0" prefWidth="360.0" promptText="Địa chỉ gmail">
-         <styleClass>
-            <String fx:value="text1" />
-            <String fx:value="text2" />
-         </styleClass>
-      </TextField>
-      <Button layoutX="245.0" layoutY="367.0" mnemonicParsing="false" onAction="#confirmGmail" prefHeight="38.0" prefWidth="135.0" text="Xác nhận gmail">
-         <styleClass>
-            <String fx:value="button1" />
-            <String fx:value="confirmRegister" />
-         </styleClass>
-      </Button>
-      <TextField fx:id="otpCode" layoutX="20.0" layoutY="417.0" prefHeight="30.0" prefWidth="360.0" promptText="Mã OTP">
-         <styleClass>
-            <String fx:value="text1" />
-            <String fx:value="text2" />
-         </styleClass>
-      </TextField>
-      <VBox layoutX="20.0" layoutY="459.0" prefHeight="19.0" prefWidth="249.0" />
-      <VBox layoutX="20.0" layoutY="364.0" prefHeight="19.0" prefWidth="249.0" />
+<AnchorPane id="AnchorPane" fx:id="pane" maxWidth="780.0" onMouseClicked="#untarget" prefHeight="590.0" prefWidth="780.0" styleClass="bg" stylesheets="@../Css/welcome.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.WelcomeController">
+   <ImageView fitHeight="590.0" fitWidth="780.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../Images/welcomebg.png" />
+      </image>
+   </ImageView>
+   <Label fx:id="errorLogin" layoutX="190.0" layoutY="230.0" opacity="0.56" styleClass="errorlog" text="Label" />
+   <AnchorPane fx:id="registerPane" prefHeight="590.0" prefWidth="780.0">
       <styleClass>
          <String fx:value="round-bg" />
          <String fx:value="registerBg" />
       </styleClass>
+      <children>
+         <ImageView fitHeight="590.0" fitWidth="780.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../Images/welcomebg.png" />
+            </image>
+         </ImageView>
+         <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#closeRegister" styleClass="close">
+            <graphic>
+               <FontAwesomeIconView fill="#006aff" fontSmoothingType="LCD" glyphName="ARROW_LEFT" size="2.1em" />
+            </graphic>
+         </Button>
+         <VBox layoutX="230.0" layoutY="105.0" prefHeight="409.0" prefWidth="320.0">
+            <children>
+               <Label prefHeight="32.0" style="-fx-font-color: FFFFFF;" styleClass="label1" text="Đăng ký tài khoản">
+                  <VBox.margin>
+                     <Insets bottom="3.0" top="3.0" />
+                  </VBox.margin>
+               </Label>
+               <TextField fx:id="name" prefHeight="30.0" prefWidth="360.0" promptText="Họ tên">
+                  <styleClass>
+                     <String fx:value="text1" />
+                     <String fx:value="text2" />
+                  </styleClass>
+                  <VBox.margin>
+                     <Insets bottom="3.0" top="3.0" />
+                  </VBox.margin>
+               </TextField>
+               <DatePicker fx:id="dateOfBirth" prefHeight="30.0" prefWidth="377.0" promptText="Ngày sinh" style="-fx-background-color: transparent;">
+                  <styleClass>
+                     <String fx:value="text1" />
+                     <String fx:value="text2" />
+                     <String fx:value="lich" />
+                  </styleClass>
+                  <VBox.margin>
+                     <Insets bottom="3.0" top="3.0" />
+                  </VBox.margin>
+               </DatePicker>
+               <TextField fx:id="userNameSignUp" prefHeight="30.0" prefWidth="360.0" promptText="Tên đăng nhập">
+                  <styleClass>
+                     <String fx:value="text1" />
+                     <String fx:value="text2" />
+                  </styleClass>
+                  <VBox.margin>
+                     <Insets bottom="3.0" top="3.0" />
+                  </VBox.margin>
+               </TextField>
+               <PasswordField fx:id="passwordSignUp" prefHeight="30.0" prefWidth="360.0" promptText="Mật khẩu">
+                  <styleClass>
+                     <String fx:value="text1" />
+                     <String fx:value="text2" />
+                  </styleClass>
+                  <VBox.margin>
+                     <Insets bottom="3.0" top="3.0" />
+                  </VBox.margin>
+               </PasswordField>
+               <PasswordField fx:id="rePasswordSignUp" prefHeight="30.0" prefWidth="360.0" promptText="Nhập lại mật khẩu">
+                  <styleClass>
+                     <String fx:value="text1" />
+                     <String fx:value="text2" />
+                  </styleClass>
+                  <VBox.margin>
+                     <Insets bottom="3.0" top="3.0" />
+                  </VBox.margin>
+               </PasswordField>
+               <TextField fx:id="gmailAddress" prefHeight="30.0" prefWidth="360.0" promptText="Địa chỉ gmail">
+                  <styleClass>
+                     <String fx:value="text1" />
+                     <String fx:value="text2" />
+                  </styleClass>
+                  <VBox.margin>
+                     <Insets bottom="3.0" top="3.0" />
+                  </VBox.margin>
+               </TextField>
+               <Button mnemonicParsing="false" onAction="#confirmGmail" prefHeight="38.0" prefWidth="135.0" text="Xác nhận gmail">
+                  <styleClass>
+                     <String fx:value="button1" />
+                     <String fx:value="confirmRegister" />
+                  </styleClass>
+                  <VBox.margin>
+                     <Insets bottom="3.0" top="3.0" />
+                  </VBox.margin>
+               </Button>
+               <TextField fx:id="otpCode" prefHeight="30.0" prefWidth="360.0" promptText="Mã OTP">
+                  <styleClass>
+                     <String fx:value="text1" />
+                     <String fx:value="text2" />
+                  </styleClass>
+                  <VBox.margin>
+                     <Insets bottom="3.0" top="3.0" />
+                  </VBox.margin>
+               </TextField>
+               <Button mnemonicParsing="false" onAction="#createAccount" onMouseClicked="#createAccount" prefHeight="30.0" prefWidth="130.0" text="Tạo tài khoản">
+                  <styleClass>
+                     <String fx:value="button1" />
+                     <String fx:value="confirmRegister" />
+                  </styleClass>
+                  <VBox.margin>
+                     <Insets bottom="3.0" top="3.0" />
+                  </VBox.margin>
+               </Button>
+            </children>
+         </VBox>
+      </children>
+   </AnchorPane>
+
+    <AnchorPane layoutX="370.0" layoutY="4.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="190.0" AnchorPane.topAnchor="0.0">
+          <HBox layoutX="44.0" layoutY="250.0" prefHeight="44.0" prefWidth="310.0" styleClass="boxText">
+              <FontAwesomeIconView glyphName="LOCK" size="3em">
+                  <HBox.margin>
+                      <Insets bottom="1.0" left="7.0" right="1.0" />
+                  </HBox.margin>
+              </FontAwesomeIconView>
+              <PasswordField fx:id="password" prefHeight="35.0" prefWidth="297.0" promptText="Mật khẩu" style="-fx-font-weight: bold;" styleClass="text1">
+                  <font>
+                      <Font size="14.0" />
+                  </font>
+            <HBox.margin>
+               <Insets left="20.0" />
+            </HBox.margin>
+              </PasswordField>
+          </HBox>
+          <HBox alignment="CENTER" layoutX="45.0" layoutY="192.0" prefHeight="43.0" prefWidth="310.0" styleClass="boxText">
+              <FontAwesomeIconView glyphName="USER" size="3em">
+                  <HBox.margin>
+                      <Insets left="5.0" />
+                  </HBox.margin>
+              </FontAwesomeIconView>
+              <TextField fx:id="username" prefHeight="35.0" prefWidth="300.0" promptText="Tên đăng nhập" style="-fx-font-weight: bold;" styleClass="text1">
+                  <font>
+                      <Font size="14.0" />
+                  </font>
+                  <HBox.margin>
+                      <Insets left="20.0" />
+                  </HBox.margin>
+              </TextField>
+          </HBox>
+         <Button layoutX="99.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="46.0" prefWidth="200.0" style="-fx-text-fill: #000000;" text="Đăng nhập">
+             <effect>
+                 <DropShadow spread="0.62">
+                     <color>
+                         <Color red="1.0" green="0.6738578677177429" />
+                     </color>
+                 </DropShadow>
+             </effect>
+         <styleClass>
+            <String fx:value="button1" />
+            <String fx:value="register" />
+         </styleClass>
+         </Button>
+          <Button layoutX="100.0" layoutY="434.0" mnemonicParsing="false" onMouseClicked="#register" prefHeight="38.0" prefWidth="142.0" style="-fx-text-fill: #000000;" text="Đăng ký" textFill="#ff05e1">
+              <effect>
+                  <DropShadow spread="0.67">
+                      <color>
+                          <Color green="1.0" blue="0.8833333253860474" />
+                      </color>
+                  </DropShadow>
+              </effect>
+              <styleClass>
+                  <String fx:value="button1" />
+                  <String fx:value="register" />
+              </styleClass>
+          </Button>
     </AnchorPane>
-   <Label fx:id="errorLogin" layoutX="240.0" layoutY="236.0" styleClass="errorlog" text="Label" />
 </AnchorPane>

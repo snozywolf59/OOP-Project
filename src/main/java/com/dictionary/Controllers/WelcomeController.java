@@ -113,7 +113,6 @@ public class WelcomeController implements Initializable {
         auCode = gmailOTP.getAuthenticationCode();
         System.out.println(auCode);
     }
-
     @FXML
     public void createAccount() {
         boolean b = createAccountInSignUp();
@@ -169,5 +168,6 @@ public class WelcomeController implements Initializable {
         Effect.enablePane(pane);
         Effect.disablePane(registerPane);
         Effect.disable(registerPane);
+        Effect.disable(errorLogin);
     }
 }
