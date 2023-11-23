@@ -31,6 +31,7 @@ public class DictionaryCommandLine {
         int choice;
         System.out.println("\t\t!!!Welcome to UETED!!!");
         do {
+            System.out.println("Press enter to continue.");
             AppCommandLine.getSc().nextLine();
             System.out.println("""
                     [0] Exit
@@ -60,7 +61,7 @@ public class DictionaryCommandLine {
                     System.out.println(DictionaryManagement.dictionaryLookup(s));
                 }
                 case 6 -> System.out.println(DictionaryCommandLine.dictionarySearcher());
-                case 7 -> Hangman.run();
+                case 7 -> Hangman.getInstance().run();
                 case 8 -> DictionaryManagement.insertFromFile();
                 case 9 -> DictionaryManagement.dictionaryExportToFile();
                 default ->
