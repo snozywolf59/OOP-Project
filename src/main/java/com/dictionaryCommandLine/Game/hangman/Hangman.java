@@ -2,18 +2,33 @@ package com.dictionaryCommandLine.Game.hangman;
 
 import com.dictionaryCommandLine.AppCommandLine;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
 
-public class Hangman {
-    private Hangman(){}
 
-    private static final int MAX_TRIES = 6;
-    private static String getRandWord() {
-        return "apple";
+public final class Hangman {
+    private static Hangman hangman;
+    private final List<String> words = new ArrayList<>();
+    private Hangman(){
+        loadData();
     }
-    public static void run() {
+
+    public static Hangman getInstance() {
+        if (hangman == null) {
+            hangman = new Hangman();
+        }
+        return hangman;
+    }
+
+    private final int MAX_TRIES = 10;
+    private String getRandWord() {
+        int randomNumber = (int) (Math.random() * words.size());
+        return words.get(randomNumber);
+    }
+
+    public void run() {
+        System.out.println(words.size());
         System.out.println("""
                 You have to guess a word which computer give. Its length is 5.
                 Once per turn, you can guess a letter.
@@ -31,7 +46,7 @@ public class Hangman {
                 """);
     }
 
-    private static boolean gameLoop() {
+    private boolean gameLoop() {
         String wordNeedToGuess = getRandWord();
         char[] guessedLetters = new char[wordNeedToGuess.length()];
         Arrays.fill(guessedLetters, '_');
@@ -41,8 +56,14 @@ public class Hangman {
         while (failed < MAX_TRIES) {
             System.out.println( "Current words: " + new String(guessedLetters));
             System.out.println( "Already guessed: " + hasGuessed);
+            System.out.println("You only have " + (MAX_TRIES - failed) + " wrong turns.");
             System.out.println( "Guess a letter: ");
-            userGuess = AppCommandLine.getSc().nextLine().charAt(0);
+            String input = AppCommandLine.getSc().nextLine();
+            while (input.isEmpty() || !Character.isLetter(input.charAt(0))) {
+                System.out.println("Please write a letter!");
+                input = AppCommandLine.getSc().nextLine();
+            }
+            userGuess = Character.toLowerCase(input.charAt(0));
             if (isAlreadyGuessed(userGuess, hasGuessed)) {
                 System.out.println("This letter has been guessed. Please choose another letter.");
                 continue;
@@ -58,18 +79,18 @@ public class Hangman {
                 }
             } else {
                 failed++;
-                System.out.println("You are wrong.");
-                System.out.println("You only have " + (MAX_TRIES - failed) + " wrong turns.");
+                System.out.println("You are wrong. The word does not contain " + userGuess + ".");
             }
+            Animation.show(failed);
         }
         if (failed == MAX_TRIES) {
             System.out.println("You lose.");
         }
-        int choice = whenFailed(failed);
+        int choice = endGame();
         return choice == 1;
     }
 
-    private static int whenFailed(int failed) {
+    private int endGame() {
         System.out.println("""
                                 Bạn có muốn chơi lại?
                                 [1] Chơi lại.
@@ -82,7 +103,7 @@ public class Hangman {
         return Integer.parseInt(choice);
     }
 
-    private static boolean isNumber(String in) {
+    private boolean isNumber(String in) {
         try {
             Integer.parseInt(in);
             return true;
@@ -91,19 +112,19 @@ public class Hangman {
         }
     }
 
-    private static boolean isValidChoice(int x) {
+    private boolean isValidChoice(int x) {
         return x == 1 || x == 2;
     }
 
-    private static boolean isAlreadyGuessed(char letter, Set<Character> hasGuessed) {
+    private boolean isAlreadyGuessed(char letter, Set<Character> hasGuessed) {
         return hasGuessed.contains(letter);
     }
 
-    private static boolean isInWord(char letter, String word) {
+    private boolean isInWord(char letter, String word) {
         return word.indexOf(letter) != -1;
     }
 
-    private static void update(char letter, String word, char[] guessedLetters) {
+    private void update(char letter, String word, char[] guessedLetters) {
         for (int i = 0; i < word.length(); i++) {
             if (word.charAt(i) == letter) {
                 guessedLetters[i] = letter;
@@ -111,12 +132,28 @@ public class Hangman {
         }
     }
 
-    private static boolean isWordGuessed(char[] guessedLetters, String word) {
+    private boolean isWordGuessed(char[] guessedLetters, String word) {
         for (int i = 0; i < guessedLetters.length; ++i) {
             if (guessedLetters[i] !=  word.charAt(i)) {
                 return false;
             }
         }
         return true;
+    }
+
+    private void loadData() {
+        File file = new File("src/main/java/com/dictionaryCommandLine/Game/hangman/data.txt");
+        try {
+            Scanner fileRead = new Scanner(file);
+            while (fileRead.hasNextLine()) {
+                words.add(fileRead.nextLine());
+            }
+            fileRead.close();
+        } catch (FileNotFoundException fileNotFoundException) {
+            System.out.println("File not found.");
+            System.out.println(fileNotFoundException.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

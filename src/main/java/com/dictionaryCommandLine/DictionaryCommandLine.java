@@ -61,7 +61,7 @@ public class DictionaryCommandLine {
                     System.out.println(DictionaryManagement.dictionaryLookup(s));
                 }
                 case 6 -> System.out.println(DictionaryCommandLine.dictionarySearcher());
-                case 7 -> Hangman.run();
+                case 7 -> Hangman.getInstance().run();
                 case 8 -> DictionaryManagement.insertFromFile();
                 case 9 -> DictionaryManagement.dictionaryExportToFile();
                 default ->
