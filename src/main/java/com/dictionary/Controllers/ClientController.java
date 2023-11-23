@@ -37,7 +37,7 @@ public class ClientController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        userName.setText(App.user.getUserName());
+        userName.setText(App.user.toString());
         Model.getInstance().getViewFactory().getCurrentSelect().addListener((o, oldValue, newValue) -> {
             switch (newValue) {
                 case ViewFactory.LISTENING_TEST -> {

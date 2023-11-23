@@ -1,10 +1,11 @@
 package com.dictionary.Controllers.Content;
 
-import animatefx.animation.BounceInDown;
+import animatefx.animation.*;
 import com.dictionary.Controllers.Content.Home.ChatBotRepController;
 import com.dictionary.Controllers.Content.Home.UserRepController;
 import com.dictionary.Models.API.Translator;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -39,7 +40,9 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         wordDay.setText("Chào mừng bạn đã tới ứng dụng học tiếng anh EDUET!\nTừ mới mà chúng ta sẽ học trong ngày hôm nay là: ...");
-        new BounceInDown(imageHome).play();
+
+        new Pulse(imageHome).play();
+
         translator.setFromLanguage("Tiếng Việt");
         translator.setToLanguage("English");
         FXMLLoader other = new FXMLLoader();
