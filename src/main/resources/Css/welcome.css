@@ -3,8 +3,6 @@
     -fx-fill: null;
 }
 .button1 {
-    -fx-pref-height: 50;
-    -fx-pref-width: 230;
     -fx-font-weight: bold;
     -fx-effect: dropshadow(three-pass-box, rgba(50,50,50,0.3), 1, 0.5, 0.5, 5);
     -fx-background-radius: 20 20 20 20;
@@ -13,7 +11,7 @@
 
 
 .login {
-    -fx-background-color: #eccf27;
+    /*-fx-background-color: #eccf27;*/
 }
 
 .login:hover {
@@ -137,7 +135,7 @@
     -fx-padding: 3px; /* Kích thước lề của ô nhập liệu */
 }
 .date-picker .label {
--fx-background-color: null;
+-fx-background-color: transparent;
 -fx-pref-height: 50;
 -fx-pref-width: 270;
 -fx-font-size: 14;
@@ -163,7 +161,7 @@
 }
 
 .round-bg {
-    -fx-background-color: white;
+    -fx-background-color: transparent;
     -fx-background-radius: 0 25 25 0;
 }
 
@@ -182,8 +180,9 @@
 }
 
 .text2 {
-    -fx-border-color: dodgerblue;
+    -fx-border-color: ivory;
     -fx-border-radius: 9;
+    -fx-prompt-text-fill: white;
 }
 
 .errorlog {
@@ -193,4 +192,15 @@
     -fx-text-fill: white;
 }
 
+.combo-box-base >.text-field {
+    -fx-background-color: transparent;
+}
 
+.combo-box-base >.text-field {
+    -fx-prompt-text-fill: white;
+}
+
+.combo-box-base >.arrow-button {
+    -fx-border-radius: 17 17 17 17;
+    -fx-background-radius: 17 17 17 17;
+}

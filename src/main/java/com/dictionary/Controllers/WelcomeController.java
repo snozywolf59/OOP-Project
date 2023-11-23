@@ -168,5 +168,6 @@ public class WelcomeController implements Initializable {
         Effect.enablePane(pane);
         Effect.disablePane(registerPane);
         Effect.disable(registerPane);
+        Effect.disable(errorLogin);
     }
 }
