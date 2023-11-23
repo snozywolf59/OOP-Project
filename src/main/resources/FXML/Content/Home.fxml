@@ -18,20 +18,23 @@
     <stylesheets>
         <URL value="@../../Css/home.css" />
     </stylesheets>
-   <TextField layoutX="615.0" layoutY="535.0" prefHeight="30.0" prefWidth="345.0" style="-fx-background-color: #47B1D8; -fx-background-radius: 17 17 17 17; -fx-border-color: black; -fx-border-radius: 17 17 17 17;" />
+   <TextField editable="false" layoutX="615.0" layoutY="540.0" prefHeight="30.0" prefWidth="345.0" style="-fx-background-color: #9FF8F8; -fx-background-radius: 17 17 17 17; -fx-border-color: black; -fx-border-radius: 17 17 17 17;" />
    <VBox alignment="CENTER" fillWidth="false" layoutX="577.0" layoutY="121.0" prefHeight="477.0" prefWidth="421.0" spacing="20.0">
       <padding>
          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
       </padding>
       <children>
-         <ScrollPane hbarPolicy="NEVER" hmin="1.0" prefHeight="361.0" prefWidth="346.0" style="-fx-background-radius: 17 17 17 17; -fx-border-radius: 17 17 17 17; -fx-border-color: black;" stylesheets="@../../Css/home.css" vbarPolicy="NEVER" vvalue="1.0">
+         <ScrollPane hbarPolicy="NEVER" hmin="1.0" prefHeight="370.0" prefWidth="345.0" style="-fx-background-radius: 17 17 17 17; -fx-border-radius: 17 17 17 17; -fx-border-color: black;" stylesheets="@../../Css/home.css" vbarPolicy="NEVER" vvalue="1.0">
             <content>
-               <VBox id="scrollPane" fx:id="view" prefHeight="359.0" prefWidth="343.0" stylesheets="@../../Css/home.css" />
+               <VBox id="scrollPane" fx:id="view" prefHeight="370.0" prefWidth="345.0" stylesheets="@../../Css/home.css" />
             </content>
          </ScrollPane>
          <HBox prefHeight="25.0" prefWidth="347.0">
             <children>
-               <TextField fx:id="userMessage" prefHeight="25.0" prefWidth="353.0" style="-fx-background-radius: 17 17 17 17; -fx-background-color: transparent; -fx-border-radius: 17 17 17 17;" stylesheets="@../../Css/home.css" />
+               <TextField fx:id="userMessage" prefHeight="25.0" prefWidth="353.0" style="-fx-background-radius: 17 17 17 17; -fx-background-color: transparent; -fx-border-radius: 17 17 17 17; -fx-font-weight: bold;" stylesheets="@../../Css/home.css">
+                  <font>
+                     <Font size="14.0" />
+                  </font></TextField>
                <Button alignment="CENTER" mnemonicParsing="false" onAction="#sendMessage" prefHeight="25.0" prefWidth="87.0" style="-fx-shape: &quot;m 138.55021,89.698036 v 0 l 1.27487,-1.138164 -1.2721,-1.016698 c 4.08005,1.020056 4.33904,0.732386 -0.003,2.154862 z&quot;; -fx-border-color: black;" stylesheets="@../../Css/home.css" textAlignment="CENTER">
                   <HBox.margin>
                      <Insets left="10.0" />
