@@ -23,7 +23,6 @@
          <Image url="@../Images/welcomebg.png" />
       </image>
    </ImageView>
-   <Label fx:id="errorLogin" layoutX="190.0" layoutY="230.0" opacity="0.56" styleClass="errorlog" text="Label" />
    <AnchorPane fx:id="registerPane" prefHeight="590.0" prefWidth="780.0">
       <styleClass>
          <String fx:value="round-bg" />
@@ -192,4 +191,5 @@
               </styleClass>
           </Button>
     </AnchorPane>
+   <Label fx:id="errorLogin" layoutX="190.0" layoutY="230.0" opacity="0.56" styleClass="errorlog" text="Label" />
 </AnchorPane>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -29,7 +28,11 @@
                      <Insets left="-20.0" />
                   </HBox.margin>
                   <children>
-                        <FontAwesomeIconView glyphName="LANGUAGE" size="8em" wrappingWidth="87.42857360839844" />
+                     <ImageView fitHeight="84.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../Images/logo.png" />
+                        </image>
+                     </ImageView>
                      <Line endX="100.0" startX="230.0">
                         <VBox.margin>
                            <Insets top="5.0" />
