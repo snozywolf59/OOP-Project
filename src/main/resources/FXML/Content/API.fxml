@@ -114,7 +114,7 @@
          </ImageView>
       </graphic>
     </MenuButton>
-   <ImageView fitHeight="175.0" fitWidth="150.0" layoutX="838.0" layoutY="425.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fx:id="panda" fitHeight="175.0" fitWidth="150.0" layoutX="838.0" layoutY="425.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../../Images/panda.png" />
       </image>

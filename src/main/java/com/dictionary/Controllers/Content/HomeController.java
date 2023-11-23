@@ -15,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -41,7 +42,17 @@ public class HomeController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         wordDay.setText("Chào mừng bạn đã tới ứng dụng học tiếng anh EDUET!\nTừ mới mà chúng ta sẽ học trong ngày hôm nay là: ...");
 
-        new Pulse(imageHome).play();
+        Thread thread = new Thread(()->{
+            Pulse pulse = new Pulse(imageHome);
+            pulse.setSpeed(0.5);
+            pulse.play();
+            pulse.setOnFinished(event -> {
+                pulse.setDelay(Duration.seconds(2));
+                pulse.play();
+            });
+        });
+        thread.setDaemon(false);
+        thread.start();
 
         translator.setFromLanguage("Tiếng Việt");
         translator.setToLanguage("English");

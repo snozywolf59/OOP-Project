@@ -1,5 +1,8 @@
 package com.dictionary.Controllers.Content.API;
 
+import animatefx.animation.Shake;
+import animatefx.animation.SlideInLeft;
+import animatefx.animation.SlideInRight;
 import com.darkprograms.speech.microphone.Microphone;
 import com.darkprograms.speech.recognizer.GSpeechDuplex;
 import com.darkprograms.speech.recognizer.GSpeechResponseListener;
@@ -7,11 +10,14 @@ import com.darkprograms.speech.recognizer.GoogleResponse;
 import com.dictionary.Models.API.*;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 import net.sourceforge.javaflacencoder.FLACFileWriter;
 
 import java.io.IOException;
@@ -34,6 +40,9 @@ public class APIController implements Initializable {
     @FXML
     private MenuButton buttonToLanguage;
 
+    @FXML
+    private ImageView panda;
+
     private boolean isRecording = false;
     private final TextToSpeech textToSpeech = new TextToSpeech();
     private final Translator translator = new Translator();
@@ -45,7 +54,17 @@ public class APIController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        Thread thread = new Thread(()->{
+            Shake shake = new Shake(panda);
+            shake.setSpeed(0.5);
+            shake.play();
+            shake.setOnFinished(event -> {
+                shake.setDelay(new Duration(2000));
+                shake.play();
+            });
+        });
+        thread.setDaemon(false);
+        thread.start();
     }
 
     @FXML
