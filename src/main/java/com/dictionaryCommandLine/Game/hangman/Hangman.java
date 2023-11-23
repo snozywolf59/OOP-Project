@@ -14,13 +14,20 @@ public class Hangman {
         return "apple";
     }
     public static void run() {
+        System.out.println("""
+                You have to guess a word which computer give. Its length is 5.
+                Once per turn, you can guess a letter.
+                If it is in the word, all character is equal to it will appear.
+                You must guess the word in 6 turns.
+                Else you will lose.
+                """);
         boolean replay;
         do {
             replay = gameLoop();
         } while (replay);
 
         System.out.println("""
-                Cảm ơn đã chơi.
+                Thanks for playing.
                 """);
     }
 
@@ -31,46 +38,43 @@ public class Hangman {
         Set<Character> hasGuessed = new HashSet<>();
         int failed = 0;
         char userGuess;
-        int choice = 0;
         while (failed < MAX_TRIES) {
-            System.out.println( "Hiện tại: " + new String(guessedLetters));
-            System.out.println( "Các từ đã đoán: " + hasGuessed);
-            System.out.println( "Hãy đoán một chữ: ");
+            System.out.println( "Current words: " + new String(guessedLetters));
+            System.out.println( "Already guessed: " + hasGuessed);
+            System.out.println( "Guess a letter: ");
             userGuess = AppCommandLine.getSc().nextLine().charAt(0);
+            if (isAlreadyGuessed(userGuess, hasGuessed)) {
+                System.out.println("This letter has been guessed. Please choose another letter.");
+                continue;
+            }
             if (isInWord(userGuess, wordNeedToGuess)) {
-                System.out.println("Bạn đã đoán trúng ký tự: " + userGuess);
-                if (isAlreadyGuessed(userGuess, hasGuessed)) {
-                    System.out.println("Từ này đã được đoán. Hãy chọn từ khác.");
-                    continue;
-                }
+                System.out.println("You are true: " + userGuess);
                 hasGuessed.add(userGuess);
-                if (isInWord(userGuess, wordNeedToGuess)) {
-                    update(userGuess, wordNeedToGuess, guessedLetters);
-                    if (isWordGuessed(guessedLetters, wordNeedToGuess)) {
-                        System.out.println("Chúc mừng bạn đã đoán đúng.");
-                        System.out.println("Từ cần đoán là" + wordNeedToGuess);
-                    } else {
-                        failed++;
-                        choice = whenFailed(failed);
-                    }
+                update(userGuess, wordNeedToGuess, guessedLetters);
+                if (isWordGuessed(guessedLetters, wordNeedToGuess)) {
+                    System.out.println("Congratulation. You won!");
+                    System.out.println("This word is " + wordNeedToGuess + ".");
+                    break;
                 }
+            } else {
+                failed++;
+                System.out.println("You are wrong.");
+                System.out.println("You only have " + (MAX_TRIES - failed) + " wrong turns.");
             }
         }
-
+        if (failed == MAX_TRIES) {
+            System.out.println("You lose.");
+        }
+        int choice = whenFailed(failed);
         return choice == 1;
     }
 
     private static int whenFailed(int failed) {
-        System.out.println("Bạn đoán sai từ rồi.");
-        System.out.println("Bạn còn được sai lầm " + (MAX_TRIES - failed) + " lần nữa.");
-        if (failed == MAX_TRIES) {
-            System.out.println("Bạn đã hết lượt chơi.");
-            System.out.println("""
-                                    Bạn có muốn chơi lại?
-                                    [1] Chơi lại.
-                                    [2] Nghỉ thôi.
-                                    """);
-        }
+        System.out.println("""
+                                Bạn có muốn chơi lại?
+                                [1] Chơi lại.
+                                [2] Nghỉ thôi.
+                                """);
         String choice;
         do {
             choice = AppCommandLine.getSc().nextLine();

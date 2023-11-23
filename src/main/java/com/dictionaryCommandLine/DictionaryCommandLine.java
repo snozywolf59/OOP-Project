@@ -31,6 +31,7 @@ public class DictionaryCommandLine {
         int choice;
         System.out.println("\t\t!!!Welcome to UETED!!!");
         do {
+            System.out.println("Press enter to continue.");
             AppCommandLine.getSc().nextLine();
             System.out.println("""
                     [0] Exit
