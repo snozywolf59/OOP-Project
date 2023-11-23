@@ -80,7 +80,7 @@ public class WelcomeController implements Initializable {
             String userName = username.getText();
             String pass = password.getText();
             if (!User.exists(userName, pass)) {
-                errorLogin.setText("Tên đăng nhập hoặc mật khẩu không đúng."); // Sửa thành label
+                logError("Tên đăng nhập hoặc mật khẩu không đúng."); // Sửa thành label
                 return;
             }
             App.user.setUser(userName, pass);
@@ -105,7 +105,7 @@ public class WelcomeController implements Initializable {
     @FXML
     void confirmGmail() {
         if (gmailAddress.getText().isEmpty()) {
-            errorLogin.setText("Lỗi gmail.");
+            logError("Lỗi gmail.");
             Effect.enable(errorLogin);
             return;
         }
@@ -126,31 +126,31 @@ public class WelcomeController implements Initializable {
     private boolean createAccountInSignUp() {
         try {
             if (name.getText().isEmpty()) {
-                errorLogin.setText("Chưa nhập họ và tên.");
+                logError("Chưa nhập họ và tên.");
                 return false;
             } else if (userNameSignUp.getText().isEmpty()) {
-                errorLogin.setText("Chưa nhập tên đăng nhập.");
+                logError("Chưa nhập tên đăng nhập.");
                 return false;
             } else if (passwordSignUp.getText().isEmpty()) {
-                errorLogin.setText("Chưa nhập mật khẩu.");
+                logError("Chưa nhập mật khẩu.");
                 return false;
             } else if (rePasswordSignUp.getText().isEmpty()) {
-                errorLogin.setText("Chưa nhập nhập lại mật khẩu.");
+                logError("Chưa nhập nhập lại mật khẩu.");
                 return false;
             } else if (dateOfBirth.getValue() == null) {
-                errorLogin.setText("Chưa nhập ngày sinh.");
+                logError("Chưa nhập ngày sinh.");
                 return false;
             } else if (gmailAddress.getText().isEmpty()) {
-                errorLogin.setText("Chưa nhập địa chỉ gmail.");
+                logError("Chưa nhập địa chỉ gmail.");
                 return false;
             } else if (!rePasswordSignUp.getText().equals(passwordSignUp.getText())) {
-                errorLogin.setText("Nhập lại mật khẩu không đúng.");
+                logError("Nhập lại mật khẩu không đúng.");
                 return false;
             } else if (User.exists(userNameSignUp.getText(), passwordSignUp.getText())) {
-                errorLogin.setText("Tài khoản đã tồn tại.");
+                logError("Tài khoản đã tồn tại.");
                 return false;
             } else if (!auCode.equals(MD5.md5HashString(otpCode.getText()))) {
-                errorLogin.setText("Mã otp không đúng");
+                logError("Mã otp không đúng");
                 return false;
             }
             App.user.setUser(userNameSignUp.getText(), passwordSignUp.getText(), name.getText(), dateOfBirth.getValue().toString(), gmailAddress.getText());
@@ -161,6 +161,11 @@ public class WelcomeController implements Initializable {
             System.out.println("Tạo tài khoản thất bại");
             return false;
         }
+    }
+
+    private void logError(String s) {
+        errorLogin.setText(s);
+        Effect.enable(errorLogin);
     }
 
     public void closeRegister() {
