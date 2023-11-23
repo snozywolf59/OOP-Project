@@ -1,6 +1,5 @@
 package com.dictionary.Views;
 
-import com.dictionary.Controllers.Content.game.Snake.Snake;
 import com.dictionary.Models.learn.ListeningTest;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -29,17 +28,18 @@ public final class ViewFactory {
     private final StringProperty currentSelect;
     private AnchorPane choiceList;
     private AnchorPane homeView;
-    private AnchorPane searchView;
+    private volatile AnchorPane searchView;
     private AnchorPane playView;
     private ScrollPane learnView;
-    private AnchorPane ggTranslateView;
+    private AnchorPane APIView;
     private AnchorPane listeningTestView;
     private AnchorPane favoriteWordList;
     private AnchorPane snakeGame;
+    private AnchorPane loading;
 
     public ViewFactory() {
         currentSelect = new SimpleStringProperty();
-        searchView = getSearchView();
+
     }
 
     public StringProperty getCurrentSelect() {
@@ -57,16 +57,32 @@ public final class ViewFactory {
         return choiceList;
     }
 
-    public AnchorPane getSearchView() {
+    public synchronized AnchorPane getSearchView() {
         if (searchView == null) {
+            Thread thread = new Thread(()->{
+                try {
+                    searchView = new FXMLLoader(getClass().getResource("/FXML/Content/SearchView.fxml")).load();
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                    e.printStackTrace();
+                }
+            });
+            thread.start();
+            return getLoading();
+        }
+        return searchView;
+    }
+
+    public AnchorPane getLoading() {
+        if (loading == null) {
             try {
-                searchView = new FXMLLoader(getClass().getResource("/FXML/Content/SearchView.fxml")).load();
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
+                loading = new FXMLLoader(getClass().getResource("/FXML/Loading.fxml")).load();
+            }
+            catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        return searchView;
+        return loading;
     }
 
     public AnchorPane getHomeView() {
@@ -91,15 +107,15 @@ public final class ViewFactory {
         }
         return learnView;
     }
-    public AnchorPane getGGTranslateView() {
-        if (ggTranslateView == null) {
+    public AnchorPane getAPIView() {
+        if (APIView == null) {
             try {
-                ggTranslateView = new FXMLLoader(getClass().getResource("/FXML/Content/API.fxml")).load();
+                APIView = new FXMLLoader(getClass().getResource("/FXML/Content/API.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        return ggTranslateView;
+        return APIView;
     }
 
     public AnchorPane getPlayView() {

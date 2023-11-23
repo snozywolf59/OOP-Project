@@ -52,7 +52,7 @@ public class ClientController implements Initializable {
                 case ViewFactory.EXIT -> Model.getInstance().getViewFactory().closeStage();
                 case ViewFactory.LEARN -> parent_pane.setCenter(Model.getInstance().getViewFactory().getLearnView());
                 case ViewFactory.API ->
-                        parent_pane.setCenter(Model.getInstance().getViewFactory().getGGTranslateView());
+                        parent_pane.setCenter(Model.getInstance().getViewFactory().getAPIView());
                 case ViewFactory.SNAKE_GAME -> {
                     Effect.disable(parent_pane);
                     grandParentPane.getChildren().add(Model.getInstance().getViewFactory().getSnakeGame());
