@@ -5,6 +5,7 @@
 .button {
     -fx-background-color: white;
     -fx-background-radius: 0 0 20 20;
+    -fx-font-weight: bold;
 }
 
 .label {
@@ -13,10 +14,14 @@
     -fx-font-size: 15;
     -fx-text-fill: navy;
 }
+
 .button:hover {
 -fx-background-color: navy;
 }
 
-.button:hover .label{
+.button:hover {
+    -fx-text-fill: white;
+}
+.button:hover .label {
     -fx-text-fill: white;
 }
