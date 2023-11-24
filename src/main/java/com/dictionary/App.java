@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class App extends Application {
-    public static User user = new User();
     /**
      *  Chạy chương trình.
      * @param stage stage.
@@ -19,7 +18,6 @@ public class App extends Application {
         Model.getInstance().getViewFactory().showWelcome();
     }
     public static void main(String[] args) throws IOException {
-        User.initFireStore();
         launch(args);
     }
 }

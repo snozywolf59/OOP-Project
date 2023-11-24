@@ -64,6 +64,7 @@ public class WelcomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        User.getInstance();
         untarget();
         password.setFocusTraversable(false);
         username.setFocusTraversable(false);
@@ -81,12 +82,12 @@ public class WelcomeController implements Initializable {
         try {
             String userName = username.getText();
             String pass = password.getText();
-            if (!User.exists(userName, pass)) {
+            if (!User.getInstance().exists(userName, pass)) {
                 logError("Tên đăng nhập hoặc mật khẩu không đúng."); // Sửa thành label
                 return;
             }
-            App.user.setUser(userName, pass);
-            App.user.pullUserData();
+            User.getInstance().setUser(userName, pass);
+            User.getInstance().pullUserData();
             System.out.println("Đăng nhập thành công.");
             Model.getInstance().getViewFactory().showWindow();
         } catch (Exception e) {
@@ -113,7 +114,6 @@ public class WelcomeController implements Initializable {
         }
         GmailOTP gmailOTP = new GmailOTP(gmailAddress.getText());
         auCode = gmailOTP.getAuthenticationCode();
-        System.out.println(auCode);
     }
     @FXML
     public void createAccount() {
@@ -148,7 +148,7 @@ public class WelcomeController implements Initializable {
             } else if (!rePasswordSignUp.getText().equals(passwordSignUp.getText())) {
                 logError("Nhập lại mật khẩu không đúng.");
                 return false;
-            } else if (User.exists(userNameSignUp.getText(), passwordSignUp.getText())) {
+            } else if (User.getInstance().exists(userNameSignUp.getText(), passwordSignUp.getText())) {
                 logError("Tài khoản đã tồn tại.");
                 return false;
             } else if (!auCode.equals(MD5.md5HashString(otpCode.getText()))
@@ -156,8 +156,8 @@ public class WelcomeController implements Initializable {
                 logError("Mã otp không đúng");
                 return false;
             }
-            App.user.setUser(userNameSignUp.getText(), passwordSignUp.getText(), name.getText(), dateOfBirth.getValue().toString(), gmailAddress.getText());
-            App.user.createNewUserToFSCloud();
+            User.getInstance().setUser(userNameSignUp.getText(), passwordSignUp.getText(), name.getText(), dateOfBirth.getValue().toString(), gmailAddress.getText());
+            User.getInstance().createNewUserToFSCloud();
             logSuccess("Tạo tài khoản thành công.");
             return true;
         } catch (Exception e) {

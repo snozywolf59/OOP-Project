@@ -1,6 +1,7 @@
 package com.dictionary.Models.Home;
 
 import com.dictionary.App;
+import com.dictionary.Models.Login.User;
 import opennlp.tools.doccat.*;
 import opennlp.tools.lemmatizer.LemmatizerME;
 import opennlp.tools.lemmatizer.LemmatizerModel;
@@ -141,15 +142,15 @@ public final class ChatBot {
                     int ranNum = new Random().nextInt(2);
                     switch (ranNum) {
                         case 0:
-                            answer.append("Xin chào ").append(App.user.getUserName()).append(", tớ có thể giúp gì cho cậu nào");
+                            answer.append("Xin chào ").append(User.getInstance().getName()).append(", tớ có thể giúp gì cho cậu nào");
                             break;
                         case 1:
-                            answer.append("Chào ").append(App.user.getUserName()).append(", cậu cần tớ việc gì nhỉ?");
+                            answer.append("Chào ").append(User.getInstance().getName()).append(", cậu cần tớ việc gì nhỉ?");
                             break;
                     }
                     break;
                 case "number-of-favorite-words":
-                    answer.append("Một con số tuyệt vời đó! Cậu đã đánh dấu ").append(App.user.getNumberOfFavoriteWords()).append(" từ rồi.");
+                    answer.append("Một con số tuyệt vời đó! Cậu đã đánh dấu ").append(User.getInstance().getNumberOfFavoriteWords()).append(" từ rồi.");
                     break;
             }
         }

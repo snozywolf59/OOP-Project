@@ -1,6 +1,7 @@
 package com.dictionary.Controllers;
 
 import com.dictionary.App;
+import com.dictionary.Models.Login.User;
 import com.dictionary.Models.Model;
 import com.dictionary.Views.Effect;
 import com.dictionary.Views.ViewFactory;
@@ -37,7 +38,7 @@ public class ClientController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        userName.setText(App.user.toString());
+        userName.setText(User.getInstance().getName());
         Model.getInstance().getViewFactory().getCurrentSelect().addListener((o, oldValue, newValue) -> {
             switch (newValue) {
                 case ViewFactory.LISTENING_TEST -> {

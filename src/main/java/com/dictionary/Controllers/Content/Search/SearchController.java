@@ -1,6 +1,7 @@
 package com.dictionary.Controllers.Content.Search;
 
 import com.dictionary.App;
+import com.dictionary.Models.Login.User;
 import com.dictionary.Views.Effect;
 import com.dictionary.Models.search.Dictionary;
 import com.dictionary.Models.search.Word;
@@ -212,20 +213,7 @@ public class SearchController implements Initializable {
     }
 
     public void onActionFavorite() {
-//        String filePath = "src\\main\\resources\\Word\\FavoriteWord.txt";
-//        String line = targetWord.getText();
-//        if(line != null) {
-//            try (
-//                    BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
-//                    writer.write(line);
-//                    writer.write("\n");
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//                System.out.println(e.getMessage());
-//            }
-//        }
-
-        App.user.addFavoriteWord(targetWord.getText(), definitionArea.getText());
+        User.getInstance().addFavoriteWord(targetWord.getText(), definitionArea.getText());
     }
 
     public void closeAddNewWord() {

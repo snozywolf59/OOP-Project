@@ -96,13 +96,11 @@ public class APIController implements Initializable {
 
     @FXML
     void speak1() {
-        textToSpeech.setLanguageCode(translator.getFromLanguage());
         textToSpeech.speak(originalText.getText());
     }
 
     @FXML
     void speak2() {
-        textToSpeech.setLanguageCode(translator.getToLanguage());
         textToSpeech.speak(resultText.getText());
     }
 
@@ -140,8 +138,8 @@ public class APIController implements Initializable {
         new Thread(() -> {
             try {
                 duplex.recognize(mic.getTargetDataLine(), mic.getAudioFormat());
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
 
         }).start();
@@ -155,9 +153,7 @@ public class APIController implements Initializable {
                     if (this.old_text.contains("(")) {
                         this.old_text = this.old_text.substring(0, this.old_text.indexOf('('));
                     }
-                    System.out.println("Paragraph Line Added");
                     this.old_text = this.old_text.replace(")", "").replace("( ", "");
-
                     return;
                 }
                 if (output.contains("(")) {

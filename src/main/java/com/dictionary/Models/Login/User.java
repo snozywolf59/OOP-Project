@@ -17,23 +17,33 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 public class User {
+    private static User instance;
+
+    private User() {
+        initFireStore();
+    }
+
+    public static synchronized User getInstance() {
+        if (instance == null) {
+            instance = new User();
+        }
+        return instance;
+    }
+
     private String userName;
     private String password;
     private String name;
     private String born;
     private String gmailAddress;
-    private static Firestore db;
-
+    private Firestore db;
     private Map<String, String> favoriteWords = new HashMap<>();
-
-    public User() {};
 
     public Map<String, String> getFavoriteWords() {
         return favoriteWords;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
 
     public void setUser(String userName, String password, String name, String born, String gmailAddress) {
@@ -49,16 +59,20 @@ public class User {
         this.password = password;
     }
 
-    public static void initFireStore() throws IOException {
-        FileInputStream serviceAccount = new FileInputStream("src/main/resources/Json/ServiceAccount.json");
+    private void initFireStore() {
+        try {
+            FileInputStream serviceAccount = new FileInputStream("src/main/resources/Json/ServiceAccount.json");
 
-        FirebaseOptions options = FirebaseOptions.builder()
-                .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                .build();
+            FirebaseOptions options = FirebaseOptions.builder()
+                    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                    .build();
 
-        FirebaseApp app = FirebaseApp.initializeApp(options);
+            FirebaseApp app = FirebaseApp.initializeApp(options);
 
-        db = FirestoreClient.getFirestore(app);
+            db = FirestoreClient.getFirestore(app);
+        } catch (IOException e) {
+            System.out.println("Init firestore error");
+        }
     }
 
     public void pullUserData() throws ExecutionException, InterruptedException {
@@ -71,7 +85,7 @@ public class User {
         }
     }
 
-    public static boolean exists(String userName, String password) {
+    public boolean exists(String userName, String password) {
         try {
             DocumentReference docRef = db.collection("User").document(userName);
             DocumentSnapshot docSnap = docRef.get().get();
@@ -138,6 +152,15 @@ public class User {
             favoriteWords.put(document.getString("Word"), document.getString("Meaning"));
         }
         System.out.println(favoriteWords);
+    }
+
+    public void clear() {
+        this.userName = null;
+        this.password = null;
+        this.name = null;
+        this.born = null;
+        this.favoriteWords = null;
+        this.gmailAddress = null;
     }
 
     public int getNumberOfFavoriteWords() {
