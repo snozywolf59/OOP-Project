@@ -8,8 +8,10 @@ import com.dictionary.Views.ViewFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -29,7 +31,14 @@ public class FavouriteListController implements Initializable {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("/FXML/Content/learn/WordCard.fxml"));
                 AnchorPane cardBox = loader.load();
+                Button deleteButton = new Button();
+                deleteButton.setOnAction(e -> {
+                    wordLayout.getChildren().remove(deleteButton.getParent());
+
+                });
+                cardBox.getChildren().add(deleteButton);
                 cardBox.getStylesheets().add(getClass().getResource("/Css/learn.css").toExternalForm());
+                System.out.println(cardBox.getChildren().getFirst() instanceof VBox);
                 WordCardController wordCardController = loader.getController();
                 wordCardController.setData(wc);
                 wordLayout.getChildren().add(cardBox);

@@ -1,6 +1,5 @@
 package com.dictionary.Controllers;
 
-import com.dictionary.App;
 import com.dictionary.Models.Login.User;
 import com.dictionary.Models.Model;
 import com.dictionary.Views.Effect;
@@ -21,7 +20,7 @@ import java.util.ResourceBundle;
 
 public class ClientController implements Initializable {
     @FXML
-    private BorderPane parent_pane;
+    private volatile BorderPane parent_pane;
 
     @FXML
     private AnchorPane grandParentPane;
@@ -93,7 +92,6 @@ public class ClientController implements Initializable {
                 }
                 default -> parent_pane.setCenter(Model.getInstance().getViewFactory().getHomeView());
             }
-
         });
     }
 }

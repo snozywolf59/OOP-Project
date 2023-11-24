@@ -3,13 +3,16 @@ package com.dictionary.Controllers.Content.Learn;
 import com.dictionary.Models.Card.Card;
 import com.dictionary.Models.Card.LoadCard;
 import com.dictionary.Models.Card.WordCard;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class WordCardController implements LoadCard, Initializable {
