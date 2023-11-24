@@ -4,6 +4,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -14,70 +15,100 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.Learn.ListeningTestController">
    <children>
-      <TextArea fx:id="text" editable="false" layoutX="226.0" layoutY="104.0" prefHeight="552.0" prefWidth="566.0" />
-      <Button layoutX="675.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#playAudio">
+      <ScrollPane hbarPolicy="NEVER" layoutX="228.0" layoutY="107.0" prefHeight="552.0" prefWidth="661.0" style="-fx-background-color: #f7cdd0; -fx-background-radius: 17 17 17 17;" stylesheets="@../../../Css/ListeningTest.css" vbarPolicy="NEVER">
+         <content>
+            <TextFlow prefHeight="547.0" prefWidth="658.0">
+               <children>
+                  <Text fx:id="questionText" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="60.803361892700195">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </TextFlow>
+         </content>
+      </ScrollPane>
+      <Button layoutX="675.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#playAudio" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 50 50 50 50; -fx-border-radius: 50 50 50 50; -fx-border-color: black;" stylesheets="@../../../Css/ListeningTest.css">
          <graphic>
-            <FontAwesomeIconView glyphName="VOLUME_UP" size="2em" textAlignment="CENTER" wrappingWidth="41.683311462402344" />
+            <FontAwesomeIconView glyphName="VOLUME_UP" size="2em" textAlignment="CENTER" wrappingWidth="25.016685485839844" />
          </graphic>
       </Button>
-      <VBox alignment="TOP_CENTER" layoutX="928.0" layoutY="104.0" prefHeight="558.0" prefWidth="338.0" style="-fx-alignment: center;">
+      <VBox alignment="BOTTOM_CENTER" layoutX="930.0" layoutY="107.0" prefHeight="552.0" prefWidth="155.0" style="-fx-alignment: center;">
          <children>
-            <Label prefHeight="35.0" prefWidth="187.0" text="Your answers:">
+            <Label alignment="CENTER" prefHeight="14.0" prefWidth="155.0" style="-fx-font-weight: bold;" text="Câu trả lời:" textAlignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextFlow prefHeight="95.0" prefWidth="187.0">
+            <TextFlow prefHeight="19.0" prefWidth="207.0" textAlignment="CENTER">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="(Your answer should ">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="(Câu trả lời nên theo định dạng: 1. ... 2. ... ) ">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Text>
                </children>
             </TextFlow>
-            <TextArea fx:id="userAnswer" prefHeight="286.0" prefWidth="290.0" styleClass="text-area" stylesheets="@../../../Css/ListeningTest.css" wrapText="true">
-               <font>
-                  <Font size="13.0" />
-               </font></TextArea>
-            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#submit" prefHeight="35.0" prefWidth="111.0" style="-fx-background-radius: 17 17 17 17; -fx-border-radius: 17 17 17 17; -fx-border-color: black;" stylesheets="@../../../Css/ListeningTest.css" text="Submit">
+            <TextArea fx:id="userAnswer" prefHeight="405.0" prefWidth="155.0" stylesheets="@../../../Css/ListeningTest.css" wrapText="true">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin></TextArea>
+            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#submit" prefHeight="35.0" prefWidth="111.0" style="-fx-background-radius: 17 17 17 17; -fx-border-radius: 17 17 17 17; -fx-border-color: black;" stylesheets="@../../../Css/ListeningTest.css" text="Nộp bài">
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin></Button>
          </children>
       </VBox>
-      <VBox layoutX="237.0" layoutY="39.0" prefHeight="54.0" prefWidth="338.0">
+      <VBox alignment="TOP_CENTER" layoutX="226.0" layoutY="31.0" prefHeight="58.0" prefWidth="383.0">
          <children>
-            <Label prefHeight="18.0" prefWidth="289.0" text="Choose a section: ">
+            <Label prefHeight="26.0" prefWidth="173.0" text="Hãy chọn một section:">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <HBox prefHeight="31.0" prefWidth="330.0">
+            <HBox alignment="CENTER" prefHeight="32.0" prefWidth="373.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#c17_t1_s1" text="Section 1">
+                  <Button mnemonicParsing="false" onAction="#c17_t1_s1" styleClass="buttonSection" stylesheets="@../../../Css/ListeningTest.css" text="Section 1">
                      <font>
                         <Font size="14.0" />
-                     </font></Button>
-                  <Button mnemonicParsing="false" onAction="#c17_t1_s2" text="Section 2">
+                     </font>
+                     <opaqueInsets>
+                        <Insets right="10.0" />
+                     </opaqueInsets></Button>
+                  <Button mnemonicParsing="false" onAction="#c17_t1_s2" styleClass="buttonSection" stylesheets="@../../../Css/ListeningTest.css" text="Section 2">
                      <font>
                         <Font size="14.0" />
-                     </font></Button>
-                  <Button layoutX="80.0" layoutY="10.0" mnemonicParsing="false" onAction="#c17_t1_s3" text="Section 3">
+                     </font>
+                     <opaqueInsets>
+                        <Insets right="10.0" />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin></Button>
+                  <Button layoutX="80.0" layoutY="10.0" mnemonicParsing="false" onAction="#c17_t1_s3" styleClass="buttonSection" stylesheets="@../../../Css/ListeningTest.css" text="Section 3">
                      <font>
                         <Font size="14.0" />
-                     </font></Button>
-                  <Button layoutX="143.0" layoutY="10.0" mnemonicParsing="false" onAction="#c17_t1_s4" text="Section 4">
+                     </font>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></Button>
+                  <Button layoutX="143.0" layoutY="10.0" mnemonicParsing="false" onAction="#c17_t1_s4" styleClass="buttonSection" stylesheets="@../../../Css/ListeningTest.css" text="Section 4">
                      <font>
                         <Font size="14.0" />
-                     </font></Button>
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin></Button>
                </children>
             </HBox>
          </children>
       </VBox>
-      <Button layoutX="733.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#stopAudio">
+      <Button layoutX="733.0" layoutY="50.0" mnemonicParsing="false" onMouseClicked="#stopAudio" prefHeight="40.0" prefWidth="40.0" style="-fx-background-radius: 50 50 50 50; -fx-border-color: black; -fx-border-radius: 50 50 50 50;" stylesheets="@../../../Css/ListeningTest.css">
          <graphic>
-            <FontAwesomeIconView glyphName="STOP" size="2em" textAlignment="CENTER" wrappingWidth="41.683311462402344" />
+            <FontAwesomeIconView glyphName="STOP" size="2em" textAlignment="CENTER" wrappingWidth="25.016624450683594" />
          </graphic>
       </Button>
       <Button layoutX="41.0" layoutY="38.0" mnemonicParsing="false" onMouseClicked="#backToLearn">

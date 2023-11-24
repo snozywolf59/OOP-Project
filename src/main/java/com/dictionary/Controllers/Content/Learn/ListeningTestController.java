@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,7 +18,7 @@ public class ListeningTestController implements Initializable {
     private final ListeningTest listeningTest = new ListeningTest();
 
     @FXML
-    private TextArea text;
+    private Text questionText;
 
     @FXML
     private TextArea userAnswer;
@@ -25,25 +26,25 @@ public class ListeningTestController implements Initializable {
     @FXML
     void c17_t1_s1(ActionEvent event) {
         listeningTest.setListeningTest(17, 1, 1);
-        text.setText(listeningTest.getExam());
+        questionText.setText(listeningTest.getExam());
     }
 
     @FXML
     void c17_t1_s2(ActionEvent event) {
         listeningTest.setListeningTest(17, 1, 2);
-        text.setText(listeningTest.getExam());
+        questionText.setText(listeningTest.getExam());
     }
 
     @FXML
     void c17_t1_s3(ActionEvent event) {
         listeningTest.setListeningTest(17, 1, 3);
-        text.setText(listeningTest.getExam());
+        questionText.setText(listeningTest.getExam());
     }
 
     @FXML
     void c17_t1_s4(ActionEvent event) {
         listeningTest.setListeningTest(17, 1, 4);
-        text.setText(listeningTest.getExam());
+        questionText.setText(listeningTest.getExam());
     }
 
     @FXML
