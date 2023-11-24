@@ -17,19 +17,6 @@
     <stylesheets>
         <URL value="@../../Css/home.css" />
     </stylesheets>
-   <ImageView fitHeight="400.0" fitWidth="350.0" layoutX="600.0" layoutY="150.0" opacity="0.48" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../../Images/chatbg.png" />
-      </image>
-   </ImageView>
-   <ScrollPane hbarPolicy="NEVER" hmin="1.0" layoutX="600.0" layoutY="150.0" prefHeight="325.0" prefWidth="350.0" style="-fx-background-radius: 17 17 17 17; -fx-border-radius: 17 17 17 17;" stylesheets="@../../Css/home.css" vbarPolicy="NEVER" vvalue="1.0">
-      <content>
-         <VBox id="scrollPane" fx:id="view" prefHeight="287.0" prefWidth="307.0" stylesheets="@../../Css/home.css" />
-      </content>
-      <padding>
-         <Insets left="20.0" right="20.0" top="20.0" />
-      </padding>
-   </ScrollPane>
    <ImageView fx:id="imageHome" fitHeight="600.0" fitWidth="450.0" layoutX="44.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../../Images/home1.png" />
@@ -50,6 +37,19 @@
          <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
       </padding>
    </TextFlow>
+   <ImageView fitHeight="400.0" fitWidth="350.0" layoutX="600.0" layoutY="150.0" opacity="0.48" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../Images/chatbg.png" />
+      </image>
+   </ImageView>
+   <ScrollPane hbarPolicy="NEVER" hmin="1.0" layoutX="600.0" layoutY="150.0" prefHeight="325.0" prefWidth="350.0" style="-fx-background-radius: 17 17 17 17; -fx-border-radius: 17 17 17 17;" stylesheets="@../../Css/home.css" vbarPolicy="NEVER" vvalue="1.0">
+      <content>
+         <VBox id="scrollPane" fx:id="view" prefHeight="287.0" prefWidth="307.0" stylesheets="@../../Css/home.css" />
+      </content>
+      <padding>
+         <Insets left="20.0" right="20.0" top="20.0" />
+      </padding>
+   </ScrollPane>
    <Button alignment="CENTER" layoutX="886.0" layoutY="496.0" mnemonicParsing="false" onAction="#sendMessage" stylesheets="@../../Css/home.css" textAlignment="CENTER">
       <graphic>
          <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">

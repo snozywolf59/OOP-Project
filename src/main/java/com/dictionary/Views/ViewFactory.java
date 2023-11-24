@@ -204,6 +204,10 @@ public final class ViewFactory {
         stage.show();
     }
 
+    public Stage getStage() {
+        return stage;
+    }
+
     public void closeStage() {
         ListeningTest.stopAudio();
         stage.close();

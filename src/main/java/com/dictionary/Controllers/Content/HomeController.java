@@ -4,8 +4,13 @@ import animatefx.animation.*;
 import com.dictionary.Controllers.Content.Home.ChatBotRepController;
 import com.dictionary.Controllers.Content.Home.UserRepController;
 import com.dictionary.Models.API.Translator;
+import com.dictionary.Models.Model;
 import com.dictionaryCommandLine.Game.hangman.Hangman;
 import com.dictionaryCommandLine.Word;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -23,6 +28,9 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static javafx.scene.control.ButtonBar.ButtonData.LEFT;
+import static javafx.scene.input.KeyCode.*;
 
 public class HomeController implements Initializable {
     private Translator translator = new Translator();
@@ -43,6 +51,8 @@ public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+
         wordDay.setText("Chào mừng bạn đã tới ứng dụng học tiếng anh EDUET!\n"
                 + "Từ mới mà chúng ta sẽ học trong ngày hôm nay là: "
                 + Hangman.getInstance().getRandWord());
