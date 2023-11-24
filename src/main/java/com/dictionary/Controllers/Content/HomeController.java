@@ -4,6 +4,8 @@ import animatefx.animation.*;
 import com.dictionary.Controllers.Content.Home.ChatBotRepController;
 import com.dictionary.Controllers.Content.Home.UserRepController;
 import com.dictionary.Models.API.Translator;
+import com.dictionaryCommandLine.Game.hangman.Hangman;
+import com.dictionaryCommandLine.Word;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -40,7 +43,9 @@ public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        wordDay.setText("Chào mừng bạn đã tới ứng dụng học tiếng anh EDUET!\nTừ mới mà chúng ta sẽ học trong ngày hôm nay là: ...");
+        wordDay.setText("Chào mừng bạn đã tới ứng dụng học tiếng anh EDUET!\n"
+                + "Từ mới mà chúng ta sẽ học trong ngày hôm nay là: "
+                + Hangman.getInstance().getRandWord());
 
         Thread thread = new Thread(()->{
             Pulse pulse = new Pulse(imageHome);
@@ -49,6 +54,14 @@ public class HomeController implements Initializable {
             pulse.setOnFinished(event -> {
                 pulse.setDelay(Duration.seconds(2));
                 pulse.play();
+            });
+
+            Pulse pulseOther = new Pulse(wordDay);
+            pulseOther.setSpeed(0.5);
+            pulseOther.play();
+            pulseOther.setOnFinished(event -> {
+                pulseOther.setDelay(Duration.seconds(2));
+                pulseOther.play();
             });
         });
         thread.setDaemon(false);

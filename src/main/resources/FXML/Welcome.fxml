@@ -164,7 +164,7 @@
                   </HBox.margin>
               </TextField>
           </HBox>
-         <Button layoutX="99.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="46.0" prefWidth="200.0" style="-fx-text-fill: #000000;" text="Đăng nhập">
+         <Button layoutX="99.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="46.0" prefWidth="200.0" style="-fx-text-fill: #000000;" styleClass="button1" text="Đăng nhập">
              <effect>
                  <DropShadow spread="0.62">
                      <color>
@@ -172,12 +172,8 @@
                      </color>
                  </DropShadow>
              </effect>
-         <styleClass>
-            <String fx:value="button1" />
-            <String fx:value="register" />
-         </styleClass>
          </Button>
-          <Button layoutX="100.0" layoutY="434.0" mnemonicParsing="false" onMouseClicked="#register" prefHeight="38.0" prefWidth="142.0" style="-fx-text-fill: #000000;" text="Đăng ký" textFill="#ff05e1">
+          <Button layoutX="126.0" layoutY="434.0" mnemonicParsing="false" onMouseClicked="#register" prefHeight="37.0" prefWidth="111.0" style="-fx-text-fill: #000000;" text="Đăng ký" textFill="#ff05e1">
               <effect>
                   <DropShadow spread="0.67">
                       <color>
@@ -192,4 +188,5 @@
           </Button>
     </AnchorPane>
    <Label fx:id="errorLogin" layoutX="190.0" layoutY="230.0" opacity="0.56" styleClass="errorlog" text="Label" />
+   <Label fx:id="successLog" layoutX="191.0" layoutY="231.0" opacity="0.56" style="-fx-background-color: green;" styleClass="errorlog" text="Label" />
 </AnchorPane>

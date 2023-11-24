@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -8,6 +9,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.Learn.ListeningTestController">
    <children>
@@ -17,23 +20,30 @@
             <FontAwesomeIconView glyphName="VOLUME_UP" size="2em" textAlignment="CENTER" wrappingWidth="41.683311462402344" />
          </graphic>
       </Button>
-      <VBox layoutX="928.0" layoutY="104.0" prefHeight="558.0" prefWidth="187.0" style="-fx-alignment: center;">
+      <VBox alignment="TOP_CENTER" layoutX="928.0" layoutY="104.0" prefHeight="558.0" prefWidth="338.0" style="-fx-alignment: center;">
          <children>
             <Label prefHeight="35.0" prefWidth="187.0" text="Your answers:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label prefHeight="18.0" prefWidth="187.0" text="(You should answer " />
-            <Label layoutX="10.0" layoutY="39.0" prefHeight="18.0" prefWidth="210.0" text="in the format below" />
-            <Label prefHeight="18.0" prefWidth="326.0" text="1. Your answer" />
-            <Label layoutX="10.0" layoutY="119.0" prefHeight="18.0" prefWidth="326.0" text="2. Your answer" />
-            <Label layoutX="10.0" layoutY="137.0" prefHeight="18.0" prefWidth="326.0" text="     ...   )" />
-            <TextArea fx:id="userAnswer" prefHeight="286.0" prefWidth="106.0" promptText="1. Your answer 2. Your answer 3. Your answer ..." wrapText="true">
+            <TextFlow prefHeight="95.0" prefWidth="187.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="(Your answer should ">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </TextFlow>
+            <TextArea fx:id="userAnswer" prefHeight="286.0" prefWidth="290.0" styleClass="text-area" stylesheets="@../../../Css/ListeningTest.css" wrapText="true">
                <font>
                   <Font size="13.0" />
                </font></TextArea>
-            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#submit" prefHeight="35.0" prefWidth="111.0" text="Submit" />
+            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#submit" prefHeight="35.0" prefWidth="111.0" style="-fx-background-radius: 17 17 17 17; -fx-border-radius: 17 17 17 17; -fx-border-color: black;" stylesheets="@../../../Css/ListeningTest.css" text="Submit">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin></Button>
          </children>
       </VBox>
       <VBox layoutX="237.0" layoutY="39.0" prefHeight="54.0" prefWidth="338.0">

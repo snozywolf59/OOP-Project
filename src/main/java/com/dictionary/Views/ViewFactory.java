@@ -57,7 +57,7 @@ public final class ViewFactory {
         return choiceList;
     }
 
-    public synchronized AnchorPane getSearchView() {
+    public AnchorPane getSearchView() {
         if (searchView == null) {
             Thread thread = new Thread(()->{
                 try {

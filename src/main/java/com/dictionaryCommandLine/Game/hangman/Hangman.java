@@ -22,7 +22,7 @@ public final class Hangman {
     }
 
     private final int MAX_TRIES = 10;
-    private String getRandWord() {
+    public String getRandWord() {
         int randomNumber = (int) (Math.random() * words.size());
         return words.get(randomNumber);
     }

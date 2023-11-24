@@ -46,7 +46,7 @@
 .register {
     -fx-background-color: #00FFA2;
     -fx-pref-height: 35;
-    -fx-pref-width: 200;
+    -fx-pref-width: 150;
 }
 
 .register:hover {

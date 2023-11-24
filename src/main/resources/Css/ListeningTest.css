@@ -1,0 +1,70 @@
+.button {
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+}
+
+.button:hover {
+    -fx-background-color: blue;
+}
+
+/*.text-area >.text-field {*/
+/*    -fx-background-radius: 17 17 17 17;*/
+/*    -fx-background-color: blue;*/
+/*}*/
+
+/*.text-area {*/
+/*    -fx-background-color: pink;*/
+/*}*/
+
+/*.text-area >.scroll-pane {*/
+/*    -fx-background-color: red;*/
+/*}*/
+
+.text-area {
+    -fx-padding: 0 19;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0, 6, 0;
+    -fx-background-radius: 8em;
+}
+
+.button {
+    -fx-background-radius: 3;
+    -fx-background-color: white;
+}
+.text-area .scroll-pane{
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane >.viewport , #txtMsg >.viewport{
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .scroll-bar:vertical, #txtMsg .scroll-bar:vertical{
+    -fx-background-color:inherit;
+}
+
+.text-area .scroll-pane .scroll-bar:vertical .track{
+    -fx-background-color:transparent;
+    -fx-border-color:transparent;
+    -fx-background-radius: 0em;
+
+}
+.text-area .scroll-pane .scroll-bar:vertical .increment-button,
+.text-area .scroll-pane .scroll-bar:vertical .decrement-button{
+    -fx-background-color:transparent;
+    -fx-background-radius: 0em;
+    -fx-padding:0 0 10 0;
+
+}
+
+.text-area .scroll-pane  .scroll-bar .increment-arrow,
+.text-area .scroll-pane  .scroll-bar .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding:0;
+}
+.text-area .scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color:transparent;
+}
+
+.
+
