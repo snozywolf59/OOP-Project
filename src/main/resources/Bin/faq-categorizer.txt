@@ -5,3 +5,26 @@ number-of-favorite-words    Can you give me the words that I liked? Can you tell
 info-ChatBot    Who are you? I need some infomation about you? Can you tell me about you? Can you introduce yourself?
 feel-foolish    I'm so stupid
 how-to-learn-E    I want to learn English
+00001	How often do you study vocabulary?
+00002	If I want to learn English in general, do you have any suggestions on where to start?
+00003	How to remember vocabulary effectively?
+00004	Do you prefer to learn from textbooks or from online information sources?
+00005	Is there a way to learn vocabulary that makes learning more fun?
+00006	How to improve listening skills?
+00007	How to prepare for an English interview?
+00008	Is there a way to retain learned knowledge after a long period of not using it?
+00009	How to quickly come into contact with the English speaking community?
+00010	Do you have any suggestions for expanding your everyday vocabulary?
+00011	How to maintain correct grammar when speaking?
+00012	What do you think about using flashcards to learn vocabulary?
+00013	How to improve reading comprehension?
+00014	Do you have the habit of watching English movies?
+00015	How to stay motivated when learning English?
+00016	I often study English and feel bored very quickly. Do you have any way to help me maintain my study habit without feeling bored?
+00017	How to take advantage of your English writing skills?
+00018	Is there any way to learn English effectively when you are busy?
+00019	Is there any way to review effectively before the English exam?
+00020	What are the most outstanding features of your application?
+00021	How to take advantage of app interactivity?
+00022	Is there a feature to test English writing skills?
+00023	How does your app support vocabulary learning?

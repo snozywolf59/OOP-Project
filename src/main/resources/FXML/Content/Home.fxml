@@ -17,12 +17,12 @@
     <stylesheets>
         <URL value="@../../Css/home.css" />
     </stylesheets>
-   <ImageView fx:id="imageHome" fitHeight="600.0" fitWidth="450.0" layoutX="44.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+   <ImageView fx:id="imageHome" fitHeight="600.0" fitWidth="450.0" layoutX="44.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../../Images/home1.png" />
       </image>
    </ImageView>
-   <TextFlow layoutX="74.0" layoutY="108.0" prefHeight="272.0" prefWidth="389.0" textAlignment="CENTER">
+   <TextFlow layoutX="74.0" layoutY="97.0" prefHeight="283.0" prefWidth="389.0" textAlignment="CENTER">
       <children>
          <Text fx:id="wordDay" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Text" textAlignment="CENTER">
             <font>
