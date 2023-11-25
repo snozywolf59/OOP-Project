@@ -91,7 +91,6 @@ public class WordRelationships {
         } catch (NullPointerException e) {
             System.out.println(response.body());
         }
-
         return definition.toString();
     }
 }

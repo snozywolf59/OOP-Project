@@ -4,6 +4,7 @@ import animatefx.animation.*;
 import com.dictionary.Controllers.Content.Home.ChatBotRepController;
 import com.dictionary.Controllers.Content.Home.UserRepController;
 import com.dictionary.Models.API.Translator;
+import com.dictionary.Models.Login.User;
 import com.dictionary.Models.Model;
 import com.dictionaryCommandLine.Game.hangman.Hangman;
 import com.dictionaryCommandLine.Word;
@@ -51,11 +52,9 @@ public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-
         wordDay.setText("Chào mừng bạn đã tới ứng dụng học tiếng anh EDUET!\n"
                 + "Từ mới mà chúng ta sẽ học trong ngày hôm nay là: "
-                + Hangman.getInstance().getRandWord());
+                + User.getInstance().getWordDay());
 
         Thread thread = new Thread(()->{
             Pulse pulse = new Pulse(imageHome);

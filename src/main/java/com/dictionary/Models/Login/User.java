@@ -14,9 +14,14 @@ import java.util.concurrent.ExecutionException;
 
 public class User {
     private static User instance;
+    private String wordDay;
+
+    public String getWordDay() {
+        return wordDay;
+    }
 
     private User() {
-
+//        wordDay = getRandomWord();
     }
 
     public static synchronized User getInstance() {
@@ -62,6 +67,7 @@ public class User {
             this.born = docSnap.getData().get("born").toString();
             this.gmailAddress = docSnap.getData().get("gmail").toString();
         }
+        this.wordDay = getRandomWord();
     }
 
     public boolean exists(String userName, String password) {
@@ -160,7 +166,25 @@ public class User {
         }
     }
 
+    private String getRandomWord() {
+        ApiFuture<QuerySnapshot> query = FireStoreApp.getInstance().getWords().get();
 
+        QuerySnapshot querySnapshot = null;
+        try {
+            querySnapshot = query.get();
+        } catch (InterruptedException | ExecutionException e) {
+            System.out.println(e.getMessage());
+        }
+
+        assert querySnapshot != null;
+        List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
+
+        Random random = new Random();
+        int randomIndex = random.nextInt(documents.size());
+        DocumentSnapshot ranDoc = documents.get(randomIndex);
+
+        return ranDoc.getString("Word");
+    }
 
     @Override
     public String toString() {

@@ -16,6 +16,7 @@ public class FireStoreApp {
 
     private CollectionReference user;
     private CollectionReference question_answer;
+    private CollectionReference words;
 
     private FireStoreApp() {
         try {
@@ -30,6 +31,7 @@ public class FireStoreApp {
             Firestore db = FirestoreClient.getFirestore(app);
             user = db.collection("User");
             question_answer = db.collection("Question-Answer");
+            words = db.collection("Words");
         } catch (IOException e) {
             System.out.println("Init firestore error");
         }
@@ -48,5 +50,9 @@ public class FireStoreApp {
 
     public CollectionReference getQuestion_Answer() {
         return question_answer;
+    }
+
+    public CollectionReference getWords() {
+        return words;
     }
 }
