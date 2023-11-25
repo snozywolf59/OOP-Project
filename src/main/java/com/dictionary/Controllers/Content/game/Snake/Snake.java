@@ -90,7 +90,7 @@ public class Snake extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
         gc = canvas.getGraphicsContext2D();
-        playSound("C:\\Users\\LENOVO\\OneDrive\\Desktop\\OOP-Project\\src\\main\\resources\\snake\\sound\\sound1.wav");
+        playSound("src\\main\\resources\\snake\\sound\\sound1.wav");
         //Xử lí sự kiện
         scene.setOnKeyPressed(event -> {
             WORD_LIST.add("have");
@@ -314,7 +314,7 @@ public class Snake extends Application {
                 snakeBody.add(new Point(-1, -1));
                 foodImage.remove(i);
                 score += 5;
-                playSound("src/snake/sound/eatFood.wav");
+                playSound("src/main/resources/snake/sound/eatFood.wav");
                 return;
             } else if (snakeHead.getX() == foodImage.get(i).getX() && snakeHead.getY() == foodImage.get(i).getY()) {
                 gameOver = true;
