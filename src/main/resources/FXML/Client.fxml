@@ -67,7 +67,7 @@
                   <children>
                      <HBox>
                         <children>
-                              <Label fx:id="userName" prefWidth="293.0" style="-fx-background-radius: 30 30 30 30; -fx-background-color: pink; -fx-border-radius: 30 30 30 30;" text="User Name">
+                              <Label fx:id="userName" prefWidth="293.0" style="-fx-background-radius: 30 30 30 30; -fx-background-color: transparent; -fx-border-radius: 30 30 30 30; -fx-border-color: black;" text="User Name">
                               <HBox.margin>
                                  <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
                               </HBox.margin></Label>
