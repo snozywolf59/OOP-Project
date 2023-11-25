@@ -22,7 +22,7 @@ public class GameListController implements Initializable {
     private HBox listGame;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        GameCard snakeGame = new GameCard(ViewFactory.SNAKE_GAME, "/Images/game/snake.png");
+        GameCard snakeGame = new GameCard(ViewFactory.SNAKE_GAME, "/snake/img/icon.png");
         addGame(snakeGame);
     }
 

@@ -1,10 +1,10 @@
 package com.dictionary.Controllers.Content.Search;
 
-import com.dictionary.App;
+import com.dictionary.Models.Card.WordCard;
 import com.dictionary.Models.Login.User;
-import com.dictionary.Views.Effect;
 import com.dictionary.Models.search.Dictionary;
 import com.dictionary.Models.search.Word;
+import com.dictionary.Views.Effect;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -12,15 +12,10 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static java.lang.Math.min;
@@ -50,6 +45,10 @@ public class SearchController implements Initializable {
     }
 
     List<String> words = readTxtFile();
+    List<WordCard> specialWords;
+
+    @FXML
+    AnchorPane wordLayout;
 
     @FXML
     private AnchorPane searchView;
@@ -88,6 +87,7 @@ public class SearchController implements Initializable {
         
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Effect.disable(wordLayout);
         speakingThread = new Thread();
         listView.getItems().addAll(words);
         setTree();
@@ -104,6 +104,7 @@ public class SearchController implements Initializable {
     }
 
     private void specialDisable() {
+        Effect.disable(wordLayout);
         editTab.setDisable(true);
         editTab.setVisible(false);
         addNewWord.setVisible(false);
@@ -154,7 +155,6 @@ public class SearchController implements Initializable {
         reset();
         Effect.disablePane(searchView);
         Effect.enable(delTab);
-
     }
 
     public void confirmDelWord() {
@@ -226,6 +226,37 @@ public class SearchController implements Initializable {
         specialDisable();
     }
     public void closeDelTab() {
+        Effect.enablePane(searchView);
+        specialDisable();
+    }
+
+    public void showSyms() {
+        //TODO get from db
+
+
+        String word = targetWord.getText();
+        List<WordCard> get = getWordsFrom("syms", word);
+
+        Effect.disablePane(searchView);
+        Effect.enable(wordLayout);
+        HBox box = (HBox) wordLayout.getChildren().getFirst();
+        box.getChildren().add(new Label("Tao dep trai"));
+        System.out.println(wordLayout.getChildren().getFirst().getClass());
+    }
+
+    private List<WordCard> getWordsFrom(String type, String word) {
+        List<WordCard> lc = new LinkedList<>();
+        //TODO get from db
+        return lc;
+    }
+
+    public void showAnms() {
+        //TODO get from db
+        Effect.disablePane(searchView);
+        Effect.enable(wordLayout);
+    }
+
+    public void close() {
         Effect.enablePane(searchView);
         specialDisable();
     }
