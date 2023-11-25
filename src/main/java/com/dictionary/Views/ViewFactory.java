@@ -1,5 +1,6 @@
 package com.dictionary.Views;
 
+import com.dictionary.Models.Model;
 import com.dictionary.Models.learn.ListeningTest;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -8,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public final class ViewFactory {
@@ -59,6 +62,7 @@ public final class ViewFactory {
 
     public AnchorPane getSearchView() {
         if (searchView == null) {
+            searchView = getLoading();
             Thread thread = new Thread(()->{
                 try {
                     searchView = new FXMLLoader(getClass().getResource("/FXML/Content/SearchView.fxml")).load();
@@ -68,7 +72,7 @@ public final class ViewFactory {
                 }
             });
             thread.start();
-            return getLoading();
+            return searchView;
         }
         return searchView;
     }
@@ -142,7 +146,7 @@ public final class ViewFactory {
     }
 
     public void resetHome() {
-        this.homeView = null;
+        //this.homeView = null;
     }
     public void resetFavoriteWordList() {
         this.favoriteWordList = null;
