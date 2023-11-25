@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 
 public class SnakeMenuController implements Initializable {
     public void play() {
-        Snake.getInstance().start(new Stage());
+        Snake.getInstance().start(Model.getInstance().getViewFactory().getStage());
     }
 
     public void instruction() {

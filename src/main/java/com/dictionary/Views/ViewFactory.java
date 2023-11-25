@@ -14,9 +14,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public final class ViewFactory {
-    private final Stage stage = new Stage();
+    public final Stage stage = new Stage();
     private static final String appName = "UETED";
 
+    public Scene SCENE;
     public static final String HOME = "Home";
     public static final String SEARCH = "Search";
     public static final String PLAY = "Play";
@@ -178,7 +179,9 @@ public final class ViewFactory {
         return listeningTestView;
     }
 
-
+    public Stage getStage() {
+        return this.stage;
+    }
 
     public void showWelcome() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Welcome.fxml"));
@@ -189,7 +192,7 @@ public final class ViewFactory {
 
     public void showWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Client.fxml"));
-        createStage(loader);
+        SCENE = createStage(loader);
     }
 
     public AnchorPane getSnakeGame() {
@@ -204,7 +207,7 @@ public final class ViewFactory {
         return snakeGame;
     }
 
-    private void createStage(FXMLLoader loader) {
+    private Scene createStage(FXMLLoader loader) {
         Scene scene = null;
 
         try {
@@ -220,14 +223,15 @@ public final class ViewFactory {
 
         stage.centerOnScreen();
         stage.show();
-    }
-
-    public Stage getStage() {
-        return stage;
+        return scene;
     }
 
     public void closeStage() {
         ListeningTest.stopAudio();
         stage.close();
+    }
+
+    public Scene getSCENE() {
+        return this.SCENE;
     }
 }
