@@ -1,6 +1,7 @@
 package com.dictionary.Controllers;
 
 import com.dictionary.Models.FireStore.FireStoreApp;
+import com.dictionary.Models.Home.ChatBot;
 import com.dictionary.Models.Login.GmailOTP;
 import com.dictionary.Models.Login.MD5;
 import com.dictionary.Models.Login.User;
@@ -63,6 +64,7 @@ public class WelcomeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         FireStoreApp.getInstance();
         User.getInstance();
+        ChatBot.getInstance();
         untarget();
         password.setFocusTraversable(false);
         username.setFocusTraversable(false);

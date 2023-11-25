@@ -97,25 +97,42 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    void sendMessage(ActionEvent event) throws IOException {
+    void sendMessage(ActionEvent event) {
         if (userMessage.getText() == null) {
             return;
         }
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/FXML/Content/Home/user-rep.fxml"));
-        HBox userBox = loader.load();
+        HBox userBox = null;
+        try {
+            userBox = loader.load();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
         UserRepController userRep = loader.getController();
         userRep.setData(userMessage.getText());
         view.getChildren().add(userBox);
 
         FXMLLoader other = new FXMLLoader();
         other.setLocation(getClass().getResource("/FXML/Content/Home/chat-bot-rep.fxml"));
-        HBox chatBotBox = other.load();
-        ChatBotRepController chatBotRep = other.getController();
-        chatBotRep.setChatBotRep(translator.translate(userMessage.getText()));
+        HBox chatBotBox = null;
+        try {
+            chatBotBox = other.load();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        Thread thread = new Thread(()->{
+            ChatBotRepController chatBotRep = other.getController();
+            try {
+                chatBotRep.setChatBotRep(translator.translate(userMessage.getText()));
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+            userMessage.setText("");
+        });
+        thread.setDaemon(false);
+        thread.start();
         view.getChildren().add(chatBotBox);
-
-        userMessage.setText("");
     }
 }
