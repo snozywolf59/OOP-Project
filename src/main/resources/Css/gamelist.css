@@ -1,3 +1,20 @@
 * {
     -fx-background-color: transparent;
 }
+
+.button {
+    -fx-background-border: 3px;
+    -fx-background-color: white;
+    -fx-font-weight: bold;
+    -fx-text-fill: green;
+}
+
+.button:hover {
+    -fx-background-color: green;
+    -fx-text-fill: white;
+}
+
+.card {
+    -fx-border-radius: 5px;
+    -fx-border-color: green;
+}

@@ -15,7 +15,7 @@
       </Button>
       <ScrollPane layoutX="160.0" layoutY="216.0" prefHeight="300.0" prefWidth="1050.0" AnchorPane.leftAnchor="160.0">
          <content>
-            <HBox fx:id="wordLayout" prefHeight="280.0" prefWidth="1205.0" />
+            <HBox fx:id="wordLayout" prefHeight="280.0" prefWidth="100.0" />
          </content>
       </ScrollPane>
    </children>

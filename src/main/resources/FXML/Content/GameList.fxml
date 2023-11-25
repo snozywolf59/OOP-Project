@@ -8,16 +8,12 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="635.0" prefWidth="1095.0" stylesheets="@../../Css/gamelist.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.GameListController">
+<AnchorPane prefHeight="630.0" prefWidth="1095.0" stylesheets="@../../Css/gamelist.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.GameListController">
    <children>
       <ScrollPane layoutY="60.0" prefHeight="570.0" prefWidth="1095.0" vbarPolicy="NEVER">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="570.0" prefWidth="1114.0">
-               <children>
-                  <Button layoutY="-2.0" mnemonicParsing="false" prefHeight="570.0" prefWidth="266.0" text="SNAKE GAME" />
-               </children>
-            </AnchorPane>
-        </content>
+         <content>
+            <HBox fx:id="listGame" prefHeight="550.0" prefWidth="1094.0" />
+         </content>
       </ScrollPane>
       <HBox layoutY="-2.0" prefHeight="65.0" prefWidth="340.0" style="-fx-alignment: center;">
          <children>

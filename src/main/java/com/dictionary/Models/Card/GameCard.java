@@ -4,6 +4,11 @@ public class GameCard extends Card {
     private String linkToGame;
     private String linkToImage;
 
+    public GameCard(String linkToGame, String linkToImage) {
+        this.linkToGame = linkToGame;
+        this.linkToImage = linkToImage;
+    }
+
     public String getLinkToGame() {
         return linkToGame;
     }
@@ -11,7 +16,6 @@ public class GameCard extends Card {
     public void setLinkToGame(String linkToGame) {
         this.linkToGame = linkToGame;
     }
-
 
 
     public String getLinkToImage() {
