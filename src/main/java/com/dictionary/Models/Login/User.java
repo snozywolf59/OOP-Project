@@ -1,22 +1,13 @@
 package com.dictionary.Models.Login;
 
 import com.dictionary.Models.API.Translator;
-import com.dictionary.Models.search.Dictionary;
-import com.dictionary.Models.search.Word;
 import com.google.api.core.ApiFuture;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.*;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.FirestoreClient;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
 import java.io.*;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
 
@@ -83,7 +74,7 @@ public class User {
         DocumentReference documentReference = db.collection("User").document(userName);
         DocumentSnapshot docSnap = documentReference.get().get();
         if (docSnap.exists()) {
-            this.name = docSnap.getData().get("name").toString();
+            this.name = Objects.requireNonNull(docSnap.getData()).get("name").toString();
             this.born = docSnap.getData().get("born").toString();
             this.gmailAddress = docSnap.getData().get("gmail").toString();
         }
@@ -94,7 +85,7 @@ public class User {
             DocumentReference docRef = db.collection("User").document(userName);
             DocumentSnapshot docSnap = docRef.get().get();
             if (docSnap.exists()) {
-                if (docSnap.getData().get("userName").toString().equals(userName)
+                if (Objects.requireNonNull(docSnap.getData()).get("userName").toString().equals(userName)
                 && docSnap.getData().get("password").toString().equals(password)) {
                     return true;
                 }
@@ -125,15 +116,7 @@ public class User {
 
     public void addFavoriteWord(String word, String meaning) {
         DocumentReference docRef = db.collection("User").document(userName).collection("FavoriteWords").document(word);
-        Map<String, Object> addNewFavoriteWord = new HashMap<>();
-        addNewFavoriteWord.put("Word", word);
-        addNewFavoriteWord.put("Meaning", meaning);
-        ApiFuture<WriteResult> writeResult = docRef.set(addNewFavoriteWord, SetOptions.merge());
-        try {
-            System.out.println("Update time : " + writeResult.get().getUpdateTime());
-        } catch (InterruptedException | ExecutionException e) {
-            System.out.println("Update error.");
-        }
+        add(word, meaning, docRef);
     }
 
     public void deleteFavoriteWord(String word) {
@@ -213,8 +196,8 @@ public class User {
         try {
             DocumentSnapshot docSnap = docRef.get().get();
             if (docSnap.exists()) {
-                contentToAppend += Objects.requireNonNull(docSnap.get("Category")).toString()
-                        + "\t" + Objects.requireNonNull(docSnap.get("Question")).toString();
+                contentToAppend += Objects.requireNonNull(docSnap.get("Category"))
+                        + "\t" + Objects.requireNonNull(docSnap.get("Question"));
             }
 
         } catch (InterruptedException | ExecutionException e) {
@@ -270,7 +253,25 @@ public class User {
         return name;
     }
 
-    public void deleteDeletedWord(String text) {
-        //TODO delete deleted word in db
+    public void deleteDeletedWord(String word) {
+        DocumentReference docRef = db.collection("User").document(userName).collection("DeletedWords").document(word);
+        docRef.delete();
+    }
+
+    public void addDeletedWord(String word, String meaning) {
+        DocumentReference docRef = db.collection("User").document(userName).collection("DeletedWords").document(word);
+        add(word, meaning, docRef);
+    }
+
+    private void add(String word, String meaning, DocumentReference docRef) {
+        Map<String, Object> addNewDeletedWord = new HashMap<>();
+        addNewDeletedWord.put("Word", word);
+        addNewDeletedWord.put("Meaning", meaning);
+        ApiFuture<WriteResult> writeResult = docRef.set(addNewDeletedWord, SetOptions.merge());
+        try {
+            System.out.println("Update time : " + writeResult.get().getUpdateTime());
+        } catch (InterruptedException | ExecutionException e) {
+            System.out.println("Update error.");
+        }
     }
 }

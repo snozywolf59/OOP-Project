@@ -166,6 +166,7 @@ public class SearchController implements Initializable {
             this.delWord.clear();
         }
     }
+
     /**
      * Xử lí nút ok ở add word.
      */
