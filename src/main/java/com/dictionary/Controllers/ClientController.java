@@ -27,7 +27,7 @@ public class ClientController implements Initializable {
 
     @FXML
     private Label userName;
-    
+
     @FXML
     private ImageView test;
 

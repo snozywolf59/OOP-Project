@@ -32,11 +32,13 @@ public final class ChatBot {
 
     private ChatBot() {
         model = trainModel();
+        questionAnswer = User.getInstance().getAnswerFromFireStore();
         questionAnswer.put("conversation-continue", "Hmm");
         questionAnswer.put("conversation-complete", "Rất vui khi được nói chuyện với cậu. Hi");
         questionAnswer.put("info-ChatBot", "Tớ là M, là một trợ lý ảo của ứng dụng EDUET - một ứng dụng học tiếng anh cực kì bổ ích. Tớ được thiết lập để giúp cậu có trải nghiệm tốt hơn.");
         questionAnswer.put("how-to-learn-E", "Nếu cậu muốn học tiếng Anh, có một số cách thú vị và hiệu quả! Cậu có thể bắt đầu bằng việc xem phim hoặc nghe nhạc tiếng Anh để làm quen với ngữ cảnh và nghe âm thanh. Ngoài ra, đọc sách, báo, hoặc blog cũng là cách tốt để cải thiện từ vựng. Hãy thử tìm người học cùng để có thêm động lực và có ai đó để thực hành nha.");
         questionAnswer.put("feel-foolish", "Đồ đần!");
+
     }
 
     public static ChatBot getInstance()
@@ -133,6 +135,8 @@ public final class ChatBot {
     }
 
     public String answer(String bestCategory) {
+        System.out.println(bestCategory);
+
         StringBuilder answer = new StringBuilder();
         if (questionAnswer.containsKey(bestCategory)) {
             answer.append(questionAnswer.get(bestCategory));

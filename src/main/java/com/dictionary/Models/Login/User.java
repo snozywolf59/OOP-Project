@@ -1,5 +1,6 @@
 package com.dictionary.Models.Login;
 
+import com.dictionary.Models.API.Translator;
 import com.dictionary.Models.search.Dictionary;
 import com.dictionary.Models.search.Word;
 import com.google.api.core.ApiFuture;
@@ -11,17 +12,12 @@ import com.google.firebase.cloud.FirestoreClient;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 public class User {
@@ -173,6 +169,100 @@ public class User {
 
     public int getNumberOfFavoriteWords() {
         return favoriteWords.size();
+    }
+
+    /**
+     * This is for chat-bot.
+     */
+    private Translator translator = new Translator();
+
+    public void addQAtoFirestore(String category) {
+        translator.setFromLanguage("Tiếng Việt");
+        translator.setToLanguage("English");
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("question: ");
+        String question = sc.nextLine();
+        System.out.println("answer: ");
+        String answer = sc.nextLine();
+        DocumentReference docRef = db.collection("Question-Answer").document(category);
+        Map<String, Object> data = new HashMap<>();
+        data.put("Category", category);
+        try {
+            data.put("Question", translator.translate(question));
+        } catch (IOException e) {
+            System.out.println("Error translate");
+        }
+        data.put("Answer", answer);
+
+        ApiFuture<WriteResult> result = docRef.set(data);
+        try {
+            System.out.println("Update time : " + result.get().getUpdateTime());
+        } catch (InterruptedException | ExecutionException e) {
+            System.out.println("Error");
+        }
+    }
+
+    public void addQAtoTXT(String category) {
+        String filePath = "src/main/resources/Bin/faq-categorizer.txt";
+
+        // Nội dung mới bạn muốn thêm vào file
+        String contentToAppend = "\n";
+
+        DocumentReference docRef = db.collection("Question-Answer").document(category);
+        try {
+            DocumentSnapshot docSnap = docRef.get().get();
+            if (docSnap.exists()) {
+                contentToAppend += Objects.requireNonNull(docSnap.get("Category")).toString()
+                        + "\t" + Objects.requireNonNull(docSnap.get("Question")).toString();
+            }
+
+        } catch (InterruptedException | ExecutionException e) {
+            System.out.println("Error in document snapshot");
+        }
+
+        try {
+            // Mở file với tham số true để cho phép ghi thêm vào cuối file
+            FileWriter fileWriter = new FileWriter(filePath, true);
+
+            // Sử dụng BufferedWriter để ghi nội dung
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+            // Thêm nội dung vào file
+            bufferedWriter.write(contentToAppend);
+
+            // Đóng BufferedWriter
+            bufferedWriter.close();
+
+            System.out.println("Nội dung đã được thêm vào file thành công.");
+
+        } catch (IOException e) {
+            System.out.println("Đã xảy ra lỗi khi thêm nội dung vào file: " + e.getMessage());
+        }
+    }
+
+    public Map<String, String> getAnswerFromFireStore() {
+        Map<String, String> answer = new HashMap<>();
+        ApiFuture<QuerySnapshot> query = db.collection("Question-Answer").get();
+        QuerySnapshot querySnapshot = null;
+        try {
+            querySnapshot = query.get();
+        } catch (InterruptedException | ExecutionException e) {
+            System.out.println("Error in query snapshot");
+        }
+        assert querySnapshot != null;
+        List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
+        for (QueryDocumentSnapshot document : documents) {
+            answer.put(document.getId(), Objects.requireNonNull(document.get("Answer")).toString());
+        }
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        for (int i = 20; i < 30; i++) {
+            User.getInstance().addQAtoFirestore("000" + i);
+            User.getInstance().addQAtoTXT("000" + i);
+        }
     }
 
     @Override
