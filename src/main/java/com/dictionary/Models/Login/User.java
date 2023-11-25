@@ -1,6 +1,7 @@
 package com.dictionary.Models.Login;
 
 import com.dictionary.Models.API.Translator;
+import com.dictionary.Models.FireStore.FireStoreApp;
 import com.google.api.core.ApiFuture;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.*;
@@ -15,7 +16,7 @@ public class User {
     private static User instance;
 
     private User() {
-        initFireStore();
+
     }
 
     public static synchronized User getInstance() {
@@ -30,7 +31,6 @@ public class User {
     private String name;
     private String born;
     private String gmailAddress;
-    private Firestore db;
     private Map<String, String> favoriteWords = new HashMap<>();
 
     public Map<String, String> getFavoriteWords() {
@@ -54,24 +54,8 @@ public class User {
         this.password = password;
     }
 
-    private void initFireStore() {
-        try {
-            FileInputStream serviceAccount = new FileInputStream("src/main/resources/Json/ServiceAccount.json");
-
-            FirebaseOptions options = FirebaseOptions.builder()
-                    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                    .build();
-
-            FirebaseApp app = FirebaseApp.initializeApp(options);
-
-            db = FirestoreClient.getFirestore(app);
-        } catch (IOException e) {
-            System.out.println("Init firestore error");
-        }
-    }
-
     public void pullUserData() throws ExecutionException, InterruptedException {
-        DocumentReference documentReference = db.collection("User").document(userName);
+        DocumentReference documentReference = FireStoreApp.getInstance().getUser().document(userName);
         DocumentSnapshot docSnap = documentReference.get().get();
         if (docSnap.exists()) {
             this.name = Objects.requireNonNull(docSnap.getData()).get("name").toString();
@@ -82,7 +66,7 @@ public class User {
 
     public boolean exists(String userName, String password) {
         try {
-            DocumentReference docRef = db.collection("User").document(userName);
+            DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName);
             DocumentSnapshot docSnap = docRef.get().get();
             if (docSnap.exists()) {
                 if (Objects.requireNonNull(docSnap.getData()).get("userName").toString().equals(userName)
@@ -103,7 +87,7 @@ public class User {
             System.out.println("Error: Empty info");
             return;
         }
-        DocumentReference docRef = db.collection("User").document(userName);
+        DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName);
         Map<String, Object> data = new HashMap<>();
         data.put("userName", userName);
         data.put("password", password);
@@ -115,18 +99,18 @@ public class User {
     }
 
     public void addFavoriteWord(String word, String meaning) {
-        DocumentReference docRef = db.collection("User").document(userName).collection("FavoriteWords").document(word);
+        DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName).collection("FavoriteWords").document(word);
         add(word, meaning, docRef);
     }
 
     public void deleteFavoriteWord(String word) {
-        DocumentReference docRef = db.collection("User").document(userName).collection("FavoriteWords").document(word);
+        DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName).collection("FavoriteWords").document(word);
         docRef.delete();
     }
 
     public void readFavoriteWords() {
         favoriteWords.clear();
-        ApiFuture<QuerySnapshot> query = db.collection("User").document(userName).collection("FavoriteWords").get();
+        ApiFuture<QuerySnapshot> query = FireStoreApp.getInstance().getUser().document(userName).collection("FavoriteWords").get();
         QuerySnapshot querySnapshot = null;
         try {
             querySnapshot = query.get();
@@ -154,112 +138,13 @@ public class User {
         return favoriteWords.size();
     }
 
-    /**
-     * This is for chat-bot.
-     */
-    private Translator translator = new Translator();
-
-    public void addQAtoFirestore(String category) {
-        translator.setFromLanguage("Tiếng Việt");
-        translator.setToLanguage("English");
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("question: ");
-        String question = sc.nextLine();
-        System.out.println("answer: ");
-        String answer = sc.nextLine();
-        DocumentReference docRef = db.collection("Question-Answer").document(category);
-        Map<String, Object> data = new HashMap<>();
-        data.put("Category", category);
-        try {
-            data.put("Question", translator.translate(question));
-        } catch (IOException e) {
-            System.out.println("Error translate");
-        }
-        data.put("Answer", answer);
-
-        ApiFuture<WriteResult> result = docRef.set(data);
-        try {
-            System.out.println("Update time : " + result.get().getUpdateTime());
-        } catch (InterruptedException | ExecutionException e) {
-            System.out.println("Error");
-        }
-    }
-
-    public void addQAtoTXT(String category) {
-        String filePath = "src/main/resources/Bin/faq-categorizer.txt";
-
-        // Nội dung mới bạn muốn thêm vào file
-        String contentToAppend = "\n";
-
-        DocumentReference docRef = db.collection("Question-Answer").document(category);
-        try {
-            DocumentSnapshot docSnap = docRef.get().get();
-            if (docSnap.exists()) {
-                contentToAppend += Objects.requireNonNull(docSnap.get("Category"))
-                        + "\t" + Objects.requireNonNull(docSnap.get("Question"));
-            }
-
-        } catch (InterruptedException | ExecutionException e) {
-            System.out.println("Error in document snapshot");
-        }
-
-        try {
-            // Mở file với tham số true để cho phép ghi thêm vào cuối file
-            FileWriter fileWriter = new FileWriter(filePath, true);
-
-            // Sử dụng BufferedWriter để ghi nội dung
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-
-            // Thêm nội dung vào file
-            bufferedWriter.write(contentToAppend);
-
-            // Đóng BufferedWriter
-            bufferedWriter.close();
-
-            System.out.println("Nội dung đã được thêm vào file thành công.");
-
-        } catch (IOException e) {
-            System.out.println("Đã xảy ra lỗi khi thêm nội dung vào file: " + e.getMessage());
-        }
-    }
-
-    public Map<String, String> getAnswerFromFireStore() {
-        Map<String, String> answer = new HashMap<>();
-        ApiFuture<QuerySnapshot> query = db.collection("Question-Answer").get();
-        QuerySnapshot querySnapshot = null;
-        try {
-            querySnapshot = query.get();
-        } catch (InterruptedException | ExecutionException e) {
-            System.out.println("Error in query snapshot");
-        }
-        assert querySnapshot != null;
-        List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
-        for (QueryDocumentSnapshot document : documents) {
-            answer.put(document.getId(), Objects.requireNonNull(document.get("Answer")).toString());
-        }
-        return answer;
-    }
-
-    public static void main(String[] args) {
-        for (int i = 20; i < 30; i++) {
-            User.getInstance().addQAtoFirestore("000" + i);
-            User.getInstance().addQAtoTXT("000" + i);
-        }
-    }
-
-    @Override
-    public String toString() {
-        return name;
-    }
-
     public void deleteDeletedWord(String word) {
-        DocumentReference docRef = db.collection("User").document(userName).collection("DeletedWords").document(word);
+        DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName).collection("DeletedWords").document(word);
         docRef.delete();
     }
 
     public void addDeletedWord(String word, String meaning) {
-        DocumentReference docRef = db.collection("User").document(userName).collection("DeletedWords").document(word);
+        DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName).collection("DeletedWords").document(word);
         add(word, meaning, docRef);
     }
 
@@ -273,5 +158,12 @@ public class User {
         } catch (InterruptedException | ExecutionException e) {
             System.out.println("Update error.");
         }
+    }
+
+
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

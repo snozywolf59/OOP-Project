@@ -1,7 +1,11 @@
 package com.dictionary.Models.Home;
 
 import com.dictionary.App;
+import com.dictionary.Models.API.Translator;
+import com.dictionary.Models.FireStore.FireStoreApp;
 import com.dictionary.Models.Login.User;
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.*;
 import opennlp.tools.doccat.*;
 import opennlp.tools.lemmatizer.LemmatizerME;
 import opennlp.tools.lemmatizer.LemmatizerModel;
@@ -14,14 +18,10 @@ import opennlp.tools.tokenize.TokenizerModel;
 import opennlp.tools.util.*;
 import opennlp.tools.util.model.ModelUtil;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
+import java.util.concurrent.ExecutionException;
 
 public final class ChatBot {
     private DoccatModel model;
@@ -32,7 +32,7 @@ public final class ChatBot {
 
     private ChatBot() {
         model = trainModel();
-        questionAnswer = User.getInstance().getAnswerFromFireStore();
+        questionAnswer = getAnswerFromFireStore();
         questionAnswer.put("conversation-continue", "Hmm");
         questionAnswer.put("conversation-complete", "Rất vui khi được nói chuyện với cậu. Hi");
         questionAnswer.put("info-ChatBot", "Tớ là M, là một trợ lý ảo của ứng dụng EDUET - một ứng dụng học tiếng anh cực kì bổ ích. Tớ được thiết lập để giúp cậu có trải nghiệm tốt hơn.");
@@ -159,5 +159,99 @@ public final class ChatBot {
             }
         }
         return answer.toString();
+    }
+
+    /**
+     * This is for chat-bot.
+     */
+    private Translator translator = new Translator();
+
+    public void addQAtoFirestore(String category) {
+        translator.setFromLanguage("Tiếng Việt");
+        translator.setToLanguage("English");
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("question: ");
+        String question = sc.nextLine();
+        System.out.println("answer: ");
+        String answer = sc.nextLine();
+        DocumentReference docRef = FireStoreApp.getInstance().getQuestion_Answer().document(category);
+        Map<String, Object> data = new HashMap<>();
+        data.put("Category", category);
+        try {
+            data.put("Question", translator.translate(question));
+        } catch (IOException e) {
+            System.out.println("Error translate");
+        }
+        data.put("Answer", answer);
+
+        ApiFuture<WriteResult> result = docRef.set(data);
+        try {
+            System.out.println("Update time : " + result.get().getUpdateTime());
+        } catch (InterruptedException | ExecutionException e) {
+            System.out.println("Error");
+        }
+    }
+
+    public void addQAtoTXT(String category) {
+        String filePath = "src/main/resources/Bin/faq-categorizer.txt";
+
+        // Nội dung mới bạn muốn thêm vào file
+        String contentToAppend = "\n";
+
+        DocumentReference docRef = FireStoreApp.getInstance().getQuestion_Answer().document(category);
+        try {
+            DocumentSnapshot docSnap = docRef.get().get();
+            if (docSnap.exists()) {
+                contentToAppend += Objects.requireNonNull(docSnap.get("Category"))
+                        + "\t" + Objects.requireNonNull(docSnap.get("Question"));
+            }
+
+        } catch (InterruptedException | ExecutionException e) {
+            System.out.println("Error in document snapshot");
+        }
+
+        try {
+            // Mở file với tham số true để cho phép ghi thêm vào cuối file
+            FileWriter fileWriter = new FileWriter(filePath, true);
+
+            // Sử dụng BufferedWriter để ghi nội dung
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+            // Thêm nội dung vào file
+            bufferedWriter.write(contentToAppend);
+
+            // Đóng BufferedWriter
+            bufferedWriter.close();
+
+            System.out.println("Nội dung đã được thêm vào file thành công.");
+
+        } catch (IOException e) {
+            System.out.println("Đã xảy ra lỗi khi thêm nội dung vào file: " + e.getMessage());
+        }
+    }
+
+    public Map<String, String> getAnswerFromFireStore() {
+        Map<String, String> answer = new HashMap<>();
+        ApiFuture<QuerySnapshot> query = FireStoreApp.getInstance().getQuestion_Answer().get();
+        QuerySnapshot querySnapshot = null;
+        try {
+            querySnapshot = query.get();
+        } catch (InterruptedException | ExecutionException e) {
+            System.out.println("Error in query snapshot");
+        }
+        assert querySnapshot != null;
+        List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
+        for (QueryDocumentSnapshot document : documents) {
+            answer.put(document.getId(), Objects.requireNonNull(document.get("Answer")).toString());
+        }
+        return answer;
+    }
+
+    public static void main(String[] args) {
+        for (int i = 20; i < 30; i++) {
+            ChatBot.getInstance().addQAtoFirestore("000" + i);
+            ChatBot.getInstance().addQAtoTXT("000" + i);
+        }
     }
 }

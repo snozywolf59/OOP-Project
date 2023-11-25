@@ -2,6 +2,7 @@ package com.dictionary.Models.FireStore;
 
 import com.dictionary.Models.Login.User;
 import com.google.auth.oauth2.GoogleCredentials;
+import com.google.cloud.firestore.CollectionReference;
 import com.google.cloud.firestore.Firestore;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -12,11 +13,9 @@ import java.io.IOException;
 
 public class FireStoreApp {
     private static FireStoreApp instance;
-    private Firestore db;
 
-    public Firestore getDB() {
-        return db;
-    }
+    private CollectionReference user;
+    private CollectionReference question_answer;
 
     private FireStoreApp() {
         try {
@@ -28,7 +27,9 @@ public class FireStoreApp {
 
             FirebaseApp app = FirebaseApp.initializeApp(options);
 
-            db = FirestoreClient.getFirestore(app);
+            Firestore db = FirestoreClient.getFirestore(app);
+            user = db.collection("User");
+            question_answer = db.collection("Question-Answer");
         } catch (IOException e) {
             System.out.println("Init firestore error");
         }
@@ -39,5 +40,13 @@ public class FireStoreApp {
             instance = new FireStoreApp();
         }
         return instance;
+    }
+
+    public CollectionReference getUser() {
+        return user;
+    }
+
+    public CollectionReference getQuestion_Answer() {
+        return question_answer;
     }
 }

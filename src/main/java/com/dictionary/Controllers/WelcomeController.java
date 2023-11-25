@@ -1,21 +1,18 @@
 package com.dictionary.Controllers;
 
-import com.dictionary.App;
+import com.dictionary.Models.FireStore.FireStoreApp;
 import com.dictionary.Models.Login.GmailOTP;
 import com.dictionary.Models.Login.MD5;
 import com.dictionary.Models.Login.User;
 import com.dictionary.Models.Model;
 import com.dictionary.Views.Effect;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
@@ -64,6 +61,7 @@ public class WelcomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        FireStoreApp.getInstance();
         User.getInstance();
         untarget();
         password.setFocusTraversable(false);
