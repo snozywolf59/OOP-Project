@@ -13,7 +13,7 @@
    <content>
       <AnchorPane prefHeight="630.0" prefWidth="1095.0">
          <children>
-            <Button layoutX="122.0" layoutY="42.0" mnemonicParsing="false" onMouseClicked="#toFavorList">
+            <Button layoutX="122.0" layoutY="42.0" mnemonicParsing="false" onAction="#toFavouriteList">
                <graphic>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
@@ -31,7 +31,7 @@
                   </VBox>
                </graphic>
             </Button>
-            <Button layoutX="399.0" layoutY="42.0" mnemonicParsing="false">
+            <Button layoutX="639.0" layoutY="35.0" mnemonicParsing="false">
                <graphic>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
@@ -97,6 +97,24 @@
                         <Label alignment="CENTER" prefHeight="49.0" prefWidth="200.0" text="Cambridge 17 Test 3" textAlignment="CENTER">
                            <font>
                               <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </graphic>
+            </Button>
+            <Button layoutX="396.0" layoutY="23.0" mnemonicParsing="false" onAction="#toDeletedList">
+               <graphic>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Images/School.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" prefHeight="49.0" prefWidth="200.0" text="Deleted Word" textAlignment="CENTER">
+                           <font>
+                              <Font size="25.0" />
                            </font>
                         </Label>
                      </children>

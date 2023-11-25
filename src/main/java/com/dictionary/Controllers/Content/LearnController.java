@@ -3,6 +3,7 @@ package com.dictionary.Controllers.Content;
 import com.dictionary.App;
 import com.dictionary.Models.Model;
 import com.dictionary.Views.ViewFactory;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -22,7 +23,12 @@ public class LearnController implements Initializable {
         enterLisTest.setOnAction(e->Model.setSelect(ViewFactory.LISTENING_TEST));
     }
 
-    public void toFavorList() {
+    public void toFavouriteList() {
         Model.setSelect(ViewFactory.FAVOURITE_LIST);
+    }
+
+    public void toDeletedList() {
+        //TODO uncomment this.
+        //Model.setSelect(ViewFactory.DELETED_LIST);
     }
 }

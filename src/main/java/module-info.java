@@ -27,6 +27,7 @@ module com.dictionary {
     requires google.cloud.core.grpc;
     requires com.google.auth;
     requires org.apache.opennlp.tools;
+    requires annotations;
 
     opens com.dictionary to javafx.fxml;
     opens com.dictionary.Controllers to javafx.fxml;

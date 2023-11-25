@@ -24,9 +24,10 @@ public final class ViewFactory {
     public static final String BACK = "Back";
     public static final String LEARN = "Learn";
     public static final String LISTENING_TEST = "ListeningTest";
+
     public static final String API = "GoogleTranslate";
     public static final String FAVOURITE_LIST = "FavouriteList";
-    public static final String PLAYING_SNAKE = "PlaySnake";
+    public static final String DELETED_LIST = "Deleted";
     public static final String SNAKE_GAME = "snake";
     private final StringProperty currentSelect;
     private AnchorPane choiceList;
@@ -39,6 +40,7 @@ public final class ViewFactory {
     private AnchorPane favoriteWordList;
     private AnchorPane snakeGame;
     private AnchorPane loading;
+    private AnchorPane deletedWordList;
 
     public ViewFactory() {
         currentSelect = new SimpleStringProperty();
@@ -143,6 +145,18 @@ public final class ViewFactory {
             }
         }
         return favoriteWordList;
+    }
+
+    public AnchorPane getDeletedWordList() {
+        if (deletedWordList == null) {
+            try {
+                deletedWordList = new FXMLLoader(getClass().getResource("/FXML/Content/learn/DeletedList.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println(e.getMessage());
+            }
+        }
+        return deletedWordList;
     }
 
     public void resetHome() {

@@ -269,4 +269,8 @@ public class User {
     public String toString() {
         return name;
     }
+
+    public void deleteDeletedWord(String text) {
+        //TODO delete deleted word in db
+    }
 }

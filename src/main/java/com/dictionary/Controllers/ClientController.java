@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.util.Duration;
+import org.jetbrains.annotations.NotNull;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -45,22 +46,7 @@ public class ClientController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Thread otherThread = new Thread(()->{
-            Duration duration = Duration.seconds(40);
-            KeyValue keyValue1 = new KeyValue(test.translateXProperty(), 400);
-            KeyValue keyValue2 = new KeyValue(test.translateXProperty(), -400);
-
-            KeyFrame keyFrame1 = new KeyFrame(Duration.ZERO, keyValue1);
-            KeyFrame keyFrame2 = new KeyFrame(duration, keyValue2);
-
-            Timeline timeline = new Timeline(keyFrame1, keyFrame2);
-            timeline.setAutoReverse(true);
-            timeline.setCycleCount(Timeline.INDEFINITE);
-
-            // Bắt đầu Timeline
-            timeline.play();
-        });
-        otherThread.setDaemon(false);
+        Thread otherThread = getActiveHomeThread();
         otherThread.start();
 
 
@@ -80,6 +66,10 @@ public class ClientController implements Initializable {
                     Effect.disable(parent_pane);
                     grandParentPane.getChildren().add(Model.getInstance().getViewFactory().getFavoriteWordList());
                 }
+                case ViewFactory.DELETED_LIST -> {
+                    Effect.disable(parent_pane);
+                    grandParentPane.getChildren().add(Model.getInstance().getViewFactory().getDeletedWordList());
+                }
                 case ViewFactory.SEARCH -> parent_pane.setCenter(Model.getInstance().getViewFactory().getSearchView());
                 case ViewFactory.PLAY -> parent_pane.setCenter(Model.getInstance().getViewFactory().getPlayView());
                 case ViewFactory.EXIT -> Model.getInstance().getViewFactory().closeStage();
@@ -93,5 +83,26 @@ public class ClientController implements Initializable {
                 default -> parent_pane.setCenter(Model.getInstance().getViewFactory().getHomeView());
             }
         });
+    }
+
+    @NotNull
+    private Thread getActiveHomeThread() {
+        Thread otherThread = new Thread(()-> {
+            Duration duration = Duration.seconds(40);
+            KeyValue keyValue1 = new KeyValue(test.translateXProperty(), 400);
+            KeyValue keyValue2 = new KeyValue(test.translateXProperty(), -400);
+
+            KeyFrame keyFrame1 = new KeyFrame(Duration.ZERO, keyValue1);
+            KeyFrame keyFrame2 = new KeyFrame(duration, keyValue2);
+
+            Timeline timeline = new Timeline(keyFrame1, keyFrame2);
+            timeline.setAutoReverse(true);
+            timeline.setCycleCount(Timeline.INDEFINITE);
+
+            // Bắt đầu Timeline
+            timeline.play();
+        });
+        otherThread.setDaemon(false);
+        return otherThread;
     }
 }
