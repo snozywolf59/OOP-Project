@@ -17,7 +17,9 @@ public class WordRelationships {
     public Map<String, String> getSynonyms(String wordTarget) {
         Map<String, String> synonyms = new HashMap<>();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://wordsapiv1.p.rapidapi.com/words/" + wordTarget + "/synonyms"))
+                .uri(URI.create("https://wordsapiv1.p.rapidapi.com/words/"
+                        + URLEncoder.encode(wordTarget, StandardCharsets.UTF_8).replace("+", "%20")
+                        + "/synonyms"))
                 .header("X-RapidAPI-Key", "bd5d8adb8cmsh7482d1ccebfd28ep14014ajsn31b2253db85d")
                 .header("X-RapidAPI-Host", "wordsapiv1.p.rapidapi.com")
                 .method("GET", HttpRequest.BodyPublishers.noBody())
@@ -42,7 +44,9 @@ public class WordRelationships {
     public Map<String, String> getAntonyms(String wordTarget) {
         Map<String, String> antonyms = new HashMap<>();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://wordsapiv1.p.rapidapi.com/words/free/antonyms"))
+                .uri(URI.create("https://wordsapiv1.p.rapidapi.com/words/"
+                        + URLEncoder.encode(wordTarget, StandardCharsets.UTF_8).replace("+", "%20")
+                        + "/antonyms"))
                 .header("X-RapidAPI-Key", "bd5d8adb8cmsh7482d1ccebfd28ep14014ajsn31b2253db85d")
                 .header("X-RapidAPI-Host", "wordsapiv1.p.rapidapi.com")
                 .method("GET", HttpRequest.BodyPublishers.noBody())
