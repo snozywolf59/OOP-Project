@@ -4,6 +4,7 @@ import com.dictionary.Models.Card.WordCard;
 import com.dictionary.Models.Login.User;
 import com.dictionary.Models.search.Dictionary;
 import com.dictionary.Models.search.Word;
+import com.dictionary.Models.search.WordRelationships;
 import com.dictionary.Views.Effect;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -45,7 +46,6 @@ public class SearchController implements Initializable {
     }
 
     List<String> words = readTxtFile();
-    List<WordCard> specialWords;
 
     @FXML
     AnchorPane wordLayout;
@@ -158,8 +158,10 @@ public class SearchController implements Initializable {
     }
 
     public void confirmDelWord() {
-        String word = delWord.getText();
+        String word = delWord.getText().trim();
         if(listView.getItems().contains(word)) {
+            Word delWord = dictionary.search(word);
+            User.getInstance().addDeletedWord(delWord.getWordTarget(), delWord.getWordExplain().toString());
             listView.getItems().remove(word);
             words.remove(word);
             closeDelTab();
@@ -233,21 +235,23 @@ public class SearchController implements Initializable {
 
     public void showSyms() {
         //TODO get from db
-
-
         String word = targetWord.getText();
-        List<WordCard> get = getWordsFrom("syms", word);
-
+        List<WordCard> get = getWordsFromDb(word);
+        HBox box = (HBox) wordLayout.getChildren().getFirst();
+        box.getChildren().clear();
+        Effect.addAll(box, get);
         Effect.disablePane(searchView);
         Effect.enable(wordLayout);
-        HBox box = (HBox) wordLayout.getChildren().getFirst();
-        box.getChildren().add(new Label("Tao dep trai"));
-        System.out.println(wordLayout.getChildren().getFirst().getClass());
     }
 
-    private List<WordCard> getWordsFrom(String type, String word) {
+
+    private List<WordCard> getWordsFromDb(String word) {
         List<WordCard> lc = new LinkedList<>();
         //TODO get from db
+        Map<String, String> symMap = WordRelationships.getSynonyms(word);
+        for (String w : symMap.keySet()) {
+            lc.add(new WordCard(w, symMap.get(w)));
+        }
         return lc;
     }
 

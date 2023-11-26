@@ -1,9 +1,7 @@
 package com.dictionary.Controllers.Content;
 
-import com.dictionary.App;
 import com.dictionary.Models.Model;
 import com.dictionary.Views.ViewFactory;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -28,7 +26,6 @@ public class LearnController implements Initializable {
     }
 
     public void toDeletedList() {
-        //TODO uncomment this.
-        //Model.setSelect(ViewFactory.DELETED_LIST);
+        Model.setSelect(ViewFactory.DELETED_LIST);
     }
 }

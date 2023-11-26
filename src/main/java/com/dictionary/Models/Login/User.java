@@ -37,9 +37,14 @@ public class User {
     private String born;
     private String gmailAddress;
     private Map<String, String> favoriteWords = new HashMap<>();
+    private Map<String, String> deletedWords = new HashMap<>();
 
     public Map<String, String> getFavoriteWords() {
         return favoriteWords;
+    }
+
+    public Map<String, String> getDeletedWords() {
+        return deletedWords;
     }
 
     public String getName() {
@@ -138,6 +143,7 @@ public class User {
         this.born = null;
         this.favoriteWords = null;
         this.gmailAddress = null;
+        this.deletedWords = null;
     }
 
     public int getNumberOfFavoriteWords() {
@@ -152,6 +158,23 @@ public class User {
     public void addDeletedWord(String word, String meaning) {
         DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName).collection("DeletedWords").document(word);
         add(word, meaning, docRef);
+    }
+
+    public void readDeletedWord() {
+        deletedWords.clear();
+        ApiFuture<QuerySnapshot> query = FireStoreApp.getInstance().getUser().document(userName).collection("DeletedWords").get();
+        QuerySnapshot querySnapshot = null;
+        try {
+            querySnapshot = query.get();
+        } catch (InterruptedException | ExecutionException e) {
+            System.out.println("Query snapshot error.");
+        }
+        assert querySnapshot != null;
+        List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
+        for (QueryDocumentSnapshot document : documents) {
+            deletedWords.put(document.getString("Word"), document.getString("Meaning"));
+        }
+        System.out.println(deletedWords);
     }
 
     private void add(String word, String meaning, DocumentReference docRef) {

@@ -1,8 +1,20 @@
 package com.dictionary.Views;
 
+import com.dictionary.Controllers.Content.Learn.WordCardController;
+import com.dictionary.Models.Card.WordCard;
+import com.dictionary.Models.Login.User;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+
+import java.util.List;
 
 public class Effect {
     private Effect() {
@@ -48,4 +60,32 @@ public class Effect {
         }
     }
 
+    public static void addWordCard(Pane wordLayout, WordCard wc) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Effect.class.getResource("/FXML/Content/learn/WordCard.fxml"));
+            AnchorPane cardBox = loader.load();
+            VBox box = (VBox) cardBox.getChildren().getFirst();
+            Button insertButton = new Button("Xóa");
+            insertButton.setOnAction(e -> {
+                Label word = (Label) box.getChildren().getFirst();
+                wordLayout.getChildren().remove(insertButton.getParent().getParent());
+                User.getInstance().deleteDeletedWord(word.getText());
+            });
+            box.getChildren().add(insertButton);
+            cardBox.getStylesheets().add(Effect.class.getResource("/Css/learn.css").toExternalForm());
+            WordCardController wordCardController = loader.getController();
+            wordCardController.setData(wc);
+            wordLayout.getChildren().add(cardBox);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e);
+        }
+    }
+
+    public static void addAll(Pane box, List<WordCard> listWordCard) {
+        for (WordCard wc : listWordCard) {
+            addWordCard(box, wc);
+        }
+    }
 }

@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class WordRelationships {
-    public Map<String, String> getSynonyms(String wordTarget) {
+    public static Map<String, String> getSynonyms(String wordTarget) {
         Map<String, String> synonyms = new HashMap<>();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://wordsapiv1.p.rapidapi.com/words/"
@@ -41,7 +41,7 @@ public class WordRelationships {
         return synonyms;
     }
 
-    public Map<String, String> getAntonyms(String wordTarget) {
+    public static Map<String, String> getAntonyms(String wordTarget) {
         Map<String, String> antonyms = new HashMap<>();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://wordsapiv1.p.rapidapi.com/words/"
@@ -67,7 +67,7 @@ public class WordRelationships {
         return antonyms;
     }
 
-    private String getDefinition(String word) {
+    private static String getDefinition(String word) {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://wordsapiv1.p.rapidapi.com/words/"
                         + URLEncoder.encode(word, StandardCharsets.UTF_8).replace("+","%20") + "/definitions"))
