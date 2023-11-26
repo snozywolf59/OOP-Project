@@ -30,6 +30,7 @@ public final class ViewFactory {
     public static final String FAVOURITE_LIST = "FavouriteList";
     public static final String DELETED_LIST = "Deleted";
     public static final String SNAKE_GAME = "snake";
+    public static final String WORDLE = "wordle";
     private final StringProperty currentSelect;
     private AnchorPane choiceList;
     private AnchorPane homeView;

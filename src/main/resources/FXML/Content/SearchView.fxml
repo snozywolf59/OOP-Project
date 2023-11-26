@@ -186,19 +186,17 @@
          <Font name="System Bold" size="25.0" />
       </font>
    </Label>
-   <AnchorPane fx:id="wordLayout" layoutX="100.0" layoutY="90.0" prefHeight="400.0" prefWidth="883.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="150.0">
-      <children>
-         <ScrollPane layoutY="136.0" prefHeight="285.0" prefWidth="883.0" style="-fx-background-color: transparent;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-            <content>
-               <HBox fx:id="box" prefHeight="280.0" prefWidth="678.0" />
-            </content>
-         </ScrollPane>
-         <Button layoutX="824.0" layoutY="1.0" mnemonicParsing="false" onAction="#close" text="Close" />
-         <Label fx:id="antonym" layoutX="365.0" layoutY="26.0">
-            <font>
-               <Font size="65.0" />
-            </font>
-         </Label>
-      </children>
+   <AnchorPane fx:id="wordLayout" layoutX="100.0" layoutY="90.0" prefHeight="486.0" prefWidth="883.0"
+               AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="150.0">
+      <ScrollPane layoutY="136.0" prefHeight="328.0" prefWidth="883.0" style="-fx-background-color: transparent;"
+                  vbarPolicy="NEVER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <HBox fx:id="box" prefHeight="280.0" prefWidth="678.0"/>
+      </ScrollPane>
+      <Button layoutX="824.0" layoutY="1.0" mnemonicParsing="false" onAction="#close" text="Close"/>
+      <Label fx:id="antonym" layoutX="365.0" layoutY="26.0">
+         <font>
+            <Font size="65.0"/>
+         </font>
+      </Label>
    </AnchorPane>
 </AnchorPane>

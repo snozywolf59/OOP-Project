@@ -10,6 +10,8 @@ import java.util.*;
 public final class Hangman {
     private static Hangman hangman;
     private final List<String> words = new ArrayList<>();
+    private final String linkData = "src/main/resources/Word/fiveletter.csv";
+
     private Hangman(){
         loadData();
     }
@@ -142,7 +144,7 @@ public final class Hangman {
     }
 
     private void loadData() {
-        File file = new File("src/main/java/com/dictionaryCommandLine/Game/hangman/data.txt");
+        File file = new File(linkData);
         try {
             Scanner fileRead = new Scanner(file);
             while (fileRead.hasNextLine()) {
@@ -155,5 +157,6 @@ public final class Hangman {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println(words.size());
     }
 }
