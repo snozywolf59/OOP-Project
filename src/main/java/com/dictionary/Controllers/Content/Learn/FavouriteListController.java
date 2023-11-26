@@ -25,7 +25,11 @@ public class FavouriteListController implements Initializable {
     private HBox wordLayout;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Effect.addAll(wordLayout, getFavorite());
+        wordLayout.getChildren().clear();
+        List<WordCard> wordCards = getFavorite();
+        for (WordCard wordCard : wordCards) {
+            addWordCard(wordCard);
+        }
     }
 
     @FXML
@@ -40,5 +44,28 @@ public class FavouriteListController implements Initializable {
             lwc.add(new WordCard(entry.getKey(), entry.getValue()));
         }
         return lwc;
+    }
+
+    private void addWordCard(WordCard wc) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/FXML/Content/learn/WordCard.fxml"));
+            AnchorPane cardBox = loader.load();
+            VBox box = (VBox) cardBox.getChildren().getFirst();
+            Button deleteButton = new Button("Xóa");
+            deleteButton.setOnAction(e -> {
+                Label word = (Label) box.getChildren().getFirst();
+                wordLayout.getChildren().remove(deleteButton.getParent().getParent());
+                User.getInstance().deleteFavoriteWord(word.getText());
+            });
+            box.getChildren().add(deleteButton);
+            cardBox.getStylesheets().add(getClass().getResource("/Css/learn.css").toExternalForm());
+            WordCardController wordCardController = loader.getController();
+            wordCardController.setData(wc);
+            wordLayout.getChildren().add(cardBox);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e);
+        }
     }
 }

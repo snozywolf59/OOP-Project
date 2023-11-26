@@ -8,10 +8,7 @@ import com.dictionary.Models.search.WordRelationships;
 import com.dictionary.Views.Effect;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
@@ -27,8 +24,8 @@ import static java.lang.Math.min;
  * @author LENOVO.
  */
 public class SearchController implements Initializable {
+    //TODO tương tác hình ảnh với từ trong favourite và trong deleted
     private final Dictionary dictionary = new Dictionary();
-
     private Thread speakingThread;
     private List<String> readTxtFile() {
         ArrayList<Word> words = dictionary.ListWordTxt();
@@ -45,11 +42,16 @@ public class SearchController implements Initializable {
          dictionary.SetTreeWord(words);
     }
 
+    private final String notChoose = "(Chưa chọn từ)";
+
     List<String> words = readTxtFile();
 
     @FXML
+    private Label antonym;
+    @FXML
     AnchorPane wordLayout;
-
+    @FXML
+    HBox box;
     @FXML
     private AnchorPane searchView;
     @FXML
@@ -87,6 +89,7 @@ public class SearchController implements Initializable {
         
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        targetWord.setText(notChoose);
         Effect.disable(wordLayout);
         speakingThread = new Thread();
         listView.getItems().addAll(words);
@@ -206,6 +209,9 @@ public class SearchController implements Initializable {
     }
 
     public void onActionSpeakBtn() {
+        if (targetWord.getText().equals(notChoose)) {
+            return;
+        }
         String selectedWord = listView.getSelectionModel().getSelectedItem();
         if (!speakingThread.isAlive() && selectedWord != null ) {
             speakingThread = new Thread(()-> Dictionary.textToSpeech(selectedWord));
@@ -216,6 +222,9 @@ public class SearchController implements Initializable {
     }
 
     public void onActionFavorite() {
+        if (targetWord.getText().equals(notChoose)) {
+            return;
+        }
         User.getInstance().addFavoriteWord(targetWord.getText(), definitionArea.getText());
     }
 
@@ -234,10 +243,12 @@ public class SearchController implements Initializable {
     }
 
     public void showSyms() {
-        //TODO get from db
+        if (targetWord.getText().equals(notChoose)) {
+            return;
+        }
         String word = targetWord.getText();
-        List<WordCard> get = getWordsFromDb(word);
-        HBox box = (HBox) wordLayout.getChildren().getFirst();
+        antonym.setText("Các từ đồng nghĩa");
+        List<WordCard> get = getWordsFromDb(word, WordRelationships.SYM);
         box.getChildren().clear();
         Effect.addAll(box, get);
         Effect.disablePane(searchView);
@@ -245,10 +256,14 @@ public class SearchController implements Initializable {
     }
 
 
-    private List<WordCard> getWordsFromDb(String word) {
+    private List<WordCard> getWordsFromDb(String word, String type) {
         List<WordCard> lc = new LinkedList<>();
-        //TODO get from db
-        Map<String, String> symMap = WordRelationships.getSynonyms(word);
+        Map<String, String> symMap;
+        if (type.equals(WordRelationships.SYM)) {
+            symMap = WordRelationships.getSynonyms(word);
+        } else {
+            symMap = WordRelationships.getAntonyms(word);
+        }
         for (String w : symMap.keySet()) {
             lc.add(new WordCard(w, symMap.get(w)));
         }
@@ -256,7 +271,14 @@ public class SearchController implements Initializable {
     }
 
     public void showAnms() {
-        //TODO get from db
+        if (targetWord.getText().equals(notChoose)) {
+            return;
+        }
+        antonym.setText("Các từ trái nghĩa");
+        String word = targetWord.getText();
+        List<WordCard> get = getWordsFromDb(word, WordRelationships.ANM);
+        box.getChildren().clear();
+        Effect.addAll(box, get);
         Effect.disablePane(searchView);
         Effect.enable(wordLayout);
     }

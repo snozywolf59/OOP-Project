@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
@@ -23,7 +24,10 @@ public class DeletedListController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Effect.addAll(wordLayout, loadDeletedList());
+        List<WordCard> wordCards = loadDeletedList();
+        for (WordCard wc : wordCards) {
+            addWordCard(wc);
+        }
     }
     public void back() {
         Model.setSelect(ViewFactory.BACK);
@@ -36,5 +40,27 @@ public class DeletedListController implements Initializable {
             lwc.add(new WordCard(entry.getKey(), entry.getValue()));
         }
         return lwc;
+    }
+    public void addWordCard(WordCard wc) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Effect.class.getResource("/FXML/Content/learn/WordCard.fxml"));
+            AnchorPane cardBox = loader.load();
+            VBox box = (VBox) cardBox.getChildren().getFirst();
+            Button insertButton = new Button("Xóa");
+            insertButton.setOnAction(e -> {
+                Label word = (Label) box.getChildren().getFirst();
+                wordLayout.getChildren().remove(insertButton.getParent().getParent());
+                User.getInstance().deleteDeletedWord(word.getText());
+            });
+            box.getChildren().add(insertButton);
+            cardBox.getStylesheets().add(Effect.class.getResource("/Css/learn.css").toExternalForm());
+            WordCardController wordCardController = loader.getController();
+            wordCardController.setData(wc);
+            wordLayout.getChildren().add(cardBox);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e);
+        }
     }
 }

@@ -65,14 +65,6 @@ public class Effect {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Effect.class.getResource("/FXML/Content/learn/WordCard.fxml"));
             AnchorPane cardBox = loader.load();
-            VBox box = (VBox) cardBox.getChildren().getFirst();
-            Button insertButton = new Button("Xóa");
-            insertButton.setOnAction(e -> {
-                Label word = (Label) box.getChildren().getFirst();
-                wordLayout.getChildren().remove(insertButton.getParent().getParent());
-                User.getInstance().deleteDeletedWord(word.getText());
-            });
-            box.getChildren().add(insertButton);
             cardBox.getStylesheets().add(Effect.class.getResource("/Css/learn.css").toExternalForm());
             WordCardController wordCardController = loader.getController();
             wordCardController.setData(wc);

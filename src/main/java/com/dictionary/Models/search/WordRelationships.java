@@ -14,6 +14,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class WordRelationships {
+    public static final String SYM = "synonym";
+    public static final String ANM = "antonym";
+
     public static Map<String, String> getSynonyms(String wordTarget) {
         Map<String, String> synonyms = new HashMap<>();
         HttpRequest request = HttpRequest.newBuilder()
