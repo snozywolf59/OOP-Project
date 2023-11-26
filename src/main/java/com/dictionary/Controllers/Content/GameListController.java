@@ -24,6 +24,8 @@ public class GameListController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         GameCard snakeGame = new GameCard(ViewFactory.SNAKE_GAME, "/snake/img/icon.png");
         addGame(snakeGame);
+        GameCard hangman = new GameCard(ViewFactory.HANGMAN, "/hangman/icon.png");
+        addGame(hangman);
     }
 
     public void toSnakeGame() {
@@ -37,7 +39,6 @@ public class GameListController implements Initializable {
             AnchorPane cardBox = loader.load();
             GameCardController gameCardController = loader.getController();
             cardBox.getStylesheets().add(getClass().getResource("/Css/gamelist.css").toExternalForm());
-
             cardBox.setStyle("-fx-border-radius: 5px;\n" +
                     "    -fx-border-color: green;");
             gameCardController.setCard(gameCard);

@@ -12,7 +12,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -22,7 +21,6 @@ import javax.sound.sampled.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.net.http.HttpHeaders;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -156,7 +154,7 @@ public class Snake extends Application {
             if(currentDirection == 5) {
                 timeline.stop();
                 clips.stop();
-                stage.setScene(Model.getInstance().getViewFactory().getSCENE());
+                stage.setScene(Model.getInstance().getViewFactory().getScene());
             }
             return;
         }

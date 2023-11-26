@@ -80,6 +80,10 @@ public class ClientController implements Initializable {
                     Effect.disable(parent_pane);
                     grandParentPane.getChildren().add(Model.getInstance().getViewFactory().getSnakeGame());
                 }
+                case ViewFactory.HANGMAN -> {
+                    Effect.disable(parent_pane);
+                    grandParentPane.getChildren().add(Model.getInstance().getViewFactory().getHangman());
+                }
                 default -> parent_pane.setCenter(Model.getInstance().getViewFactory().getHomeView());
             }
         });

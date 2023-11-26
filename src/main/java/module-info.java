@@ -62,4 +62,9 @@ module com.dictionary {
     opens com.dictionary.Models.Login to javafx.fxml;
     opens com.dictionary.Controllers.Content.game.Snake to javafx.fxml;
     exports com.dictionary.Controllers.Content.game.Snake;
+    opens com.dictionary.Models.game.hangMan to javafx.fxml;
+    exports com.dictionary.Models.game.hangMan;
+    opens com.dictionary.Controllers.Content.game.hangman to javafx.fxml;
+
+
 }

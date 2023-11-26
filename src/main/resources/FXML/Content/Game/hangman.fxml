@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane onKeyPressed="#onKeyPressed" onMouseClicked="#untarget" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.game.hangman.HangManController">
+   <ImageView fx:id="image" fitHeight="720.0" fitWidth="1288.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@../../../hangman/1.png" />
+   </ImageView>
+   <Label fx:id="label1" layoutX="78.0" layoutY="174.0" text="A">
+      <font>
+         <Font size="75.0" />
+      </font>
+   </Label>
+   <Label fx:id="label2" layoutX="210.0" layoutY="174.0" text="A">
+      <font>
+         <Font size="75.0" />
+      </font>
+   </Label>
+   <Label fx:id="label3" layoutX="340.0" layoutY="174.0" text="A">
+      <font>
+         <Font size="75.0" />
+      </font>
+   </Label>
+   <Label fx:id="label4" layoutX="476.0" layoutY="174.0" text="A">
+      <font>
+         <Font size="75.0" />
+      </font>
+   </Label>
+   <Label fx:id="label5" layoutX="608.0" layoutY="174.0" text="A">
+      <font>
+         <Font size="75.0" />
+      </font>
+   </Label>
+   <TextField fx:id="input" layoutX="288.0" layoutY="472.0" prefHeight="151.0" prefWidth="167.0" style="-fx-background-color: transparent;" text="A">
+      <font>
+         <Font size="74.0" />
+      </font>
+   </TextField>
+   <Button layoutX="67.0" layoutY="37.0" mnemonicParsing="false" onAction="#back" text="Back" />
+   <Button layoutX="621.0" layoutY="63.0" mnemonicParsing="false" onAction="#replay" text="replay" />
+   <ImageView fx:id="won" fitHeight="411.0" fitWidth="304.0" layoutX="220.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../hangman/congratulation.png" />
+      </image>
+   </ImageView>
+</AnchorPane>

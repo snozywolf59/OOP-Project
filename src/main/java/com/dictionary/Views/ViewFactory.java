@@ -1,6 +1,5 @@
 package com.dictionary.Views;
 
-import com.dictionary.Models.Model;
 import com.dictionary.Models.learn.ListeningTest;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -9,15 +8,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public final class ViewFactory {
     public final Stage stage = new Stage();
     private static final String appName = "UETED";
 
-    public Scene SCENE;
+    public Scene scene;
     public static final String HOME = "Home";
     public static final String SEARCH = "Search";
     public static final String PLAY = "Play";
@@ -31,6 +28,7 @@ public final class ViewFactory {
     public static final String DELETED_LIST = "Deleted";
     public static final String SNAKE_GAME = "snake";
     public static final String WORDLE = "wordle";
+    public static final String HANGMAN = "hangman";
     private final StringProperty currentSelect;
     private AnchorPane choiceList;
     private AnchorPane homeView;
@@ -38,6 +36,7 @@ public final class ViewFactory {
     private AnchorPane playView;
     private ScrollPane learnView;
     private AnchorPane APIView;
+    private AnchorPane hangManView;
     private AnchorPane listeningTestView;
     private AnchorPane favoriteWordList;
     private AnchorPane snakeGame;
@@ -193,7 +192,7 @@ public final class ViewFactory {
 
     public void showWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Client.fxml"));
-        SCENE = createStage(loader);
+        scene = createStage(loader);
     }
 
     public AnchorPane getSnakeGame() {
@@ -206,6 +205,18 @@ public final class ViewFactory {
             }
         }
         return snakeGame;
+    }
+
+    public AnchorPane getHangman() {
+        if (hangManView == null) {
+            try {
+                hangManView = new FXMLLoader(getClass().getResource("/FXML/Content/Game/hangman.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println(e.getMessage());
+            }
+        }
+        return hangManView;
     }
 
     private Scene createStage(FXMLLoader loader) {
@@ -232,7 +243,7 @@ public final class ViewFactory {
         stage.close();
     }
 
-    public Scene getSCENE() {
-        return this.SCENE;
+    public Scene getScene() {
+        return this.scene;
     }
 }
