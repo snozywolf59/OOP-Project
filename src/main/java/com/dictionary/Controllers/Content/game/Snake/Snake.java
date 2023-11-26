@@ -50,6 +50,8 @@ public class Snake extends Application {
     private final Image BottomImageUp = new Image(getClass().getResourceAsStream("/snake/img/upBottom.png"));
     private final Image BottomImageRight = new Image(getClass().getResourceAsStream("/snake/img/rightBottom.png"));
     private final Image BottomImageLeft = new Image(getClass().getResourceAsStream("/snake/img/LeftBottom.png"));
+    private final Image backGround = new Image(getClass().getResourceAsStream("/snake/img/backGround.png"));
+    private Clip clips;
     private GraphicsContext gc;
     private Point snakeHead = new Point();
     private List<FoodWord> foodImage = new ArrayList<>();
@@ -68,17 +70,10 @@ public class Snake extends Application {
         return snake;
     }
 
-    public static void playSound(String soundFilePath) {
-        File soundFile = new File(soundFilePath);
-        try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundFile);
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            clip.start();
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            e.printStackTrace();
-        }
-    }
+
+
+
+
 
     @Override
     public void start(Stage primaryStage) {
@@ -90,7 +85,16 @@ public class Snake extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
         gc = canvas.getGraphicsContext2D();
-        playSound("src\\main\\resources\\snake\\sound\\sound1.wav");
+        File soundFile = new File("src/main/resources/snake/sound/sound1.wav");
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundFile);
+            clips = AudioSystem.getClip();
+            clips.open(audioInputStream);
+            clips.start();
+            clips.loop(Clip.LOOP_CONTINUOUSLY);
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
         //Xử lí sự kiện
         scene.setOnKeyPressed(event -> {
             WORD_LIST.add("have");
@@ -122,7 +126,6 @@ public class Snake extends Application {
         timeline = new Timeline(new KeyFrame(Duration.millis(140), e -> run(gc)));//Lặp chạy chương trình vô hạn lần
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
-
     }
 
     private void run(GraphicsContext gc) {
@@ -152,6 +155,7 @@ public class Snake extends Application {
             gc.fillText("Press ESC to Exit" , WIDTH / 4 + 130, (double) HEIGHT / 2 + 120);
             if(currentDirection == 5) {
                 timeline.stop();
+                clips.stop();
                 stage.setScene(Model.getInstance().getViewFactory().getSCENE());
             }
             return;
@@ -190,16 +194,7 @@ public class Snake extends Application {
 
     //Tô màu background
     private void drawBackground(GraphicsContext gc) {
-        for (int i = 0; i < ROWS; i++) {
-            for (int j = 0; j < COLUMNS; j++) {
-                if ((i + j) % 2 == 0) {
-                    gc.setFill(javafx.scene.paint.Color.web("#5032a8"));
-                } else {
-                    gc.setFill(javafx.scene.paint.Color.web("#5032a8"));
-                }
-                gc.fillRect(i * WIDTH_SIZE, j * HEIGHT_SIZE, WIDTH_SIZE, HEIGHT_SIZE);
-            }
-        }
+        gc.drawImage(backGround, 0 , 0, WIDTH, HEIGHT);
     }
 
     private void generateFood() {
@@ -307,7 +302,7 @@ public class Snake extends Application {
                 foodImage.set(i, food);
                 foodImage.remove(0);
                 score += 5;
-                playSound("src/snake/sound/eatFood.wav");
+                playSound("src/main/resources/snake/sound/eatFood.wav");
                 return;
             }
             if (snakeHead.getX() == foodImage.get(i).getX() && snakeHead.getY() == foodImage.get(i).getY() && foodImage.get(i).getWord() == foodImage.get(0).getWord() && i == 0) {
@@ -327,6 +322,18 @@ public class Snake extends Application {
         gc.setFill(Color.WHITE);
         gc.setFont(new Font("Digital-7", 35));
         gc.fillText("Score: " + score, 10, 35);
+    }
+
+    public void playSound(String soundFilePath) {
+        File soundFile = new File(soundFilePath);
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundFile);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
     }
 
     public void restart() {
