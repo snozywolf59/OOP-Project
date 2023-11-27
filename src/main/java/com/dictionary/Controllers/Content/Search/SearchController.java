@@ -30,8 +30,12 @@ public class SearchController implements Initializable {
     private List<String> readTxtFile() {
         ArrayList<Word> words = dictionary.ListWordTxt();
         List<String> listWord = new ArrayList<>();
+        User.getInstance().readDeletedWord();
+        Map<String, String> listDelete = User.getInstance().getDeletedWords();
         for (Word word : words) {
-            listWord.add(word.getWordTarget());
+            if (!listDelete.containsKey(word.getWordTarget())) {
+                listWord.add(word.getWordTarget());
+            }
         }
         dictionary.SetTreeWord(words);
         return listWord;

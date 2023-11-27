@@ -83,7 +83,7 @@ public class Snake extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
         gc = canvas.getGraphicsContext2D();
-        File soundFile = new File("src/main/resources/snake/sound/sound1.wav");
+        File soundFile = new File("C:\\Users\\Admin\\Desktop\\OOP_2611\\OOP-Project\\target\\classes\\snake\\sound\\sound1.wav");
         try {
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundFile);
             clips = AudioSystem.getClip();
@@ -97,6 +97,20 @@ public class Snake extends Application {
         scene.setOnKeyPressed(event -> {
             WORD_LIST.add("have");
             WORD_LIST.add("time");
+            WORD_LIST.add("yummy");
+            WORD_LIST.add("yeasty");
+            WORD_LIST.add("yogurt");
+            WORD_LIST.add("duck");
+            WORD_LIST.add("banana");
+            WORD_LIST.add("table");
+            WORD_LIST.add("pen");
+            WORD_LIST.add("draw");
+            WORD_LIST.add("next");
+            WORD_LIST.add("gold");
+            WORD_LIST.add("year");
+            WORD_LIST.add("month");
+            WORD_LIST.add("king");
+            WORD_LIST.add("moon");
             KeyCode code = event.getCode();
             if (code == KeyCode.RIGHT || code == KeyCode.D) {
                 if (currentDirection != LEFT) {

@@ -1,10 +1,13 @@
 package com.dictionary.Models.search;
 
+import com.dictionary.Models.Login.User;
 import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 /**
  * @author Admin
  */
@@ -146,6 +149,24 @@ public class Dictionary {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        User.getInstance().readFavoriteWords();
+        Map<String, String> listFavorite = User.getInstance().getFavoriteWords();
+        for (String key : listFavorite.keySet()) {
+            if (listWord.contains(key)) {
+                int cnt = listWord.indexOf(key);
+                Word words = new Word();
+                words.setWordTarget(key);
+                StringBuilder wordAdd = new StringBuilder(listFavorite.get(key));
+                words.setWordExplain(wordAdd);
+                listWord.set(cnt, words);
+            } else {
+                Word words = new Word();
+                words.setWordTarget(key);
+                StringBuilder wordAdd = new StringBuilder(listFavorite.get(key));
+                words.setWordExplain(wordAdd);
+                listWord.add(words);
+            }
         }
         return listWord;
     }
