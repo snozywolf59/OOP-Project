@@ -70,7 +70,9 @@ public class ClientController implements Initializable {
                     Effect.disable(parent_pane);
                     grandParentPane.getChildren().add(Model.getInstance().getViewFactory().getDeletedWordList());
                 }
-                case ViewFactory.SEARCH -> parent_pane.setCenter(Model.getInstance().getViewFactory().getSearchView());
+                case ViewFactory.SEARCH -> {
+                    parent_pane.setCenter(Model.getInstance().getViewFactory().getSearchView());
+                }
                 case ViewFactory.PLAY -> parent_pane.setCenter(Model.getInstance().getViewFactory().getPlayView());
                 case ViewFactory.EXIT -> Model.getInstance().getViewFactory().closeStage();
                 case ViewFactory.LEARN -> parent_pane.setCenter(Model.getInstance().getViewFactory().getLearnView());

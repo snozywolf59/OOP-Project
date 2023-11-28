@@ -190,6 +190,7 @@ public class SearchController implements Initializable {
             dictionary.addWord(newWord);
             words.add(addTargetWord);
             listView.getItems().add(addTargetWord);
+            User.getInstance().addDeletedWord(newWord.getWordTarget(), newWord.getWordTarget());
             closeAddNewWord();
             this.addTargetWord.clear();
             this.addExWord.clear();
