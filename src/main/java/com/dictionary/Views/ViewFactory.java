@@ -65,17 +65,12 @@ public final class ViewFactory {
 
     public AnchorPane getSearchView() {
         if (searchView == null) {
-            searchView = getLoading();
-            Thread thread = new Thread(()->{
-                try {
-                    searchView = new FXMLLoader(getClass().getResource("/FXML/Content/SearchView.fxml")).load();
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                    e.printStackTrace();
-                }
-            });
-            thread.start();
-            return searchView;
+            try {
+                searchView = new FXMLLoader(getClass().getResource("/FXML/Content/SearchView.fxml")).load();
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                e.printStackTrace();
+            }
         }
         return searchView;
     }

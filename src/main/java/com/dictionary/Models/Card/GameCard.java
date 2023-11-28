@@ -4,7 +4,8 @@ public class GameCard extends Card {
     private String linkToGame;
     private String linkToImage;
 
-    public GameCard(String linkToGame, String linkToImage) {
+    public GameCard(String context, String linkToGame, String linkToImage) {
+        super(context);
         this.linkToGame = linkToGame;
         this.linkToImage = linkToImage;
     }

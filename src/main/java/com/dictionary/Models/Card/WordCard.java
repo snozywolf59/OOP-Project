@@ -4,7 +4,7 @@ public class WordCard extends Card{
     private String meaning;
 
     public WordCard(String context, String meaning) {
-        setContext(context);
+        super(context);
         this.meaning = meaning;
     }
 

@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="251.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.game.GameCardController">
-   <children>
-      <ImageView fx:id="image" fitHeight="97.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0" />
-      <Button fx:id="play" layoutX="64.0" layoutY="216.0" mnemonicParsing="false" text="PLAY" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0" />
-      <Label fx:id="name" layoutX="30.0" layoutY="164.0" prefHeight="43.0" prefWidth="130.0" style="-fx-alignment: center;" text="Wormd" textAlignment="CENTER" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+<BorderPane fx:id="pane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.game.GameCardController">
+   <bottom>
+      <Button fx:id="play" mnemonicParsing="false" text="PLAY" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <Label fx:id="name" prefHeight="43.0" prefWidth="130.0" style="-fx-alignment: center;" text="Wormd" textAlignment="CENTER" BorderPane.alignment="CENTER">
          <font>
             <Font size="29.0" />
          </font>
       </Label>
-   </children>
-</AnchorPane>
+   </top>
+   <center>
+      <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+   </center>
+   <padding>
+      <Insets left="3.0" right="3.0" />
+   </padding>
+</BorderPane>
