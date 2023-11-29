@@ -17,7 +17,6 @@ public class Dictionary extends BoardWord {
         if (!(string instanceof String)) return false;
         String find = (String) string;
         int index = insertBinary(find);
-        System.out.println(index);
         if (0 > index || index >= this.size()) return false;
         if (this.get(index).getWord_target().equals(find)) return true;
         return false;

@@ -17,6 +17,7 @@ public class DictionaryCommandLine {
     }
 
     public static BoardWord dictionarySearcher() {
+        System.out.println("Bạn muốn tìm từ bắt đầu bằng? Nhập: ");
         String searchPart = AppCommandLine.getSc().nextLine();
         BoardWord ls = new BoardWord();
         for (Word word: Dictionary.getInstance()) {
@@ -45,9 +46,20 @@ public class DictionaryCommandLine {
                     [8] Import from file
                     [9] Export to file
                     """);
-            choice = AppCommandLine.getSc().nextInt();
-            AppCommandLine.getSc().nextLine();
+            String s = AppCommandLine.getSc().nextLine();
+            while (true) {
+                try {
+                    choice = Integer.parseInt(s);
+                    break;
+                } catch(NumberFormatException er) {
+                    s = AppCommandLine.getSc().nextLine();
+                }
+            }
             switch (choice) {
+                case 0 -> {
+                    System.out.println("Thank you for using!");
+                    return;
+                }
                 case 1 ->
                         DictionaryManagement.insertFromCommandLine();
                 case 2 ->
@@ -57,7 +69,8 @@ public class DictionaryCommandLine {
                 case 4 ->
                         DictionaryCommandLine.showAllWords();
                 case 5 -> {
-                    String s = AppCommandLine.getSc().nextLine();
+                    System.out.println("Bạn muốn tìm từ chứa gì? Nhập: ");
+                    s = AppCommandLine.getSc().nextLine();
                     System.out.println(DictionaryManagement.dictionaryLookup(s));
                 }
                 case 6 -> System.out.println(DictionaryCommandLine.dictionarySearcher());
