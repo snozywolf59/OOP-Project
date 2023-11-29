@@ -26,8 +26,8 @@ import java.util.List;
 
 public class Snake extends Application {
     private static Snake snake;
-    private static final int WIDTH = 1200;
-    private static final int HEIGHT = 780;
+    private static final int WIDTH = 1280;
+    private static final int HEIGHT = 720;
     private static final int ROWS = 30;
     private static final int COLUMNS = ROWS;
     private static final int WIDTH_SIZE = WIDTH / ROWS;

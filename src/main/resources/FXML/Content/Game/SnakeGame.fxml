@@ -3,11 +3,14 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.game.Snake.SnakeMenuController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="bg" stylesheets="@../../../Css/Snake.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.game.Snake.SnakeMenuController">
    <children>
-      <Button layoutX="258.0" layoutY="139.0" mnemonicParsing="false" onMouseClicked="#play" text="Button" />
-      <Button layoutX="258.0" layoutY="235.0" mnemonicParsing="false" onMouseClicked="#instruction" text="Button" />
+      <Button layoutX="580.0" layoutY="622.0" mnemonicParsing="false" onMouseClicked="#play" prefHeight="66.0" prefWidth="122.0" text="Play" textFill="#245ea9">
+         <font>
+            <Font size="30.0" />
+         </font></Button>
       <Button layoutX="74.0" layoutY="59.0" mnemonicParsing="false">
          <graphic>
             <FontAwesomeIconView glyphName="ARROW_LEFT" onMouseClicked="#back" size="2.1em" />

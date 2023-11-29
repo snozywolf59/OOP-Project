@@ -1,0 +1,17 @@
+.bg {
+    -fx-background-image: url('../Images/Snake.png');
+    -fx-background-size: cover;
+}
+
+.button {
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+}
+
+.button:hover {
+    -fx-background-color: #56DFF1;
+}
+
+.button {
+    -fx-background-color: transparent;
+}
