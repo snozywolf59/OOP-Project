@@ -1,5 +1,6 @@
 package com.dictionary.Controllers.Content.game.hangman;
 
+import com.dictionary.Models.Login.User;
 import com.dictionary.Models.Model;
 import com.dictionary.Models.game.hangMan.HangmanEngine;
 import com.dictionary.Views.ViewFactory;
@@ -20,9 +21,6 @@ import java.util.ResourceBundle;
 
 public class HangManController implements Initializable {
     private final HangmanEngine hangmanEngine = new HangmanEngine();
-
-    @FXML
-    private Label scoreView;
 
     @FXML
     private ImageView image;
@@ -48,7 +46,13 @@ public class HangManController implements Initializable {
     @FXML
     private Label triesView;
 
-    private final int MIN_CHILDREN = 11;
+    @FXML
+    private Label scoreView;
+
+    @FXML
+    private Label highScoreView;
+
+    private final int MIN_CHILDREN = 12;
     private int score = 0;
 
     public HangManController() {
@@ -68,8 +72,9 @@ public class HangManController implements Initializable {
     }
 
     private void reset(boolean isLose) {
+        highScoreView.setText("High Score: " + User.getInstance().getHighScoreHangman());
         hangmanEngine.reset();
-        triesView.setText("TRIES LEFT: " + (HangmanEngine.MAX_MOVES));
+        triesView.setText(String.valueOf((HangmanEngine.MAX_MOVES)));
         label1.setText("");
         label2.setText("");
         label3.setText("");
@@ -85,7 +90,6 @@ public class HangManController implements Initializable {
 
     @FXML
     public void replay() {
-        hangmanEngine.reset();
         reset(true);
     }
 
@@ -159,7 +163,7 @@ public class HangManController implements Initializable {
 
     private void wrongTurn() {
         hangmanEngine.increase();
-        triesView.setText("TRIES LEFT: " + (HangmanEngine.MAX_MOVES - hangmanEngine.getFalseMove()));
+        triesView.setText(String.valueOf(HangmanEngine.MAX_MOVES - hangmanEngine.getFalseMove()));
 
         Image load;
         if (hangmanEngine.getFalseMove() < HangmanEngine.MAX_MOVES) {
@@ -189,7 +193,7 @@ public class HangManController implements Initializable {
     }
 
     private void addScoreToCloud() {
-
+        User.getInstance().setHighScoreHangman(score);
     }
 
     public int getScore() {

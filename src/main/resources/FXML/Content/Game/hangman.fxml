@@ -4,9 +4,11 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane onKeyPressed="#onKeyPressed" onMouseClicked="#untarget" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dictionary.Controllers.Content.game.hangman.HangManController">
@@ -51,14 +53,40 @@
       <graphic>
          <FontAwesomeIconView glyphName="REFRESH" size="3em" />
       </graphic></Button>
-   <Label fx:id="scoreView" layoutX="910.0" layoutY="24.0" textFill="#034dff">
+   <Label fx:id="scoreView" alignment="CENTER" layoutX="548.0" layoutY="646.0" prefHeight="45.0" prefWidth="167.0" style="-fx-background-color: white; -fx-background-radius: 20 20 20 20;" text="Score: 100" textAlignment="CENTER" textFill="#e52542">
       <font>
-         <Font name="System Bold" size="49.0" />
+         <Font name="System Bold" size="30.0" />
       </font>
+      <effect>
+         <DropShadow height="52.15" radius="31.4125" width="75.5">
+            <color>
+               <Color red="0.9912280440330505" green="0.911685049533844" blue="0.036712151020765305" />
+            </color>
+         </DropShadow>
+      </effect>
    </Label>
-   <Label fx:id="triesView" layoutX="210.0" layoutY="24.0" textFill="#034dff">
+   <Label fx:id="highScoreView" alignment="CENTER" layoutX="727.0" layoutY="646.0" prefHeight="45.0" prefWidth="236.0" style="-fx-background-color: white; -fx-background-radius: 20 20 20 20;" text="High Score: 100" textAlignment="CENTER" textFill="#e52542">
       <font>
-         <Font name="System Bold" size="49.0" />
+         <Font name="System Bold" size="30.0" />
       </font>
+      <effect>
+         <DropShadow height="52.15" radius="31.4125" width="75.5">
+            <color>
+               <Color red="0.9912280440330505" green="0.911685049533844" blue="0.036712151020765305" />
+            </color>
+         </DropShadow>
+      </effect>
+   </Label>
+   <Label fx:id="triesView" alignment="CENTER" layoutX="42.0" layoutY="646.0" prefHeight="45.0" prefWidth="49.0" style="-fx-background-color: white; -fx-background-radius: 50 50 50 50;" text="6" textAlignment="CENTER" textFill="#e52542">
+      <font>
+         <Font name="System Bold" size="30.0" />
+      </font>
+      <effect>
+         <DropShadow height="52.15" radius="31.4125" width="75.5">
+            <color>
+               <Color red="0.9912280440330505" green="0.911685049533844" blue="0.036712151020765305" />
+            </color>
+         </DropShadow>
+      </effect>
    </Label>
 </AnchorPane>

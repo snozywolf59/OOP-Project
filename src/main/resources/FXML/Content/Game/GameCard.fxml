@@ -12,7 +12,7 @@
       <Button fx:id="play" mnemonicParsing="false" text="PLAY" BorderPane.alignment="CENTER" />
    </bottom>
    <top>
-      <Label fx:id="name" prefHeight="43.0" prefWidth="130.0" style="-fx-alignment: center;" text="Wormd" textAlignment="CENTER" BorderPane.alignment="CENTER">
+      <Label fx:id="name" prefHeight="43.0" prefWidth="194.0" style="-fx-alignment: center;" text="Wormd" textAlignment="CENTER" BorderPane.alignment="CENTER">
          <font>
             <Font size="29.0" />
          </font>
