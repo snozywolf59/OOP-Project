@@ -46,7 +46,7 @@ public class User {
     }
 
     public int getHighScoreHangman() {
-        return (int) pullHighScoreHangman();
+        return pullHighScoreHangman();
     }
 
     public void setHighScoreWormd(int highScoreWormd) {
@@ -127,18 +127,18 @@ public class User {
         System.out.println("Update time : " + result.get().getUpdateTime());
     }
 
-    public void addHighScoreHangman(Number highScore) {
-        if (highScore.intValue() <= pullHighScoreHangman().intValue()) {
+    private void addHighScoreHangman(Number highScore) {
+        if (highScore.intValue() <= pullHighScoreHangman()) {
             return;
         }
         DocumentReference docRef = FireStoreApp.getInstance().getHangman().document(userName + password);
         addHighScore(highScore, docRef);
     }
 
-    private Number pullHighScoreHangman() {
+    private int pullHighScoreHangman() {
         Number highScore = null;
         DocumentReference docRef = FireStoreApp.getInstance().getHangman().document(userName + password);
-        return getNumber(highScore, docRef);
+        return getNumber(highScore, docRef).intValue();
     }
 
     private Number getNumber(Number highScore, DocumentReference docRef) {
@@ -150,6 +150,7 @@ public class User {
         } catch (InterruptedException | ExecutionException e) {
             System.out.println(e.getMessage());
         }
+        if (highScore == null) return 0;
         return highScore;
     }
 
