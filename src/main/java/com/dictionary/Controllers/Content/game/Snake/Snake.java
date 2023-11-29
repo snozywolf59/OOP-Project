@@ -38,7 +38,7 @@ public class Snake extends Application {
     private static final int UP = 2;
     private static final int DOWN = 3;
     private static final int RESTART = 4;
-    private java.util.List<Point> snakeBody = new ArrayList<>();
+    private final java.util.List<Point> snakeBody = new ArrayList<>();
     private final Image HeadImageDown = new Image(getClass().getResourceAsStream("/snake/img/down.png"));
     private final Image HeadImageUp = new Image(getClass().getResourceAsStream("/snake/img/up.png"));
     private final Image HeadImageRight = new Image(getClass().getResourceAsStream("/snake/img/right.png"));
@@ -57,7 +57,7 @@ public class Snake extends Application {
     private boolean gameOver = false;
     private int currentDirection;
     private int score = 0;
-    private String Cause;
+    private String cause;
 
     public Stage stage;
     public static Timeline timeline;
@@ -162,9 +162,9 @@ public class Snake extends Application {
 //            stage.setScene(Model.getInstance().getViewFactory().getSCENE());
             gc.setFill(Color.BLACK);
             gc.setFont(new javafx.scene.text.Font("Digital-7", 40));
-            gc.fillText("Game Over" , WIDTH / 3 + 100, (double) HEIGHT / 2);
+            gc.fillText("Game Over" , (double) WIDTH / 3 + 100, (double) HEIGHT / 2);
             gc.fillText("Press SPACE to restart" , WIDTH / 4 + 100, (double) HEIGHT / 2 + 60);
-            gc.fillText("Press ESC to Exit" , WIDTH / 4 + 130, (double) HEIGHT / 2 + 120);
+            gc.fillText("Press ESC to Exit" , (double) WIDTH / 4 + 130, (double) HEIGHT / 2 + 120);
             if(currentDirection == 5) {
                 timeline.stop();
                 clips.stop();
@@ -299,7 +299,7 @@ public class Snake extends Application {
         for (int i = 1; i < snakeBody.size(); i++) {
             if (snakeHead.x == snakeBody.get(i).getX() && snakeHead.getY() == snakeBody.get(i).getY()) {
                 gameOver = true;
-                Cause = "Bạn đã tự cắn mình";
+                cause = "Bạn đã tự cắn mình";
                 break;
             }
         }
@@ -325,7 +325,7 @@ public class Snake extends Application {
                 return;
             } else if (snakeHead.getX() == foodImage.get(i).getX() && snakeHead.getY() == foodImage.get(i).getY()) {
                 gameOver = true;
-                Cause = "Bạn đã ăn sai thứ tự";
+                cause = "Bạn đã ăn sai thứ tự";
             }
         }
     }

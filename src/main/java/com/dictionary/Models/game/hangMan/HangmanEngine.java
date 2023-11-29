@@ -11,7 +11,7 @@ public class HangmanEngine {
     public static final int MAX_MOVES = 6;
     private int falseMove = 0;
     private String givenWord;
-    private char[] currentWord = new char[5];
+    private final char[] currentWord = new char[5];
 
     public int getFalseMove() {
         return falseMove;
@@ -75,12 +75,15 @@ public class HangmanEngine {
         return false;
     }
 
-    public void update(char x) {
+    public int update(char x) {
+        int count = 0;
         for (int i = 0; i < 5; ++i) {
             if (givenWord.charAt(i) == x) {
                 currentWord[i] = x;
+                ++count;
             }
         }
+        return count;
     }
 
     public boolean win() {

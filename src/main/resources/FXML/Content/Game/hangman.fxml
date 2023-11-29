@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -42,11 +43,22 @@
          <Font size="74.0" />
       </font>
    </TextField>
-   <Button layoutX="67.0" layoutY="37.0" mnemonicParsing="false" onAction="#back" text="Back" />
-   <Button layoutX="621.0" layoutY="63.0" mnemonicParsing="false" onAction="#replay" text="replay" />
-   <ImageView fx:id="won" fitHeight="411.0" fitWidth="304.0" layoutX="220.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../../../hangman/congratulation.png" />
-      </image>
-   </ImageView>
+   <Button layoutX="67.0" layoutY="37.0" mnemonicParsing="false" onAction="#back" styleClass="close" stylesheets="@../../../Css/welcome.css">
+      <graphic>
+         <FontAwesomeIconView glyphName="ARROW_LEFT" size="3em" />
+      </graphic></Button>
+   <Button layoutX="727.0" layoutY="37.0" mnemonicParsing="false" onAction="#replay" styleClass="close" stylesheets="@../../../Css/welcome.css">
+      <graphic>
+         <FontAwesomeIconView glyphName="REFRESH" size="3em" />
+      </graphic></Button>
+   <Label fx:id="scoreView" layoutX="910.0" layoutY="24.0" textFill="#034dff">
+      <font>
+         <Font name="System Bold" size="49.0" />
+      </font>
+   </Label>
+   <Label fx:id="triesView" layoutX="210.0" layoutY="24.0" textFill="#034dff">
+      <font>
+         <Font name="System Bold" size="49.0" />
+      </font>
+   </Label>
 </AnchorPane>
