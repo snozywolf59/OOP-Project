@@ -1,5 +1,6 @@
 package com.dictionary.Models.Home;
 
+import com.darkprograms.speech.translator.GoogleTranslate;
 import com.dictionary.App;
 import com.dictionary.Models.API.Translator;
 import com.dictionary.Models.FireStore.FireStoreApp;
@@ -161,15 +162,7 @@ public final class ChatBot {
         return answer.toString();
     }
 
-    /**
-     * This is for chat-bot.
-     */
-    private Translator translator = new Translator();
-
     public void addQAtoFirestore(String category) {
-        translator.setFromLanguage("Tiếng Việt");
-        translator.setToLanguage("English");
-
         Scanner sc = new Scanner(System.in);
         System.out.println("question: ");
         String question = sc.nextLine();
@@ -179,7 +172,7 @@ public final class ChatBot {
         Map<String, Object> data = new HashMap<>();
         data.put("Category", category);
         try {
-            data.put("Question", translator.translate(question));
+            data.put("Question", GoogleTranslate.translate("en", question));
         } catch (IOException e) {
             System.out.println("Error translate");
         }
@@ -249,9 +242,14 @@ public final class ChatBot {
     }
 
     public static void main(String[] args) {
-        for (int i = 20; i < 30; i++) {
-            ChatBot.getInstance().addQAtoFirestore("000" + i);
-            ChatBot.getInstance().addQAtoTXT("000" + i);
+//        for (int i = 24; i < 30; i++) {
+//            ChatBot.getInstance().addQAtoFirestore("000" + i);
+//            ChatBot.getInstance().addQAtoTXT("000" + i);
+//        }
+        try {
+            System.out.println(GoogleTranslate.translate("vi", "en", "Xin chào"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }
