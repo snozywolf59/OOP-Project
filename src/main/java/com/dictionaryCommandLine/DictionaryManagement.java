@@ -51,7 +51,6 @@ public class DictionaryManagement {
                     if (Dictionary.getInstance().get(i).getWord_target().equals(word[0])) {
                         Dictionary.getInstance().set(i, new Word(word[0],
                                 Dictionary.getInstance().get(i).getWord_explain()));
-                        Dictionary.getInstance().sort(Word::compareTo);
                         break;
                     }
                 }
