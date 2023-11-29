@@ -1,4 +1,3 @@
 go    di
 hello    chao
 bye    tam biet
-xxxx    aaaaaaaaaaaaaaaaaaaaaaa

@@ -90,8 +90,7 @@ public class DictionaryManagement {
 
     public static void changeWordFromCommandLine() {
         System.out.println("Nhập từ muốn sửa (tiếng Anh): ");
-        final String s = AppCommandLine.getSc().nextLine();
-        System.out.println(s);
+        String s = AppCommandLine.getSc().nextLine();
         if (!Dictionary.getInstance().contains(s)) {
             System.out.println("Từ điển không chứa từ này");
             return;
@@ -99,18 +98,28 @@ public class DictionaryManagement {
         System.out.println("""
                 Nhập 1 để sửa từ tiếng Anh.
                 Nhập 2 để sửa nghĩa tiếng Việt.
-                Nhập 3 để sửa cả hai.
                 """);
-        int choice = AppCommandLine.getSc().nextInt();
-        AppCommandLine.getSc().nextLine();
-        String newWord;
+        String c = AppCommandLine.getSc().nextLine();
+        int choice = Integer.parseInt(c);
+
         switch (choice) {
-            case 1:
-                newWord = AppCommandLine.getSc().nextLine();
-                break;
-            case 2:
-                newWord = AppCommandLine.getSc().nextLine();
+            case 1-> {
+                System.out.println("Nhập từ thay thế: ");
+                String newWord = AppCommandLine.getSc().nextLine();
+                for (int i = 0; i < Dictionary.getInstance().size(); i++) {
+                    if (Dictionary.getInstance().get(i).getWord_target().equals(s)) {
+                        Dictionary.getInstance().set(i, new Word(newWord,
+                                Dictionary.getInstance().get(i).getWord_explain()));
+                        Dictionary.getInstance().sort(Word::compareTo);
+                        break;
+                    }
+                }
+            }
+            case 2-> {
+                System.out.println("Nhập nghĩa thay thế: ");
+                String newWord = AppCommandLine.getSc().nextLine();
                 changeWordMeaning(s, newWord);
+            }
         }
     }
 
@@ -127,6 +136,7 @@ public class DictionaryManagement {
             Dictionary.getInstance().remove(word_target);
             return true;
         }
+        System.out.println("Từ điển không chứa từ này.");
         return false;
     }
 }
