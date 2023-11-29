@@ -38,6 +38,24 @@ public class User {
     private String gmailAddress;
     private Map<String, String> favoriteWords = new HashMap<>();
     private Map<String, String> deletedWords = new HashMap<>();
+    private int highScoreHangman;
+    private int highScoreWormd;
+
+    public void setHighScoreHangman(int highScoreHangman) {
+        addHighScoreHangman(highScoreHangman);
+    }
+
+    public int getHighScoreHangman() {
+        return (int) pullHighScoreHangman();
+    }
+
+    public void setHighScoreWormd(int highScoreWormd) {
+        addHighScoreWormd(highScoreWormd);
+    }
+
+    public int getHighScoreWormd() {
+        return (int) pullHighScoreWormd();
+    }
 
     public Map<String, String> getFavoriteWords() {
         return favoriteWords;
@@ -109,16 +127,41 @@ public class User {
         System.out.println("Update time : " + result.get().getUpdateTime());
     }
 
-    public static void main(String[] args) {
-        User.getInstance().addHighScore(15);
-        System.out.println(User.getInstance().getHighScore());
-    }
-
-    public void addHighScore(Number highScore) {
-        if (highScore.intValue() <= getHighScore().intValue()) {
+    public void addHighScoreHangman(Number highScore) {
+        if (highScore.intValue() <= pullHighScoreHangman().intValue()) {
             return;
         }
         DocumentReference docRef = FireStoreApp.getInstance().getHangman().document(userName + password);
+        addHighScore(highScore, docRef);
+    }
+
+    private Number pullHighScoreHangman() {
+        Number highScore = null;
+        DocumentReference docRef = FireStoreApp.getInstance().getHangman().document(userName + password);
+        return getNumber(highScore, docRef);
+    }
+
+    private Number getNumber(Number highScore, DocumentReference docRef) {
+        try {
+            DocumentSnapshot docSnap = docRef.get().get();
+            if (docSnap.exists()) {
+                highScore = (Number) Objects.requireNonNull(docSnap.getData()).get("Score");
+            }
+        } catch (InterruptedException | ExecutionException e) {
+            System.out.println(e.getMessage());
+        }
+        return highScore;
+    }
+
+    private void addHighScoreWormd(Number highScore) {
+        if (highScore.intValue() <= pullHighScoreWormd().intValue()) {
+            return;
+        }
+        DocumentReference docRef = FireStoreApp.getInstance().getWormd().document(userName + password);
+        addHighScore(highScore, docRef);
+    }
+
+    private void addHighScore(Number highScore, DocumentReference docRef) {
         Map<String, Object> data = new HashMap<>();
         data.put("Score", highScore);
         data.put("Name", name);
@@ -130,19 +173,13 @@ public class User {
         }
     }
 
-    private Number getHighScore() {
+    private Number pullHighScoreWormd() {
         Number highScore = null;
-        DocumentReference docRef = FireStoreApp.getInstance().getHangman().document(userName + password);
-        try {
-            DocumentSnapshot docSnap = docRef.get().get();
-            if (docSnap.exists()) {
-                highScore = (Number) Objects.requireNonNull(docSnap.getData()).get("Score");
-            }
-        } catch (InterruptedException | ExecutionException e) {
-            System.out.println(e.getMessage());
-        }
-        return highScore;
+        DocumentReference docRef = FireStoreApp.getInstance().getWormd().document(userName + password);
+        return getNumber(highScore, docRef);
     }
+
+
 
     public void addFavoriteWord(String word, String meaning) {
         DocumentReference docRef = FireStoreApp.getInstance().getUser()
