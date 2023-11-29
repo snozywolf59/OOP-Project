@@ -132,20 +132,16 @@ public class User {
             return;
         }
         DocumentReference docRef = FireStoreApp.getInstance().getHangman().document(userName + password);
-        Map<String, Object> data = new HashMap<>();
-        data.put("Score", highScore);
-        data.put("Name", name);
-        ApiFuture<WriteResult> result = docRef.set(data);
-        try {
-            System.out.println("Update time : " + result.get().getUpdateTime());
-        } catch (InterruptedException | ExecutionException e) {
-            System.out.println("Error add high score");
-        }
+        addHighScore(highScore, docRef);
     }
 
     private Number pullHighScoreHangman() {
         Number highScore = null;
         DocumentReference docRef = FireStoreApp.getInstance().getHangman().document(userName + password);
+        return getNumber(highScore, docRef);
+    }
+
+    private Number getNumber(Number highScore, DocumentReference docRef) {
         try {
             DocumentSnapshot docSnap = docRef.get().get();
             if (docSnap.exists()) {
@@ -158,10 +154,14 @@ public class User {
     }
 
     private void addHighScoreWormd(Number highScore) {
-        if (highScore.intValue() <= pullHighScoreHangman().intValue()) {
+        if (highScore.intValue() <= pullHighScoreWormd().intValue()) {
             return;
         }
         DocumentReference docRef = FireStoreApp.getInstance().getWormd().document(userName + password);
+        addHighScore(highScore, docRef);
+    }
+
+    private void addHighScore(Number highScore, DocumentReference docRef) {
         Map<String, Object> data = new HashMap<>();
         data.put("Score", highScore);
         data.put("Name", name);
@@ -176,15 +176,7 @@ public class User {
     private Number pullHighScoreWormd() {
         Number highScore = null;
         DocumentReference docRef = FireStoreApp.getInstance().getWormd().document(userName + password);
-        try {
-            DocumentSnapshot docSnap = docRef.get().get();
-            if (docSnap.exists()) {
-                highScore = (Number) Objects.requireNonNull(docSnap.getData()).get("Score");
-            }
-        } catch (InterruptedException | ExecutionException e) {
-            System.out.println(e.getMessage());
-        }
-        return highScore;
+        return getNumber(highScore, docRef);
     }
 
 
