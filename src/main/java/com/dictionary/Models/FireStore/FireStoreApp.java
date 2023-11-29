@@ -17,6 +17,7 @@ public class FireStoreApp {
     private CollectionReference user;
     private CollectionReference question_answer;
     private CollectionReference words;
+    private CollectionReference hangman;
 
     private FireStoreApp() {
         try {
@@ -32,6 +33,7 @@ public class FireStoreApp {
             user = db.collection("User");
             question_answer = db.collection("Question-Answer");
             words = db.collection("Words");
+            hangman = db.collection("Hangman");
         } catch (IOException e) {
             System.out.println("Init firestore error");
         }
@@ -54,5 +56,9 @@ public class FireStoreApp {
 
     public CollectionReference getWords() {
         return words;
+    }
+
+    public CollectionReference getHangman() {
+        return hangman;
     }
 }
