@@ -45,7 +45,7 @@ public final class ViewFactory {
 
     public ViewFactory() {
         currentSelect = new SimpleStringProperty();
-
+        getSearchView();
     }
 
     public StringProperty getCurrentSelect() {

@@ -55,8 +55,9 @@ public class DictionaryManagement {
                         break;
                     }
                 }
+            } else {
+                Dictionary.getInstance().add(new Word(word[0].toLowerCase(), word[1].toLowerCase()));
             }
-            Dictionary.getInstance().add(new Word(word[0].toLowerCase(), word[1].toLowerCase()));
         }
         Dictionary.getInstance().sort(Word::compareTo);
     }
