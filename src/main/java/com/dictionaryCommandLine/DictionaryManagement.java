@@ -46,6 +46,16 @@ public class DictionaryManagement {
             String s = reader.nextLine();
             String[] word = s.split(" {4}");
             if (word.length != 2) throw new WordException(s);
+            if (Dictionary.getInstance().contains(word[0])) {
+                for (int i = 0; i < Dictionary.getInstance().size(); i++) {
+                    if (Dictionary.getInstance().get(i).getWord_target().equals(word[0])) {
+                        Dictionary.getInstance().set(i, new Word(word[0],
+                                Dictionary.getInstance().get(i).getWord_explain()));
+                        Dictionary.getInstance().sort(Word::compareTo);
+                        break;
+                    }
+                }
+            }
             Dictionary.getInstance().add(new Word(word[0].toLowerCase(), word[1].toLowerCase()));
         }
         Dictionary.getInstance().sort(Word::compareTo);
