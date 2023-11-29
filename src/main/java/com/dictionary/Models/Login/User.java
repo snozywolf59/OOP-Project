@@ -109,19 +109,60 @@ public class User {
         System.out.println("Update time : " + result.get().getUpdateTime());
     }
 
+    public static void main(String[] args) {
+        User.getInstance().addHighScore(15);
+        System.out.println(User.getInstance().getHighScore());
+    }
+
+    public void addHighScore(Number highScore) {
+        if (highScore.intValue() <= getHighScore().intValue()) {
+            return;
+        }
+        DocumentReference docRef = FireStoreApp.getInstance().getHangman().document(userName + password);
+        Map<String, Object> data = new HashMap<>();
+        data.put("Score", highScore);
+        data.put("Name", name);
+        ApiFuture<WriteResult> result = docRef.set(data);
+        try {
+            System.out.println("Update time : " + result.get().getUpdateTime());
+        } catch (InterruptedException | ExecutionException e) {
+            System.out.println("Error add high score");
+        }
+    }
+
+    private Number getHighScore() {
+        Number highScore = null;
+        DocumentReference docRef = FireStoreApp.getInstance().getHangman().document(userName + password);
+        try {
+            DocumentSnapshot docSnap = docRef.get().get();
+            if (docSnap.exists()) {
+                highScore = (Number) Objects.requireNonNull(docSnap.getData()).get("Score");
+            }
+        } catch (InterruptedException | ExecutionException e) {
+            System.out.println(e.getMessage());
+        }
+        return highScore;
+    }
+
     public void addFavoriteWord(String word, String meaning) {
-        DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName + password).collection("FavoriteWords").document(word);
+        DocumentReference docRef = FireStoreApp.getInstance().getUser()
+                .document(userName + password).collection("FavoriteWords")
+                .document(word);
         add(word, meaning, docRef);
     }
 
     public void deleteFavoriteWord(String word) {
-        DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName + password).collection("FavoriteWords").document(word);
+        DocumentReference docRef = FireStoreApp.getInstance().getUser()
+                .document(userName + password).collection("FavoriteWords")
+                .document(word);
         docRef.delete();
     }
 
     public void readFavoriteWords() {
         favoriteWords.clear();
-        ApiFuture<QuerySnapshot> query = FireStoreApp.getInstance().getUser().document(userName + password).collection("FavoriteWords").get();
+        ApiFuture<QuerySnapshot> query = FireStoreApp.getInstance().getUser()
+                .document(userName + password)
+                .collection("FavoriteWords").get();
         QuerySnapshot querySnapshot = null;
         try {
             querySnapshot = query.get();
@@ -151,18 +192,24 @@ public class User {
     }
 
     public void deleteDeletedWord(String word) {
-        DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName + password).collection("DeletedWords").document(word);
+        DocumentReference docRef = FireStoreApp.getInstance().getUser()
+                .document(userName + password)
+                .collection("DeletedWords").document(word);
         docRef.delete();
     }
 
     public void addDeletedWord(String word, String meaning) {
-        DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName + password).collection("DeletedWords").document(word);
+        DocumentReference docRef = FireStoreApp.getInstance().getUser()
+                .document(userName + password)
+                .collection("DeletedWords").document(word);
         add(word, meaning, docRef);
     }
 
     public void readDeletedWord() {
         deletedWords.clear();
-        ApiFuture<QuerySnapshot> query = FireStoreApp.getInstance().getUser().document(userName + password).collection("DeletedWords").get();
+        ApiFuture<QuerySnapshot> query = FireStoreApp.getInstance().getUser()
+                .document(userName + password)
+                .collection("DeletedWords").get();
         QuerySnapshot querySnapshot = null;
         try {
             querySnapshot = query.get();
