@@ -19,6 +19,8 @@ public class FireStoreApp {
     private CollectionReference words;
     private CollectionReference hangman;
 
+    private CollectionReference wormd;
+
     private FireStoreApp() {
         try {
             FileInputStream serviceAccount = new FileInputStream("src/main/resources/Json/ServiceAccount.json");
@@ -34,6 +36,7 @@ public class FireStoreApp {
             question_answer = db.collection("Question-Answer");
             words = db.collection("Words");
             hangman = db.collection("Hangman");
+            wormd = db.collection("Wormd");
         } catch (IOException e) {
             System.out.println("Init firestore error");
         }
@@ -60,5 +63,9 @@ public class FireStoreApp {
 
     public CollectionReference getHangman() {
         return hangman;
+    }
+
+    public CollectionReference getWormd() {
+        return wormd;
     }
 }
