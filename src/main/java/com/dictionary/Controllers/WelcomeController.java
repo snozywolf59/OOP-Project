@@ -81,7 +81,7 @@ public class WelcomeController implements Initializable {
     public void login() throws ExecutionException, InterruptedException {
         try {
             String userName = username.getText();
-            String pass = password.getText();
+            String pass = MD5.md5HashString(password.getText());
             if (!User.getInstance().exists(userName, pass)) {
                 logError("Tên đăng nhập hoặc mật khẩu không đúng."); // Sửa thành label
                 return;
@@ -156,7 +156,7 @@ public class WelcomeController implements Initializable {
                 logError("Mã otp không đúng");
                 return false;
             }
-            User.getInstance().setUser(userNameSignUp.getText(), passwordSignUp.getText(), name.getText(), dateOfBirth.getValue().toString(), gmailAddress.getText());
+            User.getInstance().setUser(userNameSignUp.getText(), MD5.md5HashString(passwordSignUp.getText()), name.getText(), dateOfBirth.getValue().toString(), gmailAddress.getText());
             User.getInstance().createNewUserToFSCloud();
             logSuccess("Tạo tài khoản thành công.");
             return true;

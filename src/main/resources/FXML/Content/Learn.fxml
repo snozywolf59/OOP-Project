@@ -31,7 +31,7 @@
                   </VBox>
                </graphic>
             </Button>
-            <Button layoutX="639.0" layoutY="35.0" mnemonicParsing="false">
+            <Button layoutX="639.0" layoutY="42.0" mnemonicParsing="false">
                <graphic>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
@@ -103,7 +103,7 @@
                   </VBox>
                </graphic>
             </Button>
-            <Button layoutX="396.0" layoutY="23.0" mnemonicParsing="false" onAction="#toDeletedList">
+            <Button layoutX="381.0" layoutY="42.0" mnemonicParsing="false" onAction="#toDeletedList">
                <graphic>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
