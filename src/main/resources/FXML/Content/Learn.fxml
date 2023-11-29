@@ -19,7 +19,7 @@
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../Images/Family.jpg" />
+                              <Image url="@../../Images/favoriteImage.png" />
                            </image>
                         </ImageView>
                         <Label alignment="CENTER" prefHeight="49.0" prefWidth="200.0" text="Favourite Words" textAlignment="CENTER">
@@ -37,10 +37,10 @@
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../Images/School.jpg" />
+                              <Image url="@../../Images/favoriteImage.png" />
                            </image>
                         </ImageView>
-                        <Label alignment="CENTER" prefHeight="49.0" prefWidth="200.0" text="SCHOOL" textAlignment="CENTER">
+                        <Label alignment="CENTER" prefHeight="49.0" prefWidth="200.0" text="School" textAlignment="CENTER">
                            <font>
                               <Font size="25.0" />
                            </font>
@@ -109,10 +109,10 @@
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../Images/School.jpg" />
+                              <Image url="@../../Images/deletedImage.png" />
                            </image>
                         </ImageView>
-                        <Label alignment="CENTER" prefHeight="49.0" prefWidth="200.0" text="Deleted Word" textAlignment="CENTER">
+                        <Label alignment="CENTER" prefHeight="49.0" prefWidth="200.0" text="Deleted Words" textAlignment="CENTER">
                            <font>
                               <Font size="25.0" />
                            </font>

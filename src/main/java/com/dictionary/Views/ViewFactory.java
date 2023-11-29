@@ -162,6 +162,10 @@ public final class ViewFactory {
         this.favoriteWordList = null;
     }
 
+    public void resetDeletedList() {
+        this.deletedWordList = null;
+    }
+
     public AnchorPane getListeningTestView() {
         if (listeningTestView == null) {
             try {

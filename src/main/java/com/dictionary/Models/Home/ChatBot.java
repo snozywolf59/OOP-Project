@@ -242,14 +242,9 @@ public final class ChatBot {
     }
 
     public static void main(String[] args) {
-//        for (int i = 24; i < 30; i++) {
-//            ChatBot.getInstance().addQAtoFirestore("000" + i);
-//            ChatBot.getInstance().addQAtoTXT("000" + i);
-//        }
-        try {
-            System.out.println(GoogleTranslate.translate("vi", "en", "Xin chào"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        for (int i = 24; i < 30; i++) {
+            ChatBot.getInstance().addQAtoFirestore("000" + i);
+            ChatBot.getInstance().addQAtoTXT("000" + i);
         }
     }
 }

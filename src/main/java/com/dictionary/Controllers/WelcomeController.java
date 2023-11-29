@@ -91,7 +91,7 @@ public class WelcomeController implements Initializable {
             System.out.println("Đăng nhập thành công.");
             Model.getInstance().getViewFactory().showWindow();
         } catch (Exception e) {
-            System.out.println("Sign in thất bại.");
+            logError("Đăng nhập thất bại.");
         }
     }
 
@@ -115,6 +115,7 @@ public class WelcomeController implements Initializable {
         GmailOTP gmailOTP = new GmailOTP(gmailAddress.getText());
         auCode = gmailOTP.getAuthenticationCode();
     }
+
     @FXML
     public void createAccount() {
         boolean b = createAccountInSignUp();
@@ -123,6 +124,7 @@ public class WelcomeController implements Initializable {
             return;
         }
         closeRegister();
+        Effect.enable(successLog);
     }
 
     private boolean createAccountInSignUp() {
@@ -182,5 +184,6 @@ public class WelcomeController implements Initializable {
         Effect.disablePane(registerPane);
         Effect.disable(registerPane);
         Effect.disable(errorLogin);
+        Effect.disable(successLog);
     }
 }
