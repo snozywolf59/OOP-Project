@@ -88,7 +88,7 @@ public class SearchController implements Initializable {
     public void search(){
         listView.getItems().clear();
         listView.getItems().addAll(searchList(searchField.getText() + "  ", words));
-        listView.setPrefHeight(min(250, listView.getItems().size() * 20));
+        listView.setPrefHeight(min(500, listView.getItems().size() * 30));
     }
         
     @Override

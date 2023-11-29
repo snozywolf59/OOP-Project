@@ -24,8 +24,8 @@ public class GmailOTP {
         }
         System.out.println(text);
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://email-authentication-system.p.rapidapi.com/?recipient="+ text.toString() + "%40gmail.com&app=UETED%20APPLICATION"))
-                .header("X-RapidAPI-Key", "bd5d8adb8cmsh7482d1ccebfd28ep14014ajsn31b2253db85d")
+                .uri(URI.create("https://email-authentication-system.p.rapidapi.com/?recipient=" + text + "%40gmail.com&app=EDUET%20LearningEnglish"))
+                .header("X-RapidAPI-Key", "050de9ff42mshe162a0a8a26471ap199e46jsn582a8c91cee2")
                 .header("X-RapidAPI-Host", "email-authentication-system.p.rapidapi.com")
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();

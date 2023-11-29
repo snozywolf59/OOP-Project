@@ -83,7 +83,7 @@ public class Snake extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
         gc = canvas.getGraphicsContext2D();
-        File soundFile = new File("C:\\Users\\Admin\\Desktop\\OOP_2611\\OOP-Project\\target\\classes\\snake\\sound\\sound1.wav");
+        File soundFile = new File("src/main/resources/snake/sound/sound1.wav");
         try {
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundFile);
             clips = AudioSystem.getClip();

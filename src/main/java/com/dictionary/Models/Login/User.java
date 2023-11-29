@@ -65,7 +65,7 @@ public class User {
     }
 
     public void pullUserData() throws ExecutionException, InterruptedException {
-        DocumentReference documentReference = FireStoreApp.getInstance().getUser().document(userName);
+        DocumentReference documentReference = FireStoreApp.getInstance().getUser().document(userName + password);
         DocumentSnapshot docSnap = documentReference.get().get();
         if (docSnap.exists()) {
             this.name = Objects.requireNonNull(docSnap.getData()).get("name").toString();
@@ -77,7 +77,7 @@ public class User {
 
     public boolean exists(String userName, String password) {
         try {
-            DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName);
+            DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName + password);
             DocumentSnapshot docSnap = docRef.get().get();
             if (docSnap.exists()) {
                 if (Objects.requireNonNull(docSnap.getData()).get("userName").toString().equals(userName)
@@ -98,7 +98,7 @@ public class User {
             System.out.println("Error: Empty info");
             return;
         }
-        DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName);
+        DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName + password);
         Map<String, Object> data = new HashMap<>();
         data.put("userName", userName);
         data.put("password", password);
@@ -110,18 +110,18 @@ public class User {
     }
 
     public void addFavoriteWord(String word, String meaning) {
-        DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName).collection("FavoriteWords").document(word);
+        DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName + password).collection("FavoriteWords").document(word);
         add(word, meaning, docRef);
     }
 
     public void deleteFavoriteWord(String word) {
-        DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName).collection("FavoriteWords").document(word);
+        DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName + password).collection("FavoriteWords").document(word);
         docRef.delete();
     }
 
     public void readFavoriteWords() {
         favoriteWords.clear();
-        ApiFuture<QuerySnapshot> query = FireStoreApp.getInstance().getUser().document(userName).collection("FavoriteWords").get();
+        ApiFuture<QuerySnapshot> query = FireStoreApp.getInstance().getUser().document(userName + password).collection("FavoriteWords").get();
         QuerySnapshot querySnapshot = null;
         try {
             querySnapshot = query.get();
@@ -151,18 +151,18 @@ public class User {
     }
 
     public void deleteDeletedWord(String word) {
-        DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName).collection("DeletedWords").document(word);
+        DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName + password).collection("DeletedWords").document(word);
         docRef.delete();
     }
 
     public void addDeletedWord(String word, String meaning) {
-        DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName).collection("DeletedWords").document(word);
+        DocumentReference docRef = FireStoreApp.getInstance().getUser().document(userName + password).collection("DeletedWords").document(word);
         add(word, meaning, docRef);
     }
 
     public void readDeletedWord() {
         deletedWords.clear();
-        ApiFuture<QuerySnapshot> query = FireStoreApp.getInstance().getUser().document(userName).collection("DeletedWords").get();
+        ApiFuture<QuerySnapshot> query = FireStoreApp.getInstance().getUser().document(userName + password).collection("DeletedWords").get();
         QuerySnapshot querySnapshot = null;
         try {
             querySnapshot = query.get();
