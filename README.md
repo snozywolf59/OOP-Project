@@ -1,7 +1,7 @@
 # Object-Oriented-Programming Project
 # Video demo
 # Giới thiệu ứng dụng học tiếng Anh EDUET
-![Video giới thiệu](https://www.youtube.com/watch?v=TiC7zKhceZA)
+[![Video giới thiệu](https://img.youtube.com/vi/TiC7zKhceZA/0.jpg)](https://www.youtube.com/watch?v=TiC7zKhceZA)
 ## Đăng ký
 Vẫn như các ứng dụng thông thường khác, chúng tôi cần một số thông tin cơ bản của người dùng để thực hiện các thao tác quản lý cơ sở. Bạn cần nhập đúng gmail để khi bấm vào nút “Xác nhận gmail”, mã OTP sẽ được tự động gửi chính xác tới địa chỉ gmail của bạn.
 	
